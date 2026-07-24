@@ -243,10 +243,11 @@ extern void core1_entry(void);
 int main() {
     stdio_init_all();
     crc32_init();
+
     // 1. Aumenta a tensão do núcleo para suportar o overclock (ex: VREG_VOLTAGE_1_20V ou 1_30V)
-    vreg_set_voltage(VREG_VOLTAGE_1_30);
-    sleep_ms(2); // Dá um tempo para a tensão estabilizar
-    set_sys_clock_khz(250000, true);
+   // vreg_set_voltage(VREG_VOLTAGE_1_30);
+   // sleep_ms(2); // Dá um tempo para a tensão estabilizar
+   // set_sys_clock_khz(250000, true);
 
     sleep_ms(2500);
 

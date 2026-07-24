@@ -20,10 +20,6 @@ void core1_entry(void) {
     initPS2();
 
     while (true) {
-        if( kb_available() ){
-            kb_get(&data);
-            printf("%c",data);
-        }
         tight_loop_contents(); // Otimização interna do SDK para loops rápidos
     }
 }

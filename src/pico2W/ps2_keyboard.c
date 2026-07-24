@@ -68,6 +68,7 @@ void initPS2(void) {
 
     pio_sm_clear_fifos(ps2_pio, ps2_sm);
     release = shift = cntl = caps = 0;
+    bkd_int=false;
     printf("PS2 iniciado\n");
 }
 // clang-format off
@@ -79,10 +80,10 @@ void kbd_int_on(){
     }
 }
 void kbd_int_off(){
-    if( bkd_int == true){
+   // if( bkd_int == true){
         gpio_put(PIRQ, 1);
         bkd_int = false;
-    }
+   // }
 }
 
 // SPECIAL CASE:
@@ -180,8 +181,12 @@ void ps2_ihandler(void) {
                     }
                 }
                 if (ascii) {
+                    printf("   putting[%c]    ",ascii);
                     kb_put(ascii);
                     kbd_int_on();
+                    //sleep_ms(1);
+                    //kbd_int_off();
+
                 }
             }
             release = 0;

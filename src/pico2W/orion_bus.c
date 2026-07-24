@@ -31,7 +31,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
 
         pio_sm_clear_fifos(pio, sm);
         uint8_t byte_resposta = 0x0;
-
+        //printf("   reg[%02x]  ",reg);
         if ( arquivo_pronto == 0){
             byte_resposta = 0x0;
         }else if ( ponteiro_leitura >= arquivo_tamanho ) {
@@ -85,18 +85,23 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                 break;
             case 0x09:
                 kbd_int_off();
+                //printf("  int down  ");
                 if(kb_available()){
                     kb_get(&byte_resposta);
+                   // printf("   R[%02x]    \n",byte_resposta);
                 }else{
-                    byte_resposta=0xFF;
+                   // printf("   R[0xFE]    \n");
+                    byte_resposta=0xFE;
                 }
                 break;    
             default:
                 byte_resposta = 0xFF;
                 break;
         }
-        if( operacao == OPER_LEITURA )
+        if( operacao == OPER_LEITURA ){
             pio_sm_put(pio, sm, byte_resposta);
+            printf("Resposta [%c]\n",byte_resposta);
+        }
         //sio_hw->gpio_clr = (1 << 19);
     }
 }
