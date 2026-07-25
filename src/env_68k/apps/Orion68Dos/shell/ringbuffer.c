@@ -47,3 +47,9 @@ bool kb_get(uint8_t *data) {
 bool kb_available(void) {
     return (kb_buf.head != kb_buf.tail);
 }
+
+unsigned int ps2_getchar(){
+    uint8_t data; 
+    kb_get((uint8_t *)data);
+    return (unsigned int)data; 
+}

@@ -12,4 +12,6 @@ bool kb_put(uint8_t data);
 bool kb_get(uint8_t *data);
 bool kb_available(void);
 
+unsigned int ps2_getchar();
+
 #endif

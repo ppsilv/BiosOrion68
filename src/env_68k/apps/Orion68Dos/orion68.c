@@ -13,6 +13,7 @@
 #include "show_registers.h"
 #include "sysflags.h"
 #include "orion68.h"
+#include "drv_ps2.h"
 
 // Aqui a memória é alocada de verdade!
 SystemFlags sys_flags;
@@ -130,7 +131,8 @@ void main() {
     init_kbd();
     ch9350_shut_up();
     delay10ms(10);  //100ms    
-    set_console_input(get_char);
+    //set_console_input(get_char);
+    set_console_input(ps2_getchar);
 
     picovga_set_color(RED,BLACK);
     printf("%s",MsgOrionInit);

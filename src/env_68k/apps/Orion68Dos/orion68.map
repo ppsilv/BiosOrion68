@@ -103,7 +103,7 @@ Linker script and memory map
  *(.vectors)
                 0x00000000                        . = ALIGN (0x400)
 
-.text           0x00000000     0xca3e
+.text           0x00000000     0xca38
                 0x00000000                        . = ALIGN (0x2)
  *(.text*)
  .text          0x00000000      0x252 ../../obj/orion68_startup.o
@@ -121,232 +121,234 @@ Linker script and memory map
                 0x000002e6                write_string
                 0x00000318                display_prompt
                 0x0000039c                main
- .text          0x0000047c      0x130 vectors.o
+ .text          0x0000047c      0x10e vectors.o
                 0x00000494                TRAP14_Handler
                 0x0000053e                get_system_tick
                 0x00000568                trata_int3_handler
- .text          0x000005ac       0x2c console.o
-                0x000005ac                set_console_output
-                0x000005be                set_console_input
-                0x000005d0                enable_interrupts
- .text          0x000005d8      0x66a ./dump/mem_dump.o
-                0x000005d8                dump_memory
-                0x00000856                dump_memory2
-                0x00000ada                dump_memory_by_addr
- *fill*         0x00000c42        0x2 
- .text          0x00000c44       0x54 ./shell/io.o
-                0x00000c44                get_key
-                0x00000c6e                _putchar_hex
- .text          0x00000c98      0x270 ./shell/picow.o
-                0x00000c98                receber_arquivo_do_pico
- .text          0x00000f08      0x322 ./shell/elf_loader.o
-                0x00000f08                carregar_elf32
-                0x00001048                carregar_elf32_fatfs
- *fill*         0x0000122a        0x2 
- .text          0x0000122c       0x44 ./shell/printerro.o
-                0x0000122c                printerro
- .text          0x00001270     0x14bc ./shell/commands.o
-                0x000012e0                do_help
-                0x00001370                do_notimplemented
-                0x00001382                do_runelf_fromhd
-                0x000013b0                do_runelf
-                0x000013ec                do_dump
-                0x0000143e                serial_has_char
-                0x00001442                do_srecord
-                0x000014fa                do_binfile
-                0x0000167a                do_binmem
-                0x00001786                do_ideinit
-                0x000017ca                do_idemode
-                0x0000181c                do_run
-                0x00001848                do_writemem
-                0x00001a62                do_ls
-                0x00001c92                do_delete
-                0x00001cbe                do_exit
-                0x00001ce4                do_mkdir
-                0x00001dcc                do_rmdir
-                0x00001edc                do_rename
-                0x00001f32                do_cd
-                0x00001f5a                do_dir
-                0x00001f64                do_shst
-                0x00001f7e                do_loadmem
-                0x000020bc                do_copyfile
-                0x00002270                do_cat
-                0x000023a8                do_time
-                0x00002490                do_tstkbd
-                0x000024e0                do_uptime
-                0x000025b4                do_ehbasic
-                0x000025b8                do_readsect
-                0x000025ec                do_writesect
-                0x00002620                do_writemem1
- .text          0x0000272c      0xbfa ./shell/decodecmd.o
-                0x0000272c                getline
-                0x000029be                process_command_builtin
-                0x00002b26                load_elf_executable
-                0x00002f1e                open_executable_file
-                0x00003042                process_command_executable
-                0x000031c6                process_command
-                0x0000320a                execute_cmd
- *fill*         0x00003326        0x2 
- .text          0x00003328       0xfc ./shell/crc32.o
-                0x00003328                crc32_init
-                0x0000339a                crc32_update
-                0x0000340c                crc32_calculate
- .text          0x00003424       0xba ./shell/ringbuffer.o
-                0x00003424                kb_init
-                0x00003438                kb_put
-                0x00003486                kb_get
-                0x000034ca                kb_available
- *fill*         0x000034de        0x2 
- .text          0x000034e0      0x78c ./kbd/drv_kbd.o
-                0x0000353e                liga_debug
-                0x00003556                init_kbd
-                0x000037f4                get_packet
-                0x00003a52                get_kbd_key
-                0x00003b74                ch9350_shut_up
-                0x00003b82                get_char
-                0x00003c4a                print_capslock
- .text          0x00003c6c        0x0 ./kbd/keycodes_ps2.o
- .text          0x00003c6c       0xa8 ./kbd/kbdps2.o
-                0x00003c8e                init_keyboard
-                0x00003cb6                keyboard_get_key
-                0x00003cca                keyboard_has_key
-                0x00003cde                enable_keyboard_interrupt
-                0x00003ce2                disable_keyboard_interrupt
-                0x00003ce6                keyboard_flush
-                0x00003cea                process_keyboard
- .text          0x00003d14      0x114 ./kbd/ringbuffer.o
-                0x00003d14                ring_buf_init
-                0x00003d3e                ring_buf_get
-                0x00003d92                ring_buf_put
- .text          0x00003e28      0x556 ./rtc/rp5c01a.o
-                0x00003e5c                get_fattime
-                0x00004014                set_rtc_time
-                0x0000421c                rtc_delay
-                0x0000423c                rtc_write_config_byte
-                0x00004278                rtc_read_config_byte
-                0x000042ae                ler_segundo
-                0x000042e6                rtc_inicializar
- *fill*         0x0000437e        0x2 
- .text          0x00004380      0x15a ./picoVga/drv_picoVga.o
-                0x00004380                init_picoVga
-                0x00004384                run_cmd
-                0x000043ac                picovga_putchar
-                0x000043f0                picovga_gotoxy
-                0x00004466                picovga_gohome
-                0x00004474                picovga_set_color
-                0x000044c0                clrscr
- *fill*         0x000044da        0x2 
- .text          0x000044dc      0x248 ./uarts/drv_uart0.o
-                0x000044dc                uart0_debug_char
-                0x0000450e                uart0_init
-                0x0000454e                uart0_write
-                0x0000458c                uart0_read
-                0x000045c4                uart0_read_timeout
-                0x00004628                _inbyte
-                0x000046a8                _outbyte
-                0x000046e6                uart0_write_string
-                0x00004716                uart0_flush
- .text          0x00004724      0x6e6 ./ide/ata.o
-                0x00004738                set_ide_bus_mode
-                0x00004778                go_8bits_mode
-                0x000047ee                ata_detect
-                0x000048ac                ata_read_sector
-                0x00004a60                ata_write_sector
-                0x00004a68                read_partition_table
-                0x00004b52                ata_init
-                0x00004be4                ata_disk_status
-                0x00004bf4                ata_disk_initialize
-                0x00004c04                ata_wait_not_busy
-                0x00004c46                ata_wait_for_data
-                0x00004c88                ata_read_identity
- *fill*         0x00004e0a        0x2 
- .text          0x00004e0c     0x412e ./fatfs/ff.o
-                0x00006f74                f_mount
-                0x00007032                f_open
-                0x00007412                f_read
-                0x00007796                f_write
-                0x00007bb4                f_sync
-                0x00007d0c                f_close
-                0x00007d42                f_chdrive
-                0x00007d66                f_chdir
-                0x00007e0a                f_getcwd
-                0x00008058                f_lseek
-                0x000083dc                f_opendir
-                0x000084b0                f_closedir
-                0x000084d6                f_readdir
-                0x00008576                f_stat
-                0x000085f0                f_getfree
-                0x00008798                f_truncate
-                0x00008946                f_unlink
-                0x00008aa4                f_mkdir
-                0x00008ce6                f_rename
- *fill*         0x00008f3a        0x2 
- .text          0x00008f3c        0x0 ./fatfs/ffsystem.o
- .text          0x00008f3c      0x220 ./fatfs/diskio.o
-                0x00008f3c                disk_status
-                0x00008f54                disk_initialize
-                0x00008f6a                disk_read
-                0x00008fe8                disk_write
-                0x00009066                disk_ioctl
- .text          0x0000915c      0x44e ./tst_fat/tstfat.o
-                0x0000915c                listar_diretorio_raiz
-                0x00009318                open_dir
-                0x000093d2                ler_e_exibir_joblog
-                0x00009560                le_setor
-                0x0000958e                wr_setor
- *fill*         0x000095aa        0x2 
- .text          0x000095ac      0x32a timers.o
-                0x000095ac                delay10ms
-                0x000095ce                cpu_delay
-                0x000095ea                init_timer
-                0x0000960a                get_tick_count
-                0x00009612                add_timer
-                0x000096aa                delete_timer
-                0x000096f6                start_timer
-                0x00009776                stop_timer
-                0x000097aa                reset_timer
-                0x000097f8                set_interval
-                0x0000982c                update_timers
- *fill*         0x000098d6        0x2 
- .text          0x000098d8        0x0 interrupt.o
- .text          0x000098d8      0x168 ./xmodem/xmodem_asm.o
-                0x00009916                xmodem_receive
- .text          0x00009a40       0x9c vectors_asm.o
-                0x00009a40                SvcBusError
-                0x00009a40                TrapFHandler
-                0x00009a40                SpuriousHandler
-                0x00009a40                Int4Handler
-                0x00009a40                SvcTrace
-                0x00009a40                TrapBHandler
-                0x00009a40                Int1Handler
-                0x00009a40                TrapAHandler
-                0x00009a40                SvcChkIns
-                0x00009a40                Trap4Handler
-                0x00009a40                Trap9Handler
-                0x00009a40                Int5Handler
-                0x00009a40                SvcDiv0_handler
-                0x00009a40                Int7Handler
-                0x00009a40                SvcIllegalIns
-                0x00009a40                SvcLineA
-                0x00009a40                SvcPrivViolation
-                0x00009a40                Trap8Handler
-                0x00009a40                Int6Handler
-                0x00009a40                Trap2Handler
-                0x00009a40                bad_exception
-                0x00009a40                Trap3Handler
-                0x00009a40                Svcaddress_err
-                0x00009a40                Trap7Handler
-                0x00009a40                Trap0Handler
-                0x00009a40                SvcLineF
-                0x00009a40                TrapCHandler
-                0x00009a40                SvcTrapvIns
-                0x00009a40                Trap5Handler
-                0x00009a40                Trap6Handler
-                0x00009a42                TrapDHandler
-                0x00009a44                Int2Handler
-                0x00009a56                Int3Handler
-                0x00009a76                Trap1Handler
-                0x00009ac6                TrapEHandler
+ *fill*         0x0000058a        0x2 
+ .text          0x0000058c       0x2c console.o
+                0x0000058c                set_console_output
+                0x0000059e                set_console_input
+                0x000005b0                enable_interrupts
+ .text          0x000005b8      0x66a ./dump/mem_dump.o
+                0x000005b8                dump_memory
+                0x00000836                dump_memory2
+                0x00000aba                dump_memory_by_addr
+ *fill*         0x00000c22        0x2 
+ .text          0x00000c24       0x54 ./shell/io.o
+                0x00000c24                get_key
+                0x00000c4e                _putchar_hex
+ .text          0x00000c78      0x270 ./shell/picow.o
+                0x00000c78                receber_arquivo_do_pico
+ .text          0x00000ee8      0x322 ./shell/elf_loader.o
+                0x00000ee8                carregar_elf32
+                0x00001028                carregar_elf32_fatfs
+ *fill*         0x0000120a        0x2 
+ .text          0x0000120c       0x44 ./shell/printerro.o
+                0x0000120c                printerro
+ .text          0x00001250     0x14bc ./shell/commands.o
+                0x000012c0                do_help
+                0x00001350                do_notimplemented
+                0x00001362                do_runelf_fromhd
+                0x00001390                do_runelf
+                0x000013cc                do_dump
+                0x0000141e                serial_has_char
+                0x00001422                do_srecord
+                0x000014da                do_binfile
+                0x0000165a                do_binmem
+                0x00001766                do_ideinit
+                0x000017aa                do_idemode
+                0x000017fc                do_run
+                0x00001828                do_writemem
+                0x00001a42                do_ls
+                0x00001c72                do_delete
+                0x00001c9e                do_exit
+                0x00001cc4                do_mkdir
+                0x00001dac                do_rmdir
+                0x00001ebc                do_rename
+                0x00001f12                do_cd
+                0x00001f3a                do_dir
+                0x00001f44                do_shst
+                0x00001f5e                do_loadmem
+                0x0000209c                do_copyfile
+                0x00002250                do_cat
+                0x00002388                do_time
+                0x00002470                do_tstkbd
+                0x000024c0                do_uptime
+                0x00002594                do_ehbasic
+                0x00002598                do_readsect
+                0x000025cc                do_writesect
+                0x00002600                do_writemem1
+ .text          0x0000270c      0xbfa ./shell/decodecmd.o
+                0x0000270c                getline
+                0x0000299e                process_command_builtin
+                0x00002b06                load_elf_executable
+                0x00002efe                open_executable_file
+                0x00003022                process_command_executable
+                0x000031a6                process_command
+                0x000031ea                execute_cmd
+ *fill*         0x00003306        0x2 
+ .text          0x00003308       0xfc ./shell/crc32.o
+                0x00003308                crc32_init
+                0x0000337a                crc32_update
+                0x000033ec                crc32_calculate
+ .text          0x00003404       0xd4 ./shell/ringbuffer.o
+                0x00003404                kb_init
+                0x00003418                kb_put
+                0x00003466                kb_get
+                0x000034aa                kb_available
+                0x000034be                ps2_getchar
+ .text          0x000034d8      0x78c ./kbd/drv_kbd.o
+                0x00003536                liga_debug
+                0x0000354e                init_kbd
+                0x000037ec                get_packet
+                0x00003a4a                get_kbd_key
+                0x00003b6c                ch9350_shut_up
+                0x00003b7a                get_char
+                0x00003c42                print_capslock
+ .text          0x00003c64        0x0 ./kbd/keycodes_ps2.o
+ .text          0x00003c64       0xa8 ./kbd/kbdps2.o
+                0x00003c86                init_keyboard
+                0x00003cae                keyboard_get_key
+                0x00003cc2                keyboard_has_key
+                0x00003cd6                enable_keyboard_interrupt
+                0x00003cda                disable_keyboard_interrupt
+                0x00003cde                keyboard_flush
+                0x00003ce2                process_keyboard
+ .text          0x00003d0c      0x114 ./kbd/ringbuffer.o
+                0x00003d0c                ring_buf_init
+                0x00003d36                ring_buf_get
+                0x00003d8a                ring_buf_put
+ .text          0x00003e20      0x556 ./rtc/rp5c01a.o
+                0x00003e54                get_fattime
+                0x0000400c                set_rtc_time
+                0x00004214                rtc_delay
+                0x00004234                rtc_write_config_byte
+                0x00004270                rtc_read_config_byte
+                0x000042a6                ler_segundo
+                0x000042de                rtc_inicializar
+ *fill*         0x00004376        0x2 
+ .text          0x00004378      0x15a ./picoVga/drv_picoVga.o
+                0x00004378                init_picoVga
+                0x0000437c                run_cmd
+                0x000043a4                picovga_putchar
+                0x000043e8                picovga_gotoxy
+                0x0000445e                picovga_gohome
+                0x0000446c                picovga_set_color
+                0x000044b8                clrscr
+ *fill*         0x000044d2        0x2 
+ .text          0x000044d4      0x248 ./uarts/drv_uart0.o
+                0x000044d4                uart0_debug_char
+                0x00004506                uart0_init
+                0x00004546                uart0_write
+                0x00004584                uart0_read
+                0x000045bc                uart0_read_timeout
+                0x00004620                _inbyte
+                0x000046a0                _outbyte
+                0x000046de                uart0_write_string
+                0x0000470e                uart0_flush
+ .text          0x0000471c      0x6e6 ./ide/ata.o
+                0x00004730                set_ide_bus_mode
+                0x00004770                go_8bits_mode
+                0x000047e6                ata_detect
+                0x000048a4                ata_read_sector
+                0x00004a58                ata_write_sector
+                0x00004a60                read_partition_table
+                0x00004b4a                ata_init
+                0x00004bdc                ata_disk_status
+                0x00004bec                ata_disk_initialize
+                0x00004bfc                ata_wait_not_busy
+                0x00004c3e                ata_wait_for_data
+                0x00004c80                ata_read_identity
+ *fill*         0x00004e02        0x2 
+ .text          0x00004e04     0x412e ./fatfs/ff.o
+                0x00006f6c                f_mount
+                0x0000702a                f_open
+                0x0000740a                f_read
+                0x0000778e                f_write
+                0x00007bac                f_sync
+                0x00007d04                f_close
+                0x00007d3a                f_chdrive
+                0x00007d5e                f_chdir
+                0x00007e02                f_getcwd
+                0x00008050                f_lseek
+                0x000083d4                f_opendir
+                0x000084a8                f_closedir
+                0x000084ce                f_readdir
+                0x0000856e                f_stat
+                0x000085e8                f_getfree
+                0x00008790                f_truncate
+                0x0000893e                f_unlink
+                0x00008a9c                f_mkdir
+                0x00008cde                f_rename
+ *fill*         0x00008f32        0x2 
+ .text          0x00008f34        0x0 ./fatfs/ffsystem.o
+ .text          0x00008f34      0x220 ./fatfs/diskio.o
+                0x00008f34                disk_status
+                0x00008f4c                disk_initialize
+                0x00008f62                disk_read
+                0x00008fe0                disk_write
+                0x0000905e                disk_ioctl
+ .text          0x00009154      0x44e ./tst_fat/tstfat.o
+                0x00009154                listar_diretorio_raiz
+                0x00009310                open_dir
+                0x000093ca                ler_e_exibir_joblog
+                0x00009558                le_setor
+                0x00009586                wr_setor
+ *fill*         0x000095a2        0x2 
+ .text          0x000095a4      0x32a timers.o
+                0x000095a4                delay10ms
+                0x000095c6                cpu_delay
+                0x000095e2                init_timer
+                0x00009602                get_tick_count
+                0x0000960a                add_timer
+                0x000096a2                delete_timer
+                0x000096ee                start_timer
+                0x0000976e                stop_timer
+                0x000097a2                reset_timer
+                0x000097f0                set_interval
+                0x00009824                update_timers
+ *fill*         0x000098ce        0x2 
+ .text          0x000098d0        0x0 interrupt.o
+ .text          0x000098d0      0x168 ./xmodem/xmodem_asm.o
+                0x0000990e                xmodem_receive
+ .text          0x00009a38       0xa2 vectors_asm.o
+                0x00009a38                SvcBusError
+                0x00009a38                TrapFHandler
+                0x00009a38                SpuriousHandler
+                0x00009a38                Int4Handler
+                0x00009a38                SvcTrace
+                0x00009a38                TrapBHandler
+                0x00009a38                Int1Handler
+                0x00009a38                TrapAHandler
+                0x00009a38                SvcChkIns
+                0x00009a38                Trap4Handler
+                0x00009a38                Trap9Handler
+                0x00009a38                Int5Handler
+                0x00009a38                SvcDiv0_handler
+                0x00009a38                Int7Handler
+                0x00009a38                SvcIllegalIns
+                0x00009a38                SvcLineA
+                0x00009a38                SvcPrivViolation
+                0x00009a38                Trap8Handler
+                0x00009a38                Int6Handler
+                0x00009a38                Trap2Handler
+                0x00009a38                bad_exception
+                0x00009a38                Trap3Handler
+                0x00009a38                Svcaddress_err
+                0x00009a38                Trap7Handler
+                0x00009a38                Trap0Handler
+                0x00009a38                SvcLineF
+                0x00009a38                TrapCHandler
+                0x00009a38                SvcTrapvIns
+                0x00009a38                Trap5Handler
+                0x00009a38                Trap6Handler
+                0x00009a3a                TrapDHandler
+                0x00009a3c                Int2Handler
+                0x00009a4e                Int3Handler
+                0x00009a74                Trap1Handler
+                0x00009ac4                TrapEHandler
+ *fill*         0x00009ada        0x2 
  .text          0x00009adc       0x1c ../../lib/libc68k.a(strchr.o)
                 0x00009adc                strchr
  .text          0x00009af8       0x1e ../../lib/libc68k.a(memcpy.o)
@@ -413,45 +415,44 @@ Linker script and memory map
  *(.rodata)
  .rodata        0x0000a7a6      0x11f orion68.o
                 0x0000a7da                MsgOrionInit
- .rodata        0x0000a8c5       0x56 vectors.o
- .rodata        0x0000a91b      0x2d6 ./dump/mem_dump.o
- .rodata        0x0000abf1        0x5 ./shell/io.o
- .rodata        0x0000abf6      0x126 ./shell/picow.o
- .rodata        0x0000ad1c      0x2fa ./shell/printerro.o
- .rodata        0x0000b016      0x787 ./shell/commands.o
- *fill*         0x0000b79d        0x1 
- .rodata        0x0000b79e      0x9b7 ./shell/decodecmd.o
-                0x0000b79e                g_elf_header_bytes
-                0x0000bb94                g_cmd_table
- .rodata        0x0000c155      0x2cd ./kbd/drv_kbd.o
-                0x0000c155                OE_BASE_KEYMAP
-                0x0000c1d5                OE_SHIFT_KEYMAP
-                0x0000c255                OE_CTRL_KEYMAP
-                0x0000c2d5                OE_ALT_KEYMAP
-                0x0000c355                OE_ALTGR_KEYMAP
- .rodata        0x0000c422      0x108 ./kbd/keycodes_ps2.o
-                0x0000c422                g_ps2_keymap
-                0x0000c4a6                g_ps2_keymap_shift
- .rodata        0x0000c52a       0x48 ./rtc/rp5c01a.o
- .rodata        0x0000c572       0x2d ./uarts/drv_uart0.o
- .rodata        0x0000c59f      0x1b2 ./ide/ata.o
- .rodata        0x0000c751       0x98 ./fatfs/ff.o
- .rodata        0x0000c7e9       0x2d ./fatfs/diskio.o
- .rodata        0x0000c816      0x200 ./tst_fat/tstfat.o
- .rodata        0x0000ca16       0x28 ../../lib/libc68k.a(printf.o)
-                0x0000ca3e                        . = ALIGN (0x2)
+ .rodata        0x0000a8c5       0x51 vectors.o
+ .rodata        0x0000a916      0x2d6 ./dump/mem_dump.o
+ .rodata        0x0000abec        0x5 ./shell/io.o
+ .rodata        0x0000abf1      0x126 ./shell/picow.o
+ .rodata        0x0000ad17      0x2fa ./shell/printerro.o
+ .rodata        0x0000b011      0x787 ./shell/commands.o
+ .rodata        0x0000b798      0x9b7 ./shell/decodecmd.o
+                0x0000b798                g_elf_header_bytes
+                0x0000bb8e                g_cmd_table
+ .rodata        0x0000c14f      0x2cd ./kbd/drv_kbd.o
+                0x0000c14f                OE_BASE_KEYMAP
+                0x0000c1cf                OE_SHIFT_KEYMAP
+                0x0000c24f                OE_CTRL_KEYMAP
+                0x0000c2cf                OE_ALT_KEYMAP
+                0x0000c34f                OE_ALTGR_KEYMAP
+ .rodata        0x0000c41c      0x108 ./kbd/keycodes_ps2.o
+                0x0000c41c                g_ps2_keymap
+                0x0000c4a0                g_ps2_keymap_shift
+ .rodata        0x0000c524       0x48 ./rtc/rp5c01a.o
+ .rodata        0x0000c56c       0x2d ./uarts/drv_uart0.o
+ .rodata        0x0000c599      0x1b2 ./ide/ata.o
+ .rodata        0x0000c74b       0x98 ./fatfs/ff.o
+ .rodata        0x0000c7e3       0x2d ./fatfs/diskio.o
+ .rodata        0x0000c810      0x200 ./tst_fat/tstfat.o
+ .rodata        0x0000ca10       0x28 ../../lib/libc68k.a(printf.o)
+                0x0000ca38                        . = ALIGN (0x2)
 
-.rodata         0x0000ca3e       0x20
-                0x0000ca3e                        . = ALIGN (0x2)
+.rodata         0x0000ca38       0x20
+                0x0000ca38                        . = ALIGN (0x2)
  *(.rodata*)
  .rodata.str1.1
-                0x0000ca3e       0x20 ../../lib/libc68k.a(sprintf.o)
+                0x0000ca38       0x20 ../../lib/libc68k.a(sprintf.o)
                                   0xf (size before relaxing)
  .rodata.str1.1
-                0x0000ca5e       0x20 ../../lib/libc68k.a(printf.o)
-                0x0000ca7e                        . = ALIGN (0x2)
+                0x0000ca58       0x20 ../../lib/libc68k.a(printf.o)
+                0x0000ca78                        . = ALIGN (0x2)
 
-.data           0x00080004       0x58 load address 0x0000ca5e
+.data           0x00080004       0x58 load address 0x0000ca58
                 0x00080004                        . = ALIGN (0x2)
                 0x00080004                        __data_start = .
  *(.data*)
@@ -507,14 +508,14 @@ Linker script and memory map
                 0x0008005c                        . = ALIGN (0x2)
                 0x0008005c                        __data_end = .
 
-.mram           0x0008005c        0x8 load address 0x0000cab6
+.mram           0x0008005c        0x8 load address 0x0000cab0
  *(?.mram)
  .mram          0x0008005c        0x8 orion68.o
                 0x0008005c                systemTick
                 0x00080060                flg_system
-                0x0000ca5e                        __data_load_start = LOADADDR (.data)
+                0x0000ca58                        __data_load_start = LOADADDR (.data)
 
-.bss            0x00080064      0xf9c load address 0x0000cab6
+.bss            0x00080064      0xf9c load address 0x0000cab0
                 0x00080064                        . = ALIGN (0x2)
                 0x00080064                        __bss_start = .
  *(.bss*)
