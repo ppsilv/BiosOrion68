@@ -1,5 +1,6 @@
 /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles/pds200Pico2.dir
 /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles/pds200Pico2_orion_bus_pio_h.dir
+/home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles/pds200Pico2_orion_bus1_pio_h.dir
 /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir
 /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles/edit_cache.dir
 /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles/rebuild_cache.dir

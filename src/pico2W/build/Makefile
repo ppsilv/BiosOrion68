@@ -143,6 +143,19 @@ pds200Pico2_orion_bus_pio_h/fast:
 .PHONY : pds200Pico2_orion_bus_pio_h/fast
 
 #=============================================================================
+# Target rules for targets named pds200Pico2_orion_bus1_pio_h
+
+# Build rule for target.
+pds200Pico2_orion_bus1_pio_h: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pds200Pico2_orion_bus1_pio_h
+.PHONY : pds200Pico2_orion_bus1_pio_h
+
+# fast build rule for target.
+pds200Pico2_orion_bus1_pio_h/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2_orion_bus1_pio_h.dir/build.make CMakeFiles/pds200Pico2_orion_bus1_pio_h.dir/build
+.PHONY : pds200Pico2_orion_bus1_pio_h/fast
+
+#=============================================================================
 # Target rules for targets named pds200Pico2_ps2_keyboard_pio_h
 
 # Build rule for target.
@@ -4654,6 +4667,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... bs2_default_bin"
 	@echo "... cyw43_driver_picow_cyw43_bus_pio_spi_pio_h"
+	@echo "... pds200Pico2_orion_bus1_pio_h"
 	@echo "... pds200Pico2_orion_bus_pio_h"
 	@echo "... pds200Pico2_ps2_keyboard_pio_h"
 	@echo "... pico_status_led_ws2812_pio_h"

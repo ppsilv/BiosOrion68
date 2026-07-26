@@ -19,6 +19,7 @@ void printerro(int eno);
 
 #define HEADER_EXAMINE_SIZE 4 /* number of bytes we need to load to determine the file type */
 const uint8_t g_elf_header_bytes[4]  = { 0x7F, 0x45, 0x4c, 0x46 };
+extern bool kb_get(uint8_t *data);
 
 const cmd_entry_t g_cmd_table[] = {
     // name         min max function
@@ -67,7 +68,10 @@ int getline(char *line, int linesize)
 
     if (count < linesize - 1)
     {
-        uint8_t ch = get_key();
+        uint8_t ch; // = get_key();
+        while(kb_get(&ch)==false);
+        
+        putchar(ch);
        // printf("%02X",ch);
         switch(ch)
         {

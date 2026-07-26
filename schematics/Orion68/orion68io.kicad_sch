@@ -11580,6 +11580,16 @@
 	)
 	(wire
 		(pts
+			(xy 176.53 143.51) (xy 190.5 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76cd7c8a-3c30-4ce9-a640-4ac72c020edc")
+	)
+	(wire
+		(pts
 			(xy 176.53 133.35) (xy 181.61 133.35)
 		)
 		(stroke
@@ -19391,6 +19401,16 @@
 			(justify left bottom)
 		)
 		(uuid "b9755957-a136-4fb2-af55-cff67c71b85f")
+	)
+	(label "CS_KBD"
+		(at 176.53 143.51 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b99e0247-0ee6-4feb-9b7e-b2ef15390763")
 	)
 	(label "D2"
 		(at 87.63 191.77 0)

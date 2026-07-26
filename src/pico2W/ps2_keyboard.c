@@ -125,6 +125,25 @@ static const char __in_flash() ps2_to_ascii_cntl[] = {
 0x00, 0x00, 0x12, 0x00, 0x13, 0x11, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
+void bus_pulse_byte(PIO pio, uint sm, uint8_t data) {
+    // 1. Tira os pinos do PIO e passa para a CPU (SIO)
+    for (int i = 0; i <= 7; i++) {
+        gpio_set_function(i, GPIO_FUNC_SIO);
+    }
+
+    // 2. Configura como saída e escreve
+    gpio_set_dir_out_masked(0x000000FF);
+    gpio_put_masked(0x000000FF, (uint32_t)data);
+
+    // 3. Volta os pinos para entrada
+    gpio_set_dir_in_masked(0x000000FF);
+
+    // 4. Devolve o controle dos pinos para o PIO (ex: PIO0 ou PIO1)
+    for (int i = 0; i <= 7; i++) {
+        gpio_set_function(i, pio == pio0 ? GPIO_FUNC_PIO0 : GPIO_FUNC_PIO1);
+    }
+}
+
 // ISR
 void ps2_ihandler(void) {
     pio_interrupt_clear(ps2_pio, 1);
@@ -182,11 +201,10 @@ void ps2_ihandler(void) {
                 }
                 if (ascii) {
                     printf("   putting[%c]    ",ascii);
-                    kb_put(ascii);
+                    //kb_put(ascii);
+                    //bus_pulse_byte(pio0,0,ascii);
+                     pio_sm_put(pio0, 0, ascii);
                     kbd_int_on();
-                    //sleep_ms(1);
-                    //kbd_int_off();
-
                 }
             }
             release = 0;

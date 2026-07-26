@@ -8,8 +8,9 @@
 #include "pico/multicore.h"
 #include "lwip/tcp.h"
 #include "orion_bus.pio.h" // Cabeçalho gerado automaticamente pelo pioasm
+#include "orion_bus1.pio.h" /
 #include "ringbuffer.h"
-
+#include "ps2_keyboard.h"
 
 
 #define WIFI_SSID "OpenSoftware4"
@@ -245,9 +246,9 @@ int main() {
     crc32_init();
 
     // 1. Aumenta a tensão do núcleo para suportar o overclock (ex: VREG_VOLTAGE_1_20V ou 1_30V)
-   // vreg_set_voltage(VREG_VOLTAGE_1_30);
-   // sleep_ms(2); // Dá um tempo para a tensão estabilizar
-   // set_sys_clock_khz(250000, true);
+   vreg_set_voltage(VREG_VOLTAGE_1_30);
+   sleep_ms(2); // Dá um tempo para a tensão estabilizar
+   set_sys_clock_khz(250000, true);
 
     sleep_ms(2500);
 
@@ -255,15 +256,16 @@ int main() {
     multicore_launch_core1(core1_entry);
 
     // --- CONFIGURAÇÃO DA PIO PARA O BARRAMENTO M68K ---
-    PIO pio_barramento = pio0; // Escolhe o bloco PIO 0
-    uint sm_m68k = 0;          // Escolhe a State Machine 0
+    PIO pio_barramento = pio0;  // Escolhe o bloco PIO 0
+    uint sm_m68k = 0;           // Escolhe a State Machine 0
+    uint sm_m68k1 = 1;          // Escolhe a State Machine 0
   
     // Tenta carregar o programa assembly na memória de instruções da PIO
     uint offset_programa = pio_add_program(pio_barramento, &orion_bus_program);
 
     // Chama a nossa função auxiliar de inicialização que configurou os pinos
     orion_bus_program_init(pio_barramento, sm_m68k, offset_programa);
-
+    orion_bus1_program_init(pio_barramento, sm_m68k1, offset_programa);
 
     // --- CORREÇÃO DE SEGURANÇA NO BOOT ---
     // Desliga o SM temporariamente, limpa as FIFOs de lixo elétrico e religa
@@ -272,7 +274,6 @@ int main() {
     pio_sm_set_enabled(pio_barramento, sm_m68k, true);
     
     printf("PIO Inicializada! Aguardando ciclos de barramento do m68k...\n");
-
 
     // Initialize Wi-Fi chip in station architecture mode
     if (cyw43_arch_init()) {
@@ -291,6 +292,9 @@ int main() {
     printf("Connected! IP Address: %s\n", ip4addr_ntoa(netif_ip4_addr(netif_default)));
     //Launch the socket setup
     start_tcp_server();
+
+    kb_init();
+    initPS2();
 
     // Main background execution loop
     while (true) {

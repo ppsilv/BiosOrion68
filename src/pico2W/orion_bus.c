@@ -84,15 +84,9 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                 byte_resposta = 0x0;
                 break;
             case 0x09:
+//                kb_get(&byte_resposta);
                 kbd_int_off();
-                //printf("  int down  ");
-                if(kb_available()){
-                    kb_get(&byte_resposta);
-                   // printf("   R[%02x]    \n",byte_resposta);
-                }else{
-                   // printf("   R[0xFE]    \n");
-                    byte_resposta=0xFE;
-                }
+                return;
                 break;    
             default:
                 byte_resposta = 0xFF;
@@ -100,9 +94,40 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
         }
         if( operacao == OPER_LEITURA ){
             pio_sm_put(pio, sm, byte_resposta);
-            printf("Resposta [%c]\n",byte_resposta);
+            //printf("Resposta [%c]\n",byte_resposta);
         }
         //sio_hw->gpio_clr = (1 << 19);
     }
 }
 
+
+
+void __not_in_flash_func(gerenciar_barramento1_m68k)(PIO pio, uint sm){
+    if (!pio_sm_is_rx_fifo_empty(pio, sm)) {
+        //sio_hw->gpio_set = (1 << 19);
+
+        uint16_t pacote = pio_sm_get_blocking(pio, sm);
+        uint8_t operacao  = (pacote >> 14) & 0x03; // Bits 15:14 (0x0 = Escrita, 0x1 = Leitura)
+        uint8_t reg       = (pacote >> 8)  & 0x3F; // Bits 13:8  (Endereço A1-A6: 0x00 a 0x3F)
+        uint8_t dado_m68k = pacote & 0xFF;        // Bits 7:0   (Dado D0-D7)
+
+        pio_sm_clear_fifos(pio, sm);
+        uint8_t byte_resposta = 0x0;
+        //printf("   reg[%02x]  ",reg);
+        switch (reg) {
+            case 0x09:
+//                kb_get(&byte_resposta);
+                kbd_int_off();
+                return;
+                break;    
+            default:
+                byte_resposta = 0xFF;
+                break;
+        }
+        if( operacao == OPER_LEITURA ){
+            pio_sm_put(pio, sm, byte_resposta);
+            //printf("Resposta [%c]\n",byte_resposta);
+        }
+        //sio_hw->gpio_clr = (1 << 19);
+    }
+}

@@ -1,0 +1,80 @@
+.program orion_bus1
+
+.wrap_target
+espera_cs:
+    wait 0 gpio 14        ; Trava até /CS=0
+    //nop [2]               ; Atraso de estabilização
+    jmp pin m68k_leitura  ; Se /WR (GPIO15) for 1, pula para leitura
+
+m68k_escrita:
+    set x, 0              ; Flag 0x0 = ESCRITA (2 bits: 00)
+    in x, 2               ; Injeta flag no LSB (será empurrada para os bits 15:14)
+    nop [31]
+    in pins, 14           ; Injeta 6 bits Endereço (13:8) + 8 bits Dados (7:0)
+    push noblock          ; Envia pacote de 16 bits exatos pro C
+    jmp fim_ciclo
+
+m68k_leitura:
+    set x, 1              ; Flag 0x1 = LEITURA (2 bits: 01)
+    in x, 2               ; Injeta flag no LSB (será empurrada para os bits 15:14)
+    in pins, 14           ; Injeta 6 bits Endereço (13:8) + 8 bits Dados (7:0)
+    push noblock          ; Envia pacote de 16 bits exatos pro C
+
+    pull block            ; Espera o C entregar o dado de resposta
+
+    mov x, ~ null
+    mov pindirs, x        ; Ativa SAÍDA no barramento (D0-D7)
+
+    out pins, 8           ; Coloca o dado no barramento
+
+fim_ciclo:
+    nop[31]
+    wait 1 gpio 14        ; Segura até /CS=1
+    mov osr, null
+    mov pindirs, osr      ; Volta D0-D7 para ENTRADA (Tri-state)
+.wrap
+
+% c-sdk {
+#include "hardware/clocks.h"
+
+
+static inline void orion_bus1_program_init(PIO pio, uint sm, uint offset) {
+    pio_sm_config c = orion_bus1_program_get_default_config(offset);
+
+    // 1. DADOS (GPIO 0 a 7)
+    sm_config_set_out_pins(&c, 0, 8);
+
+    // 2. BASE DE ENTRADA: GPIO 0 (cobre GPIO 0 a 13 para os 14 bits)
+    sm_config_set_in_pins(&c, 0);
+
+    for(int i = 0; i < 14; i++) {
+        pio_gpio_init(pio, i);
+    }
+
+    // 3. CONTROLE (/WR no GPIO 15, /CS no GPIO 18)
+    gpio_set_dir(15, GPIO_IN);
+    gpio_set_dir(14, GPIO_IN);  //CS
+    gpio_pull_up(15);
+    gpio_pull_up(18);
+    pio_gpio_init(pio, 15);
+    pio_gpio_init(pio, 14);  //CS
+
+    sm_config_set_jmp_pin(&c, 15);
+
+    // 4. SHIFTER: Shift para ESQUERDA (false), sem autopush, 16 bits
+    sm_config_set_in_shift(&c, false, false, 16);
+    sm_config_set_out_shift(&c, true, false, 32);
+
+    // 5. Estado inicial: tudo entrada
+    uint32_t pin_mask = (0xFF << 0) | (0x3F << 8) | (1 << 15) | (1 << 18);
+    pio_sm_set_pindirs_with_mask(pio, sm, 0, pin_mask);
+
+    sm_config_set_clkdiv(&c, 1.0f);
+
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+
+
+
+%}

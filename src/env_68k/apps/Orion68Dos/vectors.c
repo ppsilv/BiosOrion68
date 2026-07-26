@@ -56,7 +56,8 @@ void trata_int3_handler(uint8_t tecla){
     //temque ler os dado do teclado e por no buffer circular
     // 1. Lê o byte (essa leitura DEVE limpar a linha INT3 no Pico/Hardware)
     //uint8_t tecla = PICO_PS2_DATA_REG;
-    kb_put(tecla);
+    if(tecla >0x00)
+        kb_put(tecla);
 //    kb_put('X');
 //    printf("%02x",tecla);
 }

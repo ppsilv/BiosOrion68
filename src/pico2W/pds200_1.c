@@ -16,8 +16,8 @@
 void core1_entry(void) {
     uint8_t data;
     printf("Core 1 iniciando keyboard PS2\n");
-    kb_init();
-    initPS2();
+//    kb_init();
+//    initPS2();
 
     while (true) {
         tight_loop_contents(); // Otimização interna do SDK para loops rápidos
