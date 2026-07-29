@@ -1,4 +1,4 @@
-# Install script for directory: /home/pdsilva/project/Orion68/src/pico2W
+# Install script for directory: /home/pdsilva/Projects/Orion68/src/pico2W
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/pdsilva/project/Orion68/src/pico2W/build/pico-sdk/cmake_install.cmake")
+  include("/home/pdsilva/Projects/Orion68/src/pico2W/build/pico-sdk/cmake_install.cmake")
+  include("/home/pdsilva/Projects/Orion68/src/pico2W/build/FatFs_SPI/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pdsilva/project/Orion68/src/pico2W/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pdsilva/Projects/Orion68/src/pico2W/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

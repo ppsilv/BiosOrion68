@@ -22,7 +22,7 @@ extern uint32_t arquivo_crc32;
 
 void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
     if (!pio_sm_is_rx_fifo_empty(pio, sm)) {
-        //sio_hw->gpio_set = (1 << 19);
+
         kbd_int_off();
 
         uint16_t pacote = pio_sm_get_blocking(pio, sm);

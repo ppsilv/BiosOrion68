@@ -242,6 +242,7 @@ void start_tcp_server() {
 
 extern void configurar_dma_pico(PIO pio, uint sm) ;
 extern void core1_entry(void);
+extern void sdtest(void);
 int main() {
     stdio_init_all();
     crc32_init();
@@ -303,7 +304,8 @@ int main() {
 
     kb_init();
     initPS2();
-
+    printf("Chamando sdtest\n");
+    sdtest();
     // Main background execution loop
     while (true) {
         // Keep the Wi-Fi architecture driver responsive (polls for network events)

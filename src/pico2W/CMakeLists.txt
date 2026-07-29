@@ -26,7 +26,7 @@ if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico2 CACHE STRING "pds200")
+set(PICO_BOARD pico2_w CACHE STRING "pds200")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
@@ -36,8 +36,10 @@ project(pds200Pico2 C CXX ASM)
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
+add_subdirectory(./FatFs_SPI FatFs_SPI)
+
 # Add executable. Default name is the project name, version 0.1
-add_executable(pds200Pico2 pds200.c pds200_1.c orion_bus.c ps2_keyboard.c ringbuffer.c)
+add_executable(pds200Pico2  pds200.c pds200_1.c orion_bus.c ps2_keyboard.c ringbuffer.c orion_sd_test.c hw_config.c)
 
 pico_generate_pio_header(pds200Pico2 ${CMAKE_CURRENT_SOURCE_DIR}/orion_bus.pio)
 #pico_generate_pio_header(pds200Pico2 ${CMAKE_CURRENT_SOURCE_DIR}/orion_bus1.pio)
@@ -49,9 +51,6 @@ pico_set_program_version(pds200Pico2 "0.1")
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_usb(pds200Pico2 1)
 pico_enable_stdio_uart(pds200Pico2 0)
-
-# Add the standard library to the build
-target_link_libraries(pds200Pico2  pico_stdlib)
 
 # Add the standard include files to the build
 target_include_directories(pds200Pico2 PRIVATE ${CMAKE_CURRENT_LIST_DIR})
@@ -67,6 +66,6 @@ target_link_libraries(pds200Pico2
     hardware_i2c
     hardware_watchdog
     pico_cyw43_arch_lwip_threadsafe_background    
+    FatFs_SPI
 )
 pico_add_extra_outputs(pds200Pico2)
-

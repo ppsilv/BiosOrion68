@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pdsilva/project/Orion68/src/pico2W
+CMAKE_SOURCE_DIR = /home/pdsilva/Projects/Orion68/src/pico2W
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pdsilva/project/Orion68/src/pico2W/build
+CMAKE_BINARY_DIR = /home/pdsilva/Projects/Orion68/src/pico2W/build
 
 # Utility rule file for pds200Pico2_ps2_keyboard_pio_h.
 
@@ -68,9 +68,9 @@ include CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/progress.make
 
 CMakeFiles/pds200Pico2_ps2_keyboard_pio_h: ps2_keyboard.pio.h
 
-ps2_keyboard.pio.h: /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.pio
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ps2_keyboard.pio.h"
-	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.pio /home/pdsilva/project/Orion68/src/pico2W/build/ps2_keyboard.pio.h
+ps2_keyboard.pio.h: /home/pdsilva/Projects/Orion68/src/pico2W/ps2_keyboard.pio
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2W/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ps2_keyboard.pio.h"
+	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/Projects/Orion68/src/pico2W/ps2_keyboard.pio /home/pdsilva/Projects/Orion68/src/pico2W/build/ps2_keyboard.pio.h
 
 pds200Pico2_ps2_keyboard_pio_h: CMakeFiles/pds200Pico2_ps2_keyboard_pio_h
 pds200Pico2_ps2_keyboard_pio_h: ps2_keyboard.pio.h
@@ -86,6 +86,6 @@ CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/clean:
 .PHONY : CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/clean
 
 CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/depend:
-	cd /home/pdsilva/project/Orion68/src/pico2W/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pdsilva/project/Orion68/src/pico2W /home/pdsilva/project/Orion68/src/pico2W /home/pdsilva/project/Orion68/src/pico2W/build /home/pdsilva/project/Orion68/src/pico2W/build /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pdsilva/Projects/Orion68/src/pico2W/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pdsilva/Projects/Orion68/src/pico2W /home/pdsilva/Projects/Orion68/src/pico2W /home/pdsilva/Projects/Orion68/src/pico2W/build /home/pdsilva/Projects/Orion68/src/pico2W/build /home/pdsilva/Projects/Orion68/src/pico2W/build/CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/depend
 

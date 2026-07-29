@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pdsilva/project/Orion68/src/pico2W
+CMAKE_SOURCE_DIR = /home/pdsilva/Projects/Orion68/src/pico2W
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pdsilva/project/Orion68/src/pico2W/build
+CMAKE_BINARY_DIR = /home/pdsilva/Projects/Orion68/src/pico2W/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles /home/pdsilva/project/Orion68/src/pico2W/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pdsilva/Projects/Orion68/src/pico2W/build/CMakeFiles /home/pdsilva/Projects/Orion68/src/pico2W/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pdsilva/Projects/Orion68/src/pico2W/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -219,6 +219,318 @@ pico_status_led_ws2812_pio_h: cmake_check_build_system
 pico_status_led_ws2812_pio_h/fast:
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/pico_status_led/CMakeFiles/pico_status_led_ws2812_pio_h.dir/build.make pico-sdk/src/rp2_common/pico_status_led/CMakeFiles/pico_status_led_ws2812_pio_h.dir/build
 .PHONY : pico_status_led_ws2812_pio_h/fast
+
+FatFs_SPI/ff15/source/ff.o: FatFs_SPI/ff15/source/ff.c.o
+.PHONY : FatFs_SPI/ff15/source/ff.o
+
+# target to build an object file
+FatFs_SPI/ff15/source/ff.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
+.PHONY : FatFs_SPI/ff15/source/ff.c.o
+
+FatFs_SPI/ff15/source/ff.i: FatFs_SPI/ff15/source/ff.c.i
+.PHONY : FatFs_SPI/ff15/source/ff.i
+
+# target to preprocess a source file
+FatFs_SPI/ff15/source/ff.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.i
+.PHONY : FatFs_SPI/ff15/source/ff.c.i
+
+FatFs_SPI/ff15/source/ff.s: FatFs_SPI/ff15/source/ff.c.s
+.PHONY : FatFs_SPI/ff15/source/ff.s
+
+# target to generate assembly for a file
+FatFs_SPI/ff15/source/ff.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.s
+.PHONY : FatFs_SPI/ff15/source/ff.c.s
+
+FatFs_SPI/ff15/source/ffsystem.o: FatFs_SPI/ff15/source/ffsystem.c.o
+.PHONY : FatFs_SPI/ff15/source/ffsystem.o
+
+# target to build an object file
+FatFs_SPI/ff15/source/ffsystem.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
+.PHONY : FatFs_SPI/ff15/source/ffsystem.c.o
+
+FatFs_SPI/ff15/source/ffsystem.i: FatFs_SPI/ff15/source/ffsystem.c.i
+.PHONY : FatFs_SPI/ff15/source/ffsystem.i
+
+# target to preprocess a source file
+FatFs_SPI/ff15/source/ffsystem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.i
+.PHONY : FatFs_SPI/ff15/source/ffsystem.c.i
+
+FatFs_SPI/ff15/source/ffsystem.s: FatFs_SPI/ff15/source/ffsystem.c.s
+.PHONY : FatFs_SPI/ff15/source/ffsystem.s
+
+# target to generate assembly for a file
+FatFs_SPI/ff15/source/ffsystem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.s
+.PHONY : FatFs_SPI/ff15/source/ffsystem.c.s
+
+FatFs_SPI/ff15/source/ffunicode.o: FatFs_SPI/ff15/source/ffunicode.c.o
+.PHONY : FatFs_SPI/ff15/source/ffunicode.o
+
+# target to build an object file
+FatFs_SPI/ff15/source/ffunicode.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
+.PHONY : FatFs_SPI/ff15/source/ffunicode.c.o
+
+FatFs_SPI/ff15/source/ffunicode.i: FatFs_SPI/ff15/source/ffunicode.c.i
+.PHONY : FatFs_SPI/ff15/source/ffunicode.i
+
+# target to preprocess a source file
+FatFs_SPI/ff15/source/ffunicode.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.i
+.PHONY : FatFs_SPI/ff15/source/ffunicode.c.i
+
+FatFs_SPI/ff15/source/ffunicode.s: FatFs_SPI/ff15/source/ffunicode.c.s
+.PHONY : FatFs_SPI/ff15/source/ffunicode.s
+
+# target to generate assembly for a file
+FatFs_SPI/ff15/source/ffunicode.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.s
+.PHONY : FatFs_SPI/ff15/source/ffunicode.c.s
+
+FatFs_SPI/sd_driver/crc.o: FatFs_SPI/sd_driver/crc.c.o
+.PHONY : FatFs_SPI/sd_driver/crc.o
+
+# target to build an object file
+FatFs_SPI/sd_driver/crc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/crc.c.o
+.PHONY : FatFs_SPI/sd_driver/crc.c.o
+
+FatFs_SPI/sd_driver/crc.i: FatFs_SPI/sd_driver/crc.c.i
+.PHONY : FatFs_SPI/sd_driver/crc.i
+
+# target to preprocess a source file
+FatFs_SPI/sd_driver/crc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/crc.c.i
+.PHONY : FatFs_SPI/sd_driver/crc.c.i
+
+FatFs_SPI/sd_driver/crc.s: FatFs_SPI/sd_driver/crc.c.s
+.PHONY : FatFs_SPI/sd_driver/crc.s
+
+# target to generate assembly for a file
+FatFs_SPI/sd_driver/crc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/crc.c.s
+.PHONY : FatFs_SPI/sd_driver/crc.c.s
+
+FatFs_SPI/sd_driver/demo_logging.o: FatFs_SPI/sd_driver/demo_logging.c.o
+.PHONY : FatFs_SPI/sd_driver/demo_logging.o
+
+# target to build an object file
+FatFs_SPI/sd_driver/demo_logging.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
+.PHONY : FatFs_SPI/sd_driver/demo_logging.c.o
+
+FatFs_SPI/sd_driver/demo_logging.i: FatFs_SPI/sd_driver/demo_logging.c.i
+.PHONY : FatFs_SPI/sd_driver/demo_logging.i
+
+# target to preprocess a source file
+FatFs_SPI/sd_driver/demo_logging.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.i
+.PHONY : FatFs_SPI/sd_driver/demo_logging.c.i
+
+FatFs_SPI/sd_driver/demo_logging.s: FatFs_SPI/sd_driver/demo_logging.c.s
+.PHONY : FatFs_SPI/sd_driver/demo_logging.s
+
+# target to generate assembly for a file
+FatFs_SPI/sd_driver/demo_logging.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.s
+.PHONY : FatFs_SPI/sd_driver/demo_logging.c.s
+
+FatFs_SPI/sd_driver/sd_card.o: FatFs_SPI/sd_driver/sd_card.c.o
+.PHONY : FatFs_SPI/sd_driver/sd_card.o
+
+# target to build an object file
+FatFs_SPI/sd_driver/sd_card.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o
+.PHONY : FatFs_SPI/sd_driver/sd_card.c.o
+
+FatFs_SPI/sd_driver/sd_card.i: FatFs_SPI/sd_driver/sd_card.c.i
+.PHONY : FatFs_SPI/sd_driver/sd_card.i
+
+# target to preprocess a source file
+FatFs_SPI/sd_driver/sd_card.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.i
+.PHONY : FatFs_SPI/sd_driver/sd_card.c.i
+
+FatFs_SPI/sd_driver/sd_card.s: FatFs_SPI/sd_driver/sd_card.c.s
+.PHONY : FatFs_SPI/sd_driver/sd_card.s
+
+# target to generate assembly for a file
+FatFs_SPI/sd_driver/sd_card.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.s
+.PHONY : FatFs_SPI/sd_driver/sd_card.c.s
+
+FatFs_SPI/sd_driver/sd_spi.o: FatFs_SPI/sd_driver/sd_spi.c.o
+.PHONY : FatFs_SPI/sd_driver/sd_spi.o
+
+# target to build an object file
+FatFs_SPI/sd_driver/sd_spi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.o
+.PHONY : FatFs_SPI/sd_driver/sd_spi.c.o
+
+FatFs_SPI/sd_driver/sd_spi.i: FatFs_SPI/sd_driver/sd_spi.c.i
+.PHONY : FatFs_SPI/sd_driver/sd_spi.i
+
+# target to preprocess a source file
+FatFs_SPI/sd_driver/sd_spi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.i
+.PHONY : FatFs_SPI/sd_driver/sd_spi.c.i
+
+FatFs_SPI/sd_driver/sd_spi.s: FatFs_SPI/sd_driver/sd_spi.c.s
+.PHONY : FatFs_SPI/sd_driver/sd_spi.s
+
+# target to generate assembly for a file
+FatFs_SPI/sd_driver/sd_spi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.s
+.PHONY : FatFs_SPI/sd_driver/sd_spi.c.s
+
+FatFs_SPI/sd_driver/spi.o: FatFs_SPI/sd_driver/spi.c.o
+.PHONY : FatFs_SPI/sd_driver/spi.o
+
+# target to build an object file
+FatFs_SPI/sd_driver/spi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.o
+.PHONY : FatFs_SPI/sd_driver/spi.c.o
+
+FatFs_SPI/sd_driver/spi.i: FatFs_SPI/sd_driver/spi.c.i
+.PHONY : FatFs_SPI/sd_driver/spi.i
+
+# target to preprocess a source file
+FatFs_SPI/sd_driver/spi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.i
+.PHONY : FatFs_SPI/sd_driver/spi.c.i
+
+FatFs_SPI/sd_driver/spi.s: FatFs_SPI/sd_driver/spi.c.s
+.PHONY : FatFs_SPI/sd_driver/spi.s
+
+# target to generate assembly for a file
+FatFs_SPI/sd_driver/spi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.s
+.PHONY : FatFs_SPI/sd_driver/spi.c.s
+
+FatFs_SPI/src/f_util.o: FatFs_SPI/src/f_util.c.o
+.PHONY : FatFs_SPI/src/f_util.o
+
+# target to build an object file
+FatFs_SPI/src/f_util.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
+.PHONY : FatFs_SPI/src/f_util.c.o
+
+FatFs_SPI/src/f_util.i: FatFs_SPI/src/f_util.c.i
+.PHONY : FatFs_SPI/src/f_util.i
+
+# target to preprocess a source file
+FatFs_SPI/src/f_util.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.i
+.PHONY : FatFs_SPI/src/f_util.c.i
+
+FatFs_SPI/src/f_util.s: FatFs_SPI/src/f_util.c.s
+.PHONY : FatFs_SPI/src/f_util.s
+
+# target to generate assembly for a file
+FatFs_SPI/src/f_util.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.s
+.PHONY : FatFs_SPI/src/f_util.c.s
+
+FatFs_SPI/src/ff_stdio.o: FatFs_SPI/src/ff_stdio.c.o
+.PHONY : FatFs_SPI/src/ff_stdio.o
+
+# target to build an object file
+FatFs_SPI/src/ff_stdio.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
+.PHONY : FatFs_SPI/src/ff_stdio.c.o
+
+FatFs_SPI/src/ff_stdio.i: FatFs_SPI/src/ff_stdio.c.i
+.PHONY : FatFs_SPI/src/ff_stdio.i
+
+# target to preprocess a source file
+FatFs_SPI/src/ff_stdio.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.i
+.PHONY : FatFs_SPI/src/ff_stdio.c.i
+
+FatFs_SPI/src/ff_stdio.s: FatFs_SPI/src/ff_stdio.c.s
+.PHONY : FatFs_SPI/src/ff_stdio.s
+
+# target to generate assembly for a file
+FatFs_SPI/src/ff_stdio.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.s
+.PHONY : FatFs_SPI/src/ff_stdio.c.s
+
+FatFs_SPI/src/glue.o: FatFs_SPI/src/glue.c.o
+.PHONY : FatFs_SPI/src/glue.o
+
+# target to build an object file
+FatFs_SPI/src/glue.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
+.PHONY : FatFs_SPI/src/glue.c.o
+
+FatFs_SPI/src/glue.i: FatFs_SPI/src/glue.c.i
+.PHONY : FatFs_SPI/src/glue.i
+
+# target to preprocess a source file
+FatFs_SPI/src/glue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.i
+.PHONY : FatFs_SPI/src/glue.c.i
+
+FatFs_SPI/src/glue.s: FatFs_SPI/src/glue.c.s
+.PHONY : FatFs_SPI/src/glue.s
+
+# target to generate assembly for a file
+FatFs_SPI/src/glue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.s
+.PHONY : FatFs_SPI/src/glue.c.s
+
+FatFs_SPI/src/my_debug.o: FatFs_SPI/src/my_debug.c.o
+.PHONY : FatFs_SPI/src/my_debug.o
+
+# target to build an object file
+FatFs_SPI/src/my_debug.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
+.PHONY : FatFs_SPI/src/my_debug.c.o
+
+FatFs_SPI/src/my_debug.i: FatFs_SPI/src/my_debug.c.i
+.PHONY : FatFs_SPI/src/my_debug.i
+
+# target to preprocess a source file
+FatFs_SPI/src/my_debug.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.i
+.PHONY : FatFs_SPI/src/my_debug.c.i
+
+FatFs_SPI/src/my_debug.s: FatFs_SPI/src/my_debug.c.s
+.PHONY : FatFs_SPI/src/my_debug.s
+
+# target to generate assembly for a file
+FatFs_SPI/src/my_debug.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.s
+.PHONY : FatFs_SPI/src/my_debug.c.s
+
+FatFs_SPI/src/rtc.o: FatFs_SPI/src/rtc.c.o
+.PHONY : FatFs_SPI/src/rtc.o
+
+# target to build an object file
+FatFs_SPI/src/rtc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
+.PHONY : FatFs_SPI/src/rtc.c.o
+
+FatFs_SPI/src/rtc.i: FatFs_SPI/src/rtc.c.i
+.PHONY : FatFs_SPI/src/rtc.i
+
+# target to preprocess a source file
+FatFs_SPI/src/rtc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.i
+.PHONY : FatFs_SPI/src/rtc.c.i
+
+FatFs_SPI/src/rtc.s: FatFs_SPI/src/rtc.c.s
+.PHONY : FatFs_SPI/src/rtc.s
+
+# target to generate assembly for a file
+FatFs_SPI/src/rtc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.s
+.PHONY : FatFs_SPI/src/rtc.c.s
 
 home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.o: home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.c.o
 .PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.o
@@ -3324,6 +3636,30 @@ home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.s
 .PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.s
 
+home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.o: home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
+.PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.o
+
+# target to build an object file
+home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
+.PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
+
+home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.i: home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.i
+.PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.i
+
+# target to preprocess a source file
+home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.i
+.PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.i
+
+home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.s: home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.s
+.PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.s
+
+# target to generate assembly for a file
+home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.s
+.PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.s
+
 home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.o: home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o
 .PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.o
 
@@ -4524,6 +4860,30 @@ home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.s
 .PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.s
 
+hw_config.o: hw_config.c.o
+.PHONY : hw_config.o
+
+# target to build an object file
+hw_config.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/hw_config.c.o
+.PHONY : hw_config.c.o
+
+hw_config.i: hw_config.c.i
+.PHONY : hw_config.i
+
+# target to preprocess a source file
+hw_config.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/hw_config.c.i
+.PHONY : hw_config.c.i
+
+hw_config.s: hw_config.c.s
+.PHONY : hw_config.s
+
+# target to generate assembly for a file
+hw_config.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/hw_config.c.s
+.PHONY : hw_config.c.s
+
 orion_bus.o: orion_bus.c.o
 .PHONY : orion_bus.o
 
@@ -4547,6 +4907,30 @@ orion_bus.s: orion_bus.c.s
 orion_bus.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_bus.c.s
 .PHONY : orion_bus.c.s
+
+orion_sd_test.o: orion_sd_test.c.o
+.PHONY : orion_sd_test.o
+
+# target to build an object file
+orion_sd_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o
+.PHONY : orion_sd_test.c.o
+
+orion_sd_test.i: orion_sd_test.c.i
+.PHONY : orion_sd_test.i
+
+# target to preprocess a source file
+orion_sd_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_sd_test.c.i
+.PHONY : orion_sd_test.c.i
+
+orion_sd_test.s: orion_sd_test.c.s
+.PHONY : orion_sd_test.s
+
+# target to generate assembly for a file
+orion_sd_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_sd_test.c.s
+.PHONY : orion_sd_test.c.s
 
 pds200.o: pds200.c.o
 .PHONY : pds200.o
@@ -4660,6 +5044,45 @@ help:
 	@echo "... bs2_default"
 	@echo "... bs2_default_library"
 	@echo "... pds200Pico2"
+	@echo "... FatFs_SPI/ff15/source/ff.o"
+	@echo "... FatFs_SPI/ff15/source/ff.i"
+	@echo "... FatFs_SPI/ff15/source/ff.s"
+	@echo "... FatFs_SPI/ff15/source/ffsystem.o"
+	@echo "... FatFs_SPI/ff15/source/ffsystem.i"
+	@echo "... FatFs_SPI/ff15/source/ffsystem.s"
+	@echo "... FatFs_SPI/ff15/source/ffunicode.o"
+	@echo "... FatFs_SPI/ff15/source/ffunicode.i"
+	@echo "... FatFs_SPI/ff15/source/ffunicode.s"
+	@echo "... FatFs_SPI/sd_driver/crc.o"
+	@echo "... FatFs_SPI/sd_driver/crc.i"
+	@echo "... FatFs_SPI/sd_driver/crc.s"
+	@echo "... FatFs_SPI/sd_driver/demo_logging.o"
+	@echo "... FatFs_SPI/sd_driver/demo_logging.i"
+	@echo "... FatFs_SPI/sd_driver/demo_logging.s"
+	@echo "... FatFs_SPI/sd_driver/sd_card.o"
+	@echo "... FatFs_SPI/sd_driver/sd_card.i"
+	@echo "... FatFs_SPI/sd_driver/sd_card.s"
+	@echo "... FatFs_SPI/sd_driver/sd_spi.o"
+	@echo "... FatFs_SPI/sd_driver/sd_spi.i"
+	@echo "... FatFs_SPI/sd_driver/sd_spi.s"
+	@echo "... FatFs_SPI/sd_driver/spi.o"
+	@echo "... FatFs_SPI/sd_driver/spi.i"
+	@echo "... FatFs_SPI/sd_driver/spi.s"
+	@echo "... FatFs_SPI/src/f_util.o"
+	@echo "... FatFs_SPI/src/f_util.i"
+	@echo "... FatFs_SPI/src/f_util.s"
+	@echo "... FatFs_SPI/src/ff_stdio.o"
+	@echo "... FatFs_SPI/src/ff_stdio.i"
+	@echo "... FatFs_SPI/src/ff_stdio.s"
+	@echo "... FatFs_SPI/src/glue.o"
+	@echo "... FatFs_SPI/src/glue.i"
+	@echo "... FatFs_SPI/src/glue.s"
+	@echo "... FatFs_SPI/src/my_debug.o"
+	@echo "... FatFs_SPI/src/my_debug.i"
+	@echo "... FatFs_SPI/src/my_debug.s"
+	@echo "... FatFs_SPI/src/rtc.o"
+	@echo "... FatFs_SPI/src/rtc.i"
+	@echo "... FatFs_SPI/src/rtc.s"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.o"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.i"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.s"
@@ -5048,6 +5471,9 @@ help:
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.o"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.i"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.s"
+	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.o"
+	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.i"
+	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.s"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.o"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.i"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.s"
@@ -5198,9 +5624,15 @@ help:
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.o"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.i"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.s"
+	@echo "... hw_config.o"
+	@echo "... hw_config.i"
+	@echo "... hw_config.s"
 	@echo "... orion_bus.o"
 	@echo "... orion_bus.i"
 	@echo "... orion_bus.s"
+	@echo "... orion_sd_test.o"
+	@echo "... orion_sd_test.i"
+	@echo "... orion_sd_test.s"
 	@echo "... pds200.o"
 	@echo "... pds200.i"
 	@echo "... pds200.s"

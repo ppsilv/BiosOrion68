@@ -11150,6 +11150,16 @@
 	)
 	(wire
 		(pts
+			(xy 227.33 123.19) (xy 226.06 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d519578-7c85-4c8d-8c67-fde3c09acbfe")
+	)
+	(wire
+		(pts
 			(xy 232.41 261.62) (xy 232.41 259.08)
 		)
 		(stroke
@@ -11277,16 +11287,6 @@
 			(type default)
 		)
 		(uuid "57051df1-d100-4f1e-a70d-e938cd1181e5")
-	)
-	(wire
-		(pts
-			(xy 226.06 123.19) (xy 264.16 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5796377b-5b2a-43a1-a8e8-d54ae4d29639")
 	)
 	(wire
 		(pts
@@ -11801,6 +11801,16 @@
 	)
 	(wire
 		(pts
+			(xy 227.33 125.73) (xy 226.06 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8311ba46-a994-4158-a229-5d1eb806afee")
+	)
+	(wire
+		(pts
 			(xy -6.35 121.92) (xy -13.97 121.92)
 		)
 		(stroke
@@ -12071,16 +12081,6 @@
 			(type default)
 		)
 		(uuid "9b78529a-a1e9-4e7a-bed3-8a5ebc3e1b0e")
-	)
-	(wire
-		(pts
-			(xy 238.76 125.73) (xy 226.06 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d20001b-78ce-478d-80c1-603ed97f4561")
 	)
 	(wire
 		(pts
@@ -17934,26 +17934,6 @@
 		)
 		(uuid "0902c87b-9fd6-4c32-be84-2c49124aa05f")
 	)
-	(label "CS"
-		(at 265.43 107.95 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "0a0a7510-d48c-4fd8-af38-493c3d0f9e6e")
-	)
-	(label "{slash}CS_MULTIO_C"
-		(at 229.87 140.97 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0a20dcfe-de7f-44a6-b0b4-a5a617cab029")
-	)
 	(label "A7"
 		(at 49.53 189.23 0)
 		(effects
@@ -17974,8 +17954,8 @@
 		)
 		(uuid "0aa9fc0f-3bb3-45b5-ad58-c5a9c29ba191")
 	)
-	(label "SCK_SPI0"
-		(at 227.33 130.81 0)
+	(label "SPI1_MOSI"
+		(at 227.33 125.73 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18322,7 +18302,7 @@
 		)
 		(uuid "2d9573b8-8943-4e26-861e-abbd39e8d57e")
 	)
-	(label "MOSI_SPI0"
+	(label "SPI1_SCK"
 		(at 227.33 128.27 0)
 		(effects
 			(font
@@ -18432,8 +18412,8 @@
 		)
 		(uuid "376eff15-6a65-4548-b182-8b2197a68930")
 	)
-	(label "MISO_SPI0"
-		(at 227.33 135.89 0)
+	(label "SPI1_MISO"
+		(at 227.33 123.19 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18686,6 +18666,16 @@
 		)
 		(uuid "5c0ee051-a7a6-47e9-b300-b60ebf21da89")
 	)
+	(label "CS_SDCARD"
+		(at 265.43 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5f6671c1-262a-4011-a932-c9cb75279c9b")
+	)
 	(label "GND"
 		(at 74.93 171.45 180)
 		(effects
@@ -18918,7 +18908,7 @@
 		)
 		(uuid "7ae39b04-255b-4e12-852b-0aa6144bdf9f")
 	)
-	(label "MOSI"
+	(label "SPI1_MOSI"
 		(at 265.43 102.87 180)
 		(effects
 			(font
@@ -19030,7 +19020,7 @@
 		)
 		(uuid "8513a1ca-0c7d-47cd-a8c8-ea9bdef397d1")
 	)
-	(label "SCK"
+	(label "SPI1_SCK"
 		(at 265.43 105.41 180)
 		(effects
 			(font
@@ -19452,7 +19442,7 @@
 		)
 		(uuid "b705f874-ceef-4d01-b500-d09805f78b86")
 	)
-	(label "{slash}CS_MULTIO"
+	(label "{slash}CS_MIO"
 		(at 55.88 251.46 0)
 		(effects
 			(font
@@ -19461,6 +19451,16 @@
 			(justify left bottom)
 		)
 		(uuid "b9755957-a136-4fb2-af55-cff67c71b85f")
+	)
+	(label "{slash}CS_MIO"
+		(at 229.87 140.97 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b983e96e-f41c-4d32-914c-2434d1908714")
 	)
 	(label "{slash}DTACK_MIO"
 		(at 176.53 143.51 180)
@@ -19927,7 +19927,7 @@
 		)
 		(uuid "e2278577-43bb-488d-8542-2460c380aa11")
 	)
-	(label "MISO"
+	(label "SPI1_MISO"
 		(at 265.43 100.33 180)
 		(effects
 			(font
@@ -19979,16 +19979,6 @@
 		)
 		(uuid "ebc90608-0945-4e80-ba3c-fdf992335cab")
 	)
-	(label "Audio"
-		(at 238.76 125.73 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ec536752-b4ca-4f49-b699-c4db4b36a363")
-	)
 	(label "BD15"
 		(at 466.09 187.96 180)
 		(effects
@@ -20010,16 +20000,6 @@
 			(justify right bottom)
 		)
 		(uuid "ee9cb99c-3c4f-44aa-9b73-bed926594846")
-	)
-	(label "{slash}DTACK_RPI"
-		(at 261.62 123.19 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "eeccb7c4-b7c1-4d0e-810a-a74211021287")
 	)
 	(label "D4"
 		(at 137.16 118.11 180)
