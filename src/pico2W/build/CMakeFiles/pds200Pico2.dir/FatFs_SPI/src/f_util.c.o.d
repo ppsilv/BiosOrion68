@@ -1,7 +1,7 @@
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o: \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/src/f_util.c \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/src/f_util.c \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \

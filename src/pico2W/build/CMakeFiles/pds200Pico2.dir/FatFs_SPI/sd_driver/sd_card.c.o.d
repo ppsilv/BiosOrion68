@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o: \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.c \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
@@ -30,9 +30,9 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/build/generated/pico_base/pico/version.h \
+ /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/version.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
+ /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
@@ -55,10 +55,10 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/sio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/interp.h \
@@ -73,7 +73,7 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio_coproc.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dma.h \
@@ -83,10 +83,10 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_spi.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/diskio.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/sd_driver/crc.h
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_spi.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/diskio.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/crc.h

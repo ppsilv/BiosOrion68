@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o: \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/src/my_debug.c \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/src/my_debug.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
@@ -17,4 +17,4 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h

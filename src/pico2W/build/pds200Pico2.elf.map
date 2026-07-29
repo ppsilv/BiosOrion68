@@ -240,7 +240,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x13 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o
  .debug_line    0x00000000      0x3e9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o
- .debug_str     0x00000000      0x410 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o
+ .debug_str     0x00000000      0x40f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o
  .debug_frame   0x00000000       0x28 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o
  .ARM.attributes
@@ -312,7 +312,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x13 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o
  .debug_line    0x00000000      0x200 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o
- .debug_str     0x00000000      0x207 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o
+ .debug_str     0x00000000      0x206 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o
  .debug_frame   0x00000000       0x20 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o
  .ARM.attributes
@@ -325,7 +325,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o
  .debug_line    0x00000000       0x6f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o
- .debug_str     0x00000000      0x1ab CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o
+ .debug_str     0x00000000      0x1aa CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o
@@ -457,7 +457,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x5b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o
  .debug_line    0x00000000      0x4d7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o
- .debug_str     0x00000000      0x40d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o
+ .debug_str     0x00000000      0x40c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o
  .debug_frame   0x00000000       0x7c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o
  .ARM.attributes
@@ -535,7 +535,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x31 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o
  .debug_line    0x00000000      0x2d4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o
- .debug_str     0x00000000      0x2bf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o
+ .debug_str     0x00000000      0x2be CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o
  .debug_frame   0x00000000       0x98 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o
  .ARM.attributes
@@ -577,7 +577,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x453 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o
  .debug_line    0x00000000     0x1392 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o
- .debug_str     0x00000000      0x3f5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o
+ .debug_str     0x00000000      0x3f4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o
  .debug_frame   0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o
  .ARM.attributes
@@ -610,7 +610,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x1e8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o
  .debug_line    0x00000000      0xd31 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o
- .debug_str     0x00000000      0x475 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o
+ .debug_str     0x00000000      0x474 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o
  .debug_frame   0x00000000       0xe4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o
  .ARM.attributes
@@ -645,7 +645,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x241 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o
  .debug_line    0x00000000      0xea5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o
- .debug_str     0x00000000      0xe6c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o
+ .debug_str     0x00000000      0xe6b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o
  .debug_frame   0x00000000       0xfc CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o
  .ARM.attributes
@@ -774,7 +774,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x5b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o
  .debug_line    0x00000000      0x56d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o
- .debug_str     0x00000000      0x901 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o
+ .debug_str     0x00000000      0x900 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o
  .debug_frame   0x00000000       0xd8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o
  .ARM.attributes
@@ -796,7 +796,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o
  .debug_line    0x00000000      0x17d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o
- .debug_str     0x00000000      0x1df CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o
+ .debug_str     0x00000000      0x1de CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o
@@ -823,7 +823,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x13 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
  .debug_line    0x00000000      0x14b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
- .debug_str     0x00000000      0x20c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
+ .debug_str     0x00000000      0x20b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
  .debug_frame   0x00000000       0x20 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
  .ARM.attributes
@@ -836,12 +836,12 @@ Discarded input sections
  .text.ctzdi    0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
  .debug_line    0x00000000       0x75 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
  .debug_line_str
-                0x00000000       0x7e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
+                0x00000000       0x7d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
  .debug_info    0x00000000       0x23 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
  .debug_abbrev  0x00000000       0x12 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
  .debug_aranges
                 0x00000000       0x30 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
- .debug_str     0x00000000       0x8c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
+ .debug_str     0x00000000       0x8b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
  .debug_rnglists
                 0x00000000       0x1f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
  .ARM.attributes
@@ -898,7 +898,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x17e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o
  .debug_line    0x00000000      0x7bb CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o
- .debug_str     0x00000000      0x48f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o
+ .debug_str     0x00000000      0x48e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o
  .debug_frame   0x00000000      0x1bc CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o
  .ARM.attributes
@@ -979,7 +979,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x5f8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o
  .debug_line    0x00000000     0x2c75 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o
- .debug_str     0x00000000      0x508 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o
+ .debug_str     0x00000000      0x507 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o
  .debug_frame   0x00000000      0x538 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o
  .ARM.attributes
@@ -1026,12 +1026,12 @@ Discarded input sections
                 0x00000000       0x6a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
  .debug_line    0x00000000      0x1f1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
  .debug_line_str
-                0x00000000       0x7e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
+                0x00000000       0x7d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
  .debug_info    0x00000000       0x23 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
  .debug_abbrev  0x00000000       0x12 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
  .debug_aranges
                 0x00000000       0x30 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
- .debug_str     0x00000000       0x8c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
+ .debug_str     0x00000000       0x8b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
  .debug_rnglists
                 0x00000000       0x20 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o
  .ARM.attributes
@@ -1057,12 +1057,12 @@ Discarded input sections
                 0x00000000      0x320 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
  .debug_line    0x00000000      0x4a7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
  .debug_line_str
-                0x00000000       0x7e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
+                0x00000000       0x7d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
  .debug_info    0x00000000       0x23 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
  .debug_abbrev  0x00000000       0x12 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
  .debug_aranges
                 0x00000000       0x58 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
- .debug_str     0x00000000       0x8c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
+ .debug_str     0x00000000       0x8b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
  .debug_rnglists
                 0x00000000       0x41 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o
  .ARM.attributes
@@ -1082,12 +1082,12 @@ Discarded input sections
                 0x00000000       0x72 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
  .debug_line    0x00000000      0x1ca CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
  .debug_line_str
-                0x00000000       0x7f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
+                0x00000000       0x7e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
  .debug_info    0x00000000       0x23 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
  .debug_abbrev  0x00000000       0x12 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
  .debug_aranges
                 0x00000000       0x40 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
- .debug_str     0x00000000       0x8d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
+ .debug_str     0x00000000       0x8c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
  .debug_rnglists
                 0x00000000       0x2d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o
  .ARM.attributes
@@ -1169,7 +1169,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x426 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o
  .debug_line    0x00000000     0x25b4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o
- .debug_str     0x00000000      0x4c8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o
+ .debug_str     0x00000000      0x4c7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o
  .debug_frame   0x00000000      0x404 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o
  .ARM.attributes
@@ -1195,12 +1195,12 @@ Discarded input sections
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
  .debug_line    0x00000000       0xe1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
  .debug_line_str
-                0x00000000       0x7f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
+                0x00000000       0x7e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
  .debug_info    0x00000000       0x23 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
  .debug_abbrev  0x00000000       0x12 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
  .debug_aranges
                 0x00000000       0x58 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
- .debug_str     0x00000000       0x8d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
+ .debug_str     0x00000000       0x8c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
  .debug_rnglists
                 0x00000000       0x3d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o
  .ARM.attributes
@@ -1220,12 +1220,12 @@ Discarded input sections
                 0x00000000       0x68 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
  .debug_line    0x00000000      0x19e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
  .debug_line_str
-                0x00000000       0x7f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
+                0x00000000       0x7e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
  .debug_info    0x00000000       0x23 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
  .debug_abbrev  0x00000000       0x12 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
  .debug_aranges
                 0x00000000       0x40 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
- .debug_str     0x00000000       0x8d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
+ .debug_str     0x00000000       0x8c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
  .debug_rnglists
                 0x00000000       0x2d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o
  .ARM.attributes
@@ -1247,12 +1247,12 @@ Discarded input sections
                 0x00000000      0x2cc CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
  .debug_line    0x00000000      0x263 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
  .debug_line_str
-                0x00000000       0x80 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
+                0x00000000       0x7f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
  .debug_info    0x00000000       0x23 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
  .debug_abbrev  0x00000000       0x12 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
  .debug_aranges
                 0x00000000       0x48 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
- .debug_str     0x00000000       0x8e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
+ .debug_str     0x00000000       0x8d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
  .debug_rnglists
                 0x00000000       0x35 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o
  .ARM.attributes
@@ -1304,7 +1304,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x283 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o
  .debug_line    0x00000000     0x119a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o
- .debug_str     0x00000000      0x4d5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o
+ .debug_str     0x00000000      0x4d4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o
  .debug_frame   0x00000000      0x1bc CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o
  .ARM.attributes
@@ -1327,7 +1327,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x31 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o
  .debug_line    0x00000000      0x275 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o
- .debug_str     0x00000000      0x392 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o
+ .debug_str     0x00000000      0x391 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o
  .debug_frame   0x00000000       0x70 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o
  .ARM.attributes
@@ -1473,7 +1473,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x1ed CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o
  .debug_line    0x00000000     0x113f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o
- .debug_str     0x00000000      0x97d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o
+ .debug_str     0x00000000      0x97c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o
  .debug_frame   0x00000000      0x244 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o
  .ARM.attributes
@@ -1502,7 +1502,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x31 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o
  .debug_line    0x00000000      0x340 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o
- .debug_str     0x00000000      0x34e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o
+ .debug_str     0x00000000      0x34d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o
  .debug_frame   0x00000000       0x70 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o
  .ARM.attributes
@@ -1601,7 +1601,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o
  .debug_line    0x00000000       0x6d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o
- .debug_str     0x00000000      0x1a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o
+ .debug_str     0x00000000      0x1a8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o
@@ -1632,7 +1632,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o
  .debug_line    0x00000000       0x69 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o
@@ -1644,7 +1644,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o
  .debug_line    0x00000000       0x6c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o
- .debug_str     0x00000000      0x1a8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o
+ .debug_str     0x00000000      0x1a7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o
@@ -1656,7 +1656,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o
  .debug_line    0x00000000       0x69 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o
@@ -1668,7 +1668,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o
  .debug_line    0x00000000       0x6b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o
- .debug_str     0x00000000      0x1a7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o
+ .debug_str     0x00000000      0x1a6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o
@@ -1680,7 +1680,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o
  .debug_line    0x00000000       0x69 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o
@@ -1692,7 +1692,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o
  .debug_line    0x00000000       0x6f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o
- .debug_str     0x00000000      0x1ab CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o
+ .debug_str     0x00000000      0x1aa CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o
@@ -1704,7 +1704,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o
  .debug_line    0x00000000       0x69 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o
@@ -1716,7 +1716,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o
  .debug_line    0x00000000       0x6f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o
- .debug_str     0x00000000      0x1ab CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o
+ .debug_str     0x00000000      0x1aa CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o
@@ -1747,7 +1747,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o
  .debug_line    0x00000000       0x6d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o
- .debug_str     0x00000000      0x1a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o
+ .debug_str     0x00000000      0x1a8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o
@@ -1807,7 +1807,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x13 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o
  .debug_line    0x00000000       0xad CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o
- .debug_str     0x00000000      0x1f6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o
+ .debug_str     0x00000000      0x1f5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o
  .debug_frame   0x00000000       0x20 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o
  .ARM.attributes
@@ -1975,7 +1975,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x1a6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o
  .debug_line    0x00000000     0x128f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o
- .debug_str     0x00000000     0x1264 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o
+ .debug_str     0x00000000     0x1263 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o
  .debug_frame   0x00000000      0x230 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o
  .ARM.attributes
@@ -2159,7 +2159,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c.o
  .debug_line    0x00000000       0x5a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c.o
- .debug_str     0x00000000      0x19b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c.o
+ .debug_str     0x00000000      0x19a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c.o
@@ -2171,7 +2171,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c.o
  .debug_line    0x00000000       0x5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c.o
- .debug_str     0x00000000      0x19d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c.o
+ .debug_str     0x00000000      0x19c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c.o
@@ -2183,7 +2183,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c.o
  .debug_line    0x00000000       0x62 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c.o
- .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c.o
+ .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c.o
@@ -2195,7 +2195,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c.o
@@ -2271,7 +2271,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c.o
  .debug_line    0x00000000       0x62 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c.o
- .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c.o
+ .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c.o
@@ -2308,7 +2308,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c.o
@@ -2346,7 +2346,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c.o
@@ -2358,7 +2358,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c.o
  .debug_line    0x00000000       0x62 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c.o
- .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c.o
+ .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c.o
@@ -2370,7 +2370,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c.o
@@ -2382,7 +2382,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c.o
@@ -2394,7 +2394,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c.o
@@ -2406,7 +2406,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c.o
  .debug_line    0x00000000       0x64 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c.o
@@ -2418,7 +2418,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c.o
  .debug_line    0x00000000       0x64 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c.o
@@ -2430,7 +2430,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c.o
@@ -2442,7 +2442,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c.o
@@ -2454,7 +2454,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_lib.c.o
  .debug_line    0x00000000       0x5d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_lib.c.o
- .debug_str     0x00000000      0x19e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_lib.c.o
+ .debug_str     0x00000000      0x19d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_lib.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_lib.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_lib.c.o
@@ -2466,7 +2466,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c.o
  .debug_line    0x00000000       0x5d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c.o
- .debug_str     0x00000000      0x19e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c.o
+ .debug_str     0x00000000      0x19d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c.o
@@ -2478,7 +2478,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c.o
  .debug_line    0x00000000       0x59 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c.o
- .debug_str     0x00000000      0x19a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c.o
+ .debug_str     0x00000000      0x199 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c.o
@@ -2490,7 +2490,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c.o
  .debug_line    0x00000000       0x5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c.o
- .debug_str     0x00000000      0x19d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c.o
+ .debug_str     0x00000000      0x19c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c.o
@@ -2502,7 +2502,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c.o
  .debug_line    0x00000000       0x5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c.o
- .debug_str     0x00000000      0x19d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c.o
+ .debug_str     0x00000000      0x19c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c.o
@@ -2514,7 +2514,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c.o
  .debug_line    0x00000000       0x5b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c.o
- .debug_str     0x00000000      0x19c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c.o
+ .debug_str     0x00000000      0x19b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c.o
@@ -2526,7 +2526,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c.o
  .debug_line    0x00000000       0x5e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c.o
- .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c.o
+ .debug_str     0x00000000      0x19e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c.o
@@ -2538,7 +2538,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c.o
  .debug_line    0x00000000       0x5d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c.o
- .debug_str     0x00000000      0x19e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c.o
+ .debug_str     0x00000000      0x19d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c.o
@@ -2550,7 +2550,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c.o
  .debug_line    0x00000000       0x5b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c.o
- .debug_str     0x00000000      0x19c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c.o
+ .debug_str     0x00000000      0x19b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c.o
@@ -2565,7 +2565,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c.o
@@ -2593,7 +2593,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x57 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c.o
  .debug_line    0x00000000      0x6a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c.o
- .debug_str     0x00000000      0x3b8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c.o
+ .debug_str     0x00000000      0x3b7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c.o
  .debug_frame   0x00000000       0xc0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c.o
  .ARM.attributes
@@ -2620,7 +2620,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x6a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c.o
  .debug_line    0x00000000      0x685 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c.o
- .debug_str     0x00000000      0x612 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c.o
+ .debug_str     0x00000000      0x611 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c.o
  .debug_frame   0x00000000       0x78 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c.o
  .ARM.attributes
@@ -2633,7 +2633,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c.o
  .debug_line    0x00000000       0x66 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c.o
- .debug_str     0x00000000      0x1a7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c.o
+ .debug_str     0x00000000      0x1a6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c.o
@@ -2645,7 +2645,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c.o
@@ -2657,7 +2657,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c.o
  .debug_line    0x00000000       0x63 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c.o
- .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c.o
+ .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c.o
@@ -2669,7 +2669,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c.o
  .debug_line    0x00000000       0x5d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c.o
- .debug_str     0x00000000      0x19e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c.o
+ .debug_str     0x00000000      0x19d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c.o
@@ -2681,7 +2681,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c.o
@@ -2693,7 +2693,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c.o
@@ -2705,7 +2705,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c.o
  .debug_line    0x00000000       0x64 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c.o
@@ -2717,7 +2717,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c.o
  .debug_line    0x00000000       0x63 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c.o
- .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c.o
+ .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c.o
@@ -2729,7 +2729,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c.o
  .debug_line    0x00000000       0x64 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c.o
@@ -2741,7 +2741,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c.o
  .debug_line    0x00000000       0x62 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c.o
- .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c.o
+ .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c.o
@@ -2753,7 +2753,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c.o
@@ -2765,7 +2765,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c.o
@@ -2777,7 +2777,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c.o
@@ -2789,7 +2789,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c.o
@@ -2801,7 +2801,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c.o
@@ -2813,7 +2813,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c.o
  .debug_line    0x00000000       0x62 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c.o
- .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c.o
+ .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c.o
@@ -2825,7 +2825,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c.o
@@ -2837,7 +2837,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c.o
@@ -2849,7 +2849,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c.o
@@ -2861,7 +2861,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c.o
  .debug_line    0x00000000       0x65 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c.o
- .debug_str     0x00000000      0x1a6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c.o
+ .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c.o
@@ -2873,7 +2873,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c.o
  .debug_line    0x00000000       0x5f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c.o
- .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c.o
+ .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c.o
@@ -2885,7 +2885,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c.o
  .debug_line    0x00000000       0x62 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c.o
- .debug_str     0x00000000      0x1a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c.o
+ .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c.o
@@ -2897,7 +2897,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c.o
  .debug_line    0x00000000       0x64 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c.o
@@ -2909,7 +2909,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c.o
@@ -2921,7 +2921,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c.o
  .debug_line    0x00000000       0x64 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c.o
- .debug_str     0x00000000      0x1a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c.o
+ .debug_str     0x00000000      0x1a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c.o
@@ -2933,7 +2933,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c.o
@@ -2945,7 +2945,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c.o
  .debug_line    0x00000000       0x60 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c.o
- .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c.o
+ .debug_str     0x00000000      0x1a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c.o
@@ -2957,7 +2957,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c.o
  .debug_line    0x00000000       0x61 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c.o
- .debug_str     0x00000000      0x1a2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c.o
+ .debug_str     0x00000000      0x1a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c.o
@@ -2969,7 +2969,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c.o
  .debug_line    0x00000000       0x5e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c.o
- .debug_str     0x00000000      0x19f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c.o
+ .debug_str     0x00000000      0x19e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c.o
@@ -2981,7 +2981,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c.o
  .debug_line    0x00000000       0x69 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c.o
- .debug_str     0x00000000      0x1aa CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c.o
+ .debug_str     0x00000000      0x1a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c.o
@@ -2993,7 +2993,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c.o
  .debug_line    0x00000000       0x68 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c.o
- .debug_str     0x00000000      0x1a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c.o
+ .debug_str     0x00000000      0x1a8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c.o
@@ -3005,7 +3005,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c.o
  .debug_line    0x00000000       0x68 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c.o
- .debug_str     0x00000000      0x1a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c.o
+ .debug_str     0x00000000      0x1a8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c.o
@@ -3017,7 +3017,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c.o
  .debug_line    0x00000000       0x68 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c.o
- .debug_str     0x00000000      0x1a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c.o
+ .debug_str     0x00000000      0x1a8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c.o
@@ -3029,7 +3029,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c.o
  .debug_line    0x00000000       0x69 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c.o
- .debug_str     0x00000000      0x1aa CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c.o
+ .debug_str     0x00000000      0x1a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c.o
@@ -3070,7 +3070,7 @@ Discarded input sections
  .data          0x00000000        0x0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.o
  .bss           0x00000000        0x0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.o
  .debug_line    0x00000000        0x0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.o
- .debug_str     0x00000000      0x11f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.o
+ .debug_str     0x00000000      0x11e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.o
@@ -3085,7 +3085,7 @@ Discarded input sections
  .data          0x00000000        0x0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o
  .bss           0x00000000        0x0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o
  .debug_line    0x00000000        0x0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o
- .debug_str     0x00000000      0x123 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o
+ .debug_str     0x00000000      0x122 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o
  .ARM.attributes
                 0x00000000       0x38 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o
@@ -3137,7 +3137,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x13 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c.o
  .debug_line    0x00000000       0xa7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c.o
- .debug_str     0x00000000      0x1da CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c.o
+ .debug_str     0x00000000      0x1d9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c.o
  .debug_frame   0x00000000       0x28 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c.o
  .ARM.attributes
@@ -3212,7 +3212,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0xb9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.o
  .debug_line    0x00000000      0x938 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.o
- .debug_str     0x00000000      0xbd4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.o
+ .debug_str     0x00000000      0xbd3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.o
  .debug_frame   0x00000000       0xb8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.o
  .ARM.attributes
@@ -3267,7 +3267,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000      0x286 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.o
  .debug_line    0x00000000     0x1096 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.o
- .debug_str     0x00000000      0xd3b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.o
+ .debug_str     0x00000000      0xd3a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.o
  .debug_frame   0x00000000      0x1e4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.o
  .ARM.attributes
@@ -3294,7 +3294,7 @@ Discarded input sections
  .debug_rnglists
                 0x00000000       0x52 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_exception/exception.c.o
  .debug_line    0x00000000      0x589 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_exception/exception.c.o
- .debug_str     0x00000000      0x574 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_exception/exception.c.o
+ .debug_str     0x00000000      0x573 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_exception/exception.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_exception/exception.c.o
  .debug_frame   0x00000000       0x88 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_exception/exception.c.o
  .ARM.attributes
@@ -3322,8 +3322,8 @@ Discarded input sections
                 0x00000000       0x28 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
  .debug_rnglists
                 0x00000000       0x19 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
- .debug_line    0x00000000      0x149 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
- .debug_str     0x00000000      0x1e8 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
+ .debug_line    0x00000000      0x148 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
+ .debug_str     0x00000000      0x1e6 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
  .debug_frame   0x00000000       0x30 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffsystem.c.o
  .ARM.attributes
@@ -3350,8 +3350,8 @@ Discarded input sections
                 0x00000000       0x30 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
  .debug_rnglists
                 0x00000000       0x20 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
- .debug_line    0x00000000      0x336 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
- .debug_str     0x00000000      0x20c CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
+ .debug_line    0x00000000      0x335 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
+ .debug_str     0x00000000      0x20a CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
  .debug_frame   0x00000000       0x58 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ffunicode.c.o
  .ARM.attributes
@@ -3475,8 +3475,8 @@ Discarded input sections
                 0x00000000      0x1c0 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
  .debug_rnglists
                 0x00000000     0x170c CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
- .debug_line    0x00000000    0x10eed CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
- .debug_str     0x00000000      0xd1e CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
+ .debug_line    0x00000000    0x10eec CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
+ .debug_str     0x00000000      0xd1c CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
  .debug_frame   0x00000000      0xa14 CMakeFiles/pds200Pico2.dir/FatFs_SPI/ff15/source/ff.c.o
  .ARM.attributes
@@ -3499,8 +3499,8 @@ Discarded input sections
                 0x00000000       0x20 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
  .debug_rnglists
                 0x00000000       0x13 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
- .debug_line    0x00000000      0x1d6 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
- .debug_str     0x00000000      0x557 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
+ .debug_line    0x00000000      0x1d5 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
+ .debug_str     0x00000000      0x555 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
  .debug_frame   0x00000000       0x48 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o
  .ARM.attributes
@@ -3543,8 +3543,8 @@ Discarded input sections
                 0x00000000       0x40 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
  .debug_rnglists
                 0x00000000       0x73 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
- .debug_line    0x00000000      0x6cd CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
- .debug_str     0x00000000      0x68c CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
+ .debug_line    0x00000000      0x6ca CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
+ .debug_str     0x00000000      0x68a CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
  .debug_frame   0x00000000       0xcc CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o
  .ARM.attributes
@@ -3570,8 +3570,8 @@ Discarded input sections
                 0x00000000       0x28 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
  .debug_rnglists
                 0x00000000       0x1a CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
- .debug_line    0x00000000      0x2a0 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
- .debug_str     0x00000000      0x4c2 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
+ .debug_line    0x00000000      0x29e CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
+ .debug_str     0x00000000      0x4c0 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
  .debug_frame   0x00000000       0x54 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o
  .ARM.attributes
@@ -3638,8 +3638,8 @@ Discarded input sections
                 0x00000000       0xc0 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
  .debug_rnglists
                 0x00000000       0xe0 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
- .debug_line    0x00000000      0xd8f CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
- .debug_str     0x00000000      0x7a4 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
+ .debug_line    0x00000000      0xd8c CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
+ .debug_str     0x00000000      0x7a2 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
  .debug_frame   0x00000000      0x270 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o
  .ARM.attributes
@@ -3663,8 +3663,8 @@ Discarded input sections
                 0x00000000       0x28 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
  .debug_rnglists
                 0x00000000       0x19 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
- .debug_line    0x00000000      0x1f6 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
- .debug_str     0x00000000      0x56b CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
+ .debug_line    0x00000000      0x1f5 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
+ .debug_str     0x00000000      0x569 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
  .debug_frame   0x00000000       0x60 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o
  .ARM.attributes
@@ -3682,8 +3682,8 @@ Discarded input sections
                 0x00000000       0x20 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
  .debug_rnglists
                 0x00000000       0x13 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
- .debug_line    0x00000000      0x18b CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
- .debug_str     0x00000000      0x206 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
+ .debug_line    0x00000000      0x189 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
+ .debug_str     0x00000000      0x204 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
  .comment       0x00000000       0x46 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
  .debug_frame   0x00000000       0x20 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o
  .ARM.attributes
@@ -8665,196 +8665,196 @@ LOAD linker stubs
  .debug_rnglists
                 0x0000ad34      0x2b2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
 
-.debug_line     0x00000000    0x56e21
- .debug_line    0x00000000     0x1360 CMakeFiles/pds200Pico2.dir/pds200.c.o
- .debug_line    0x00001360      0x1b1 CMakeFiles/pds200Pico2.dir/pds200_1.c.o
- .debug_line    0x00001511      0x5c5 CMakeFiles/pds200Pico2.dir/orion_bus.c.o
- .debug_line    0x00001ad6      0xf2b CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o
- .debug_line    0x00002a01      0x1e8 CMakeFiles/pds200Pico2.dir/ringbuffer.c.o
- .debug_line    0x00002be9      0x61a CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o
- .debug_line    0x00003203      0x636 CMakeFiles/pds200Pico2.dir/hw_config.c.o
- .debug_line    0x00003839     0x1baf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o
- .debug_line    0x000053e8      0x27f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o
- .debug_line    0x00005667      0x808 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o
- .debug_line    0x00005e6f      0x41d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o
- .debug_line    0x0000628c      0x39d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
- .debug_line    0x00006629     0x170d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o
- .debug_line    0x00007d36      0xa5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o
- .debug_line    0x00008792      0x26a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o
- .debug_line    0x000089fc     0x126f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o
- .debug_line    0x00009c6b      0x3b9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o
- .debug_line    0x0000a024     0x31c2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o
- .debug_line    0x0000d1e6     0x1dc3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o
- .debug_line    0x0000efa9     0x1ec2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o
- .debug_line    0x00010e6b      0x4e2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o
- .debug_line    0x0001134d      0x3f6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o
- .debug_line    0x00011743      0x9e9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o
- .debug_line    0x0001212c      0x333 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o
- .debug_line    0x0001245f      0xb1a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o
- .debug_line    0x00012f79      0x3b6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o
- .debug_line    0x0001332f      0x420 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o
- .debug_line    0x0001374f      0x367 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o
- .debug_line    0x00013ab6      0x313 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o
- .debug_line    0x00013dc9      0x6d9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o
- .debug_line    0x000144a2      0x586 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
- .debug_line    0x00014a28      0x28f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o
- .debug_line    0x00014cb7      0x489 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o
- .debug_line    0x00015140      0x1f0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
- .debug_line    0x00015330     0x1baf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o
- .debug_line    0x00016edf       0x9e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o
- .debug_line    0x00016f7d      0x89b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o
- .debug_line    0x00017818     0x151a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o
- .debug_line    0x00018d32      0x505 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o
- .debug_line    0x00019237     0x1157 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o
- .debug_line    0x0001a38e      0x3b7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o
- .debug_line    0x0001a745      0x737 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o
- .debug_line    0x0001ae7c     0x1efb CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o
- .debug_line    0x0001cd77      0xcbd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o
- .debug_line    0x0001da34     0x26a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o
- .debug_line    0x000200d4      0x734 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o
- .debug_line    0x00020808     0x1066 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o
- .debug_line    0x0002186e      0xa5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o
- .debug_line    0x000222ca     0x1337 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o
- .debug_line    0x00023601     0x18f7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o
- .debug_line    0x00024ef8     0x1de8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o
- .debug_line    0x00026ce0      0x75b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o
- .debug_line    0x0002743b     0x1af5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o
- .debug_line    0x00028f30      0x6b9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/lwip_nosys.c.o
- .debug_line    0x000295e9      0x846 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_base.c.o
- .debug_line    0x00029e2f      0xab6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_rand/rand.c.o
- .debug_line    0x0002a8e5      0x1e5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/init.c.o
- .debug_line    0x0002aaca      0x6a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/def.c.o
- .debug_line    0x0002b16e     0x1a4b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/dns.c.o
- .debug_line    0x0002cbb9      0x6b0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/inet_chksum.c.o
- .debug_line    0x0002d269      0x1e5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip.c.o
- .debug_line    0x0002d44e      0xb1c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/mem.c.o
- .debug_line    0x0002df6a      0x6d4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/memp.c.o
- .debug_line    0x0002e63e     0x110e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/netif.c.o
- .debug_line    0x0002f74c     0x20f8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/pbuf.c.o
- .debug_line    0x00031844      0xcf3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/raw.c.o
- .debug_line    0x00032537      0x183 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/stats.c.o
- .debug_line    0x000326ba     0x30b2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp.c.o
- .debug_line    0x0003576c     0x225e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_in.c.o
- .debug_line    0x000379ca     0x29df CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_out.c.o
- .debug_line    0x0003a3a9      0xaf1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/timeouts.c.o
- .debug_line    0x0003ae9a     0x11e7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/udp.c.o
- .debug_line    0x0003c081     0x2c86 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/dhcp.c.o
- .debug_line    0x0003ed07     0x1aff CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/etharp.c.o
- .debug_line    0x00040806      0x78c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/icmp.c.o
- .debug_line    0x00040f92      0xfc1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_frag.c.o
- .debug_line    0x00041f53      0xdaf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4.c.o
- .debug_line    0x00042d02      0x87e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_addr.c.o
- .debug_line    0x00043580      0xae6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/acd.c.o
- .debug_line    0x00044066      0x546 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ethernet.c.o
- .debug_line    0x000445ac      0xee5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.o
- .debug_line    0x00045491      0x677 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.o
- .debug_line    0x00045b08     0x384e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.o
- .debug_line    0x00049356     0x4970 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ll.c.o
- .debug_line    0x0004dcc6      0x5bd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_lwip.c.o
- .debug_line    0x0004e283     0x1952 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.c.o
- .debug_line    0x0004fbd5      0xe68 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.o
- .debug_line    0x00050a3d     0x1413 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.o
- .debug_line    0x00051e50      0x9c2 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.o
- .debug_line    0x00052812      0xef2 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.o
- .debug_line    0x00053704     0x204c CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o
- .debug_line    0x00055750      0x1e5 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/crc.c.o
- .debug_line    0x00055935     0x14ec CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
+.debug_line     0x00000000    0x56df0
+ .debug_line    0x00000000     0x135e CMakeFiles/pds200Pico2.dir/pds200.c.o
+ .debug_line    0x0000135e      0x1b0 CMakeFiles/pds200Pico2.dir/pds200_1.c.o
+ .debug_line    0x0000150e      0x5c3 CMakeFiles/pds200Pico2.dir/orion_bus.c.o
+ .debug_line    0x00001ad1      0xf29 CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o
+ .debug_line    0x000029fa      0x1e7 CMakeFiles/pds200Pico2.dir/ringbuffer.c.o
+ .debug_line    0x00002be1      0x5fb CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o
+ .debug_line    0x000031dc      0x633 CMakeFiles/pds200Pico2.dir/hw_config.c.o
+ .debug_line    0x0000380f     0x1baf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o
+ .debug_line    0x000053be      0x27f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o
+ .debug_line    0x0000563d      0x808 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o
+ .debug_line    0x00005e45      0x41d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o
+ .debug_line    0x00006262      0x39d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
+ .debug_line    0x000065ff     0x170d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o
+ .debug_line    0x00007d0c      0xa5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o
+ .debug_line    0x00008768      0x26a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o
+ .debug_line    0x000089d2     0x126f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o
+ .debug_line    0x00009c41      0x3b9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o
+ .debug_line    0x00009ffa     0x31c2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o
+ .debug_line    0x0000d1bc     0x1dc3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o
+ .debug_line    0x0000ef7f     0x1ec2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o
+ .debug_line    0x00010e41      0x4e2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o
+ .debug_line    0x00011323      0x3f6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o
+ .debug_line    0x00011719      0x9e9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o
+ .debug_line    0x00012102      0x333 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o
+ .debug_line    0x00012435      0xb1a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o
+ .debug_line    0x00012f4f      0x3b6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o
+ .debug_line    0x00013305      0x420 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o
+ .debug_line    0x00013725      0x367 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o
+ .debug_line    0x00013a8c      0x313 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o
+ .debug_line    0x00013d9f      0x6d9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o
+ .debug_line    0x00014478      0x586 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
+ .debug_line    0x000149fe      0x28f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o
+ .debug_line    0x00014c8d      0x489 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o
+ .debug_line    0x00015116      0x1f0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
+ .debug_line    0x00015306     0x1baf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o
+ .debug_line    0x00016eb5       0x9e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o
+ .debug_line    0x00016f53      0x89b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o
+ .debug_line    0x000177ee     0x151a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o
+ .debug_line    0x00018d08      0x505 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o
+ .debug_line    0x0001920d     0x1157 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o
+ .debug_line    0x0001a364      0x3b7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o
+ .debug_line    0x0001a71b      0x737 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o
+ .debug_line    0x0001ae52     0x1efb CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o
+ .debug_line    0x0001cd4d      0xcbd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o
+ .debug_line    0x0001da0a     0x26a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o
+ .debug_line    0x000200aa      0x734 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o
+ .debug_line    0x000207de     0x1066 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o
+ .debug_line    0x00021844      0xa5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o
+ .debug_line    0x000222a0     0x1337 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o
+ .debug_line    0x000235d7     0x18f7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o
+ .debug_line    0x00024ece     0x1de8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o
+ .debug_line    0x00026cb6      0x75b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o
+ .debug_line    0x00027411     0x1af5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o
+ .debug_line    0x00028f06      0x6b9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/lwip_nosys.c.o
+ .debug_line    0x000295bf      0x846 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_base.c.o
+ .debug_line    0x00029e05      0xab6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_rand/rand.c.o
+ .debug_line    0x0002a8bb      0x1e5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/init.c.o
+ .debug_line    0x0002aaa0      0x6a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/def.c.o
+ .debug_line    0x0002b144     0x1a4b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/dns.c.o
+ .debug_line    0x0002cb8f      0x6b0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/inet_chksum.c.o
+ .debug_line    0x0002d23f      0x1e5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip.c.o
+ .debug_line    0x0002d424      0xb1c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/mem.c.o
+ .debug_line    0x0002df40      0x6d4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/memp.c.o
+ .debug_line    0x0002e614     0x110e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/netif.c.o
+ .debug_line    0x0002f722     0x20f8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/pbuf.c.o
+ .debug_line    0x0003181a      0xcf3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/raw.c.o
+ .debug_line    0x0003250d      0x183 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/stats.c.o
+ .debug_line    0x00032690     0x30b2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp.c.o
+ .debug_line    0x00035742     0x225e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_in.c.o
+ .debug_line    0x000379a0     0x29df CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_out.c.o
+ .debug_line    0x0003a37f      0xaf1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/timeouts.c.o
+ .debug_line    0x0003ae70     0x11e7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/udp.c.o
+ .debug_line    0x0003c057     0x2c86 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/dhcp.c.o
+ .debug_line    0x0003ecdd     0x1aff CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/etharp.c.o
+ .debug_line    0x000407dc      0x78c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/icmp.c.o
+ .debug_line    0x00040f68      0xfc1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_frag.c.o
+ .debug_line    0x00041f29      0xdaf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4.c.o
+ .debug_line    0x00042cd8      0x87e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_addr.c.o
+ .debug_line    0x00043556      0xae6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/acd.c.o
+ .debug_line    0x0004403c      0x546 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ethernet.c.o
+ .debug_line    0x00044582      0xee5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.o
+ .debug_line    0x00045467      0x677 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.o
+ .debug_line    0x00045ade     0x384d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.o
+ .debug_line    0x0004932b     0x4970 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ll.c.o
+ .debug_line    0x0004dc9b      0x5bd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_lwip.c.o
+ .debug_line    0x0004e258     0x1952 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.c.o
+ .debug_line    0x0004fbaa      0xe68 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.o
+ .debug_line    0x00050a12     0x1413 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.o
+ .debug_line    0x00051e25      0x9c0 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.o
+ .debug_line    0x000527e5      0xef1 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.o
+ .debug_line    0x000536d6     0x204a CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o
+ .debug_line    0x00055720      0x1e4 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/crc.c.o
+ .debug_line    0x00055904     0x14ec CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
 
-.debug_str      0x00000000    0x12a41
- .debug_str     0x00000000    0x12a41 CMakeFiles/pds200Pico2.dir/pds200.c.o
-                               0x1e59 (size before relaxing)
- .debug_str     0x00012a41      0x1e7 CMakeFiles/pds200Pico2.dir/pds200_1.c.o
- .debug_str     0x00012a41      0x4db CMakeFiles/pds200Pico2.dir/orion_bus.c.o
- .debug_str     0x00012a41     0x142e CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o
- .debug_str     0x00012a41      0x1f4 CMakeFiles/pds200Pico2.dir/ringbuffer.c.o
- .debug_str     0x00012a41      0x610 CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o
- .debug_str     0x00012a41      0xc0a CMakeFiles/pds200Pico2.dir/hw_config.c.o
- .debug_str     0x00012a41      0xd3a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o
- .debug_str     0x00012a41      0x213 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o
- .debug_str     0x00012a41      0x385 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o
- .debug_str     0x00012a41      0x330 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o
- .debug_str     0x00012a41      0xbdd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
- .debug_str     0x00012a41      0xc5c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o
- .debug_str     0x00012a41      0x51c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o
- .debug_str     0x00012a41      0x222 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o
- .debug_str     0x00012a41      0x8f6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o
- .debug_str     0x00012a41      0x2f6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o
- .debug_str     0x00012a41     0x1318 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o
- .debug_str     0x00012a41      0xbb0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o
- .debug_str     0x00012a41      0xb9f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o
- .debug_str     0x00012a41      0x4a9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o
- .debug_str     0x00012a41      0x720 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o
- .debug_str     0x00012a41      0x74a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o
- .debug_str     0x00012a41      0x2d6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o
- .debug_str     0x00012a41      0x972 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o
- .debug_str     0x00012a41      0x2be CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o
- .debug_str     0x00012a41      0x29c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o
- .debug_str     0x00012a41      0x24f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o
- .debug_str     0x00012a41      0x2a5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o
- .debug_str     0x00012a41     0x1229 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o
- .debug_str     0x00012a41      0x4f1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
- .debug_str     0x00012a41       0x8e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o
- .debug_str     0x00012a41      0x57a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o
- .debug_str     0x00012a41      0x44e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
- .debug_str     0x00012a41      0x4bb CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o
- .debug_str     0x00012a41       0x80 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o
- .debug_str     0x00012a41      0x8a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o
- .debug_str     0x00012a41      0xc59 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o
- .debug_str     0x00012a41      0xf6b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o
- .debug_str     0x00012a41     0x105e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o
- .debug_str     0x00012a41     0x110d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o
- .debug_str     0x00012a41      0x2a1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o
- .debug_str     0x00012a41     0x13df CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o
- .debug_str     0x00012a41      0xbd6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o
- .debug_str     0x00012a41     0x1c73 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o
- .debug_str     0x00012a41      0x801 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o
- .debug_str     0x00012a41     0x1880 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o
- .debug_str     0x00012a41      0xf6e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o
- .debug_str     0x00012a41      0xf4a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o
- .debug_str     0x00012a41      0x633 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o
- .debug_str     0x00012a41     0x11cd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o
- .debug_str     0x00012a41      0x67e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o
- .debug_str     0x00012a41     0x12fa CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o
- .debug_str     0x00012a41      0x9c4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/lwip_nosys.c.o
- .debug_str     0x00012a41      0x610 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_base.c.o
- .debug_str     0x00012a41      0x7b2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_rand/rand.c.o
- .debug_str     0x00012a41      0x206 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/init.c.o
- .debug_str     0x00012a41      0x2a7 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/def.c.o
- .debug_str     0x00012a41      0x9f0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/dns.c.o
- .debug_str     0x00012a41      0x36e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/inet_chksum.c.o
- .debug_str     0x00012a41      0x52a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip.c.o
- .debug_str     0x00012a41      0x4fe CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/mem.c.o
- .debug_str     0x00012a41      0x7c1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/memp.c.o
- .debug_str     0x00012a41      0x988 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/netif.c.o
- .debug_str     0x00012a41      0xd08 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/pbuf.c.o
- .debug_str     0x00012a41      0x8e6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/raw.c.o
- .debug_str     0x00012a41      0x301 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/stats.c.o
- .debug_str     0x00012a41      0xfd9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp.c.o
- .debug_str     0x00012a41      0xe1f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_in.c.o
- .debug_str     0x00012a41      0xd3f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_out.c.o
- .debug_str     0x00012a41      0x926 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/timeouts.c.o
- .debug_str     0x00012a41      0xbf3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/udp.c.o
- .debug_str     0x00012a41     0x127f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/dhcp.c.o
- .debug_str     0x00012a41      0xcc1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/etharp.c.o
- .debug_str     0x00012a41      0x7dd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/icmp.c.o
- .debug_str     0x00012a41      0xa32 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_frag.c.o
- .debug_str     0x00012a41      0xa56 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4.c.o
- .debug_str     0x00012a41      0x527 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_addr.c.o
- .debug_str     0x00012a41      0x6c6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/acd.c.o
- .debug_str     0x00012a41      0x7a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ethernet.c.o
- .debug_str     0x00012a41     0x1448 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.o
- .debug_str     0x00012a41      0xd87 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.o
- .debug_str     0x00012a41     0x21d4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.o
- .debug_str     0x00012a41     0x160e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ll.c.o
- .debug_str     0x00012a41      0xa29 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_lwip.c.o
- .debug_str     0x00012a41     0x1825 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.c.o
- .debug_str     0x00012a41     0x145f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.o
- .debug_str     0x00012a41     0x1284 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.o
- .debug_str     0x00012a41      0xbd7 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.o
- .debug_str     0x00012a41     0x15a6 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.o
- .debug_str     0x00012a41     0x15e9 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o
- .debug_str     0x00012a41      0x1b1 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/crc.c.o
- .debug_str     0x00012a41      0x78c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
+.debug_str      0x00000000    0x12a35
+ .debug_str     0x00000000    0x12a35 CMakeFiles/pds200Pico2.dir/pds200.c.o
+                               0x1e57 (size before relaxing)
+ .debug_str     0x00012a35      0x1e5 CMakeFiles/pds200Pico2.dir/pds200_1.c.o
+ .debug_str     0x00012a35      0x4d9 CMakeFiles/pds200Pico2.dir/orion_bus.c.o
+ .debug_str     0x00012a35     0x142c CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o
+ .debug_str     0x00012a35      0x1f2 CMakeFiles/pds200Pico2.dir/ringbuffer.c.o
+ .debug_str     0x00012a35      0x60e CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o
+ .debug_str     0x00012a35      0xc08 CMakeFiles/pds200Pico2.dir/hw_config.c.o
+ .debug_str     0x00012a35      0xd39 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o
+ .debug_str     0x00012a35      0x212 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o
+ .debug_str     0x00012a35      0x384 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o
+ .debug_str     0x00012a35      0x32f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o
+ .debug_str     0x00012a35      0xbdc CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
+ .debug_str     0x00012a35      0xc5b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o
+ .debug_str     0x00012a35      0x51b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o
+ .debug_str     0x00012a35      0x221 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o
+ .debug_str     0x00012a35      0x8f5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o
+ .debug_str     0x00012a35      0x2f5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o
+ .debug_str     0x00012a35     0x1317 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o
+ .debug_str     0x00012a35      0xbaf CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o
+ .debug_str     0x00012a35      0xb9e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o
+ .debug_str     0x00012a35      0x4a8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o
+ .debug_str     0x00012a35      0x71f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o
+ .debug_str     0x00012a35      0x749 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o
+ .debug_str     0x00012a35      0x2d5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o
+ .debug_str     0x00012a35      0x971 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o
+ .debug_str     0x00012a35      0x2bd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o
+ .debug_str     0x00012a35      0x29b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o
+ .debug_str     0x00012a35      0x24e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o
+ .debug_str     0x00012a35      0x2a4 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o
+ .debug_str     0x00012a35     0x1228 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o
+ .debug_str     0x00012a35      0x4f0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
+ .debug_str     0x00012a35       0x8d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o
+ .debug_str     0x00012a35      0x579 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o
+ .debug_str     0x00012a35      0x44d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
+ .debug_str     0x00012a35      0x4ba CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o
+ .debug_str     0x00012a35       0x7f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o
+ .debug_str     0x00012a35      0x8a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o
+ .debug_str     0x00012a35      0xc58 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o
+ .debug_str     0x00012a35      0xf6a CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o
+ .debug_str     0x00012a35     0x105d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o
+ .debug_str     0x00012a35     0x110c CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o
+ .debug_str     0x00012a35      0x2a0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o
+ .debug_str     0x00012a35     0x13de CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o
+ .debug_str     0x00012a35      0xbd5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o
+ .debug_str     0x00012a35     0x1c72 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o
+ .debug_str     0x00012a35      0x800 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o
+ .debug_str     0x00012a35     0x187f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o
+ .debug_str     0x00012a35      0xf6d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o
+ .debug_str     0x00012a35      0xf49 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o
+ .debug_str     0x00012a35      0x632 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o
+ .debug_str     0x00012a35     0x11cc CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o
+ .debug_str     0x00012a35      0x67d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o
+ .debug_str     0x00012a35     0x12f9 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o
+ .debug_str     0x00012a35      0x9c3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/lwip_nosys.c.o
+ .debug_str     0x00012a35      0x60f CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_base.c.o
+ .debug_str     0x00012a35      0x7b1 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_rand/rand.c.o
+ .debug_str     0x00012a35      0x205 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/init.c.o
+ .debug_str     0x00012a35      0x2a6 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/def.c.o
+ .debug_str     0x00012a35      0x9ef CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/dns.c.o
+ .debug_str     0x00012a35      0x36d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/inet_chksum.c.o
+ .debug_str     0x00012a35      0x529 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip.c.o
+ .debug_str     0x00012a35      0x4fd CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/mem.c.o
+ .debug_str     0x00012a35      0x7c0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/memp.c.o
+ .debug_str     0x00012a35      0x987 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/netif.c.o
+ .debug_str     0x00012a35      0xd07 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/pbuf.c.o
+ .debug_str     0x00012a35      0x8e5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/raw.c.o
+ .debug_str     0x00012a35      0x300 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/stats.c.o
+ .debug_str     0x00012a35      0xfd8 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp.c.o
+ .debug_str     0x00012a35      0xe1e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_in.c.o
+ .debug_str     0x00012a35      0xd3e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_out.c.o
+ .debug_str     0x00012a35      0x925 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/timeouts.c.o
+ .debug_str     0x00012a35      0xbf2 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/udp.c.o
+ .debug_str     0x00012a35     0x127e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/dhcp.c.o
+ .debug_str     0x00012a35      0xcc0 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/etharp.c.o
+ .debug_str     0x00012a35      0x7dc CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/icmp.c.o
+ .debug_str     0x00012a35      0xa31 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_frag.c.o
+ .debug_str     0x00012a35      0xa55 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4.c.o
+ .debug_str     0x00012a35      0x526 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_addr.c.o
+ .debug_str     0x00012a35      0x6c5 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/acd.c.o
+ .debug_str     0x00012a35      0x7a3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ethernet.c.o
+ .debug_str     0x00012a35     0x1447 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.o
+ .debug_str     0x00012a35      0xd86 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.o
+ .debug_str     0x00012a35     0x21d3 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.o
+ .debug_str     0x00012a35     0x160d CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ll.c.o
+ .debug_str     0x00012a35      0xa28 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_lwip.c.o
+ .debug_str     0x00012a35     0x1824 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.c.o
+ .debug_str     0x00012a35     0x145e CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.o
+ .debug_str     0x00012a35     0x1283 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.o
+ .debug_str     0x00012a35      0xbd5 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.o
+ .debug_str     0x00012a35     0x15a4 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.o
+ .debug_str     0x00012a35     0x15e7 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o
+ .debug_str     0x00012a35      0x1af CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/crc.c.o
+ .debug_str     0x00012a35      0x78b CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/spi.c.o
 
 .debug_frame    0x00000000     0x8180
  .debug_frame   0x00000000      0x10c CMakeFiles/pds200Pico2.dir/pds200.c.o
@@ -8968,15 +8968,15 @@ LOAD linker stubs
  .debug_frame   0x000080fc       0x84 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/softfp/libg.a(libc_a-freer.o)
 
 .debug_line_str
-                0x00000000      0x278
+                0x00000000      0x277
  .debug_line_str
-                0x00000000      0x278 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o
-                                 0x80 (size before relaxing)
+                0x00000000      0x277 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o
+                                 0x7f (size before relaxing)
  .debug_line_str
-                0x00000278       0x72 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o
+                0x00000277       0x71 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o
  .debug_line_str
-                0x00000278       0xc8 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/softfp/libgcc.a(_aeabi_uldivmod.o)
+                0x00000277       0xc8 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/softfp/libgcc.a(_aeabi_uldivmod.o)
  .debug_line_str
-                0x00000278       0xcc /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/softfp/libgcc.a(_dvmd_tls.o)
+                0x00000277       0xcc /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/softfp/libgcc.a(_dvmd_tls.o)
  .debug_line_str
-                0x00000278       0xe2 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/softfp/libg.a(libc_a-memcpy.o)
+                0x00000277       0xe2 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/softfp/libg.a(libc_a-memcpy.o)

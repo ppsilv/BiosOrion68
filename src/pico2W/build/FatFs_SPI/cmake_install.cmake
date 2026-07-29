@@ -1,4 +1,4 @@
-# Install script for directory: /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI
+# Install script for directory: /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

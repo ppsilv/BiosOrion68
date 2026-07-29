@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o: \
- /home/pdsilva/Projects/Orion68/src/pico2W/orion_sd_test.c \
+ /home/pdsilva/project/Orion68/src/pico2W/orion_sd_test.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
@@ -27,9 +27,9 @@ CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/build/generated/pico_base/pico/version.h \
+ /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/version.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
+ /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
@@ -73,14 +73,14 @@ CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
- /home/pdsilva/project/Orion68/src/picolibs/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI/sd_driver/sd_card.h \
+ /home/pdsilva/project/Orion68/src/pico2W/./FatFs_SPI/sd_driver/sd_card.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
- /home/pdsilva/project/Orion68/src/picolibs/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI/sd_driver/spi.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
+ /home/pdsilva/project/Orion68/src/pico2W/./FatFs_SPI/sd_driver/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dma.h \
@@ -89,4 +89,4 @@ CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h

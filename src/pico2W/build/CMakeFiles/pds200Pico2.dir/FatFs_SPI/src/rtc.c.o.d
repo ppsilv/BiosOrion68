@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o: \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/src/rtc.c \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/src/rtc.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
@@ -41,9 +41,9 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/build/generated/pico_base/pico/version.h \
+ /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/version.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
+ /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
@@ -90,7 +90,7 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/include/pico/util/datetime.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/time.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_time.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/include/util.h \
- /home/pdsilva/Projects/Orion68/src/pico2W/FatFs_SPI/include/rtc.h
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/util.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/rtc.h

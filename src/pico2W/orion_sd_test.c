@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <pico/stdlib.h>
-#include </home/pdsilva/project/Orion68/src/picolibs/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI/sd_driver/sd_card.h>
+#include <./FatFs_SPI/sd_driver/sd_card.h>
 #include "hw_config.h"
 
 
