@@ -780,7 +780,7 @@ Disassembly of section .text:
 10000782:	f003 ffe3 	bl	1000474c <__wrap_printf>
 10000786:	4a1c      	ldr	r2, [pc, #112]	@ (100007f8 <ps2_ihandler+0x108>)
 10000788:	4b1c      	ldr	r3, [pc, #112]	@ (100007fc <ps2_ihandler+0x10c>)
-1000078a:	6155      	str	r5, [r2, #20]
+1000078a:	6115      	str	r5, [r2, #16]
 1000078c:	781a      	ldrb	r2, [r3, #0]
 1000078e:	b922      	cbnz	r2, 1000079a <ps2_ihandler+0xaa>
 10000790:	2113      	movs	r1, #19

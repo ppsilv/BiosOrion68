@@ -8146,7 +8146,7 @@ LOAD linker stubs
                                0x1e51 (size before relaxing)
  .debug_str     0x00011dc5      0x1e5 CMakeFiles/pds200Pico2.dir/pds200_1.c.o
  .debug_str     0x00011dc5      0x4da CMakeFiles/pds200Pico2.dir/orion_bus.c.o
- .debug_str     0x00011dc5     0x142c CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o
+ .debug_str     0x00011dc5     0x142d CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o
  .debug_str     0x00011dc5      0x1f2 CMakeFiles/pds200Pico2.dir/ringbuffer.c.o
  .debug_str     0x00011dc5      0xd39 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o
  .debug_str     0x00011dc5      0x212 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o

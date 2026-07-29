@@ -201,7 +201,7 @@ void ps2_ihandler(void) {
                 }
                 if (ascii) {
                     printf("   putting[%c]    ",ascii);
-                    pio_sm_put(pio0, 1, ascii);
+                    pio_sm_put(pio0, 0, ascii);
                     kbd_int_on();
                 }
             }
