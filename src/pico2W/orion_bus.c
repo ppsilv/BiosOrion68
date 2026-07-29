@@ -23,6 +23,7 @@ extern uint32_t arquivo_crc32;
 void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
     if (!pio_sm_is_rx_fifo_empty(pio, sm)) {
         //sio_hw->gpio_set = (1 << 19);
+        kbd_int_off();
 
         uint16_t pacote = pio_sm_get_blocking(pio, sm);
         uint8_t operacao  = (pacote >> 14) & 0x03; // Bits 15:14 (0x0 = Escrita, 0x1 = Leitura)
@@ -31,7 +32,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
 
         pio_sm_clear_fifos(pio, sm);
         uint8_t byte_resposta = 0x0;
-        //printf("   reg[%02x]  ",reg);
+        printf("operacao[%02x] sm[%02x]  reg[%02x]  \n",operacao,sm,reg);
         if ( arquivo_pronto == 0){
             byte_resposta = 0x0;
         }else if ( ponteiro_leitura >= arquivo_tamanho ) {
@@ -84,10 +85,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                 byte_resposta = 0x0;
                 break;
             case 0x09:
-//                kb_get(&byte_resposta);
-                kbd_int_off();
                 return;
-                break;    
             default:
                 byte_resposta = 0xFF;
                 break;
@@ -100,7 +98,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
     }
 }
 
-
+/*
 
 void __not_in_flash_func(gerenciar_barramento1_m68k)(PIO pio, uint sm){
     if (!pio_sm_is_rx_fifo_empty(pio, sm)) {
@@ -113,7 +111,8 @@ void __not_in_flash_func(gerenciar_barramento1_m68k)(PIO pio, uint sm){
 
         pio_sm_clear_fifos(pio, sm);
         uint8_t byte_resposta = 0x0;
-        //printf("   reg[%02x]  ",reg);
+        printf("   reg[%02x]  \n",reg);
+                kbd_int_off();
         switch (reg) {
             case 0x09:
 //                kb_get(&byte_resposta);
@@ -124,10 +123,11 @@ void __not_in_flash_func(gerenciar_barramento1_m68k)(PIO pio, uint sm){
                 byte_resposta = 0xFF;
                 break;
         }
-        if( operacao == OPER_LEITURA ){
-            pio_sm_put(pio, sm, byte_resposta);
-            //printf("Resposta [%c]\n",byte_resposta);
-        }
+        //if( operacao == OPER_LEITURA ){
+        //    pio_sm_put(pio, sm, byte_resposta);
+        //    //printf("Resposta [%c]\n",byte_resposta);
+        //}
         //sio_hw->gpio_clr = (1 << 19);
     }
 }
+*/

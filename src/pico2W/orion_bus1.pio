@@ -22,8 +22,9 @@ m68k_leitura:
 
     pull block            ; Espera o C entregar o dado de resposta
 
-    mov x, ~ null
-    mov pindirs, x        ; Ativa SAÍDA no barramento (D0-D7)
+;    mov x, ~ null
+;    mov pindirs, x        ; Ativa SAÍDA no barramento (D0-D7)
+    mov pindirs, y
 
     out pins, 8           ; Coloca o dado no barramento
 
@@ -53,11 +54,12 @@ static inline void orion_bus1_program_init(PIO pio, uint sm, uint offset) {
 
     // 3. CONTROLE (/WR no GPIO 15, /CS no GPIO 18)
     gpio_set_dir(15, GPIO_IN);
-    gpio_set_dir(14, GPIO_IN);  //CS
     gpio_pull_up(15);
-    gpio_pull_up(18);
     pio_gpio_init(pio, 15);
-    pio_gpio_init(pio, 14);  //CS
+
+    gpio_set_dir(14, GPIO_IN);  //CS
+    gpio_pull_up(14);
+    pio_gpio_init(pio, 14);
 
     sm_config_set_jmp_pin(&c, 15);
 
@@ -66,8 +68,12 @@ static inline void orion_bus1_program_init(PIO pio, uint sm, uint offset) {
     sm_config_set_out_shift(&c, true, false, 32);
 
     // 5. Estado inicial: tudo entrada
-    uint32_t pin_mask = (0xFF << 0) | (0x3F << 8) | (1 << 15) | (1 << 18);
+    uint32_t pin_mask = (0xFF << 0) | (0x3F << 8) | (1 << 15) | (1 << 14);
     pio_sm_set_pindirs_with_mask(pio, sm, 0, pin_mask);
+
+    pio_sm_put_blocking(pio, sm, 0x000000FF);
+    pio_sm_exec(pio, sm, pio_encode_pull(false, true));
+    pio_sm_exec(pio, sm, pio_encode_mov(pio_y, pio_osr));
 
     sm_config_set_clkdiv(&c, 1.0f);
 

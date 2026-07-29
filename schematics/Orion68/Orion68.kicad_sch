@@ -51,7 +51,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "1442d4b3-66d6-41f9-bdb6-3593017f1fe0")
-		(property "Sheetname" "rtc"
+		(property "Sheetname" "Ogion68-IOsupport"
 			(at 19.304 102.6664 0)
 			(effects
 				(font

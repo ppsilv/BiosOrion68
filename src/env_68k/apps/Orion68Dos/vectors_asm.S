@@ -19,7 +19,7 @@
 .extern systemTick
 .extern cconin
 .extern cconout
-.extern trata_int3_handler
+.extern kb_put
 
 /* =========================================================================
    1. EXCEÇÕES E INTERRUPÇÕES QUE NÃO FAZEM NADA (STUBS)
@@ -81,12 +81,12 @@ Int2Handler:
 Int3Handler:
         movem.l %d0-%d7/%a0-%a6,-(%sp)
 
-        MOVE.B  0x00FF9113,%D0
+        MOVE.B  0x00FF9013,%D0
 
         ANDI.L  #0x000000FF,%D0  /*; Limpa a parte alta (garante o unsigned)*/
         MOVE.L  %D0, -(%A7)       /*; Empilha 4 bytes (mantém A7 alinhado em par)*/
         
-        jsr     trata_int3_handler
+        jsr     kb_put
         
         ADDQ.L  #4,%A7          /*; Limpa os 4 bytes da pilha!*/
 

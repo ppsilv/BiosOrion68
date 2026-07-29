@@ -12,6 +12,7 @@
 #include "diskio.h"
 #include "keycodes.h"
 #include "drv_uart.h"
+#include "drv_kbd.h"
 
 #define MAXARGS 40
 
@@ -68,10 +69,11 @@ int getline(char *line, int linesize)
 
     if (count < linesize - 1)
     {
-        uint8_t ch; // = get_key();
-        while(kb_get(&ch)==false);
+        uint16_t ch = get_char();
+        //uint8_t ch = get_key(); //le da uart 0
+        //while(kb_get(&ch)==false); //le do teclado ps2
         
-        putchar(ch);
+        //putchar(ch);
        // printf("%02X",ch);
         switch(ch)
         {

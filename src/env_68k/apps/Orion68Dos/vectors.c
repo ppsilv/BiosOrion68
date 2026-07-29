@@ -51,7 +51,7 @@ unsigned long get_system_tick(void) {
     
     return tick;
 }
-
+/*
 void trata_int3_handler(uint8_t tecla){
     //temque ler os dado do teclado e por no buffer circular
     // 1. Lê o byte (essa leitura DEVE limpar a linha INT3 no Pico/Hardware)
@@ -61,7 +61,7 @@ void trata_int3_handler(uint8_t tecla){
 //    kb_put('X');
 //    printf("%02x",tecla);
 }
-
+*/
 /*
 #include "io.h"
 #include "keyboard.h"

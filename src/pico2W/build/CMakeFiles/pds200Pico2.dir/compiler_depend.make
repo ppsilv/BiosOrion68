@@ -12526,7 +12526,6 @@ CMakeFiles/pds200Pico2.dir/pds200.c.o: /home/pdsilva/project/Orion68/src/pico2W/
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
   orion_bus.pio.h \
-  orion_bus1.pio.h \
   /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h \
   /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.h \
   /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h
@@ -12729,8 +12728,6 @@ CMakeFiles/pds200Pico2.dir/ringbuffer.c.o: /home/pdsilva/project/Orion68/src/pic
 /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.c:
 
 /home/pdsilva/project/Orion68/src/pico2W/pds200_1.c:
-
-orion_bus1.pio.h:
 
 /home/pdsilva/project/Orion68/src/pico2W/pds200.c:
 

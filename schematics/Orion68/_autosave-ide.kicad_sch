@@ -3338,7 +3338,7 @@
 		(uuid "237cafed-677d-446a-9de6-c872a030a84d")
 	)
 	(label "{slash}CS_MULTIIO"
-		(at 41.91 38.1 180)
+		(at 41.91 33.02 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3498,7 +3498,7 @@
 		(uuid "62cb6dd1-e655-4690-b044-29e31f4b823c")
 	)
 	(label "{slash}DTACK_SMIO"
-		(at 41.91 33.02 180)
+		(at 41.91 38.1 180)
 		(effects
 			(font
 				(size 1.27 1.27)

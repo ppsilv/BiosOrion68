@@ -19,6 +19,7 @@ void kb_init(void) {
 
 // 1. Escreve no Buffer (Chamar dentro da trata_int3_handler)
 bool kb_put(uint8_t data) {
+    
     uint8_t next_head = kb_buf.head + 1; // 255 + 1 vira 0 automaticamente!
 
     // Se o próximo head alcançar o tail, o buffer encheu

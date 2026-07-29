@@ -201,9 +201,7 @@ void ps2_ihandler(void) {
                 }
                 if (ascii) {
                     printf("   putting[%c]    ",ascii);
-                    //kb_put(ascii);
-                    //bus_pulse_byte(pio0,0,ascii);
-                     pio_sm_put(pio0, 0, ascii);
+                    pio_sm_put(pio0, 1, ascii);
                     kbd_int_on();
                 }
             }
