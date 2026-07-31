@@ -13,6 +13,7 @@
 #include "keycodes.h"
 #include "drv_uart.h"
 #include "drv_kbd.h"
+#include "../kbd/ringbuffer.h"
 
 #define MAXARGS 40
 
@@ -52,7 +53,13 @@ const cmd_entry_t g_cmd_table[] = {
     {"rs",          1,  0, &do_readsect,    "Read a sector X from disk..." },
     {"writesect",   1,  0, &do_writesect,   "Write a sector X from disk..." },
     {"writemem1",   2,  0, &do_writemem1,   "Write a memory location" },
-    {"tst",         1,  1, &do_tstkbd,      "Testa conversa com o picow..." },
+    {"tst",         2,  2, &do_tstkbd,      "Testa conversa com o picow...\n" \ 
+                                            "\tcmd=end.Reg dado=0 => chama receber_arquivo_do_pico\n" \
+                                            "\tcmd=0x0A dado=sec.low => chama send_sector_low\n" \ 
+                                            "\tcmd=0x0B dado=sec. high => chama send_sector_high\n" \
+                                            "\tcmd=0x0C dado=0 => chama send_read_cmd\n" \
+                                            "\tcmd=0x0D dado=0 => chama read_sector\n"
+                                            "\tcmd-0xff dado=0 => chama read_kbd"},
 
     {0, 0, 0, 0, 0 }
 };
@@ -60,7 +67,7 @@ const cmd_entry_t g_cmd_table[] = {
 #define NUM_FILE_EXTENSIONS     2
 static const char *orion_extensions[NUM_FILE_EXTENSIONS] = {".elf", ".bat" };
 
-
+extern uint8_t keyboard_handler(uint8_t scancode);
 int getline(char *line, int linesize)
 {
 	static int count = 0;
@@ -69,12 +76,19 @@ int getline(char *line, int linesize)
 
     if (count < linesize - 1)
     {
-        uint16_t ch = get_char();
-        //uint8_t ch = get_key(); //le da uart 0
-        //while(kb_get(&ch)==false); //le do teclado ps2
+        uint8_t ch;
+        bool res=true;
+        while ( res == true ){      //le do teclado ps2
+            res = ring_buf_is_empty();
+        }
+        ch = ring_buf_get();    //le do teclado ps2
+        if( ch == 0x11 || ch == 0x12){
+            keyboard_handler(ch) ;
+            return 0;
+        }
+        //uint16_t ch = get_char();   //le do teclado USB que no futuro também estará pondo seus caracteres no ringbuffer
+        //ch = get_key(); //le da uart 0
         
-        //putchar(ch);
-       // printf("%02X",ch);
         switch(ch)
         {
             case PS2_BACKSPACE:
@@ -122,8 +136,7 @@ int getline(char *line, int linesize)
             case PS2_F12: break;
             case PS2_SCROLL: break;
             default:
-                if (ch >= ' ')
-                {
+                if (ch >= ' '){
                     line[count++] = ch;
                     putchar(ch);
                 }

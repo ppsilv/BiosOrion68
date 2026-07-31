@@ -19,7 +19,7 @@
 .extern systemTick
 .extern cconin
 .extern cconout
-.extern kb_put
+.extern ring_buf_put
 
 /* =========================================================================
    1. EXCEÇÕES E INTERRUPÇÕES QUE NÃO FAZEM NADA (STUBS)
@@ -86,7 +86,7 @@ Int3Handler:
         ANDI.L  #0x000000FF,%D0  /*; Limpa a parte alta (garante o unsigned)*/
         MOVE.L  %D0, -(%A7)       /*; Empilha 4 bytes (mantém A7 alinhado em par)*/
         
-        jsr     kb_put
+        jsr     ring_buf_put
         
         ADDQ.L  #4,%A7          /*; Limpa os 4 bytes da pilha!*/
 

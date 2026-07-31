@@ -24,10 +24,8 @@ SRCS = orion68.c vectors.c console.c \
 ./shell/commands.c \
 ./shell/decodecmd.c \
 ./shell/crc32.c \
-./shell/ringbuffer.c \
+./shell/cmd_repeat.c \
 ./kbd/drv_kbd.c \
-./kbd/keycodes_ps2.c \
-./kbd/kbdps2.c \
 ./kbd/ringbuffer.c \
 ./rtc/rp5c01a.c \
 ./picoVga/drv_picoVga.c \

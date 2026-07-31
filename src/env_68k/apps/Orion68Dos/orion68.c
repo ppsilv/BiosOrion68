@@ -14,6 +14,7 @@
 #include "sysflags.h"
 #include "orion68.h"
 #include "drv_ps2.h"
+#include "kbd/ringbuffer.h"
 
 // Aqui a memória é alocada de verdade!
 SystemFlags sys_flags;
@@ -132,7 +133,6 @@ void main() {
     ch9350_shut_up();
     delay10ms(10);  //100ms    
     //set_console_input(get_char);
-    set_console_input(ps2_getchar);
 
     picovga_set_color(RED,BLACK);
     printf("%s",MsgOrionInit);
@@ -197,7 +197,7 @@ void main() {
     printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
 */
 
-
+    ring_buf_init();
     //********************************************************
     //T H I S   M U S T   B E   T H E  L A S T    T H I N G 
     display_prompt();

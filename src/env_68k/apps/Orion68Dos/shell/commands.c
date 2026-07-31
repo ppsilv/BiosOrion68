@@ -15,6 +15,7 @@
 #include "srecord.h"
 #include "diskio.h"
 #include "drv_uart.h"
+#include "picow.h"
 
 
 extern FATFS FatFs;      // Objeto de controle do sistema de arquivos (Work area)
@@ -668,9 +669,32 @@ extern char teste01();
 extern uint16_t receber_arquivo_do_pico(uint8_t *destino_ram,uint8_t reg);
 void do_tstkbd(int argc, char *argv[])
 {
-    uint8_t count =(uint8_t ) strtoul((const char *)argv[0], NULL, 16);
-    uint16_t res = receber_arquivo_do_pico((uint8_t *)0x82000,count);
-    printf("receber_arquivo_do_pico retornou[%04x]\n",res); 
+    uint8_t cmd =(uint8_t ) strtoul((const char *)argv[0], NULL, 16);
+    uint8_t data=(uint8_t ) strtoul((const char *)argv[1], NULL, 16);
+
+
+
+    switch(cmd){
+        case 0xFF:
+                
+                break;
+        case  SECTOR_LOW_REG:
+                send_sector_low(data);
+                break;
+        case  SECTOR_HIGH_REG:
+                send_sector_high(data);
+                break;
+        case  SECTOR_SEC_LOAD_REG:
+                send_read_cmd();
+                break;
+        case  SECTOR_READ_REG:
+                read_sector((uint8_t *)0x82000);
+                dump_memory((void*)0x82000, 256);
+                break;
+        default:        
+                uint16_t res = receber_arquivo_do_pico((uint8_t *)0x82000,cmd);
+                printf("receber_arquivo_do_pico retornou[%04x]\n",res); 
+    }
 }
 unsigned long get_system_tick(void) ;
 void do_uptime(int argc, char *argv[])

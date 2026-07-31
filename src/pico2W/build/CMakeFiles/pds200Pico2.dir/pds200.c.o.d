@@ -80,69 +80,6 @@ CMakeFiles/pds200Pico2.dir/pds200.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/include/pico/cyw43_arch.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_config.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/include/cyw43_configport.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/netif.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/opt.h \
- /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/debug.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/include/arch/cc.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/time.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_timeval.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/types.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/endian.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_endian.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/select.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_sigset.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/timespec.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_timespec.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_pthreadtypes.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/sched.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/types.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/time.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/time.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_time.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_rand/include/pico/rand.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/limits.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/limits.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/syslimits.h \
- /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/ctype.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/err.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/ip_addr.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/def.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/ip4_addr.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/ip6_addr.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/def.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/pbuf.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/stats.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/mem.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/memp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/priv/memp_std.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/priv/memp_priv.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/priv/mem_priv.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/dhcp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/udp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/ip.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/ip4.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/ip4.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/ip6.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/ip.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/udp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/acd.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/etharp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/ethernet.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/ieee.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/etharp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/acd.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ll.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_country.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_async_context/include/pico/async_context.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/include/pico/cyw43_arch/arch_threadsafe_background.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/include/pico/multicore.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sync.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
@@ -151,10 +88,6 @@ CMakeFiles/pds200Pico2.dir/pds200.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/tcp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/tcpbase.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/icmp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/icmp.h \
  /home/pdsilva/project/Orion68/src/pico2W/build/orion_bus.pio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pio.h \
@@ -171,4 +104,12 @@ CMakeFiles/pds200Pico2.dir/pds200.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma_debug.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/include/hardware/vreg.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/powman.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/powman.h
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/powman.h \
+ /home/pdsilva/project/Orion68/src/pico2W/sd.h \
+ /home/pdsilva/project/Orion68/src/pico2W/./FatFs_SPI/sd_driver/sd_card.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
+ /home/pdsilva/project/Orion68/src/pico2W/./FatFs_SPI/sd_driver/spi.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/include/hardware/spi.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/spi.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/spi.h

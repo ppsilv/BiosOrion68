@@ -403,6 +403,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o.d"
   "CMakeFiles/pds200Pico2.dir/ringbuffer.c.o"
   "CMakeFiles/pds200Pico2.dir/ringbuffer.c.o.d"
+  "CMakeFiles/pds200Pico2.dir/sd.c.o"
+  "CMakeFiles/pds200Pico2.dir/sd.c.o.d"
   "pds200Pico2.bin"
   "pds200Pico2.dis"
   "pds200Pico2.elf"

@@ -4,6 +4,7 @@
 #include "orion_bus.pio.h" // Cabeçalho gerado automaticamente pelo pioasm
 #include "ringbuffer.h"
 #include "ps2_keyboard.h"
+#include "sd.h"
 
 extern uint8_t *arquivo_buffer;
 extern bool arquivo_pronto;
@@ -13,6 +14,8 @@ extern uint8_t arquivo_tamL;
 extern uint32_t arquivo_tamanho;
 extern uint32_t ponteiro_leitura;
 extern uint32_t arquivo_crc32;
+
+uint16_t ponteiro_leitura_setor = 0;
 
 // Definições de bits para o status_registro (Reg 0x01)
 #define STATUS_BUSY 0x00
@@ -32,7 +35,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
 
         pio_sm_clear_fifos(pio, sm);
         uint8_t byte_resposta = 0x0;
-        printf("operacao[%02x] sm[%02x]  reg[%02x]  \n",operacao,sm,reg);
+        //printf("operacao[%02x] sm[%02x]  reg[%02x]  \n",operacao,sm,reg);
         if ( arquivo_pronto == 0){
             byte_resposta = 0x0;
         }else if ( ponteiro_leitura >= arquivo_tamanho ) {
@@ -86,6 +89,50 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                 break;
             case 0x09:
                 return;
+            case 0x0A:      //sector low
+                printf("sector low [%d]\n",dado_m68k);
+                SECTOR_DEF * sd0 = get_sdcard_instance();
+                sd0->sector = dado_m68k;
+                ponteiro_leitura_setor = 0;
+                return;
+            case 0x0B:      //sector high
+                printf("sector high[%d]\n",dado_m68k);
+                sd0 = get_sdcard_instance();
+                sd0->sector |= (dado_m68k << 8)&0xFF00;
+                ponteiro_leitura_setor = 0;
+                return;
+            case 0x0C:     //read sector
+                sd0 = get_sdcard_instance();
+                printf("sector cmd load secotr[%04x] [%02x]\n", sd0->sector,dado_m68k);
+                if (sd0->card){    // Garante que o cartão inicializou com sucesso
+                    printf("Calling read_blocks\n");
+                    sd0->card->read_blocks(sd0->card, sd0->buffer, sd0->sector, 1);
+                }
+                printf("Sector %d:\n",sd0->sector);
+                printf("00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F|0123456789ABCDEF\n");
+                printf("-----------------------------------------------|----------------\n");
+                for (int i = 0; i < 512; i++)
+                {
+                    printf("%2.2x ", sd0->buffer[i]);
+
+                    if ((i % 16) == 15){
+                        for(int j=(i-15);j<=i;j++){
+                            if (sd0->buffer[j] > 0x20 && sd0->buffer[j] < 0x80 )
+                                printf("%c", sd0->buffer[j] );
+                            else    
+                                printf("." );
+                        }
+                        printf("\n");
+                    }
+                }                
+                printf("Returning\n");
+                return;
+            case 0x0D:      //get sector 
+                sd0 = get_sdcard_instance();
+                byte_resposta = sd0->buffer[ponteiro_leitura_setor];
+                printf("%2.2x|",byte_resposta);
+                ponteiro_leitura_setor++;
+                break;
             default:
                 byte_resposta = 0xFF;
                 break;

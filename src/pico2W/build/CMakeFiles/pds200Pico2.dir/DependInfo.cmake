@@ -375,6 +375,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pdsilva/project/Orion68/src/pico2W/pds200_1.c" "CMakeFiles/pds200Pico2.dir/pds200_1.c.o" "gcc" "CMakeFiles/pds200Pico2.dir/pds200_1.c.o.d"
   "/home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.c" "CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o" "gcc" "CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o.d"
   "/home/pdsilva/project/Orion68/src/pico2W/ringbuffer.c" "CMakeFiles/pds200Pico2.dir/ringbuffer.c.o" "gcc" "CMakeFiles/pds200Pico2.dir/ringbuffer.c.o.d"
+  "/home/pdsilva/project/Orion68/src/pico2W/sd.c" "CMakeFiles/pds200Pico2.dir/sd.c.o" "gcc" "CMakeFiles/pds200Pico2.dir/sd.c.o.d"
   "/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp" "CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o" "gcc" "CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o.d"
   )
 

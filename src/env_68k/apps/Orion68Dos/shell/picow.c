@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "timers.h"
 #include "orion68.h"
+#include "picow.h"
 
 // Definição dos registradores mapeados na memória do m68k
 // Usamos 'volatile uint8_t' para obrigar o m68k a ler o hardware toda vez
@@ -85,4 +86,46 @@ uint16_t receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     printf("Orion68: crc32 calculado[%08X]\n", arq_crc);
 
     return tamanho_arquivo;
+}
+
+//#define SECTOR_LOW_REG         0x0A
+//#define SECTOR_HIGH_REG        0x0B
+//#define SECTOR_SEC_LOAD_REG    0x0C
+//#define SECTOR_READ_REG        0x0D
+
+#define MIO_BASE_ADDRESS    0xFF9100
+#define MIO_SECTOR_LOW_REG      (*(volatile uint8_t *)(MIO_BASE_ADDRESS + (SECTOR_LOW_REG*2) +1))
+#define MIO_SECTOR_HIGH_REG     (*(volatile uint8_t *)(MIO_BASE_ADDRESS + (SECTOR_HIGH_REG*2)+1))
+#define MIO_SECTOR_SEC_LOAD_REG (*(volatile uint8_t *)(MIO_BASE_ADDRESS + (SECTOR_SEC_LOAD_REG*2)+1))
+//#define MIO_SECTOR_READ_REG     (*(volatile uint8_t *)(MIO_BASE_ADDRESS + (SECTOR_READ_REG*2)+1))
+#define MIO_SECTOR_READ_REG     (*(volatile uint8_t *)0xFF911B)
+
+//#define MIO_BASE_ADDRESS    0xFF9100
+/* Helper macro: computes address, casts, dereferences — write once, reuse for every register */
+//#define MIO_REG(offset)  (*(volatile uint8_t *)(MIO_BASE_ADDRESS + ((offset) * 2) + 1))
+//#define MIO_SECTOR_LOW_REG       MIO_REG(SECTOR_LOW_REG)
+//#define MIO_SECTOR_HIGH_REG      MIO_REG(SECTOR_HIGH_REG)
+//#define MIO_SECTOR_SEC_LOAD_REG  MIO_REG(SECTOR_SEC_LOAD_REG)
+//#define MIO_SECTOR_READ_REG      MIO_REG(SECTOR_READ_REG)
+
+void send_sector_low(uint8_t sectorl){
+    printf("Sending low register value\n");
+    MIO_SECTOR_LOW_REG = sectorl;
+}
+void send_sector_high(uint8_t sectorh){
+    printf("Sending high register value\n");
+    MIO_SECTOR_HIGH_REG = sectorh;
+}
+void send_read_cmd(){
+    volatile uint8_t dummy=0;
+    printf("Sending sector load command value\n");
+    MIO_SECTOR_SEC_LOAD_REG=0xA5;
+}
+void read_sector(uint8_t *destino_ram){
+    printf("Reading sector...to [%04x]\n",destino_ram);
+    for (uint16_t i = 0; i < 512; i++) {       
+        destino_ram[i] = MIO_SECTOR_READ_REG;
+        printf("%02x|",destino_ram[i]);
+        _delay_ms();
+    }    
 }

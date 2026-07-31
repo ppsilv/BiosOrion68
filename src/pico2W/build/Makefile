@@ -5028,6 +5028,30 @@ ringbuffer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/ringbuffer.c.s
 .PHONY : ringbuffer.c.s
 
+sd.o: sd.c.o
+.PHONY : sd.o
+
+# target to build an object file
+sd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/sd.c.o
+.PHONY : sd.c.o
+
+sd.i: sd.c.i
+.PHONY : sd.i
+
+# target to preprocess a source file
+sd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/sd.c.i
+.PHONY : sd.c.i
+
+sd.s: sd.c.s
+.PHONY : sd.s
+
+# target to generate assembly for a file
+sd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/sd.c.s
+.PHONY : sd.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -5645,6 +5669,9 @@ help:
 	@echo "... ringbuffer.o"
 	@echo "... ringbuffer.i"
 	@echo "... ringbuffer.s"
+	@echo "... sd.o"
+	@echo "... sd.i"
+	@echo "... sd.s"
 .PHONY : help
 
 

@@ -3,37 +3,19 @@
 
 #include "orion68.h"
 
-typedef struct ring_buffer
-{
-	uint8_t 			*buffer;
-	volatile uint16_t 	head;
-	volatile uint16_t 	tail;
-	volatile uint16_t 	length;
+#define RING_BUFFER_SIZE 256 // Deve ser 256 para o wrap-around automático do uint8_t
+
+typedef struct ring_buffer{
+	uint8_t             *buffer;
+	volatile uint8_t     head;   // só a ISR (put) escreve
+	volatile uint8_t     tail;   // só o loop principal (get) escreve
 } ringbuffer_t;
 
-void ring_buf_init(ringbuffer_t *rb, uint8_t *buf_data, uint16_t size);
-uint8_t ring_buf_get(ringbuffer_t *rb);
-void ring_buf_put(ringbuffer_t *rb, const uint8_t c);
 
-static inline uint8_t is_ring_buf_full(ringbuffer_t *rb)
-{
-	uint16_t head = rb->head;
-	uint16_t tail = rb->tail;
-	return (((head + 1) % rb->length) == tail);
-}
-
-static inline uint8_t is_ring_buf_empty(ringbuffer_t *rb)
-{
-	uint16_t head = rb->head;
-	uint16_t tail = rb->tail;
-	return (head == tail);
-}
-
-static inline uint16_t ring_buf_avail(ringbuffer_t *rb)
-{
-	uint16_t head = rb->head;
-	uint16_t tail = rb->tail;
-	return rb->length - (head - tail);
-}
+void    ring_buf_init(void);
+uint8_t ring_buf_get(void);
+void    ring_buf_put(const uint8_t c);
+uint8_t ring_buf_is_empty(void);
+uint8_t ring_buf_is_full(void);
 
 #endif

@@ -89,4 +89,5 @@ CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h
+ /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
+ /home/pdsilva/project/Orion68/src/pico2W/sd.h
