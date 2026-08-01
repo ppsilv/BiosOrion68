@@ -13,7 +13,7 @@
 // --------- //
 
 #define orion_bus_wrap_target 0
-#define orion_bus_wrap 23
+#define orion_bus_wrap 24
 #define orion_bus_pio_version 1
 
 static const uint16_t orion_bus_program_instructions[] = {
@@ -27,7 +27,7 @@ static const uint16_t orion_bus_program_instructions[] = {
     0x400e, //  6: in     pins, 14
     0x8000, //  7: push   noblock
     0xe000, //  8: set    pins, 0
-    0x0012, //  9: jmp    18
+    0x0013, //  9: jmp    19
     0xe021, // 10: set    x, 1
     0x4022, // 11: in     x, 2
     0x400e, // 12: in     pins, 14
@@ -35,20 +35,21 @@ static const uint16_t orion_bus_program_instructions[] = {
     0x80a0, // 14: pull   block
     0xa062, // 15: mov    pindirs, y
     0x6008, // 16: out    pins, 8
-    0xe000, // 17: set    pins, 0
-    0xbf42, // 18: nop                           [31]
-    0x2092, // 19: wait   1 gpio, 18
-    0xe001, // 20: set    pins, 1
-    0xa0e3, // 21: mov    osr, null
-    0xa067, // 22: mov    pindirs, osr
-    0xe081, // 23: set    pindirs, 1
+    0xb042, // 17: nop                           [16]
+    0xe000, // 18: set    pins, 0
+    0xaf42, // 19: nop                           [15]
+    0x2092, // 20: wait   1 gpio, 18
+    0xe001, // 21: set    pins, 1
+    0xa0e3, // 22: mov    osr, null
+    0xa067, // 23: mov    pindirs, osr
+    0xe081, // 24: set    pindirs, 1
             //     .wrap
 };
 
 #if !PICO_NO_HARDWARE
 static const struct pio_program orion_bus_program = {
     .instructions = orion_bus_program_instructions,
-    .length = 24,
+    .length = 25,
     .origin = -1,
     .pio_version = orion_bus_pio_version,
 #if PICO_PIO_VERSION > 0

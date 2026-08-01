@@ -27,11 +27,11 @@ m68k_leitura:
 
     mov pindirs, y        ; Ativa SAÍDA no barramento (D0-D7) mantendo GPIO 14 como saída
     out pins, 8           ; Coloca o dado no barramento
-
+    nop [16]
     set pins, 0           ; /DTACK (GPIO 14) = 0 (Informa ao 68k que o dado está pronto no barramento)
 
 fim_ciclo:
-    nop[31]
+    nop[15]
     wait 1 gpio 18        ; Segura até /CS=1
     set pins, 1           ; /DTACK (GPIO 14) = 1 (Volta para inativo após a subida do /CS)
 

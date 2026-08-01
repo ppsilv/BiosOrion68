@@ -22,7 +22,7 @@ uint16_t ponteiro_leitura_setor = 0;
 #define STATUS_READY 0x01
 #define OPER_ESCRITA    0x00
 #define OPER_LEITURA    0x01
-
+int i=0,j=0;
 void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
     if (!pio_sm_is_rx_fifo_empty(pio, sm)) {
 
@@ -130,7 +130,12 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
             case 0x0D:      //get sector 
                 sd0 = get_sdcard_instance();
                 byte_resposta = sd0->buffer[ponteiro_leitura_setor];
-                printf("%2.2x|",byte_resposta);
+                //printf("%02x|",byte_resposta);
+                //i++;
+                //if( i == 16){
+                //    i=0;
+                //    printf("\n");
+                //}
                 ponteiro_leitura_setor++;
                 break;
             default:
@@ -139,7 +144,12 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
         }
         if( operacao == OPER_LEITURA ){
             pio_sm_put(pio, sm, byte_resposta);
-            //printf("Resposta [%c]\n",byte_resposta);
+            printf("%02x|",byte_resposta);
+            i++;
+            if( i == 16){
+                i=0;
+                printf("\n");
+            }
         }
         //sio_hw->gpio_clr = (1 << 19);
     }
