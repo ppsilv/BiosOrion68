@@ -667,16 +667,19 @@ void do_time(int argc, char *argv[])
 extern void main_teste_teclado(void); 
 extern char teste01();
 extern uint16_t receber_arquivo_do_pico(uint8_t *destino_ram,uint8_t reg);
+extern uint16_t receber_setor_do_pico(uint8_t *destino_ram, uint8_t preg);
+
 void do_tstkbd(int argc, char *argv[])
 {
     uint8_t cmd =(uint8_t ) strtoul((const char *)argv[0], NULL, 16);
     uint8_t data=(uint8_t ) strtoul((const char *)argv[1], NULL, 16);
 
-
-
     switch(cmd){
+        case 0x01:
+                uint16_t res = receber_setor_do_pico((uint8_t *)0x82000,cmd);
+                printf("receber_setor_do_pico retornou[%04x]\n",res); 
+                break;
         case 0xFF:
-                
                 break;
         case  SECTOR_LOW_REG:
                 send_sector_low(data);
@@ -692,7 +695,7 @@ void do_tstkbd(int argc, char *argv[])
                 dump_memory((void*)0x82000, 256);
                 break;
         default:        
-                uint16_t res = receber_arquivo_do_pico((uint8_t *)0x82000,cmd);
+                res = receber_arquivo_do_pico((uint8_t *)0x82000,cmd);
                 printf("receber_arquivo_do_pico retornou[%04x]\n",res); 
     }
 }
