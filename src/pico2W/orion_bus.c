@@ -14,7 +14,6 @@ extern uint8_t arquivo_tamL;
 extern uint32_t arquivo_tamanho;
 extern uint32_t ponteiro_leitura;
 extern uint32_t arquivo_crc32;
-
 uint16_t ponteiro_leitura_setor = 0;
 
 // Definições de bits para o status_registro (Reg 0x01)
@@ -23,6 +22,9 @@ uint16_t ponteiro_leitura_setor = 0;
 #define OPER_ESCRITA    0x00
 #define OPER_LEITURA    0x01
 int i=0,j=0;
+
+uint32_t crc32_calculate(const uint8_t *buffer, size_t length) ;
+
 void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
     if (!pio_sm_is_rx_fifo_empty(pio, sm)) {
 
@@ -90,42 +92,21 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
             case 0x09:
                 return;
             case 0x0A:      //sector low
-                printf("sector low [%d]\n",dado_m68k);
                 SECTOR_DEF * sd0 = get_sdcard_instance();
                 sd0->sector = dado_m68k;
                 ponteiro_leitura_setor = 0;
                 return;
             case 0x0B:      //sector high
-                printf("sector high[%d]\n",dado_m68k);
                 sd0 = get_sdcard_instance();
                 sd0->sector |= (dado_m68k << 8)&0xFF00;
                 ponteiro_leitura_setor = 0;
                 return;
             case 0x0C:     //read sector
                 sd0 = get_sdcard_instance();
-                printf("sector cmd load secotr[%04x] [%02x]\n", sd0->sector,dado_m68k);
                 if (sd0->card){    // Garante que o cartão inicializou com sucesso
-                    printf("Calling read_blocks\n");
                     sd0->card->read_blocks(sd0->card, sd0->buffer, sd0->sector, 1);
                 }
-                printf("Sector %d:\n",sd0->sector);
-                printf("00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F|0123456789ABCDEF\n");
-                printf("-----------------------------------------------|----------------\n");
-                for (int i = 0; i < 512; i++)
-                {
-                    printf("%2.2x ", sd0->buffer[i]);
-
-                    if ((i % 16) == 15){
-                        for(int j=(i-15);j<=i;j++){
-                            if (sd0->buffer[j] > 0x20 && sd0->buffer[j] < 0x80 )
-                                printf("%c", sd0->buffer[j] );
-                            else    
-                                printf("." );
-                        }
-                        printf("\n");
-                    }
-                }                
-                printf("Returning\n");
+                arquivo_crc32 = crc32_calculate((const uint8_t *)sd0->buffer, 512);
                 return;
             case 0x0D:      //get sector 
                 sd0 = get_sdcard_instance();
@@ -144,12 +125,12 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
         }
         if( operacao == OPER_LEITURA ){
             pio_sm_put(pio, sm, byte_resposta);
-            printf("%02x|",byte_resposta);
-            i++;
-            if( i == 16){
-                i=0;
-                printf("\n");
-            }
+//            printf("%02x|",byte_resposta);
+//            i++;
+//            if( i == 16){
+//                i=0;
+//                printf("\n");
+//            }
         }
         //sio_hw->gpio_clr = (1 << 19);
     }

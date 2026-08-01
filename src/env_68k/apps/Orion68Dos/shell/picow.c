@@ -130,6 +130,18 @@ void read_sector(uint8_t *destino_ram){
         _delay_ms();
     }    
 }
+uint32_t get_crc(){
+    uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);
+    printf("arq_crc_rec3 [%08X]\n",arq_crc_rec);
+    arq_crc_rec |= ((uint32_t)PICO_CRC_REG2 << 16) & 0x00FF0000;
+    printf("arq_crc_rec2 [%08X]\n",arq_crc_rec);
+    arq_crc_rec |= ((uint32_t)PICO_CRC_REG1 << 8)  & 0x0000FF00;
+    printf("arq_crc_rec1 [%08X]\n",arq_crc_rec);
+    arq_crc_rec |= (uint32_t)PICO_CRC_REG0 & 0xFF;
+    printf("arq_crc_rec0 [%08X]\n",arq_crc_rec);
+    return arq_crc_rec;
+}
+
 
 uint16_t receber_setor_do_pico(uint8_t *destino_ram, uint8_t preg) {
 //    volatile uint8_t *reg = (volatile uint8_t *)(0xFF9100 + preg);
@@ -167,18 +179,11 @@ uint16_t receber_setor_do_pico(uint8_t *destino_ram, uint8_t preg) {
         _delay_ms();
     }
     delay10ms(1);
-//    uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);
-//    printf("arq_crc_rec3 [%08X]\n",arq_crc_rec);
-//    arq_crc_rec |= ((uint32_t)PICO_CRC_REG2 << 16) & 0x00FF0000;
-//    printf("arq_crc_rec2 [%08X]\n",arq_crc_rec);
-//    arq_crc_rec |= ((uint32_t)PICO_CRC_REG1 << 8)  & 0x0000FF00; // Corrigido: 0x0000FF00
-//    printf("arq_crc_rec1 [%08X]\n",arq_crc_rec);
-//    arq_crc_rec |= (uint32_t)PICO_CRC_REG0 & 0xFF;
-//    printf("arq_crc_rec0 [%08X]\n",arq_crc_rec);
-//
-//    printf("Orion68: crc32 recebido[%08X]\n", arq_crc_rec);
-//    uint32_t arq_crc = crc32_calculate((const uint8_t *)destino_ram, tamanho_arquivo);
-//    printf("Orion68: crc32 calculado[%08X]\n", arq_crc);
+    uint32_t arq_crc_rec = get_crc();
+
+    printf("Orion68: crc32 recebido[%08X]\n", arq_crc_rec);
+    uint32_t arq_crc = crc32_calculate((const uint8_t *)destino_ram, 512);
+    printf("Orion68: crc32 calculado[%08X]\n", arq_crc);
 
     return 512;
 }
