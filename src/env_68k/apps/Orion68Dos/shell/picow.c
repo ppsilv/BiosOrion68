@@ -29,7 +29,7 @@
  * @return uint16_t O tamanho do arquivo recebido (0 se não houver arquivo)
  */
  extern void _delay_ms();
-uint16_t receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
+bool receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     volatile uint8_t *reg = (volatile uint8_t *)(0xFF9100 + preg);
     printf("reg=[%08X]\n",reg);
     uint8_t status = PICO_STATUS_REG;
@@ -73,19 +73,19 @@ uint16_t receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     }
     delay10ms(1);
     uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);
-    printf("arq_crc_rec3 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec3 [%08X]\n",arq_crc_rec);
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG2 << 16) & 0x00FF0000;
-    printf("arq_crc_rec2 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec2 [%08X]\n",arq_crc_rec);
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG1 << 8)  & 0x0000FF00; // Corrigido: 0x0000FF00
-    printf("arq_crc_rec1 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec1 [%08X]\n",arq_crc_rec);
     arq_crc_rec |= (uint32_t)PICO_CRC_REG0 & 0xFF;
-    printf("arq_crc_rec0 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec0 [%08X]\n",arq_crc_rec);
 
     printf("Orion68: crc32 recebido[%08X]\n", arq_crc_rec);
     uint32_t arq_crc = crc32_calculate((const uint8_t *)destino_ram, tamanho_arquivo);
     printf("Orion68: crc32 calculado[%08X]\n", arq_crc);
 
-    return tamanho_arquivo;
+    return arq_crc_rec == arq_crc;
 }
 
 
@@ -132,48 +132,33 @@ void read_sector(uint8_t *destino_ram){
 }
 uint32_t get_crc(){
     uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);
-    printf("arq_crc_rec3 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec3 [%08X]\n",arq_crc_rec);
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG2 << 16) & 0x00FF0000;
-    printf("arq_crc_rec2 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec2 [%08X]\n",arq_crc_rec);
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG1 << 8)  & 0x0000FF00;
-    printf("arq_crc_rec1 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec1 [%08X]\n",arq_crc_rec);
     arq_crc_rec |= (uint32_t)PICO_CRC_REG0 & 0xFF;
-    printf("arq_crc_rec0 [%08X]\n",arq_crc_rec);
+    //printf("arq_crc_rec0 [%08X]\n",arq_crc_rec);
     return arq_crc_rec;
 }
 
 
-uint16_t receber_setor_do_pico(uint8_t *destino_ram, uint8_t preg) {
-//    volatile uint8_t *reg = (volatile uint8_t *)(0xFF9100 + preg);
-//    printf("reg=[%08X]\n",reg);
-//    uint8_t status = PICO_STATUS_REG;
-//    // 1. Polling: Aguarda até que o Pico mude o status para "HAS_FILE" (0x01)
-//    // Se o status for IDLE (0x00), o m68k fica preso aqui esperando o Wi-Fi
-//    while ( status == PICO_STATE_IDLE) {
-//        status = PICO_STATUS_REG;
-//    }
-//    // Se o Pico respondeu com algo diferente ou deu EOF direto, aborta
-//    if (status < 1 ) {
-//        return 0;
-//    }
-//    printf("Pico respondeu[%02x]\n",status);
+bool receber_setor_do_pico(uint8_t *destino_ram, uint16_t sector) {
 
-//    delay10ms(1);
-    // 2. Captura o tamanho do arquivo enviado pelo Pico (16 bits fatiados em 2 bytes)
     printf("Sending low register value\n");
-    MIO_SECTOR_LOW_REG = 0x00;
+    MIO_SECTOR_LOW_REG = sector & 0xFF;
     delay10ms(1);
 
     printf("Sending high register value\n");
-    MIO_SECTOR_HIGH_REG = 0x00;
+    MIO_SECTOR_HIGH_REG = (sector<<8);
     delay10ms(1);
     
     printf("Sending sector load command value\n");
-    MIO_SECTOR_SEC_LOAD_REG=0xA5;
+    MIO_SECTOR_SEC_LOAD_REG=0xA5; //dummy write
     delay10ms(1);
 
     printf("Reading file...\n");
-    // 3. Loop de leitura dos dados do arquivo
+
     for (uint16_t i = 0; i < 512; i++) {       
         destino_ram[i] = MIO_SECTOR_READ_REG; 
         _delay_ms();
@@ -185,5 +170,5 @@ uint16_t receber_setor_do_pico(uint8_t *destino_ram, uint8_t preg) {
     uint32_t arq_crc = crc32_calculate((const uint8_t *)destino_ram, 512);
     printf("Orion68: crc32 calculado[%08X]\n", arq_crc);
 
-    return 512;
+    return arq_crc_rec == arq_crc;
 }

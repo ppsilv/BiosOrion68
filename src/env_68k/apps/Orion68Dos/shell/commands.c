@@ -666,8 +666,8 @@ void do_time(int argc, char *argv[])
 }
 extern void main_teste_teclado(void); 
 extern char teste01();
-extern uint16_t receber_arquivo_do_pico(uint8_t *destino_ram,uint8_t reg);
-extern uint16_t receber_setor_do_pico(uint8_t *destino_ram, uint8_t preg);
+extern bool receber_arquivo_do_pico(uint8_t *destino_ram,uint8_t reg);
+extern bool receber_setor_do_pico(uint8_t *destino_ram, uint16_t sector);
 
 void do_tstkbd(int argc, char *argv[])
 {
@@ -676,8 +676,11 @@ void do_tstkbd(int argc, char *argv[])
 
     switch(cmd){
         case 0x01:
-                uint16_t res = receber_setor_do_pico((uint8_t *)0x82000,cmd);
-                printf("receber_setor_do_pico retornou[%04x]\n",res); 
+                bool res = receber_setor_do_pico((uint8_t *)0x82000,cmd);
+                if( res )
+                    printf("receber_setor_do_pico retornou[Success]\n"); 
+                else
+                    printf("receber_setor_do_pico retornou[Error]\n"); 
                 break;
         case 0xFF:
                 break;
@@ -696,7 +699,10 @@ void do_tstkbd(int argc, char *argv[])
                 break;
         default:        
                 res = receber_arquivo_do_pico((uint8_t *)0x82000,cmd);
-                printf("receber_arquivo_do_pico retornou[%04x]\n",res); 
+                if( res )
+                    printf("receber_arquivo_do_pico retornou[Success]\n"); 
+                else
+                    printf("receber_arquivo_do_pico retornou[Error]\n"); 
     }
 }
 unsigned long get_system_tick(void) ;
