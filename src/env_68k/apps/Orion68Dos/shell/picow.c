@@ -16,6 +16,10 @@
 #define PICO_CRC_REG1    (*(volatile uint8_t *)0xFF910D)
 #define PICO_CRC_REG0    (*(volatile uint8_t *)0xFF910F)
 
+#define PICO_SET_COLOR    (*(volatile uint8_t *)0xFF9127)
+#define PICO_WRITE_STR    (*(volatile uint8_t *)0xFF9129)
+#define PICO_WRITE_CH     (*(volatile uint8_t *)0xFF912B)
+
 // Estados do STATUS REGISTER que definimos na PIO do Pico
 #define PICO_STATE_IDLE       0x00
 #define PICO_STATE_HAS_FILE   0x01
@@ -171,4 +175,9 @@ bool receber_setor_do_pico(uint8_t *destino_ram, uint16_t sector) {
     printf("Orion68: crc32 calculado[%08X]\n", arq_crc);
 
     return arq_crc_rec == arq_crc;
+}
+
+
+void pico_write_ch(uint8_t ch){
+    PICO_WRITE_CH = ch;    
 }

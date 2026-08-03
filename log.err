@@ -1,3 +1,9 @@
+2026-08-02
+        Aquele problema atacou novamente, de uma hora para outra a placa simplesmente para de responder.
+        Eu fixei o SP stack pointer em 0xFFFF0 e aparentemente resolveu, falo aparentemente porque estou sem vídeo e aquele velho problema da serial continua agindo de vez em quando ela imprime a mensagem do bootstrap mas do programa C imprime caractere lixo. Estou para trocar essa 16C554 pela 16C550 mas esse é outro erro.
+        Então dessa vez parece que a memoria ram superior não está bom o aceso porque os primeiros 512 respondeu na hora.
+        TODO: Implementar teste de memoria boa ou ruim.
+
 2026-07-21
 Está tudo funcionando agora, o dado pedido é o dado recebido. SIMPLES ASSIM. o problema
 todo era a dupla leitura antiga e obsoleta do m68k uma vez que eu não ficava olhando para

@@ -37,7 +37,8 @@ void dump_memory(void * addr,int size);
 extern void xmodem_loader();
 extern uint32_t get_system_tick_nmi_safe(void);
 extern void listar_diretorio_raiz(void);
-
+extern void pico_write_ch(uint8_t ch);
+extern void UartWriteCh(uint8_t ch);
 
 typedef void (*ProgramaXModem)(void);
 
@@ -120,39 +121,43 @@ void rtc_inicializar(void);
 unsigned char ler_segundo();
 uint8_t rtc_read_config_byte(uint16_t endereco);
 void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
-
+void printString(char * str);
 
 void main() {
     //FRESULT fr;
     // Inicializa os hardwares normalmente
     // 1. Direciona o console para a PicoVGA
     // Basta alterar o ponteiro!
+    printString("PDS317 - Orion68 2026 V1.0\n");
+    pico_write_ch('A');
     m68k_enable_all_interrupts(); 
-    set_console_output(picovga_putchar);
+    set_console_output(UartWriteCh);
+    pico_write_ch('C');
     init_kbd();
     ch9350_shut_up();
     delay10ms(10);  //100ms    
     //set_console_input(get_char);
 
-    picovga_set_color(RED,BLACK);
-    printf("%s",MsgOrionInit);
+    //picovga_set_color(RED,BLACK);
+    //printf("%s",MsgOrionInit);
+    printString(MsgOrionInit);
+    //picovga_set_color(GREEN,BLACK);
 
-    picovga_set_color(GREEN,BLACK);
-    print_capslock();
-
-    delay10ms(100);  //10000ms    
+    delay10ms(10);  //10000ms    
     // uart1_init();
     // delay10ms(100);  //100ms    
     // uart2_init();
     // delay10ms(100);  //100ms    
     // uart3_init();
     // delay10ms(100);  //100ms    
+    pico_write_ch('D');
     crc32_init();
 #ifdef DEBUG_ON
     ata_read_identity();    
 #endif
     printf("Initializing IDE\n");
     do_ideinit(0,NULL);
+    pico_write_ch('E');
 
     printf("Initializing  RTC\n");
     rtc_inicializar();
@@ -196,11 +201,13 @@ void main() {
     printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
     printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
 */
+    pico_write_ch('F');
 
     ring_buf_init();
     //********************************************************
     //T H I S   M U S T   B E   T H E  L A S T    T H I N G 
     display_prompt();
+    pico_write_ch('G');
     while (1){
         if (getline(g_cmd_buffer, LINELEN) != -1) {
             execute_cmd(g_cmd_buffer);

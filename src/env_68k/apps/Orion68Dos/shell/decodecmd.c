@@ -56,11 +56,16 @@ const cmd_entry_t g_cmd_table[] = {
     {"tst",         2,  2, &do_tstkbd,      "Testa conversa com o picow...\n" \ 
                                             "\tcmd=0x00 dado=0 => chama receber_arquivo_do_pico\n" \
                                             "\tcmd=0x01 dado=0 => chama receber_setor_do_pico\n" \
+                                            "\tcmd=0x04 dado=0 => chama pico write screen\n" \
                                             "\tcmd=0x0A dado=sec.low => chama send_sector_low\n" \ 
                                             "\tcmd=0x0B dado=sec. high => chama send_sector_high\n" \
                                             "\tcmd=0x0C dado=0 => chama send_read_cmd\n" \
                                             "\tcmd=0x0D dado=0 => chama read_sector\n"
-                                            "\tcmd-0xff dado=0 => chama read_kbd"},
+                                            "\tcmd=0x10 dado=x => chama pico set color dado=cor\n" \
+                                            "\tcmd=0x11 dado=0 => chama pico write string\n" \
+                                            "\tcmd=0x12 dado=x => chama pico write char\n" \
+                                            "\tcmd-0xff dado=0 => chama read_kbd"
+                                            },
 
     {0, 0, 0, 0, 0 }
 };

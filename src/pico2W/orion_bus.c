@@ -119,6 +119,9 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                 //}
                 ponteiro_leitura_setor++;
                 break;
+            case 0x15:
+                printf("Chegou aqui: %c\n",dado_m68k);
+                break;                
             default:
                 byte_resposta = 0xFF;
                 break;

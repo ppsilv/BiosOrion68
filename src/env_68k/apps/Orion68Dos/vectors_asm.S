@@ -29,7 +29,7 @@ Svcaddress_err:
         /* Frame de bus/address error no 68000 tem 14 bytes (SR+PC+4 words extras).
            NUNCA fazer rte direto aqui -- desempilhar o frame inteiro e travar,
            já que não há retry de barramento implementado. */
-        ADDQ.L  #10,%A7        /* remove os 5 words extras (Format/Vector, Access Addr, IR, SW)
+        ADDA.L  #10,%A7        /* remove os 5 words extras (Format/Vector, Access Addr, IR, SW)
                                    deixando só SR+PC no topo, formato que RTE entende */
         /* opcional: acender um LED de diagnóstico específico de bus/address error aqui,
            antes de travar, pra diferenciar esse caso de um HALT genérico */

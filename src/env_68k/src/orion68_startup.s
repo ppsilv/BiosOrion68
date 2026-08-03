@@ -4,6 +4,8 @@
 .global UartWrCh
 .global uart0_initialize
 .global _delay_ms
+.global printString
+.global UartWriteCh
 
 .equ RHR, 0x01
 .equ THR, 0x01
@@ -12,6 +14,7 @@
 .equ LSR, 0x0B
 .equ DLL, 0x01
 .equ DLM, 0x03
+.equ WR_CHAR, 0xFF912B
 
 _vectors:
           .long    0x000FFFF0                   /*0x00000000*//* Pilha no topo real da RAM (ajuste se seu limite for outro) */
@@ -68,6 +71,10 @@ _start:
         ORI.W   #0x0700,%SR         /* Desabilita interrupções no boot */
         LEA     0x000FFFF0,%A7      /* Garante o ponteiro da pilha limpo */
 
+        MOVE.L  #3,%D1        /* espera 5 segundos */
+        JSR     delay_seconds
+
+        MOVE.B  #'1',WR_CHAR
 /*
 ; Busca de RAM para m68k (Orion68)
 ; Retorna em A0 o endereço onde a RAM termina.
@@ -78,6 +85,8 @@ FIND_RAM:
     MOVE.L  #0x00080000,%A0    /*; A0 = Endereço inicial da busca (Ajuste para o seu mapa)*/
     MOVE.L  #0x55AA55AA,%D1    /*; D1 = Padrão de teste (alternando 0s e 1s)*/
     MOVE.L  #0x00000400,%D2    /*; D2 = Incremento de salto (ex: 1KB)*/
+
+    MOVE.B  #'2',WR_CHAR
 
 .busca_loop:
     ADD.L   %D2,%A0            /*; Avança o ponteiro de memória*/
@@ -90,10 +99,14 @@ FIND_RAM:
     MOVE.L  %D0,(%A0)          /*; Restaura o dado original (é RAM válida)*/
     BRA.S   .busca_loop       /*; Repete para o próximo bloco*/
 
+    MOVE.B  #'3',WR_CHAR
+
 .fim_ram:
         /*; A0 contém o endereço do fim da RAM.*/
         MOVE.L  %A0,%A4
         /*; A4 contém o endereço do fim da RAM.*/
+
+    MOVE.B  #'4',WR_CHAR
 
 /********************************************/
 /* Clear the entire SRAM */
@@ -109,9 +122,13 @@ FIND_RAM:
         LEA     0x080000,%A0
         MOVE.L  %A4,(%A0)
 
-        MOVE.L  %A4,%D0
-        ANDI.L  #0xFFFFFFFC,%D0
-        MOVE.L  %D0,%A7
+        MOVE.B  #'5',WR_CHAR
+
+/*        MOVE.L  %A4,%D0
+//        ANDI.L  #0xFFFFFFFC,%D0
+//        MOVE.L  %D0,%A7
+*/
+    MOVE.B  #'6',WR_CHAR
 
 /********************************************/
 /* 2. Carrega seção .data da ROM para a RAM */
@@ -125,6 +142,8 @@ copy_data:
         bra.s   copy_data
 go_ahead:
 
+        MOVE.B  #'7',WR_CHAR
+
         /* Uart 0 init */
         LEA     0xFF4000,%A1
         move.b  #0x07,FCR(%a1)
@@ -133,14 +152,22 @@ go_ahead:
         move.b  #0x00,DLM(%A1)
         bclr.b  #0x07,LCR(%a1)
 
+        MOVE.B  #'8',WR_CHAR
+
         lea     bootstrap_string,%a0
         jsr     print_string
+
+        MOVE.B  #'9',WR_CHAR
 
         jsr     main
 
 .dead:
         bra.s   .dead
 
+.global UartWrCh
+
+UartWriteCh:
+        MOVE.B  7(%A7),%D0     /* pega o argumento (char) da pilha */
 UartWrCh:
         move.l  #0xFF4000,%A1
 .WaitTx:
@@ -176,11 +203,16 @@ uart1_initialize:
         bclr.b  #0x07,LCR(%a1)
         RTS
 
+
+printString:
+        MOVE.L  4(%A7),%A0     /* pega o 1º argumento da pilha (ponteiro da string) e põe em A0 */
+        MOVE.L  %A0,-(%A7)     /* preserva A0 original do chamador (é caller-saved, mas por segurança) */
+        ADDQ.L  #4,%A7
 print_string:
         move.b  (%A0)+,%d0
         beq     .end_print_string
         jsr     UartWrCh
-        jsr     PicoWrCh
+        /*jsr     PicoWrCh*/
         bra     print_string
 .end_print_string:
         RTS
@@ -236,6 +268,34 @@ DELAY_1MS_4MHZ:
     MOVE.L  (%A7)+,%D0
     RTS
 
+/*
+; ---------------------------------------------------------
+; DELAY_SECONDS: Gera um atraso de N segundos
+; Entrada: D1 = número de segundos (0 = retorna imediatamente)
+; Usa _delay_ms internamente (assume 16MHz, ajuste se mudar clock)
+; ---------------------------------------------------------
+*/
+delay_seconds:
+        MOVE.L  %D0,-(%A7)
+        MOVE.L  %D1,-(%A7)
+
+        TST.L   %D1
+        BEQ     .delay_seconds_done   /* se pediram 0 segundos, sai direto */
+
+.loop_outer:
+        MOVE.L  #550,%D0             /* 1000 x 1ms = 1 segundo */
+.loop_inner:
+        JSR     DELAY_1MS_8MHZ
+        SUBQ.L  #1,%D0
+        BNE     .loop_inner
+
+        SUBQ.L  #1,%D1
+        BNE     .loop_outer
+
+.delay_seconds_done:
+        MOVE.L  (%A7)+,%D1
+        MOVE.L  (%A7)+,%D0
+        RTS
 
 
 .section .text
