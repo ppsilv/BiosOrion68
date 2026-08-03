@@ -128,14 +128,17 @@ void main() {
     // Inicializa os hardwares normalmente
     // 1. Direciona o console para a PicoVGA
     // Basta alterar o ponteiro!
+    printString(MsgOrionInit);
     printString("PDS317 - Orion68 2026 V1.0\n");
     pico_write_ch('A');
     m68k_enable_all_interrupts(); 
+    printString("PDS317 - Interrupts enabled\n");
     set_console_output(UartWriteCh);
+    printString("PDS317 - Console seted\n");
     pico_write_ch('C');
-    init_kbd();
-    ch9350_shut_up();
-    delay10ms(10);  //100ms    
+    //init_kbd();
+    //ch9350_shut_up();
+   //delay10ms(10);  //100ms    
     //set_console_input(get_char);
 
     //picovga_set_color(RED,BLACK);
@@ -143,7 +146,7 @@ void main() {
     printString(MsgOrionInit);
     //picovga_set_color(GREEN,BLACK);
 
-    delay10ms(10);  //10000ms    
+  //  delay10ms(10);  //10000ms    
     // uart1_init();
     // delay10ms(100);  //100ms    
     // uart2_init();
