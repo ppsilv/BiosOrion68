@@ -14,8 +14,8 @@
   10   | GND      | GND
   11   | IOCS1    | Input
   12   | AS       | Input
-  13   | IOWR     | NC
-  14   | IORD     | NC
+  13   | NC       | NC
+  14   | NC       | NC
   15   | NC       | NC
   16   | NC       | NC
   17   | NC       | NC

@@ -1,3 +1,12 @@
+2025-08-04
+        Acredito que esse problema intermitente veio mudando de causa ao longo do projeto, como nunca trabalhei
+        com o m68k que parece ser muito mais chato que um 8088,8086 e z80, eu tive problemas que fui resolvendo
+        e por isso o travamento sumia mas depois reaparecia porque eu o criava de outra forma essa última vez e há
+        muito tempo acredito eu que o problema era o mesmo um codigo deixado na gal do picoVGA, que sempre atacava
+        a serial somente a serial, e acredito que seja porque o sinal que estava sendo usado na gal de forma errada
+        só afetava a serial. LDS no pino 12 que é uma saida, sei que pode ser entrada porém para ser entrada tem que
+        ser usado como entrada em uma equação, e nesse caso eu não usei ele ficou como saida e zoando o barramento.
+
 2026-08-02
         Aquele problema atacou novamente, de uma hora para outra a placa simplesmente para de responder.
         Eu fixei o SP stack pointer em 0xFFFF0 e aparentemente resolveu, falo aparentemente porque estou sem vídeo e aquele velho problema da serial continua agindo de vez em quando ela imprime a mensagem do bootstrap mas do programa C imprime caractere lixo. Estou para trocar essa 16C554 pela 16C550 mas esse é outro erro.
