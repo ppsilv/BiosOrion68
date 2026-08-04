@@ -5,15 +5,15 @@
                           -------\___/-------
                        NC |  1           24 | VCC
                           |                 |
-                     SMIO |  2           23 | NC
+                   CSSMIO |  2           23 | NC
                           |                 |
-                     AUTO |  3           22 | DTACK
+                   DTAUTO |  3           22 | DTACK
                           |                 |
-                       CS |  4           21 | NC
+                   DTSMIO |  4           21 | NC
                           |                 |
-                       NC |  5           20 | NC
+                   DTPVGA |  5           20 | NC
                           |                 |
-                       NC |  6           19 | NC
+                   CSPVGA |  6           19 | NC
                           |                 |
                        NC |  7           18 | NC
                           |                 |

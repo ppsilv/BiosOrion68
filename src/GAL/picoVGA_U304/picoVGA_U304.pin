@@ -2,24 +2,24 @@
 
  Pin # | Name     | Pin Type
 -----------------------------
-   1   | A15      | Input
-   2   | A10      | Input
-   3   | A09      | Input
-   4   | A08      | Input
-   5   | IOCS1    | Input
-   6   | A11      | Input
-   7   | IOWR     | Input
-   8   | AS       | Input
+   1   | A8       | Input
+   2   | A9       | Input
+   3   | A10      | Input
+   4   | A11      | Input
+   5   | A12      | Input
+   6   | A13      | Input
+   7   | A14      | Input
+   8   | A15      | Input
    9   | IOCS     | Input
   10   | GND      | GND
-  11   | A14      | Input
-  12   | UDS      | NC
-  13   | A13      | Input
-  14   | A12      | Input
+  11   | IOCS1    | Input
+  12   | AS       | Input
+  13   | IOWR     | NC
+  14   | IORD     | NC
   15   | NC       | NC
-  16   | Y4       | NC
-  17   | Y3       | NC
-  18   | Y2       | NC
+  16   | NC       | NC
+  17   | NC       | NC
+  18   | NC       | NC
   19   | Y1       | Output
   20   | VCC      | VCC
 

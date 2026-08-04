@@ -1,0 +1,91 @@
+.program orion_bus
+
+.wrap_target
+espera_cs:
+    set pins, 1           ; /DTACK (GPIO 14) = 1 (Garante inativo ao iniciar o ciclo)
+    wait 0 gpio 21        ; Trava até /CS=0
+    //nop [2]             ; Atraso de estabilização
+    jmp pin m68k_leitura  ; Se /WR (GPIO15) for 1, pula para leitura
+
+m68k_escrita:
+    set x, 0              ; Flag 0x0 = ESCRITA (2 bits: 00)
+    in x, 2               ; Injeta flag no LSB (será empurrada para os bits 15:14)
+    nop [31]
+    in pins, 14           ; Injeta 6 bits Endereço (13:8) + 8 bits Dados (7:0)
+    push noblock          ; Envia pacote de 16 bits exatos pro C
+    
+    set pins, 0           ; /DTACK (GPIO 14) = 0 (Informa ao 68k que a escrita foi capturada)
+    jmp fim_ciclo
+
+m68k_leitura:
+    set x, 1              ; Flag 0x1 = LEITURA (2 bits: 01)
+    in x, 2               ; Injeta flag no LSB (será empurrada para os bits 15:14)
+    in pins, 14           ; Injeta 6 bits Endereço (13:8) + 8 bits Dados (7:0)
+    push noblock          ; Envia pacote de 16 bits exatos pro C
+
+    pull block            ; Espera o C entregar o dado de resposta
+
+    mov pindirs, y        ; Ativa SAÍDA no barramento (D0-D7) mantendo GPIO 14 como saída
+    out pins, 8           ; Coloca o dado no barramento
+    nop [16]
+    set pins, 0           ; /DTACK (GPIO 14) = 0 (Informa ao 68k que o dado está pronto no barramento)
+
+fim_ciclo:
+    nop[15]
+    wait 1 gpio 21        ; Segura até /CS=1
+    set pins, 1           ; /DTACK (GPIO 14) = 1 (Volta para inativo após a subida do /CS)
+
+    mov osr, null
+    mov pindirs, osr      ; Volta D0-D7 para ENTRADA (Tri-state)
+    set pindirs, 1        ; Mantém o GPIO 14 configurado como SAÍDA
+.wrap
+
+% c-sdk {
+#include "hardware/clocks.h"
+
+static inline void orion_bus_program_init(PIO pio, uint sm, uint offset) {
+    pio_sm_config c = orion_bus_program_get_default_config(offset);
+
+    // 1. DADOS (GPIO 0 a 7)
+    sm_config_set_out_pins(&c, 0, 8);
+
+    // 2. BASE DE ENTRADA: GPIO 0 (cobre GPIO 0 a 13)
+    sm_config_set_in_pins(&c, 0);
+
+    for(int i = 0; i < 14; i++) {
+        pio_gpio_init(pio, i);
+    }
+
+    // 3. CONTROLE DE DTACK VIA SET PIN (GPIO 14)
+    sm_config_set_set_pins(&c, 14, 1);
+    pio_gpio_init(pio, 14);
+
+    // 4. CONTROLE DE BARRAMENTO (/WR no GPIO 15, /CS no GPIO 18)
+    gpio_set_dir(15, GPIO_IN);
+    gpio_set_dir(21, GPIO_IN);
+    gpio_pull_up(15);
+    gpio_pull_up(21);
+    pio_gpio_init(pio, 15);
+    pio_gpio_init(pio, 21);
+
+    sm_config_set_jmp_pin(&c, 15);
+
+    // 5. SHIFTER: Shift para ESQUERDA (false), sem autopush, 16 bits
+    sm_config_set_in_shift(&c, false, false, 16);
+    sm_config_set_out_shift(&c, true, false, 32);
+
+    // 6. Direções iniciais: GPIO 14 é SAÍDA (1), resto é ENTRADA (0)
+    uint32_t pin_mask = (0xFF << 0) | (0x3F << 8) | (1 << 14) | (1 << 15) | (1 << 21);
+    pio_sm_set_pindirs_with_mask(pio, sm, (1 << 14), pin_mask);
+
+    // Pré-carrega o registrador Y com 0x000040FF (Habilita D0-D7 e GPIO 14 como saídas no ciclo de leitura)
+    pio_sm_put_blocking(pio, sm, 0x000040FF);
+    pio_sm_exec(pio, sm, pio_encode_pull(false, true));
+    pio_sm_exec(pio, sm, pio_encode_mov(pio_y, pio_osr));
+
+    sm_config_set_clkdiv(&c, 1.0f);
+
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}

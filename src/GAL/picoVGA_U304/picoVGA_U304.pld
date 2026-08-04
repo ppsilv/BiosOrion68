@@ -1,21 +1,30 @@
 GAL16V8
-CHIP_U304
+CHIP_U304_V2
 
-;Pinagem
+;Pinagem OLD
 ; 1  2   3   4   5     6   7    8   9    10
-A15 A10 A09 A08 IOCS1 A11 IOWR  AS IOCS GND
+;A15 A10 A09 A08 IOCS1 A11 IOWR  AS IOCS GND
 ;11  12  13  14  15  16  17   18  19   20
-A14  UDS A13 A12  NC  Y4  Y3   Y2  Y1  VCC
+;A14  UDS A13 A12  NC  Y4  Y3   Y2  Y1  VCC
+
+;Pinagem NEW V2 04/08/2026
+;1 2  3   4   5   6   7   8   9    10
+A8 A9 A10 A11 A12 A13 A14 A15 IOCS GND
+;11   12 13   14   15  16  17   18  19   20
+IOCS1 AS IOWR IORD NC  NC  NC   NC  Y1   VCC
+
+
+
 
 
 ;FF80
-!Y1 = !AS * !IOWR * !IOCS * !IOCS1 * A15 * !A14 * !A13 * !A12 * !A11 * !A10 * !A09 * !A08
+/Y1 = /AS * /IOCS * /IOCS1 * A15 * /A14 * /A13 * /A12 * /A11 * /A10 * /A9 * /A8
 ;;FF90
-;;!Y2 =  !IOWR * !IOCS * !IOCS1 * A15 * !A14 * !A13 *  A12 * !A11 * !A10 * !A09 *  !A08
+;;/Y2 =  /IOWR * /IOCS * /IOCS1 * A15 * /A14 * /A13 *  A12 * /A11 * /A10 * /A09 *  /A08
 ;;FFA0
-;;!Y3 =  !IOWR * !IOCS * !IOCS1 * A15 * !A14 *  A13 * !A12 * !A11 * !A10 * !A09 * !A08
+;;/Y3 =  /IOWR * /IOCS * /IOCS1 * A15 * /A14 *  A13 * /A12 * /A11 * /A10 * /A09 * /A08
 ;;FFB0
-;;!Y4 =  !IOWR * !IOCS * !IOCS1 * A15 * !A14 *  A13 *  A12 * !A11 * !A10 * !A09 * !A08
+;;/Y4 =  /IOWR * /IOCS * /IOCS1 * A15 * /A14 *  A13 *  A12 * /A11 * /A10 * /A09 * /A08
 
 DESCRIPTION
 Modo simple.
@@ -37,10 +46,10 @@ minipro -p GAL16V8D -w picoVGA_U304.jed
  F            F            B            0            0            0
 
 ;FF8
-!Y1 =  !AS * !LDS * !CPUWR * !IOCS * A19 * A18 * A17 * A16 * A15 * !A14 * !A13 * !A12
+/Y1 =  /AS * /LDS * /CPUWR * /IOCS * A19 * A18 * A17 * A16 * A15 * /A14 * /A13 * /A12
 ;FF9
-!Y2 =  !AS * !LDS * !CPUWR * !IOCS * A19 * A18 * A17 * A16 * A15 * !A14 * !A13 *  A12
+/Y2 =  /AS * /LDS * /CPUWR * /IOCS * A19 * A18 * A17 * A16 * A15 * /A14 * /A13 *  A12
 ;FFA
-!Y3 =  !AS * !LDS * !CPUWR * !IOCS * A19 * A18 * A17 * A16 * A15 * !A14 *  A13 * !A12
+/Y3 =  /AS * /LDS * /CPUWR * /IOCS * A19 * A18 * A17 * A16 * A15 * /A14 *  A13 * /A12
 ;FFB
-!Y4 =  !AS * !LDS * !CPUWR * !IOCS * A19 * A18 * A17 * A16 * A15 * !A14 *  A13 *  A12
+/Y4 =  /AS * /LDS * /CPUWR * /IOCS * A19 * A18 * A17 * A16 * A15 * /A14 *  A13 *  A12

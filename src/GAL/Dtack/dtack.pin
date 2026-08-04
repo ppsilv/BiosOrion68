@@ -3,11 +3,11 @@
  Pin # | Name     | Pin Type
 -----------------------------
    1   | NC       | Input
-   2   | SMIO     | Input
-   3   | AUTO     | Input
-   4   | CS       | Input
-   5   | NC       | Input
-   6   | NC       | Input
+   2   | CSSMIO   | Input
+   3   | DTAUTO   | Input
+   4   | DTSMIO   | Input
+   5   | DTPVGA   | Input
+   6   | CSPVGA   | Input
    7   | NC       | Input
    8   | NC       | Input
    9   | NC       | Input
