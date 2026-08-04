@@ -101,7 +101,7 @@ Linker script and memory map
  *(.vectors)
                 0x00000000                        . = ALIGN (0x400)
 
-.text           0x00000000     0xd41a
+.text           0x00000000     0xd43a
                 0x00000000                        . = ALIGN (0x2)
  *(.text*)
  .text          0x00000000      0x2c4 ../../obj/orion68_startup.o
@@ -225,231 +225,230 @@ Linker script and memory map
                 0x00004a76                ler_segundo
                 0x00004aae                rtc_inicializar
  *fill*         0x00004b46        0x2 
- .text          0x00004b48      0x17e ./picoVga/drv_picoVga.o
+ .text          0x00004b48      0x1a0 ./picoVga/drv_picoVga.o
                 0x00004b48                init_picoVga
                 0x00004b4c                run_cmd
                 0x00004b74                write_str
                 0x00004bba                picovga_putchar
-                0x00004bdc                picovga_gotoxy
-                0x00004c52                picovga_gohome
-                0x00004c60                picovga_set_color
-                0x00004cac                clrscr
- *fill*         0x00004cc6        0x2 
- .text          0x00004cc8      0x248 ./uarts/drv_uart0.o
-                0x00004cc8                uart0_debug_char
-                0x00004cfa                uart0_init
-                0x00004d3a                uart0_write
-                0x00004d78                uart0_read
-                0x00004db0                uart0_read_timeout
-                0x00004e14                _inbyte
-                0x00004e94                _outbyte
-                0x00004ed2                uart0_write_string
-                0x00004f02                uart0_flush
- .text          0x00004f10      0x6e6 ./ide/ata.o
-                0x00004f24                set_ide_bus_mode
-                0x00004f64                go_8bits_mode
-                0x00004fda                ata_detect
-                0x00005098                ata_read_sector
-                0x0000524c                ata_write_sector
-                0x00005254                read_partition_table
-                0x0000533e                ata_init
-                0x000053d0                ata_disk_status
-                0x000053e0                ata_disk_initialize
-                0x000053f0                ata_wait_not_busy
-                0x00005432                ata_wait_for_data
-                0x00005474                ata_read_identity
- *fill*         0x000055f6        0x2 
- .text          0x000055f8     0x412e ./fatfs/ff.o
-                0x00007760                f_mount
-                0x0000781e                f_open
-                0x00007bfe                f_read
-                0x00007f82                f_write
-                0x000083a0                f_sync
-                0x000084f8                f_close
-                0x0000852e                f_chdrive
-                0x00008552                f_chdir
-                0x000085f6                f_getcwd
-                0x00008844                f_lseek
-                0x00008bc8                f_opendir
-                0x00008c9c                f_closedir
-                0x00008cc2                f_readdir
-                0x00008d62                f_stat
-                0x00008ddc                f_getfree
-                0x00008f84                f_truncate
-                0x00009132                f_unlink
-                0x00009290                f_mkdir
-                0x000094d2                f_rename
- *fill*         0x00009726        0x2 
- .text          0x00009728        0x0 ./fatfs/ffsystem.o
- .text          0x00009728      0x220 ./fatfs/diskio.o
-                0x00009728                disk_status
-                0x00009740                disk_initialize
-                0x00009756                disk_read
-                0x000097d4                disk_write
-                0x00009852                disk_ioctl
- .text          0x00009948      0x44e ./tst_fat/tstfat.o
-                0x00009948                listar_diretorio_raiz
-                0x00009b04                open_dir
-                0x00009bbe                ler_e_exibir_joblog
-                0x00009d4c                le_setor
-                0x00009d7a                wr_setor
- *fill*         0x00009d96        0x2 
- .text          0x00009d98      0x32a timers.o
-                0x00009d98                delay10ms
-                0x00009dba                cpu_delay
-                0x00009dd6                init_timer
-                0x00009df6                get_tick_count
-                0x00009dfe                add_timer
-                0x00009e96                delete_timer
-                0x00009ee2                start_timer
-                0x00009f62                stop_timer
-                0x00009f96                reset_timer
-                0x00009fe4                set_interval
-                0x0000a018                update_timers
- *fill*         0x0000a0c2        0x2 
- .text          0x0000a0c4        0x0 interrupt.o
- .text          0x0000a0c4      0x168 ./xmodem/xmodem_asm.o
-                0x0000a102                xmodem_receive
- .text          0x0000a22c       0xa4 vectors_asm.o
-                0x0000a22c                SvcBusError
-                0x0000a22c                Svcaddress_err
-                0x0000a234                TrapFHandler
-                0x0000a234                SpuriousHandler
-                0x0000a234                Int4Handler
-                0x0000a234                SvcTrace
-                0x0000a234                TrapBHandler
-                0x0000a234                Int1Handler
-                0x0000a234                TrapAHandler
-                0x0000a234                SvcChkIns
-                0x0000a234                Trap4Handler
-                0x0000a234                Trap9Handler
-                0x0000a234                Int5Handler
-                0x0000a234                SvcDiv0_handler
-                0x0000a234                Int7Handler
-                0x0000a234                SvcIllegalIns
-                0x0000a234                SvcLineA
-                0x0000a234                SvcPrivViolation
-                0x0000a234                Trap8Handler
-                0x0000a234                Int6Handler
-                0x0000a234                Trap2Handler
-                0x0000a234                bad_exception
-                0x0000a234                Trap3Handler
-                0x0000a234                Trap7Handler
-                0x0000a234                Trap0Handler
-                0x0000a234                SvcLineF
-                0x0000a234                TrapCHandler
-                0x0000a234                SvcTrapvIns
-                0x0000a234                Trap5Handler
-                0x0000a234                Trap6Handler
-                0x0000a236                TrapDHandler
-                0x0000a238                Int2Handler
-                0x0000a24a                Int3Handler
-                0x0000a26a                Trap1Handler
-                0x0000a2ba                TrapEHandler
- .text          0x0000a2d0       0x1c ../../lib/libc68k.a(strchr.o)
-                0x0000a2d0                strchr
- .text          0x0000a2ec       0x1e ../../lib/libc68k.a(memcpy.o)
-                0x0000a2ec                memcpy
- *fill*         0x0000a30a        0x2 
- .text          0x0000a30c      0x360 ../../lib/libc68k.a(malloc.o)
-                0x0000a4c0                malloc_init
-                0x0000a536                free
-                0x0000a582                malloc
-                0x0000a596                calloc
-                0x0000a5f6                malloc_num_free
-                0x0000a610                malloc_num_used
-                0x0000a62c                malloc_num_fresh
-                0x0000a648                malloc_check
- .text          0x0000a66c       0x3c ../../lib/libc68k.a(memcmp.o)
-                0x0000a66c                memcmp
- .text          0x0000a6a8       0x12 ../../lib/libc68k.a(strlen.o)
-                0x0000a6a8                strlen
- *fill*         0x0000a6ba        0x2 
- .text          0x0000a6bc       0x16 ../../lib/libc68k.a(memset.o)
-                0x0000a6bc                memset
- *fill*         0x0000a6d2        0x2 
- .text          0x0000a6d4       0x26 ../../lib/libc68k.a(strcat.o)
-                0x0000a6d4                strcat
- *fill*         0x0000a6fa        0x2 
- .text          0x0000a6fc       0x18 ../../lib/libc68k.a(strcpy.o)
-                0x0000a6fc                strcpy
- .text          0x0000a714       0x1a ../../lib/libc68k.a(putchar.o)
-                0x0000a714                putchar
- *fill*         0x0000a72e        0x2 
- .text          0x0000a730      0x206 ../../lib/libc68k.a(sprintf.o)
-                0x0000a730                sprintf
- *fill*         0x0000a936        0x2 
- .text          0x0000a938      0x3a6 ../../lib/libc68k.a(printf.o)
-                0x0000a938                itox
-                0x0000a982                itodec
-                0x0000a9e0                itooct
-                0x0000aa26                itoudec
-                0x0000aa78                pad_zeros
-                0x0000aabc                printf
- *fill*         0x0000acde        0x2 
- .text          0x0000ace0       0x36 ../../lib/libc68k.a(__mulsi3.o)
-                0x0000ace0                __mulsi3
- *fill*         0x0000ad16        0x2 
- .text          0x0000ad18       0x2c ../../lib/libc68k.a(__umodsi3.o)
-                0x0000ad18                __umodsi3
- .text          0x0000ad44       0x3a ../../lib/libc68k.a(__udivsi3.o)
-                0x0000ad44                __udivsi3
- *fill*         0x0000ad7e        0x2 
- .text          0x0000ad80      0x148 ../../lib/libc68k.a(strtoul.o)
-                0x0000ad80                strtoul
- .text          0x0000aec8        0xc ../../lib/libc68k.a(isspace.o)
-                0x0000aec8                isspace
- .text          0x0000aed4       0x16 ../../lib/libc68k.a(atoi.o)
-                0x0000aed4                atoi
- *fill*         0x0000aeea        0x2 
- .text          0x0000aeec       0x54 ../../lib/libc68k.a(strcasecmp.o)
-                0x0000aeec                strcasecmp
- .text          0x0000af40       0x26 ../../lib/libc68k.a(puts.o)
-                0x0000af40                puts
- *fill*         0x0000af66        0x2 
- .text          0x0000af68       0x32 ../../lib/libc68k.a(strtol.o)
-                0x0000af68                strtol
+                0x00004bfe                picovga_gotoxy
+                0x00004c74                picovga_gohome
+                0x00004c82                picovga_set_color
+                0x00004cce                clrscr
+ .text          0x00004ce8      0x248 ./uarts/drv_uart0.o
+                0x00004ce8                uart0_debug_char
+                0x00004d1a                uart0_init
+                0x00004d5a                uart0_write
+                0x00004d98                uart0_read
+                0x00004dd0                uart0_read_timeout
+                0x00004e34                _inbyte
+                0x00004eb4                _outbyte
+                0x00004ef2                uart0_write_string
+                0x00004f22                uart0_flush
+ .text          0x00004f30      0x6e6 ./ide/ata.o
+                0x00004f44                set_ide_bus_mode
+                0x00004f84                go_8bits_mode
+                0x00004ffa                ata_detect
+                0x000050b8                ata_read_sector
+                0x0000526c                ata_write_sector
+                0x00005274                read_partition_table
+                0x0000535e                ata_init
+                0x000053f0                ata_disk_status
+                0x00005400                ata_disk_initialize
+                0x00005410                ata_wait_not_busy
+                0x00005452                ata_wait_for_data
+                0x00005494                ata_read_identity
+ *fill*         0x00005616        0x2 
+ .text          0x00005618     0x412e ./fatfs/ff.o
+                0x00007780                f_mount
+                0x0000783e                f_open
+                0x00007c1e                f_read
+                0x00007fa2                f_write
+                0x000083c0                f_sync
+                0x00008518                f_close
+                0x0000854e                f_chdrive
+                0x00008572                f_chdir
+                0x00008616                f_getcwd
+                0x00008864                f_lseek
+                0x00008be8                f_opendir
+                0x00008cbc                f_closedir
+                0x00008ce2                f_readdir
+                0x00008d82                f_stat
+                0x00008dfc                f_getfree
+                0x00008fa4                f_truncate
+                0x00009152                f_unlink
+                0x000092b0                f_mkdir
+                0x000094f2                f_rename
+ *fill*         0x00009746        0x2 
+ .text          0x00009748        0x0 ./fatfs/ffsystem.o
+ .text          0x00009748      0x220 ./fatfs/diskio.o
+                0x00009748                disk_status
+                0x00009760                disk_initialize
+                0x00009776                disk_read
+                0x000097f4                disk_write
+                0x00009872                disk_ioctl
+ .text          0x00009968      0x44e ./tst_fat/tstfat.o
+                0x00009968                listar_diretorio_raiz
+                0x00009b24                open_dir
+                0x00009bde                ler_e_exibir_joblog
+                0x00009d6c                le_setor
+                0x00009d9a                wr_setor
+ *fill*         0x00009db6        0x2 
+ .text          0x00009db8      0x32a timers.o
+                0x00009db8                delay10ms
+                0x00009dda                cpu_delay
+                0x00009df6                init_timer
+                0x00009e16                get_tick_count
+                0x00009e1e                add_timer
+                0x00009eb6                delete_timer
+                0x00009f02                start_timer
+                0x00009f82                stop_timer
+                0x00009fb6                reset_timer
+                0x0000a004                set_interval
+                0x0000a038                update_timers
+ *fill*         0x0000a0e2        0x2 
+ .text          0x0000a0e4        0x0 interrupt.o
+ .text          0x0000a0e4      0x168 ./xmodem/xmodem_asm.o
+                0x0000a122                xmodem_receive
+ .text          0x0000a24c       0xa4 vectors_asm.o
+                0x0000a24c                SvcBusError
+                0x0000a24c                Svcaddress_err
+                0x0000a254                TrapFHandler
+                0x0000a254                SpuriousHandler
+                0x0000a254                Int4Handler
+                0x0000a254                SvcTrace
+                0x0000a254                TrapBHandler
+                0x0000a254                Int1Handler
+                0x0000a254                TrapAHandler
+                0x0000a254                SvcChkIns
+                0x0000a254                Trap4Handler
+                0x0000a254                Trap9Handler
+                0x0000a254                Int5Handler
+                0x0000a254                SvcDiv0_handler
+                0x0000a254                Int7Handler
+                0x0000a254                SvcIllegalIns
+                0x0000a254                SvcLineA
+                0x0000a254                SvcPrivViolation
+                0x0000a254                Trap8Handler
+                0x0000a254                Int6Handler
+                0x0000a254                Trap2Handler
+                0x0000a254                bad_exception
+                0x0000a254                Trap3Handler
+                0x0000a254                Trap7Handler
+                0x0000a254                Trap0Handler
+                0x0000a254                SvcLineF
+                0x0000a254                TrapCHandler
+                0x0000a254                SvcTrapvIns
+                0x0000a254                Trap5Handler
+                0x0000a254                Trap6Handler
+                0x0000a256                TrapDHandler
+                0x0000a258                Int2Handler
+                0x0000a26a                Int3Handler
+                0x0000a28a                Trap1Handler
+                0x0000a2da                TrapEHandler
+ .text          0x0000a2f0       0x1c ../../lib/libc68k.a(strchr.o)
+                0x0000a2f0                strchr
+ .text          0x0000a30c       0x1e ../../lib/libc68k.a(memcpy.o)
+                0x0000a30c                memcpy
+ *fill*         0x0000a32a        0x2 
+ .text          0x0000a32c      0x360 ../../lib/libc68k.a(malloc.o)
+                0x0000a4e0                malloc_init
+                0x0000a556                free
+                0x0000a5a2                malloc
+                0x0000a5b6                calloc
+                0x0000a616                malloc_num_free
+                0x0000a630                malloc_num_used
+                0x0000a64c                malloc_num_fresh
+                0x0000a668                malloc_check
+ .text          0x0000a68c       0x3c ../../lib/libc68k.a(memcmp.o)
+                0x0000a68c                memcmp
+ .text          0x0000a6c8       0x12 ../../lib/libc68k.a(strlen.o)
+                0x0000a6c8                strlen
+ *fill*         0x0000a6da        0x2 
+ .text          0x0000a6dc       0x16 ../../lib/libc68k.a(memset.o)
+                0x0000a6dc                memset
+ *fill*         0x0000a6f2        0x2 
+ .text          0x0000a6f4       0x26 ../../lib/libc68k.a(strcat.o)
+                0x0000a6f4                strcat
+ *fill*         0x0000a71a        0x2 
+ .text          0x0000a71c       0x18 ../../lib/libc68k.a(strcpy.o)
+                0x0000a71c                strcpy
+ .text          0x0000a734       0x1a ../../lib/libc68k.a(putchar.o)
+                0x0000a734                putchar
+ *fill*         0x0000a74e        0x2 
+ .text          0x0000a750      0x206 ../../lib/libc68k.a(sprintf.o)
+                0x0000a750                sprintf
+ *fill*         0x0000a956        0x2 
+ .text          0x0000a958      0x3a6 ../../lib/libc68k.a(printf.o)
+                0x0000a958                itox
+                0x0000a9a2                itodec
+                0x0000aa00                itooct
+                0x0000aa46                itoudec
+                0x0000aa98                pad_zeros
+                0x0000aadc                printf
+ *fill*         0x0000acfe        0x2 
+ .text          0x0000ad00       0x36 ../../lib/libc68k.a(__mulsi3.o)
+                0x0000ad00                __mulsi3
+ *fill*         0x0000ad36        0x2 
+ .text          0x0000ad38       0x2c ../../lib/libc68k.a(__umodsi3.o)
+                0x0000ad38                __umodsi3
+ .text          0x0000ad64       0x3a ../../lib/libc68k.a(__udivsi3.o)
+                0x0000ad64                __udivsi3
+ *fill*         0x0000ad9e        0x2 
+ .text          0x0000ada0      0x148 ../../lib/libc68k.a(strtoul.o)
+                0x0000ada0                strtoul
+ .text          0x0000aee8        0xc ../../lib/libc68k.a(isspace.o)
+                0x0000aee8                isspace
+ .text          0x0000aef4       0x16 ../../lib/libc68k.a(atoi.o)
+                0x0000aef4                atoi
+ *fill*         0x0000af0a        0x2 
+ .text          0x0000af0c       0x54 ../../lib/libc68k.a(strcasecmp.o)
+                0x0000af0c                strcasecmp
+ .text          0x0000af60       0x26 ../../lib/libc68k.a(puts.o)
+                0x0000af60                puts
+ *fill*         0x0000af86        0x2 
+ .text          0x0000af88       0x32 ../../lib/libc68k.a(strtol.o)
+                0x0000af88                strtol
  *(.rodata)
- .rodata        0x0000af9a      0x170 orion68.o
-                0x0000afce                MsgOrionInit
- .rodata        0x0000b10a       0x51 vectors.o
- .rodata        0x0000b15b      0x2d6 ./dump/mem_dump.o
- .rodata        0x0000b431        0x5 ./shell/io.o
- .rodata        0x0000b436      0x150 ./shell/picow.o
- .rodata        0x0000b586      0x2fa ./shell/printerro.o
- .rodata        0x0000b880      0x803 ./shell/commands.o
- *fill*         0x0000c083        0x1 
- .rodata        0x0000c084      0xba1 ./shell/decodecmd.o
-                0x0000c084                g_elf_header_bytes
-                0x0000c664                g_cmd_table
- .rodata        0x0000cc25      0x2cd ./kbd/drv_kbd.o
-                0x0000cc25                OE_BASE_KEYMAP
-                0x0000cca5                OE_SHIFT_KEYMAP
-                0x0000cd25                OE_CTRL_KEYMAP
-                0x0000cda5                OE_ALT_KEYMAP
-                0x0000ce25                OE_ALTGR_KEYMAP
- .rodata        0x0000cef2       0x48 ./rtc/rp5c01a.o
- .rodata        0x0000cf3a       0x13 ./picoVga/drv_picoVga.o
- .rodata        0x0000cf4d       0x2d ./uarts/drv_uart0.o
- .rodata        0x0000cf7a      0x1b2 ./ide/ata.o
- .rodata        0x0000d12c       0x98 ./fatfs/ff.o
- .rodata        0x0000d1c4       0x2d ./fatfs/diskio.o
- .rodata        0x0000d1f1      0x200 ./tst_fat/tstfat.o
- *fill*         0x0000d3f1        0x1 
- .rodata        0x0000d3f2       0x28 ../../lib/libc68k.a(printf.o)
-                0x0000d41a                        . = ALIGN (0x2)
+ .rodata        0x0000afba      0x170 orion68.o
+                0x0000afee                MsgOrionInit
+ .rodata        0x0000b12a       0x51 vectors.o
+ .rodata        0x0000b17b      0x2d6 ./dump/mem_dump.o
+ .rodata        0x0000b451        0x5 ./shell/io.o
+ .rodata        0x0000b456      0x150 ./shell/picow.o
+ .rodata        0x0000b5a6      0x2fa ./shell/printerro.o
+ .rodata        0x0000b8a0      0x803 ./shell/commands.o
+ *fill*         0x0000c0a3        0x1 
+ .rodata        0x0000c0a4      0xba1 ./shell/decodecmd.o
+                0x0000c0a4                g_elf_header_bytes
+                0x0000c684                g_cmd_table
+ .rodata        0x0000cc45      0x2cd ./kbd/drv_kbd.o
+                0x0000cc45                OE_BASE_KEYMAP
+                0x0000ccc5                OE_SHIFT_KEYMAP
+                0x0000cd45                OE_CTRL_KEYMAP
+                0x0000cdc5                OE_ALT_KEYMAP
+                0x0000ce45                OE_ALTGR_KEYMAP
+ .rodata        0x0000cf12       0x48 ./rtc/rp5c01a.o
+ .rodata        0x0000cf5a       0x13 ./picoVga/drv_picoVga.o
+ .rodata        0x0000cf6d       0x2d ./uarts/drv_uart0.o
+ .rodata        0x0000cf9a      0x1b2 ./ide/ata.o
+ .rodata        0x0000d14c       0x98 ./fatfs/ff.o
+ .rodata        0x0000d1e4       0x2d ./fatfs/diskio.o
+ .rodata        0x0000d211      0x200 ./tst_fat/tstfat.o
+ *fill*         0x0000d411        0x1 
+ .rodata        0x0000d412       0x28 ../../lib/libc68k.a(printf.o)
+                0x0000d43a                        . = ALIGN (0x2)
 
-.rodata         0x0000d41a       0x20
-                0x0000d41a                        . = ALIGN (0x2)
+.rodata         0x0000d43a       0x20
+                0x0000d43a                        . = ALIGN (0x2)
  *(.rodata*)
  .rodata.str1.1
-                0x0000d41a       0x20 ../../lib/libc68k.a(sprintf.o)
+                0x0000d43a       0x20 ../../lib/libc68k.a(sprintf.o)
                                   0xf (size before relaxing)
  .rodata.str1.1
-                0x0000d43a       0x20 ../../lib/libc68k.a(printf.o)
-                0x0000d45a                        . = ALIGN (0x2)
+                0x0000d45a       0x20 ../../lib/libc68k.a(printf.o)
+                0x0000d47a                        . = ALIGN (0x2)
 
-.data           0x00080004       0x60 load address 0x0000d43a
+.data           0x00080004       0x60 load address 0x0000d45a
                 0x00080004                        . = ALIGN (0x2)
                 0x00080004                        __data_start = .
  *(.data*)
@@ -504,14 +503,14 @@ Linker script and memory map
                 0x00080064                        . = ALIGN (0x2)
                 0x00080064                        __data_end = .
 
-.mram           0x00080064        0x8 load address 0x0000d49a
+.mram           0x00080064        0x8 load address 0x0000d4ba
  *(?.mram)
  .mram          0x00080064        0x8 orion68.o
                 0x00080064                systemTick
                 0x00080068                flg_system
-                0x0000d43a                        __data_load_start = LOADADDR (.data)
+                0x0000d45a                        __data_load_start = LOADADDR (.data)
 
-.bss            0x0008006c     0x1124 load address 0x0000d49a
+.bss            0x0008006c     0x1124 load address 0x0000d4ba
                 0x0008006c                        . = ALIGN (0x2)
                 0x0008006c                        __bss_start = .
  *(.bss*)

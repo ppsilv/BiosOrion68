@@ -105,4 +105,8 @@ CMakeFiles/vgaPico2.dir/vga.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dma.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma_debug.h

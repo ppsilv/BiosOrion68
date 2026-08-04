@@ -2839,6 +2839,7 @@ CMakeFiles/vgaPico2.dir/vga.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/clocks.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dma.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dreq.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/io_bank0.h \
@@ -2852,6 +2853,8 @@ CMakeFiles/vgaPico2.dir/vga.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/watchdog.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/clocks.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma_debug.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/interp.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/io_bank0.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h \
@@ -2869,6 +2872,7 @@ CMakeFiles/vgaPico2.dir/vga.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio_coproc.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h \

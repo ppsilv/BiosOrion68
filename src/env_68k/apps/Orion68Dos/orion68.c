@@ -133,7 +133,7 @@ void main() {
     pico_write_ch('A');
     m68k_enable_all_interrupts(); 
     printString("PDS317 - Interrupts enabled\n");
-    set_console_output(UartWriteCh);
+    set_console_output(picovga_putchar);
     printString("PDS317 - Console seted\n");
     pico_write_ch('C');
     //init_kbd();

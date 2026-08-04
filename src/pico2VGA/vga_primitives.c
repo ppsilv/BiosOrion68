@@ -10,6 +10,8 @@
 #include "vga_primitives.h"
 #include "font.h"
 
+uint memcpy_dma_chan;
+
 // 5x7 font
 void writeStringBold(char* str);
 static void inc_cursor_y();
@@ -300,6 +302,7 @@ void drawChar(uint8_t c, color_t color, color_t bg, uint8_t size) {
   else  
     drawChar2( priv->cursor->x, priv->cursor->y, c, color, bg, size);
 }
+extern void scroll_up_graphics(void);
 
 void tft_write(uint8_t c){
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
@@ -327,7 +330,10 @@ void tft_write(uint8_t c){
               }
   }
   if( priv->cursor->y >= priv->height ){
-    clrscr();
+    //clrscr();
+    scroll_up_graphics();
+    priv->cursor->x = 0;
+    priv->cursor->y -= priv->font.height;
   }
 /*
   if (c == '\n') {
@@ -592,6 +598,7 @@ vga_t* create_screen(screenMode_t mode){ //,uint8_t active_buffer1[],uint32_t tx
       free(priv);
       return NULL;
   }
+   memcpy_dma_chan = dma_claim_unused_channel(true);
   font = set_font(FONTE_8X16);
     // Initialize the VGA screen
   initVGA(  &active_buffer, TXCOUNT , mode) ;

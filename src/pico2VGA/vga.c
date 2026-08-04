@@ -154,43 +154,66 @@ int main(){
 
 } // end main
 
+#define __NEW_SCROLL__
+
 #ifdef __NEW_SCROLL__
+#include <stdint.h>      /* uint8_t, uintptr_t */
+#include <stddef.h>      /* size_t */
+#include <stdbool.h>     /* bool */
+#include <string.h>      /* memmove, memset */
+#include "pico/stdlib.h" /* __not_in_flash_func */
+#include "hardware/dma.h"/* dma_channel_config, DMA_SIZE_8/32, dma_channel_configure, etc. */
 
-#include <string.h>
-#include <stdint.h>
+/* =====================================================================
+ * Dependencias externas -- ajuste conforme a declaracao real do seu
+ * projeto. Se ja existem em outro .c/.h, REMOVA estas linhas e inclua
+ * o header correspondente em vez delas, para nao duplicar simbolos.
+ * ===================================================================== */
+extern uint8_t vga_video_data_array0[];   /* confirmar tipo real no seu projeto */
 
-#define VBUFFER_SIZE     153600
-#define SCREEN_LINES     400
-#define BYTES_PER_LINE   (VBUFFER_SIZE / SCREEN_LINES) // 384 bytes por linha gráfica
+#define VBUFFER_SIZE    153600u
+#define BYTES_PER_ROW   5120u       //6144u
+#define DMA_MIN_XFER    16u        /* ajuste conforme o valor real do seu projeto */
 
-// Ajuste FONT_HEIGHT para a altura do seu caractere em pixels (ex: 16 pixels para 80x25)
-#define FONT_HEIGHT      16
-#define BYTES_PER_ROW    (BYTES_PER_LINE * FONT_HEIGHT) // 6.144 bytes por linha de texto
+extern uint memcpy_dma_chan;       /* deve ja ter sido reservado via
+                                       dma_claim_unused_channel(true) na
+                                       inicializacao do sistema */
 
-extern uint8_t vga_video_data_array0[VBUFFER_SIZE];
-void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bool block);
+/* =====================================================================
+ * Protótipo -- necessario porque scroll_up_graphics() chama dma_memcpy()
+ * antes da definicao dela aparecer no arquivo.
+ * ===================================================================== */
+static void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bool block);
 
 
 void scroll_up_graphics(void) {
-    // 1. Quantidade de bytes do framebuffer que sobem (153.600 - 6.144 = 147.456 bytes)
+    /* Aritmetica forcada em bytes, independente do tipo real declarado
+       para vga_video_data_array0 (uint8_t* aqui, mas se no seu projeto
+       for uint32_t* isso evita que "+ BYTES_PER_ROW" avance 4x mais do
+       que o pretendido). */
+    uint8_t *fb = (uint8_t *)vga_video_data_array0;
+
+    /* 1. Quantidade de bytes do framebuffer que sobem */
     size_t bytes_para_copiar = VBUFFER_SIZE - BYTES_PER_ROW;
 
-    // 2. DMA copia da 2ª linha de texto em diante para o início do buffer
-    dma_memcpy(vga_video_data_array0,
-               vga_video_data_array0 + BYTES_PER_ROW,
+    /* 2. DMA copia da 2a linha de texto em diante para o inicio do buffer */
+    dma_memcpy(fb,
+               fb + BYTES_PER_ROW,
                bytes_para_copiar,
                true);
 
-    // 3. Limpa a última linha de texto na parte inferior da tela (preenche com 0x00 = preto)
-    memset(vga_video_data_array0 + bytes_para_copiar, 0x00, BYTES_PER_ROW);
+    /* 3. Limpa a ultima linha de texto na parte inferior da tela (preto) */
+    memset(fb + bytes_para_copiar, 0x00, BYTES_PER_ROW);
 }
 
-void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bool block) {
+
+static void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bool block) {
     if (num == 0) return;
+
     if (num < DMA_MIN_XFER) {
-        // memmove, not memcpy: some callers (VRAM copy Esc[Z4, scrolls)
-        // pass overlapping ranges, which the incrementing DMA handled
-        // correctly for src > dest; memmove is safe for all overlaps.
+        /* memmove, not memcpy: some callers (VRAM copy Esc[Z4, scrolls)
+           pass overlapping ranges, which the incrementing DMA handled
+           correctly for src > dest; memmove is safe for all overlaps. */
         memmove(dest, src, num);
         return;
     }
@@ -198,12 +221,19 @@ void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bo
     uint8_t *d = (uint8_t *)dest;
     const uint8_t *s = (const uint8_t *)src;
 
+    /* Se uma transferencia assincrona anterior ainda estiver em andamento
+       neste canal, espera terminar antes de reconfigurar -- evita corromper
+       uma copia em progresso. */
+    if (dma_channel_is_busy(memcpy_dma_chan)) {
+        dma_channel_wait_for_finish_blocking(memcpy_dma_chan);
+    }
+
     dma_channel_config c = dma_channel_get_default_config(memcpy_dma_chan);
     channel_config_set_read_increment(&c, true);
     channel_config_set_write_increment(&c, true);
 
-    // Mismatched alignment: word-mode would corrupt — single byte DMA.
-    // Works for both blocking and non-blocking (src is caller-owned).
+    /* Mismatched alignment: word-mode would corrupt -- single byte DMA.
+       Works for both blocking and non-blocking (src is caller-owned). */
     if ((((uintptr_t)d ^ (uintptr_t)s) & 3) != 0) {
         channel_config_set_transfer_data_size(&c, DMA_SIZE_8);
         dma_channel_configure(memcpy_dma_chan, &c, d, s, num, true);
@@ -211,7 +241,7 @@ void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bo
         return;
     }
 
-    // Head: CPU-copy 0-3 bytes until both pointers are 4-byte aligned.
+    /* Head: CPU-copy 0-3 bytes until both pointers are 4-byte aligned. */
     while (num > 0 && ((uintptr_t)d & 3) != 0) {
         *d++ = *s++;
         num--;
@@ -222,7 +252,7 @@ void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bo
     size_t tail = num & 3;
 
     if (block) {
-        // Synchronous: word-DMA the bulk (if any), then CPU-copy the tail.
+        /* Synchronous: word-DMA the bulk (if any), then CPU-copy the tail. */
         if (words > 0) {
             channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
             dma_channel_configure(memcpy_dma_chan, &c, d, s, words, true);
@@ -236,13 +266,16 @@ void __not_in_flash_func(dma_memcpy)(void *dest, const void *src, size_t num, bo
             tail--;
         }
     } else if (tail == 0) {
-        // Async fast path: pure word DMA (num >= 4 guaranteed here).
+        /* Async fast path: pure word DMA (num >= 4 guaranteed here). */
         channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
         dma_channel_configure(memcpy_dma_chan, &c, d, s, words, true);
     } else {
-        // Async with tail bytes: single byte DMA covers the whole range.
+        /* Async with tail bytes: single byte DMA covers the whole range. */
         channel_config_set_transfer_data_size(&c, DMA_SIZE_8);
         dma_channel_configure(memcpy_dma_chan, &c, d, s, num, true);
     }
 }
+
+
+
 #endif

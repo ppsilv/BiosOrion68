@@ -23,9 +23,9 @@ void write_str(){
 }
 
 void picovga_putchar(unsigned char ch){
-    //int x=0x60;  //🚀🛠️    funciona para a cpu em 4Mhz
-    //WRITE_SCREEN = ch;
-    //while(x--); //0,11us
+    int x=0x60;  //🚀🛠️    funciona para a cpu em 4Mhz
+    WRITE_SCREEN = ch;
+    while(x--); //0,11us
     uart0_write(ch); 
 }
 void picovga_gotoxy(int col,int row){
