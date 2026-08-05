@@ -124,29 +124,23 @@ void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
 void printString(char * str);
 
 void main() {
-    //FRESULT fr;
-    // Inicializa os hardwares normalmente
-    // 1. Direciona o console para a PicoVGA
-    // Basta alterar o ponteiro!
-    printString(MsgOrionInit);
-    printString("PDS317 - Orion68 2026 V1.0\n");
     pico_write_ch('A');
-    m68k_enable_all_interrupts(); 
-    printString("PDS317 - Interrupts enabled\n");
     set_console_output(picovga_putchar);
-    printString("PDS317 - Console seted\n");
+    printf("%s",MsgOrionInit);
+    m68k_enable_all_interrupts(); 
+    delay10ms(10);
+    printf("* All Interrupts enabled.\n");
+    pico_write_ch('B');
+    printf("* - Console output seted to picoVGA.\n");
     pico_write_ch('C');
     //init_kbd();
     //ch9350_shut_up();
-   //delay10ms(10);  //100ms    
-    //set_console_input(get_char);
+    set_console_input(get_char);
+    printf("* - Console input seted to ps2 keyboard.\n");
 
     //picovga_set_color(RED,BLACK);
-    //printf("%s",MsgOrionInit);
-    printString(MsgOrionInit);
-    //picovga_set_color(GREEN,BLACK);
+    picovga_set_color(GREEN,BLACK);
 
-  //  delay10ms(10);  //10000ms    
     // uart1_init();
     // delay10ms(100);  //100ms    
     // uart2_init();
@@ -158,11 +152,11 @@ void main() {
 #ifdef DEBUG_ON
     ata_read_identity();    
 #endif
-    printf("Initializing IDE\n");
+    printf("* - Initializing IDE\n");
     do_ideinit(0,NULL);
     pico_write_ch('E');
 
-    printf("Initializing  RTC\n");
+    printf("* - Initializing  RTC\n");
     rtc_inicializar();
 /*   
     printf(" Primeira vez [%d] TICK[%ld]\n",ler_segundo(),get_system_tick());

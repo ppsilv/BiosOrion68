@@ -11,7 +11,7 @@ inline void run_cmd(unsigned char cmd){
     delay10ms(1);
 }
 void uart0_write(unsigned char ch);
-
+/*
 void write_str(){
     char *str="Teste do video...\n";
 
@@ -21,13 +21,14 @@ void write_str(){
         while(x--); //0,11us
     }
 }
-
+*/
 void picovga_putchar(unsigned char ch){
-    int x=0x60;  //🚀🛠️    funciona para a cpu em 4Mhz
+//    int x=0x60;  //🚀🛠️    funciona para a cpu em 4Mhz
     WRITE_SCREEN = ch;
-    while(x--); //0,11us
+//    while(x--); //0,11us
     uart0_write(ch); 
 }
+
 void picovga_gotoxy(int col,int row){
     delay10ms(5);
     REG_Y_LOW  = row; //(unsigned char)(row & 0x00FF);

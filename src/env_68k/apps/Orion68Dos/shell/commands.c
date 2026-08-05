@@ -670,7 +670,6 @@ extern void main_teste_teclado(void);
 extern char teste01();
 extern bool receber_arquivo_do_pico(uint8_t *destino_ram,uint8_t reg);
 extern bool receber_setor_do_pico(uint8_t *destino_ram, uint16_t sector);
-extern void write_str();
 extern void pico_write_ch(uint8_t ch);
 void do_tstkbd(int argc, char *argv[])
 {
@@ -689,7 +688,6 @@ void do_tstkbd(int argc, char *argv[])
                 picovga_set_color(data,BLACK);
                 break;
         case 0x03:    
-                write_str();
                 break;            
         case 0xFF:
                 break;

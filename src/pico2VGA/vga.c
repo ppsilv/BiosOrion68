@@ -115,9 +115,9 @@ int main(){
     // start the serial i/o
     stdio_init_all() ;
     set_sys_clock_khz(150000, true);
-      vga = create_screen( MODE_TEXT_80_S ); //, 0, 0, font );
-      video_mode = MODE_TEXT_80_S;
-      
+
+    vga = create_screen( MODE_TEXT_80_S ); //, 0, 0, font );
+    video_mode = MODE_TEXT_80_S;
 
     drawHLine(0,48,640,YELLOW);
     drawHLine(0,49,640,YELLOW);
