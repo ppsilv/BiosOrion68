@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdint.h>
+#include "pico.h"
 /*
 char  * font_name="Font 8x16";
 const unsigned char  font_height=16;
 const unsigned char  font_width=8;
 const unsigned char  font_size=1;
 */
-const unsigned char font_8x16[16*130]=
-{
+//const unsigned char font_8x16[16*130]= {
+const unsigned char __not_in_flash("font_8x16") font_8x16[16*130] ={   
    // code x00
    0b00000000, // 0
    0b00000000, // 1

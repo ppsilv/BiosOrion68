@@ -90,6 +90,7 @@ CMakeFiles/vgaPico2.dir/eeprom.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/colors.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/font.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/font_5x7.h

@@ -804,3 +804,54 @@ void do_writemem1(int argc, char *argv[]){
         *(addr+i)=text[i];
     }
 }
+
+#include <stdio.h>
+#include <stdint.h>
+#include "ff.h"      /* FatFs (elm-chan) */
+
+/*
+ * Grava 'tamanho' bytes a partir do endereco 'origem' num arquivo chamado
+ * 'nome_arquivo' no cartao SD. Sobrescreve o arquivo se ja existir.
+ * Sobrescreve o arquivo se já existir (FA_CREATE_ALWAYS). 
+ * Se você preferir dar erro em vez de sobrescrever, troco pra FA_CREATE_NEW.
+ * Assume que f_mount() já foi chamado antes (montagem do FS geralmente é feita uma vez na inicialização, não a cada gravação).
+ * nome_arquivo aceita path relativo tipo "dump.bin" ou 
+ * path completo "0:/dumps/dump.bin", 
+ * dependendo de como você configurou o FatFs (multi-drive ou não).
+ *
+ * Retorna 0 em sucesso, -1 em erro (mensagem impressa via printf).
+ */
+int do_mem2file(const void *origem, size_t tamanho, const char *nome_arquivo){
+    FIL     arquivo;
+    FRESULT fr;
+    UINT    bytes_escritos;
+
+    if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
+        printf("dump_memoria_para_arquivo: parametros invalidos\n");
+        return -1;
+    }
+
+    fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
+        return -1;
+    }
+
+    fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
+    if (fr != FR_OK || bytes_escritos != tamanho) {
+        printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
+               nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
+        f_close(&arquivo);
+        return -1;
+    }
+
+    fr = f_close(&arquivo);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
+        return -1;
+    }
+
+    printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
+           nome_arquivo, (unsigned)tamanho);
+    return 0;
+}

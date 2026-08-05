@@ -51,6 +51,7 @@ CMakeFiles/vgaPico2.dir/cursor.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
@@ -141,6 +142,7 @@ CMakeFiles/vgaPico2.dir/eeprom.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
@@ -237,8 +239,24 @@ CMakeFiles/vgaPico2.dir/font_8x14.c.o: /home/pdsilva/Projects/Orion68/src/pico2V
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h
 
 CMakeFiles/vgaPico2.dir/font_8x16.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x16.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
@@ -255,8 +273,11 @@ CMakeFiles/vgaPico2.dir/font_8x16.c.o: /home/pdsilva/Projects/Orion68/src/pico2V
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
 
 CMakeFiles/vgaPico2.dir/font_8x18.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x18.c \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
@@ -279,6 +300,1052 @@ CMakeFiles/vgaPico2.dir/font_8x18.c.o: /home/pdsilva/Projects/Orion68/src/pico2V
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/dcd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/dcd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/dcd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb_dpram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform/cpu_regs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb_dpram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform/cpu_regs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/stdlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
@@ -1006,6 +2073,68 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h
 
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/bootram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/otp_data.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pads_qspi.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/qmi.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/bootram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pads_qspi.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/qmi.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/boot_bootrom_headers/include/boot/bootrom_constants.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/include/hardware/boot_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/include/hardware/flash.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/include/hardware/xip_cache.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom/lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom_constants.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/include/pico/flash.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
@@ -1604,6 +2733,48 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h
 
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/xip.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/xip.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/include/hardware/xip_cache.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
@@ -1996,6 +3167,40 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_dou
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
@@ -2627,9 +3832,275 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/include/pico/printf.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio/driver.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_usb_reset_interface_headers/include/pico/usb_reset_interface.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/bootram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/watchdog.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/bootram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/watchdog.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/boot_bootrom_headers/include/boot/bootrom_constants.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/include/hardware/boot_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom/lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom_constants.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/include/pico/flash.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/code.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/structure.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform/cpu_regs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio/driver.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_usb_reset_interface_headers/include/pico/usb_reset_interface.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/include/pico/unique_id.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
@@ -2707,6 +4178,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
@@ -2720,6 +4192,63 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/bootram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/bootram.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/boot_bootrom_headers/include/boot/bootrom_constants.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/include/hardware/boot_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/include/hardware/flash.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom/lock.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom_constants.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/include/pico/flash.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/include/pico/unique_id.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
@@ -2780,6 +4309,7 @@ CMakeFiles/vgaPico2.dir/orion_bus.c.o: /home/pdsilva/Projects/Orion68/src/pico2V
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
@@ -2890,6 +4420,7 @@ CMakeFiles/vgaPico2.dir/vga.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
@@ -2989,6 +4520,7 @@ CMakeFiles/vgaPico2.dir/vga_drv.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
@@ -3090,6 +4622,7 @@ CMakeFiles/vgaPico2.dir/vga_primitives.c.o: /home/pdsilva/Projects/Orion68/src/p
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
@@ -3137,23 +4670,81 @@ vga640p_vsync.pio.h:
 
 vga640p_hsync.pio.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/time.h:
+vga320p_vsync.pio.h:
+
+vga320p_rgb.pio.h:
+
+vga320p_hsync.pio.h:
+
+/home/pdsilva/Projects/Orion68/src/pico2VGA/vga_drv.c:
+
+/home/pdsilva/Projects/Orion68/src/pico2VGA/vga.c:
+
+orion_bus.pio.h:
+
+/home/pdsilva/Projects/Orion68/src/pico2VGA/orion_bus.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/include/pico/unique_id.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_usb_reset_interface_headers/include/pico/usb_reset_interface.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio/driver.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/boot_stage2/include/boot_stage2/config.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/structure.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/defs.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/float.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/include/pico/float.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/include/pico/multicore.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/include/pico/double.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_divider_headers/include/pico/divider.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/cstdlib:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/cassert:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sync.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_endian.h:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/bits/std_abs.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/arm-none-eabi/thumb/v8-m.main+fp/softfp/bits/os_defines.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdatomic.h:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/arm-none-eabi/thumb/v8-m.main+fp/softfp/bits/cpu_defines.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/include/pico/runtime_init.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c:
 
-/home/pdsilva/Projects/Orion68/src/pico2VGA/font.c:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/arm-none-eabi/thumb/v8-m.main+fp/softfp/bits/c++config.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/include/pico/flash.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h:
 
 /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_primitives.h:
 
@@ -3163,27 +4754,39 @@ vga640p_hsync.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/critical_section.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/include/hardware/claim.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/times.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_verify.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/ticks.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_private.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pll.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/tusb_config.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.h:
 
 /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x14.c:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/times.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/include/pico/flash.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/watchdog.h:
 
@@ -3191,23 +4794,29 @@ vga640p_hsync.pio.h:
 
 /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x16.c:
 
-/home/pdsilva/Projects/Orion68/src/pico2VGA/cursor.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c:
-
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h:
-
-/home/pdsilva/Projects/Orion68/src/pico2VGA/vga_drv.c:
 
 /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x18.c:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/unistd.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/bits/std_abs.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_debug.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/include/pico/util/queue.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/include/hardware/i2c.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/tbman.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb_dpram.h:
 
 vga640p_rgb.pio.h:
 
@@ -3218,6 +4827,8 @@ generated/pico_base/pico/version.h:
 /home/pdsilva/Projects/Orion68/src/pico2VGA/font_5x7.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/boot_picoboot_headers/include/boot/picoboot_constants.h:
 
@@ -3235,21 +4846,23 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/clocks.h:
-
 /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_drv.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb_dpram.h:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/pstl/pstl_config.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/tbman.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c:
 
@@ -3257,17 +4870,21 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pads_qspi.h:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/include/hardware/clocks.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/arm-none-eabi/thumb/v8-m.main+fp/softfp/bits/os_defines.h:
+/home/pdsilva/Projects/Orion68/src/pico2VGA/picovga_registers.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/uart.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h:
 
@@ -3277,6 +4894,12 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/clocks.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/clocks.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h:
@@ -3285,21 +4908,29 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/io_bank0.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/sio.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pll.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/include/hardware/ticks.h:
 
-generated/pico_base/pico/config_autogen.h:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/inttypes.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/sio.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/code.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/unistd.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/i2c.h:
 
@@ -3307,11 +4938,15 @@ generated/pico_base/pico/config_autogen.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/uart.h:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dreq.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/math.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_types.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h:
 
@@ -3319,13 +4954,17 @@ generated/pico_base/pico/config_autogen.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sysinfo.h:
 
-orion_bus.pio.h:
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform/cpu_regs.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pads_bank0.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2.h:
 
@@ -3337,23 +4976,27 @@ orion_bus.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/boot_picobin_headers/include/boot/picobin.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/types.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdlib.h:
-
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb_option.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/include/hardware/uart.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/ticks.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/xip.h:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/include/pico/runtime.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/time.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/cstdlib:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h:
 
 /home/pdsilva/Projects/Orion68/src/pico2VGA/eeprom.h:
 
@@ -3369,27 +5012,21 @@ orion_bus.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma_debug.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/timeout_helper.h:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/endian.h:
-
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h:
 
-vga320p_rgb.pio.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/powman.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal_pico.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/sched.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h:
 
@@ -3401,51 +5038,153 @@ vga320p_rgb.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h:
 
+/home/pdsilva/Projects/Orion68/src/pico2VGA/cursor.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio_coproc.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pll.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/xosc.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/include/pico/double.h:
+/home/pdsilva/Projects/Orion68/src/pico2VGA/font.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/include/pico/runtime_init.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_pvt.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_time.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/uart.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h:
-
-/home/pdsilva/Projects/Orion68/src/pico2VGA/picovga_registers.h:
-
-vga320p_vsync.pio.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c:
+
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/stdlib.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pads_qspi.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/include/hardware/claim.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/i2c.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/dcd.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/usb.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_mcu.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/uart.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/otp_data.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c:
+
+generated/pico_base/pico/config_autogen.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/include/hardware/xip_cache.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdatomic.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sync.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/timeout_helper.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/timespec.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/types.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/include/pico/util/datetime.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_endian.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_time.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/endian.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/include/pico/printf.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/qmi.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/time.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdlib.h:
+
+/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/types.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom_constants.h:
 
@@ -3463,17 +5202,11 @@ vga320p_vsync.pio.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_timeval.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/include/hardware/flash.h:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom/lock.h:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/sched.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/types.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/include/pico/util/datetime.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/timespec.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c:
 
@@ -3481,17 +5214,11 @@ vga320p_vsync.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/include/pico/util/queue.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio/driver.h:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/bootram.h:
 
@@ -3501,8 +5228,6 @@ vga320p_vsync.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_divider_headers/include/pico/divider.h:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/include/hardware/divider.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c:
@@ -3511,8 +5236,6 @@ vga320p_vsync.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h:
 
-/home/pdsilva/Projects/Orion68/src/pico2VGA/vga.c:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h:
@@ -3520,6 +5243,12 @@ vga320p_vsync.pio.h:
 /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_bus_read.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stat.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/qmi.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/boot_bootrom_headers/include/boot/bootrom_constants.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h:
 
@@ -3535,7 +5264,7 @@ vga320p_vsync.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/include/pico/float.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c:
 
@@ -3549,8 +5278,6 @@ vga320p_vsync.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h:
-
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/time.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/powman.h:
@@ -3561,94 +5288,18 @@ vga320p_vsync.pio.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/include/hardware/vreg.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/i2c.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/boot_bootrom_headers/include/boot/bootrom_constants.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/xip.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c:
 
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/pstl/pstl_config.h:
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/include/hardware/xosc.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/include/stdatomic.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_rcp/include/hardware/rcp.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/include/pico/printf.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/unistd.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/unistd.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/structure.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/arm-none-eabi/thumb/v8-m.main+fp/softfp/bits/cpu_defines.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/include/pico/bootrom.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/math.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/include/pico/multicore.h:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/float.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/arm-none-eabi/thumb/v8-m.main+fp/softfp/bits/c++config.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c:
-
-vga320p_hsync.pio.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/include/hardware/xosc.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/usb.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/usb.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c:
-
-/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/code.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/defs.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/boot_stage2/include/boot_stage2/config.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c:
-
-/home/pdsilva/Projects/Orion68/src/pico2VGA/orion_bus.c:

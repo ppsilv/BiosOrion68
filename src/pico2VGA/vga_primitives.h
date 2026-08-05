@@ -23,8 +23,6 @@ static void clrscr();
 // 5x7 font
 static void writeStringBold(char* str);
 
-void drawChar(uint8_t c, color_t color, color_t bg, uint8_t size) ;
-
 /*
 //NOVAS IMPLEMENTAÇÕES
 //(0=Texto+Scroll, 1=Texto Fixo, 2=320x200, 3=640x200)

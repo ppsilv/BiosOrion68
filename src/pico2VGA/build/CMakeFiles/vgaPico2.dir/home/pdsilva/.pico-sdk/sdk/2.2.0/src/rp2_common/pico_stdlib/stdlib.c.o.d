@@ -65,6 +65,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/defs.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_binary_info/include/pico/binary_info/structure.h \

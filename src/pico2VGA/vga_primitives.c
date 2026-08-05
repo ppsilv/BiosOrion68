@@ -20,18 +20,6 @@ static void dec_cursor_y();
 static void dec_cursor_x();
 
 
-
-/*
-struct cursor{
-    uint16_t x;
-    uint16_t y;
-    bool visible;
-    bool blink;
-    uint16_t blink_interval;
-    cursorShape_t shape ;// 0 - block, 1 - underline, 2 - line
-};
-typedef struct cursor cursor_t;
-*/
 typedef struct  {
     uint16_t width;  //320, 640
     uint16_t height; //240, 480
@@ -70,7 +58,6 @@ static void clrscr(){
 
 static void dec_cursor_x(){
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
-
 
   priv->cursor->x -= priv->font.width;
 
@@ -155,13 +142,6 @@ static void set_vga_mode(uint8_t mode){
   }
 }
 
-
-/*
-static void pchar(char c){
-    tft_write(c);
-}*/
-
-
 void drawPixel(short x, short y, color_t color) {
     vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
     if((x > (priv->width-1)) | (x < 0) | (y > (priv->height-1)) | (y < 0) ) return;
@@ -206,14 +186,10 @@ void fillRect(short x, short y, short w, short h, color_t color) {
   for(int i=x; i <= w;i++)
       for( int j=y;j <= h;j++)
           drawPixel( i,  j, color ) ;
-
-//  for(int j=y; j<(y+h); j++) {
-//    drawHLine(x, j, w, color) ;
-//  }
 }
 
-static void drawChar_interna(short x, short y, uint8_t c, color_t color, color_t bg, uint8_t size) {
-  vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
+static void drawChar_interna(vga_text_private_t* priv, short x, short y, uint8_t c, color_t color, color_t bg, uint8_t size) {
+  //vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
   char i, j;
   if((x >= priv->width)            || // Clip right
      (y >= priv->height)           || // Clip bottom
@@ -255,8 +231,8 @@ static void drawChar_interna(short x, short y, uint8_t c, color_t color, color_t
   }
 }
 
-void drawChar2( int start_x, int start_y, uint8_t char_code, int color,  int bgcolor, uint8_t size) {
-    vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
+static void drawChar2( vga_text_private_t* priv,int start_x, int start_y, uint8_t char_code, int color,  int bgcolor, uint8_t size) {
+    //vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
 
     // Calcula a área do caractere
     size=1;
@@ -294,13 +270,13 @@ void drawChar2( int start_x, int start_y, uint8_t char_code, int color,  int bgc
 }
 
 
-void drawChar(uint8_t c, color_t color, color_t bg, uint8_t size) {
-  vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
+static void drawChar(vga_text_private_t* priv,uint8_t c, color_t color, color_t bg, uint8_t size) {
+  //vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
 
   if(size == 2)
-    drawChar_interna( priv->cursor->x, priv->cursor->y, c, color, bg, size);
+    drawChar_interna( priv,priv->cursor->x, priv->cursor->y, c, color, bg, size);
   else  
-    drawChar2( priv->cursor->x, priv->cursor->y, c, color, bg, size);
+    drawChar2( priv,priv->cursor->x, priv->cursor->y, c, color, bg, size);
 }
 extern void scroll_up_graphics(void);
 
@@ -309,9 +285,19 @@ void tft_write(uint8_t c){
 
   switch(c){
     case 0x0A:  // \n
+              put_cursor(0);
               priv->cursor->y += priv->font.height;
     case 0x0D:  // \r
               priv->cursor->x  = 0;
+              put_cursor(1);
+              break;
+    case 0x08:  // backspace
+              put_cursor(0);
+              priv->cursor->x -= priv->font.width;
+              if(priv->cursor->x < 0){
+                priv->cursor->x = 0;       
+              }
+              put_cursor(1);
               break;
     case 0x09:  // \t
               int new_x = priv->cursor->x + priv->tabspace;
@@ -320,8 +306,7 @@ void tft_write(uint8_t c){
               }
               break;
     default:
-              drawChar( c, priv->textcolor, priv->textbgcolor, priv->font.size);
-              //priv->cursor->x += priv->font.size*priv->font.width;
+              drawChar(priv, c, priv->textcolor, priv->textbgcolor, priv->font.size);
               priv->cursor->x += priv->font.width;  //multiply last so much time
 
               if(priv->cursor->x >= priv->width ) {
@@ -335,32 +320,6 @@ void tft_write(uint8_t c){
     priv->cursor->x = 0;
     priv->cursor->y -= priv->font.height;
   }
-/*
-  if (c == '\n') {
-    priv->cursor->y += priv->font.height;
-    priv->cursor->x  = 0;
-  } else if (c == '\r') {
-    // skip em
-  } else if (c == '\t'){
-      int new_x = priv->cursor->x + priv->tabspace;
-      if (new_x < priv->width){
-          priv->cursor->x = new_x;
-      }
-  } else {
-  
-    drawChar( c, priv->textcolor, priv->textbgcolor, priv->font.size);
-    priv->cursor->x += priv->font.size*priv->font.width;
-
-    if ((priv->cursor->x > (priv->width - priv->font.size*6))) {
-      priv->cursor->y += priv->font.height;
-      priv->cursor->x = 0;
-    }
- 
-  }
-  if( priv->cursor->y >= 480 ){
-    clrscr();
-  }
-  */
 }
 
 void put_cursor(uint8_t c){
@@ -377,60 +336,60 @@ void put_cursor(uint8_t c){
   if( priv->cursor->visible == true ){
     if( priv->cursor->blink == true ){
       if( c )
-        drawChar( priv->cursor->shape, priv->textcolor, priv->textbgcolor, 1);
+        drawChar(priv, priv->cursor->shape, priv->textcolor, priv->textbgcolor, 1);
       else  
-        drawChar( ' ', priv->textcolor, priv->textbgcolor, 1);
+        drawChar(priv, ' ', priv->textcolor, priv->textbgcolor, 1);
     }else{
-        drawChar( priv->cursor->shape, priv->textcolor, priv->textbgcolor, 1);
+        drawChar(priv, priv->cursor->shape, priv->textcolor, priv->textbgcolor, 1);
     }
   }else{
-        drawChar( ' ', priv->textcolor, priv->textbgcolor, 1);
+        drawChar(priv, ' ', priv->textcolor, priv->textbgcolor, 1);
   }
 }
 
-uint8_t bufferA[2400];
-uint8_t bufferB[2400];
-uint8_t *front_buffer = bufferA;
-uint8_t *back_buffer = bufferB;
+//uint8_t bufferA[2400];
+//uint8_t bufferB[2400];
+//uint8_t *front_buffer = bufferA;
+//uint8_t *back_buffer = bufferB;
+//
+//void vga_scroll() {
+//    // 1. Copia da linha 1 até 29 do front para a linha 0 até 28 do back
+//    // (80 colunas * 29 linhas = 2320 bytes)
+//    memcpy(back_buffer, front_buffer + 80, 2320);
+//
+//    // 2. Limpa a nova linha 29 no back buffer
+//    memset(back_buffer + 2320, ' ', 80);
+//
+//    // 3. TROCA OS PONTEIROS (O back vira front e vice-versa)
+//    uint8_t *temp = front_buffer;
+//    front_buffer = back_buffer;
+//    back_buffer = temp;
+//
+//    // 4. Reposiciona o cursor na última linha
+//    vga->setTextCursorPos(0,29);
+//}
 
-void vga_scroll() {
-    // 1. Copia da linha 1 até 29 do front para a linha 0 até 28 do back
-    // (80 colunas * 29 linhas = 2320 bytes)
-    memcpy(back_buffer, front_buffer + 80, 2320);
-
-    // 2. Limpa a nova linha 29 no back buffer
-    memset(back_buffer + 2320, ' ', 80);
-
-    // 3. TROCA OS PONTEIROS (O back vira front e vice-versa)
-    uint8_t *temp = front_buffer;
-    front_buffer = back_buffer;
-    back_buffer = temp;
-
-    // 4. Reposiciona o cursor na última linha
-    vga->setTextCursorPos(0,29);
-}
-
-static void setTextCursor_old(uint16_t x, uint16_t y) {
-  vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
-  if((x >= priv->width) || (y >= priv->height)) 
-    return;
-  if(x*priv->font.width >= priv->width) {
-    x = x*priv->font.width / priv->font.width;
-    if( y < priv->height )
-      y = y *priv->font.height;
-    else
-      y = 0 ;
-  }else{
-    x = x*priv->font.width;
-    if( y < priv->height )
-      y = y *priv->font.height;
-    else
-      y = 0 ;
-  }
-
-  priv->cursor->x = x;
-  priv->cursor->y = y;
-}
+//static void setTextCursor_old(uint16_t x, uint16_t y) {
+//  vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
+//  if((x >= priv->width) || (y >= priv->height)) 
+//    return;
+//  if(x*priv->font.width >= priv->width) {
+//    x = x*priv->font.width / priv->font.width;
+//    if( y < priv->height )
+//      y = y *priv->font.height;
+//    else
+//      y = 0 ;
+//  }else{
+//    x = x*priv->font.width;
+//    if( y < priv->height )
+//      y = y *priv->font.height;
+//    else
+//      y = 0 ;
+//  }
+//
+//  priv->cursor->x = x;
+//  priv->cursor->y = y;
+//}
 static void setTextCursor(uint16_t x, uint16_t y) {
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
   
@@ -451,16 +410,7 @@ static void setTextCursor(uint16_t x, uint16_t y) {
   priv->cursor->x = pixel_x;
   priv->cursor->y = pixel_y;
 }
-/*
-static void setTextSize(uint8_t s) {
-  vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
-  if(s >0 ){
-    priv->font.size = s;
-  }else{
-    priv->font.size = 1;
-  }
-}
-*/
+
 static uint8_t getTextSize(void) {
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
   
@@ -483,11 +433,6 @@ static void setTextCursorBlink(bool b) {
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
   priv->cursor->blink = b;
 }
-//static void setTextColor(char c) {
-//  vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
-//  priv->textcolor = priv->textbgcolor = c;
-//}
-
 
 static void setTextColor(char c, char b) {
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
@@ -499,7 +444,12 @@ static uint8_t getTextColor(void) {
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
   return priv->textcolor;
 }
-
+static inline void u8_to_hex(uint8_t val, char *buf) {
+    static const char hex[] = "0123456789ABCDEF";
+    buf[0] = hex[(val >> 4) & 0x0F];
+    buf[1] = hex[val & 0x0F];
+    buf[2] = '\0';
+}
 
 static void printString(char* str){
     while (*str){
@@ -512,7 +462,8 @@ static void printString1(char* str,int32_t num){
   while (*str){
       tft_write(*str++);
   }
-  sprintf(buf,"%x",num);
+  //sprintf(buf,"%x",num);
+  u8_to_hex(num,buf);
   uint8_t size = sizeof(buf);
   buf[--size]='\0';
   uint8_t i=0;
@@ -526,7 +477,8 @@ static void printString2(char* str,int32_t num){
   while (*str){
       tft_write(*str++);
   }
-  sprintf(buf,"%x",num);
+//  sprintf(buf,"%x",num);
+  u8_to_hex(num,buf);
   uint8_t size = sizeof(buf);
   buf[--size]='\0';
   uint8_t i=0;
@@ -541,21 +493,7 @@ static void setTextColorBig(color_t color, char background) {
   priv->textcolor = color;
   priv->textbgcolor = background;
 }
-/* 
-static void writeStringBold(char* str){
-  vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
 
-    char temp_bg ;
-    temp_bg = priv->textbgcolor;
-    while (*str){
-        char c = *str++;
-        drawChar_interna(priv->cursor->x, priv->cursor->y, c, priv->textcolor, priv->textbgcolor, priv->font.size);
-        drawChar_interna(priv->cursor->x+1, priv->cursor->y, c, priv->textcolor, priv->textcolor, priv->font.size);
-        priv->cursor->x += 7 * priv->font.size ;
-    }
-    priv->textbgcolor = temp_bg ;
-}
-*/
 short readPixel(short x, short y) {
   vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
   int pixel = ((640 * y) + x) ;
@@ -568,17 +506,17 @@ short readPixel(short x, short y) {
   }
   return color ;
 }
-extern void __not_in_flash_func(vga_line_handler)();
-//ESTA FUNÇÃO ESTÁ OK PARA 320 TESTADO 26/03
-void init_vga_320x200(){
-  // 1. Habilita a interrupção específica do PIO0
-  pio_set_irq0_source_enabled(pio0, pis_interrupt1, true);
-  // 2. Diz qual função deve rodar
-  irq_set_exclusive_handler(PIO0_IRQ_0, vga_line_handler);
-  // 3. Liga a interrupção no nível do processador
-  irq_set_enabled(PIO0_IRQ_0, true);
-  irq_set_priority(PIO0_IRQ_0, 0);  
-}
+//extern void __not_in_flash_func(vga_line_handler)();
+////ESTA FUNÇÃO ESTÁ OK PARA 320 TESTADO 26/03
+//void init_vga_320x200(){
+//  // 1. Habilita a interrupção específica do PIO0
+//  pio_set_irq0_source_enabled(pio0, pis_interrupt1, true);
+//  // 2. Diz qual função deve rodar
+//  irq_set_exclusive_handler(PIO0_IRQ_0, vga_line_handler);
+//  // 3. Liga a interrupção no nível do processador
+//  irq_set_enabled(PIO0_IRQ_0, true);
+//  irq_set_priority(PIO0_IRQ_0, 0);  
+//}
 
 //extern char *active_buffer;
 #define TXCOUNT 153600 // Total pixels/2 (since we have 2 pixels per byte)
@@ -603,12 +541,12 @@ vga_t* create_screen(screenMode_t mode){ //,uint8_t active_buffer1[],uint32_t tx
     // Initialize the VGA screen
   initVGA(  &active_buffer, TXCOUNT , mode) ;
 
-  if( mode == MODE_TEXT_40_S ||
-      mode == MODE_TEXT_40_F ||
-      mode == MODE_320x240
-    ){
-    init_vga_320x200();
-  }
+  //if( mode == MODE_TEXT_40_S ||
+  //    mode == MODE_TEXT_40_F ||
+  //    mode == MODE_320x240
+  //  ){
+  //  init_vga_320x200();
+  //}
   vga->_private = priv;
   
   priv->cursor = create_default_cursor() ;  
@@ -650,113 +588,6 @@ vga_t* create_screen(screenMode_t mode){ //,uint8_t active_buffer1[],uint32_t tx
 
   return vga;
 }
-/*
-extern vga_t *vga;
-
-
-void change_modeold(uint8_t mode){
-    // 1. Libera APENAS o que é dinâmico dentro do private, se houver
-    vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
-    if(priv->cursor) {
-        // Se o cursor foi alocado dinamicamente, libere aqui
-        // free(priv->cursor); 
-    }
-
-    // 2. Em vez de free(vga), vamos apenas "reconfigurar"
-    // Pode ser necessário parar os PIOs/DMA antes de mudar o modo
-    // stop_vga_dma(); 
-    char buf[8];
-    sprintf(buf,"\nmode [%d]\n",mode);
-    vga->printString(buf);
-    vga->printString("Chamando initVGA\n");
-    // 3. Chame as rotinas de inicialização de hardware para o novo modo
-    initVGA(&active_buffer, TXCOUNT, mode);
-    
-    vga->printString("Se modo 320p chama init vga 32-x200\n");
-    if(mode == MODE_TEXT_40_S || mode == MODE_TEXT_40_F || mode == MODE_320x240) {
-        init_vga_320x200();
-    }
-
-    // 4. Atualize os campos de estado do vga e o modo
-    vga->printString("Configurando mode");
-    vga->screen_mode = mode;
-    set_vga_mode(mode);
-    
-    // Atualize as fontes e masks no priv existente sem dar free nele
-    font = set_font(FONTE_8X16);
-    priv->font.height = font->height;
-    // ... atualizar demais campos do priv ...
-}
-
-
-// Esta função deve ser chamada APENAS UMA VEZ no seu main.c
-vga_t* create_vga_instance() {
-    vga_t* instance = (vga_t*)malloc(sizeof(vga_t));
-    vga_text_private_t* priv = (vga_text_private_t*)malloc(sizeof(vga_text_private_t));
-
-    if (!instance || !priv) {
-        free(instance);
-        free(priv);
-        return NULL;
-    }
-
-    // Link fixo entre a estrutura principal e a privada
-    instance->_private = priv;
-
-    // Atribuição fixa dos ponteiros de função (vtable manual)
-    instance->printString = printString;
-    instance->setTextColor = setTextColor;
-    instance->getTextColor = getTextColor;
-    instance->getTextSize = getTextSize;
-    instance->setTextCursorPos = setTextCursor;
-    instance->clrscr = clrscr;
-    instance->setTextCursorVisible = setTextCursorVisible;
-    instance->setTextCursorBlink = setTextCursorBlink;
-    instance->get_blink_interval = get_blink_interval;
-    instance->set_blink_interval = set_blink_interval;
-    instance->set_vga_home = set_vga_home;
-    instance->set_vga_mode = set_vga_mode;
-    instance->pchar = tft_write;
-    instance->set_vga_data_array = set_vga_data_array;
-
-    return instance;
-}
-
-// Esta é a função que faz o trabalho pesado de trocar o modo sem dar free
-void vga_setup_mode(vga_t* instance, screenMode_t mode) {
-    if (!instance) return;
-
-    vga_text_private_t* priv = (vga_text_private_t*)instance->_private;
-
-    // 1. Configuração de Hardware (Para o PIO/DMA antes de mudar)
-    // Se você tiver uma função para parar o DMA, chame-a aqui.
-    
-    font = set_font(FONTE_8X16);
-    initVGA(&active_buffer, TXCOUNT, mode);
-
-    if (mode == MODE_TEXT_40_S || mode == MODE_TEXT_40_F || mode == MODE_320x240) {
-        init_vga_320x200();
-    }
-
-    // 2. Atualização dos dados de controle (sem malloc!)
-    priv->cursor = create_default_cursor(); 
-    priv->textcolor = WHITE;
-    priv->textbgcolor = BLACK;
-    priv->font.name = font->name;
-    priv->font.width = font->width;
-    priv->font.height = font->height;
-    priv->font.size = font->size;
-    priv->font.data = font->name;
-    priv->tabspace = 4;
-    priv->txcount = TXCOUNT;
-    priv->topmask = 0b00001111;
-    priv->bottommask = 0b11110000;
-    priv->vga_data_array = &active_buffer[0];
-
-    instance->screen_mode = mode;
-    set_vga_mode(mode);
-}
-*/
 
 #include "eeprom.h"
 #include "hardware/resets.h"

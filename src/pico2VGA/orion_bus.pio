@@ -12,7 +12,9 @@ m68k_escrita:
     in x, 2               ; Injeta flag no LSB (será empurrada para os bits 15:14)
     nop [31]
     in pins, 14           ; Injeta 6 bits Endereço (13:8) + 8 bits Dados (7:0)
-    push noblock          ; Envia pacote de 16 bits exatos pro C
+    ;push noblock          ; Envia pacote de 16 bits exatos pro C
+
+    pull block            ; Espera o C entregar o ok como resposta
     
     set pins, 0           ; /DTACK (GPIO 14) = 0 (Informa ao 68k que a escrita foi capturada)
     jmp fim_ciclo
@@ -21,7 +23,7 @@ m68k_leitura:
     set x, 1              ; Flag 0x1 = LEITURA (2 bits: 01)
     in x, 2               ; Injeta flag no LSB (será empurrada para os bits 15:14)
     in pins, 14           ; Injeta 6 bits Endereço (13:8) + 8 bits Dados (7:0)
-    push noblock          ; Envia pacote de 16 bits exatos pro C
+    ;push noblock          ; Envia pacote de 16 bits exatos pro C
 
     pull block            ; Espera o C entregar o dado de resposta
 
@@ -71,7 +73,8 @@ static inline void orion_bus_program_init(PIO pio, uint sm, uint offset) {
     sm_config_set_jmp_pin(&c, 15);
 
     // 5. SHIFTER: Shift para ESQUERDA (false), sem autopush, 16 bits
-    sm_config_set_in_shift(&c, false, false, 16);
+    //sm_config_set_in_shift(&c, false, false, 16); //precisa de push
+    sm_config_set_in_shift(&c, false, true, 16);   //não precisa de push
     sm_config_set_out_shift(&c, true, false, 32);
 
     // 6. Direções iniciais: GPIO 14 é SAÍDA (1), resto é ENTRADA (0)
@@ -84,6 +87,7 @@ static inline void orion_bus_program_init(PIO pio, uint sm, uint offset) {
     pio_sm_exec(pio, sm, pio_encode_mov(pio_y, pio_osr));
 
     sm_config_set_clkdiv(&c, 1.0f);
+    //sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_RX);
 
     pio_sm_init(pio, sm, offset, &c);
     pio_sm_set_enabled(pio, sm, true);

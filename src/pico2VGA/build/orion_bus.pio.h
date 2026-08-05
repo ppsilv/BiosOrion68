@@ -13,7 +13,7 @@
 // --------- //
 
 #define orion_bus_wrap_target 0
-#define orion_bus_wrap 24
+#define orion_bus_wrap 23
 #define orion_bus_pio_version 1
 
 static const uint16_t orion_bus_program_instructions[] = {
@@ -25,31 +25,30 @@ static const uint16_t orion_bus_program_instructions[] = {
     0x4022, //  4: in     x, 2
     0xbf42, //  5: nop                           [31]
     0x400e, //  6: in     pins, 14
-    0x8000, //  7: push   noblock
+    0x80a0, //  7: pull   block
     0xe000, //  8: set    pins, 0
-    0x0013, //  9: jmp    19
+    0x0012, //  9: jmp    18
     0xe021, // 10: set    x, 1
     0x4022, // 11: in     x, 2
     0x400e, // 12: in     pins, 14
-    0x8000, // 13: push   noblock
-    0x80a0, // 14: pull   block
-    0xa062, // 15: mov    pindirs, y
-    0x6008, // 16: out    pins, 8
-    0xb042, // 17: nop                           [16]
-    0xe000, // 18: set    pins, 0
-    0xaf42, // 19: nop                           [15]
-    0x2095, // 20: wait   1 gpio, 21
-    0xe001, // 21: set    pins, 1
-    0xa0e3, // 22: mov    osr, null
-    0xa067, // 23: mov    pindirs, osr
-    0xe081, // 24: set    pindirs, 1
+    0x80a0, // 13: pull   block
+    0xa062, // 14: mov    pindirs, y
+    0x6008, // 15: out    pins, 8
+    0xb042, // 16: nop                           [16]
+    0xe000, // 17: set    pins, 0
+    0xaf42, // 18: nop                           [15]
+    0x2095, // 19: wait   1 gpio, 21
+    0xe001, // 20: set    pins, 1
+    0xa0e3, // 21: mov    osr, null
+    0xa067, // 22: mov    pindirs, osr
+    0xe081, // 23: set    pindirs, 1
             //     .wrap
 };
 
 #if !PICO_NO_HARDWARE
 static const struct pio_program orion_bus_program = {
     .instructions = orion_bus_program_instructions,
-    .length = 25,
+    .length = 24,
     .origin = -1,
     .pio_version = orion_bus_pio_version,
 #if PICO_PIO_VERSION > 0
@@ -85,7 +84,8 @@ static inline void orion_bus_program_init(PIO pio, uint sm, uint offset) {
     pio_gpio_init(pio, 21);
     sm_config_set_jmp_pin(&c, 15);
     // 5. SHIFTER: Shift para ESQUERDA (false), sem autopush, 16 bits
-    sm_config_set_in_shift(&c, false, false, 16);
+    //sm_config_set_in_shift(&c, false, false, 16); //precisa de push
+    sm_config_set_in_shift(&c, false, true, 16);   //não precisa de push
     sm_config_set_out_shift(&c, true, false, 32);
     // 6. Direções iniciais: GPIO 14 é SAÍDA (1), resto é ENTRADA (0)
     uint32_t pin_mask = (0xFF << 0) | (0x3F << 8) | (1 << 14) | (1 << 15) | (1 << 21);
@@ -95,6 +95,7 @@ static inline void orion_bus_program_init(PIO pio, uint sm, uint offset) {
     pio_sm_exec(pio, sm, pio_encode_pull(false, true));
     pio_sm_exec(pio, sm, pio_encode_mov(pio_y, pio_osr));
     sm_config_set_clkdiv(&c, 1.0f);
+    //sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_RX);
     pio_sm_init(pio, sm, offset, &c);
     pio_sm_set_enabled(pio, sm, true);
 }

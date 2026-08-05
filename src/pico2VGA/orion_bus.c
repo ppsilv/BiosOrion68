@@ -23,6 +23,14 @@ extern volatile uint8_t  bg_color;
 
 static char buf[256]={0};
 
+// Converte 1 byte em 2 caracteres HEX
+static inline void u8_to_hex(uint8_t val, char *buf) {
+    static const char hex[] = "0123456789ABCDEF";
+    buf[0] = hex[(val >> 4) & 0x0F];
+    buf[1] = hex[val & 0x0F];
+    buf[2] = '\0';
+}
+
 void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
     if (!pio_sm_is_rx_fifo_empty(pio, sm)) {
 
@@ -35,21 +43,9 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
         uint8_t byte_resposta = 0x0;
         switch (reg) {
                 case D_WRITE_SCREEN:    
-                    put_cursor(0);
                     vga->setTextCursorVisible(false);
-                    put_cursor(0);
-                    if( dado_m68k == 0x08 ){
-                        vga->dec_cursor_x();                                
-                    }else{
-                        if( dado_m68k > 0x80 ){
-                            sprintf(buf,"%d",dado_m68k);
-                            vga->printString(buf);
-                        }else{
-                            vga->pchar(dado_m68k);  
-                        }
-                    }
+                    vga->pchar(dado_m68k);  
                     vga->setTextCursorVisible(true);                        
-                    put_cursor(1);
                     break;
                 case D_SET_TXT_COLOR:
                     bg_color = dado_m68k & 0x0F;
