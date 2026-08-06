@@ -111,21 +111,20 @@ Trap1Handler:
         movem.l %d1-%d7/%a0-%a6,-(%sp)
 
         /* Avalia a função passada em D0 */
-        cmp.w   #1,%d0
+        cmp.w   #1,%d1
         beq     .trap1_cconin
-        cmp.w   #2,%d0
+        cmp.w   #2,%d1
         beq     .trap1_cconout
         bra     .trap1_exit
 
 .trap1_cconin:
         /* Verifica se o ponteiro da função cconin não é nulo */
         move.l  #cconin,%a0
-        move.l  (%a0),%d1
-        tst.l   %d1
-        beq     .trap1_exit
-        
+        move.l  (%a0),%d0
+        tst.l   %d0
+        beq     .trap1_exit        
         /* Chama a função em C. O retorno virá em D0 naturalmente */
-        move.l  %d1,%a0
+        move.l  %d0,%a0
         jsr     (%a0)
         bra     .trap1_exit
 
@@ -136,10 +135,10 @@ Trap1Handler:
         tst.l   %d2
         beq     .trap1_exit
 
-        /* Empilha o caractere que veio em D1 (argumento para cconout(char)) */
+        /* Empilha o caractere que veio em D0 (argumento para cconout(char)) */
         /* O C espera um int/word alinhado na pilha, empilhamos como Long */
-        and.l   #0x000000FF,%d1
-        move.l  %d1,-(%sp)
+        and.l   #0x000000FF,%d0
+        move.l  %d0,-(%sp)
         
         move.l  %d2,%a0
         jsr     (%a0)

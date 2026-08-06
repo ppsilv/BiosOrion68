@@ -79,7 +79,7 @@ nobrk		EQU	0				* null response to INPUT causes a break
 							* RAM offset definitions
 
 * Use this value to run out of ROM
-	ORG		$00C000			* past the vectors in a real system
+	ORG		$082000			* past the vectors in a real system
 * Use this value to run out of RAM
 *	ORG		$000800			* past the vectors in a real system
 
