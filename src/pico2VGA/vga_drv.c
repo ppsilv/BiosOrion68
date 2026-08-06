@@ -27,7 +27,7 @@ enum vga_pins {BUS=0,HSYNC=16, VSYNC=17, RED_PIN=20, LO_GRN=19, BLUE_PIN=18} ;
 
 
 /*
-APARENTEMENTE SOMENTE O HORIZONTAL CONTROLA TODAS AS FREQUENCIAS DO VGA.
+APARENTEMENTE(CONFIRMADO VSYNC ESTÁ ATRELADO AO HSYNC) SOMENTE O HORIZONTAL CONTROLA TODAS AS FREQUENCIAS DO VGA.
 SYSCLOCK = 150mHZ
 0-vga.c 
 bool ok = set_sys_clock_khz(150000, true);
@@ -95,7 +95,12 @@ backporch:
     irq 0       [1]     ; Set IRQ to signal end of line (47 cycles)
 .wrap
 
-
+Resumo:
+Para alterar a frequencia do sistem:
+1 - Troque em vga.c a frequencia
+2 - Configure em vga_drv.c  de acordo com a nova frequencia.
+3 - Configure em hsync.pio de acordo com a nova frequencia para que o horizontal tenha 31.4Khz
+4 - Configure rgb.pio de acordo com a nova frequencia.
 
 */
 
