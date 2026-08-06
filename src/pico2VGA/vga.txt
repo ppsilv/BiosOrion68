@@ -1,0 +1,49 @@
+Ajuda muito — isso fecha a conta perfeitamente.
+
+## Fechando a matemática
+
+`H_ACTIVE_2 = 655`, e o comentário diz: `(active + frontporch - 1)`. Então:
+
+```
+X + 1 = 656 ciclos de "active + frontporch" (activeporch loop)
+```
+
+Já sabemos, pelo `RGB_ACTIVE_2 = 319 = (horizontal_active/2) - 1`, que:
+
+```
+horizontal_active / 2 = 320  →  horizontal_active = 640 "unidades RGB"
+```
+
+Só que a PIO de `colorout` roda em **pixels reais** (cada `out pins,4` = 1 pixel, 2 por byte) — então "640 unidades RGB" já são **pixels de verdade**. Mas o HSYNC usa `656` como `active+frontporch`, não `640+frontporch_original`. Isso significa que **1 ciclo do state machine de HSYNC representa exatamente 1 pixel real**, não 2 como eu suspeitava antes — minha hipótese anterior estava errada, bom termos os números reais em vez de continuar especulando.
+
+Agora dá pra bater tudo:
+
+```
+active + frontporch = 656 pixels  →  frontporch = 656 - 640 = 16 pixels  ✓ bate com o comentário original!
+```
+
+Então o **front porch está correto** (16 ciclos, como documentado). O que mudou de verdade foi **sync pulse e back porch**:
+
+```
+Total por linha = (X+1) + sync_pulse + back_porch
+                 = 656 + 64 + 15
+                 = 735 ciclos
+```
+
+Contra os **800 ciclos** do padrão VESA documentado nos comentários (`640+16+96+48`).
+
+## O que isso significa na prática
+
+Com clock do SM em `150MHz ÷ 12 = 12.5MHz`:
+
+```
+735 ciclos ÷ 12.5MHz = 58.8us por linha  →  1/58.8us ≈ 17.0kHz de frequência horizontal
+```
+
+Isso está **bem abaixo** dos ~31.5kHz que o padrão VESA 640×480@60Hz exige. Um monitor VGA "old school" estrito provavelmente rejeitaria esse sinal — mas monitores modernos com entrada VGA analógica, ou conversores VGA→HDMI (muito comuns hoje em dia, inclusive prováveis no seu setup de bancada), costumam ter faixas de sincronismo bem mais tolerantes, ou até fazem algum tipo de auto-detecção/PLL que se adapta a frequências não-padrão. Isso explicaria por que "funciona na prática" mesmo com o timing fugindo do padrão oficial — sem contradizer nada do que vimos.
+
+## Resumo da resposta à sua pergunta original
+
+`150 ÷ 12 = 12.5MHz`, não 25MHz como o comentário antigo sugeria — e o motivo de "funcionar mesmo assim" não é nenhuma mágica de ciclos-por-pixel (como cheguei a supor errado antes): é que o **sync pulse e o back porch foram encurtados** em relação ao padrão VESA (provavelmente numa rodada de ajuste manual, tentativa-e-erro, até a imagem estabilizar num monitor específico), resultando numa frequência de linha de ~17kHz em vez dos ~31.5kHz "oficiais" — fora do padrão estrito, mas dentro da tolerância do hardware que você está usando de fato.
+
+Se você quiser mirar o timing 100% VESA padrão (mais compatibilidade com monitores diversos, menos dependência de tolerância de hardware específico), dá pra recalcular os valores de `[N]` do sync/back porch pra bater os 800 ciclos originais — quer que eu monte essa versão corrigida?

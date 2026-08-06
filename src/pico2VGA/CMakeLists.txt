@@ -58,9 +58,6 @@ pico_enable_stdio_uart(vgaPico2 0)
 pico_enable_stdio_usb(vgaPico2 1)
 
 # Add the standard library to the build
-target_link_libraries(vgaPico2
-        pico_stdlib)
-
 # Add the standard include files to the build
 target_include_directories(vgaPico2 PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 

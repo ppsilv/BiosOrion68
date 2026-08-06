@@ -4376,6 +4376,7 @@ CMakeFiles/vgaPico2.dir/vga.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pads_bank0.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/powman.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
@@ -4391,6 +4392,7 @@ CMakeFiles/vgaPico2.dir/vga.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pads_bank0.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/powman.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/sio.h \
@@ -4413,6 +4415,7 @@ CMakeFiles/vgaPico2.dir/vga.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/include/hardware/uart.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/include/hardware/vreg.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/include/pico/multicore.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \

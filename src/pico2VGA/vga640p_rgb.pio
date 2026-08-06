@@ -8,9 +8,11 @@
 ; define the pixel hold times which depend on clock freq
 ; pixel1hold should be 5 for 150 MHz  (4 for 125 MHz)
 ; pixel2hold should be 3 for 150 MHz  (2 for 125 MHz)
-.define pixel1hold 5
-.define pixel2hold 3
-.define PUBLIC vid_freq 250
+;.define pixel1hold 5
+;.define pixel2hold 3
+.define pixel1hold 5   ; era 5
+.define pixel2hold 3    ; era 3
+;.define PUBLIC vid_freq 250
 
 pull block 					; Pull from FIFO to OSR (only once)
 mov y, osr 					; Copy value from OSR to y scratch register
@@ -45,7 +47,7 @@ static inline void rgb_program_init(PIO pio, uint sm, uint offset, uint pin) {
     sm_config_set_out_pins(&c, pin, total_pinos);
 
     // Set clock division (Commented out, this one runs at full speed)
-    // sm_config_set_clkdiv(&c, total_pinos) ;
+    sm_config_set_clkdiv(&c, 2) ;
 
     // longer FIFO to avoid bursty data
     sm_config_set_fifo_join (&c, PIO_FIFO_JOIN_TX) ;

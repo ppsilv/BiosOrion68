@@ -28,8 +28,8 @@ activeporch:
 ; SYNC PULSE
 pulse:
     set pins, 0 [31]    ; Low for hsync pulse (32 cycles)
-    set pins, 0 [31]    ; Low for hsync pulse (64 cycles)
-    set pins, 0 [31]    ; Low for hsync pulse (96 cycles)
+    ;set pins, 0 [31]    ; Low for hsync pulse (64 cycles)
+    ;set pins, 0 [31]    ; Low for hsync pulse (96 cycles)
 
 ; BACKPORCH
 backporch:
@@ -55,7 +55,8 @@ static inline void hsync_program_init(PIO pio, uint sm, uint offset, uint pin) {
     sm_config_set_set_pins(&c, pin, 1);
 
     // Set clock division (div by 5 for 25 MHz state machine)
-    sm_config_set_clkdiv(&c, 6) ;
+    //sm_config_set_clkdiv(&c, 6) ;
+    sm_config_set_clkdiv(&c, 23.8f) ;
 
     // Set this pin's GPIO function (connect PIO to the pad)
     pio_gpio_init(pio, pin);

@@ -16,8 +16,6 @@
 #define rgb_wrap 8
 #define rgb_pio_version 1
 
-#define rgb_vid_freq 250
-
 static const uint16_t rgb_program_instructions[] = {
     0x80a0, //  0: pull   block
     0xa047, //  1: mov    y, osr
@@ -61,7 +59,7 @@ static inline void rgb_program_init(PIO pio, uint sm, uint offset, uint pin) {
     sm_config_set_set_pins(&c, pin, total_pinos);
     sm_config_set_out_pins(&c, pin, total_pinos);
     // Set clock division (Commented out, this one runs at full speed)
-    // sm_config_set_clkdiv(&c, total_pinos) ;
+    sm_config_set_clkdiv(&c, 2) ;
     // longer FIFO to avoid bursty data
     sm_config_set_fifo_join (&c, PIO_FIFO_JOIN_TX) ;
     // Set this pin's GPIO function (connect PIO to the pad)

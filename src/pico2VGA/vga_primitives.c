@@ -536,7 +536,7 @@ vga_t* create_screen(screenMode_t mode){ //,uint8_t active_buffer1[],uint32_t tx
       free(priv);
       return NULL;
   }
-   memcpy_dma_chan = dma_claim_unused_channel(true);
+  memcpy_dma_chan = dma_claim_unused_channel(true);
   font = set_font(FONTE_8X16);
     // Initialize the VGA screen
   initVGA(  &active_buffer, TXCOUNT , mode) ;

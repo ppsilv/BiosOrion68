@@ -103,18 +103,42 @@ void core1_entry() {
         tight_loop_contents(); 
     }
 }
+#include "hardware/vreg.h"
+#include "pico/stdlib.h"
+/*
+VREG_VOLTAGE_1_10   // 1.10V (padrão de fábrica)
+VREG_VOLTAGE_1_15
+VREG_VOLTAGE_1_20
+VREG_VOLTAGE_1_25
+VREG_VOLTAGE_1_30   // usado com frequência pra ~250-300MHz na comunidade
+VREG_VOLTAGE_1_35
+VREG_VOLTAGE_1_40   // acima disso, risco real de degradar o chip com o tempo
+*/
+void overclock_pico(void)
+{
+    // 1. Sobe a tensão do regulador interno ANTES de subir o clock
+    vreg_set_voltage(VREG_VOLTAGE_1_35);   // ajuste conforme estabilidade (ver níveis abaixo)
+    sleep_ms(10);                            // dá tempo do regulador estabilizar
 
+    // 2. Agora sim, define o clock
+    bool ok = set_sys_clock_khz(300000, true);
+    printf("set_sys_clock_khz ok=%d\n", ok);
+    printf("sys_clk real = %lu Hz\n", (unsigned long)clock_get_hz(clk_sys));
+
+    if (!ok) {
+        // set_sys_clock_khz falha se não encontrar um PLL válido pra essa frequência exata
+        printf("Falha ao configurar 300MHz -- PLL nao encontrou combinacao valida\n");
+    }
+}
 int main(){
+    // start the serial i/o
     stdio_init_all();
-    // set the clock
-    set_sys_clock_khz(200000, true);
+
+    overclock_pico();
+
 
     // start bus read
     initReadBus_Pio();
-
-    // start the serial i/o
-    stdio_init_all() ;
-    set_sys_clock_khz(150000, true);
 
     vga = create_screen( MODE_TEXT_80_S ); //, 0, 0, font );
     video_mode = MODE_TEXT_80_S;

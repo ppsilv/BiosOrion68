@@ -23,7 +23,7 @@ pull block              ; Pull from FIFO to OSR (only happens once)
 ; ACTIVE + FRONTPORCH
 mov x, osr              ; Copy value from OSR to x scratch register
 activeporch:
-   jmp x-- activeporch  ; Remain high in active mode and front porch
+   jmp x-- activeporch  ; Remain high in active mode and front porchmov x, osr              ; Copy value from OSR to x scratch register
 
 ; SYNC PULSE
 pulse:
@@ -59,7 +59,8 @@ static inline void hsync320p_program_init(PIO pio, uint sm, uint offset, uint pi
     sm_config_set_set_pins(&c, pin, 1);
 
     // Set clock division (div by 5 for 25 MHz state machine)
-    sm_config_set_clkdiv(&c, 12) ;
+//    sm_config_set_clkdiv(&c, 12) ; //para 150Mhz
+  sm_config_set_clkdiv(&c, 84.0f) ; //para 300Mhz
 
     // Set this pin's GPIO function (connect PIO to the pad)
     pio_gpio_init(pio, pin);

@@ -52,7 +52,7 @@ static inline void rgb320p_program_init(PIO pio, uint sm, uint offset, uint pin)
     sm_config_set_out_pins(&c, pin, total_pinos);
 
     // Set clock division (Commented out, this one runs at full speed)
-    // sm_config_set_clkdiv(&c, total_pinos) ;
+     sm_config_set_clkdiv(&c, 9) ;
 
     // longer FIFO to avoid bursty data
     sm_config_set_fifo_join (&c, PIO_FIFO_JOIN_TX) ;

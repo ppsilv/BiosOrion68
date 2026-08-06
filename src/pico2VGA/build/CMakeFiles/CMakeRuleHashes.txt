@@ -20,4 +20,3 @@ e6dccd675c6dc76eed77b2503990688d vga320p_rgb.pio.h
 63a1a87875fe2f203b415bc8c6c30207 vga640p_hsync.pio.h
 f9991c7bbe9a20064dc626caf8b12fb8 vga640p_rgb.pio.h
 33768628cf003494b98a4ed777281f29 vga640p_vsync.pio.h
-e122b3dafa04be52d624e56d87b08ca0 vga_bus_read.pio.h

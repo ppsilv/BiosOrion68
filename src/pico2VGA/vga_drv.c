@@ -19,11 +19,86 @@ enum vga_pins {BUS=0,HSYNC=16, VSYNC=17, RED_PIN=20, LO_GRN=19, BLUE_PIN=18} ;
 
 #define H_ACTIVE_1   327    // (active + frontporch - 1) - one cycle delay for mov
 #define V_ACTIVE_1   479    // (active - 1)
-#define H_ACTIVE_2   655    // (active + frontporch - 1) - one cycle delay for mov
+#define H_ACTIVE_2   327  //655    // (active + frontporch - 1) - one cycle delay for mov
 #define V_ACTIVE_2   479    // (active - 1)
 
 #define RGB_ACTIVE_1 159    // (horizontal active)/2 - 1
 #define RGB_ACTIVE_2 319    // (horizontal active)/2 - 1
+
+
+/*
+APARENTEMENTE SOMENTE O HORIZONTAL CONTROLA TODAS AS FREQUENCIAS DO VGA.
+SYSCLOCK = 150mHZ
+0-vga.c 
+bool ok = set_sys_clock_khz(150000, true);
+1-vga_drv.c
+#define H_ACTIVE_2   655            // (active + frontporch - 1) - one cycle delay for mov
+2- rgb freq. vga640p_rgb.pio
+sm_config_set_clkdiv(&c, 1) ;
+3- hsync vga640p_hsync.pio
+.c
+sm_config_set_clkdiv(&c, 6) ;       // Divisor de frequência da PIO
+.pio
+pull block              ; Pull from FIFO to OSR (only happens once)
+.wrap_target            ; Program wraps to here
+
+; ACTIVE + FRONTPORCH
+mov x, osr              ; Copy value from OSR to x scratch register
+activeporch:
+   jmp x-- activeporch  ; Remain high in active mode and front porch
+
+; SYNC PULSE
+pulse:
+    set pins, 0 [31]    ; Low for hsync pulse (32 cycles)
+    set pins, 0 [31]    ; Low for hsync pulse (64 cycles)
+    set pins, 0 [31]    ; Low for hsync pulse (96 cycles)
+
+; BACKPORCH
+backporch:
+    set pins, 1 [31]    ; High for back porch (32 cycles)
+    set pins, 1 [5]    ; High for back porch (45 cycles)
+    irq 0       [1]     ; Set IRQ to signal end of line (47 cycles)
+.wrap
+
+
+
+
+
+
+SYSCLOCK = 300mHZ
+0-vga.c 
+bool ok = set_sys_clock_khz(300000, true);
+1-vga_drv.c
+#define H_ACTIVE_2   327            // (active + frontporch - 1) - one cycle delay for mov
+2-rgb freq. vga640p_rgb.pio
+sm_config_set_clkdiv(&c, 2) ;
+3-hsync vga640p_hsync.pio
+.c
+sm_config_set_clkdiv(&c, 20.5f) ;       // Divisor de frequência da PIO
+.PIO
+pull block              ; Pull from FIFO to OSR (only happens once)
+.wrap_target            ; Program wraps to here
+
+; ACTIVE + FRONTPORCH
+mov x, osr              ; Copy value from OSR to x scratch register
+activeporch:
+   jmp x-- activeporch  ; Remain high in active mode and front porch
+
+; SYNC PULSE
+pulse:
+    set pins, 0 [31]    ; Low for hsync pulse (32 cycles)
+
+; BACKPORCH
+backporch:
+    set pins, 1 [31]    ; High for back porch (32 cycles)
+    set pins, 1 [5]    ; High for back porch (45 cycles)
+    irq 0       [1]     ; Set IRQ to signal end of line (47 cycles)
+.wrap
+
+
+
+*/
+
 
 const PIO mpio0 = pio0;
 const PIO mpio1 = pio1;
@@ -139,7 +214,7 @@ static void initPio_640p(){
     vsync_program_init(mpio0, vsync_sm, vsync_offset, VSYNC);
     rgb_program_init(mpio0, rgb_sm, rgb_offset, BLUE_PIN);
 
-    pio_sm_put_blocking(mpio0, hsync_sm, H_ACTIVE_2);
+    pio_sm_put_blocking(mpio0, hsync_sm, H_ACTIVE_2); //H_ACTIVE_2
     pio_sm_put_blocking(mpio0, vsync_sm, V_ACTIVE_2);
     pio_sm_put_blocking(mpio0, rgb_sm, RGB_ACTIVE_2);
 
