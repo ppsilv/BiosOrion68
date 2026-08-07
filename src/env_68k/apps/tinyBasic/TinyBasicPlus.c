@@ -18,7 +18,8 @@
 *                      rights are reserved.                      *
 ******************************************************************/
 #include <stdio.h>
-#include <stdlib.h>
+#include  <string.h>
+//#include <stdlib.h>
 
 // size of our program ram
 #define BasicRamSize   64*1024 /* arbitrary - not dependant on libraries */
@@ -58,6 +59,8 @@ typedef short unsigned LINENUM;
 
 //IMPLEMENTACAO WHILE
 #define STACK_WHILE_FLAG 0x57  // 'W'
+
+unsigned char exit = 0;
 
 struct stack_while_frame {
     unsigned char frame_type;
@@ -461,6 +464,9 @@ static void getln(char prompt)
     char c = inchar();
     switch(c)
     {
+      case 0x1B:
+        exit=1;
+        return;
     case NL:
       //break;
     case CR:
@@ -800,6 +806,9 @@ prompt:
   }
 
   getln( '>' );
+  if( exit){
+    return;
+  }
   toUppercaseBuffer();
 
   txtpos = program_end+sizeof(unsigned short);
@@ -1140,7 +1149,6 @@ inputagain:
   }
 
 
-#include  <string.h>
 short find_wend(void) {
     unsigned char *saved_txtpos = txtpos;      // SALVA estado global
     unsigned char *saved_line = current_line;
@@ -1721,7 +1729,10 @@ static int inchar()
 {
   // otherwise. desktop!
   int got = getchar();
-
+  while(got > 255){
+    got = getchar();
+    //printf("%08x\n",got);
+  }
   // translation for desktop systems
   if( got == LF ) got = CR;
 

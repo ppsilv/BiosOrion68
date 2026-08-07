@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #if defined(__MINGW32__ )
 #endif
@@ -48,4 +49,5 @@ int main( int argc, char ** argv )
     printf( "Compiled for tcpbox68k cpu MC68000.\n" );
     //setup();
     loop();
+    printf("Exiting tBasic...\n");
 }

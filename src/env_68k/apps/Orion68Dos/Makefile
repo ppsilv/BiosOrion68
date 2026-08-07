@@ -1,7 +1,7 @@
 CC = m68k-elf-gcc
 LD = m68k-elf-ld
 OBJCOPY = m68k-elf-objcopy
-VASM = vasm68k_mot 
+VASM = vasmm68k_mot 
 
 CFLAGS = -Wall -O0 -I ./includes -I../../include -ffreestanding -nostdlib
 CFLAGS += -DCHIP_$(CHIP_TYPE) -DROM_SIZE_BYTES=$(ROM_SIZE)

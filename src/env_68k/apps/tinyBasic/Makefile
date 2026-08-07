@@ -4,7 +4,8 @@ OBJCOPY = m68k-elf-objcopy
 
 CFLAGS = -Wall -Os -Wa,-adhln=tinyBasic.lst -I../../include -ffreestanding -nostdlib -D __68000__ -D ALIGN_MEMORY
 #CFLAGS = -Wall -Os -I../include -ffreestanding -nostdlib -Dmain=main_with_exit
-LDFLAGS = -T ../../linker.ld -L../../lib -nostdlib
+LDFLAGS = -T ./linker.ld -L../../lib -nostdlib -L../../lib
+LDLIBS = -lc68k
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
@@ -14,13 +15,14 @@ BINS = $(SRCS:.c=.bin)
 .PHONY: all clean
 
 #all: $(BINS)
-all: tinyBasic.bin
+all: tBasic.bin
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Regra específica para cada arquivo para evitar problemas com $<
-tinyBasic.elf: tinyBasic.o TinyBasicPlus.o ../../obj/crt0.o ../../obj/startup.o
-	$(LD) $(LDFLAGS) ../../obj/crt0.o ../../obj/startup.o tinyBasic.o TinyBasicPlus.o -lmc68000 -L/usr/local/m68k-elf/lib -lgcc -o $@
+tBasic.elf: tinyBasic.o TinyBasicPlus.o ../../obj/crt0.o ../../obj/startup.o
+	#$(LD) $(LDFLAGS) ../../obj/crt0.o ../../obj/startup.o tinyBasic.o TinyBasicPlus.o -lc68k -L/usr/local/m68k-elf/lib -lgcc -o $@
+	$(LD) $(LDFLAGS) $(OBJS) -o $@ $(LDLIBS)
 	@echo "Linked: $@"
 
 test.elf: test.o ../../obj/crt0.o
@@ -32,5 +34,5 @@ test.elf: test.o ../../obj/crt0.o
 	@echo "Binary: $@"
 
 clean:
-	rm -f $(OBJS) $(ELFS) $(BINS)
+	rm -f $(OBJS) $(ELFS) $(BINS) tBasic.bin tBasic.elf
 	@echo "Clean complete"

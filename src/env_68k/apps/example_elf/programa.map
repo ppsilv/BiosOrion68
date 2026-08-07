@@ -1,23 +1,5 @@
-Archive member included to satisfy reference by file (symbol)
 
-../../lib/libc68k.a(printf.o)
-                              main.o (printf)
-../../lib/libc68k.a(strlen.o)
-                              ../../lib/libc68k.a(printf.o) (strlen)
-../../lib/libc68k.a(memset.o)
-                              ../../lib/libc68k.a(printf.o) (memset)
-../../lib/libc68k.a(putchar.o)
-                              ../../lib/libc68k.a(printf.o) (putchar)
-../../lib/libc68k.a(puts.o)   ../../lib/libc68k.a(printf.o) (puts)
-
-Discarded input sections
-
- .comment       0x00000000       0x13 main.o
- .comment       0x00000000       0x13 ../../lib/libc68k.a(printf.o)
- .comment       0x00000000       0x13 ../../lib/libc68k.a(strlen.o)
- .comment       0x00000000       0x13 ../../lib/libc68k.a(memset.o)
- .comment       0x00000000       0x13 ../../lib/libc68k.a(putchar.o)
- .comment       0x00000000       0x13 ../../lib/libc68k.a(puts.o)
+There are no discarded input sections
 
 Memory Configuration
 
@@ -29,63 +11,30 @@ Linker script and memory map
 
                 0x00082000                        . = ORIGIN (USERRAM)
 
-.text           0x00082000      0x4ca
+.text
  *(.text*)
- .text          0x00082000       0x3e main.o
-                0x00082000                main
- *fill*         0x0008203e        0x2 
- .text          0x00082040      0x3a6 ../../lib/libc68k.a(printf.o)
-                0x00082040                itox
-                0x0008208a                itodec
-                0x000820e8                itooct
-                0x0008212e                itoudec
-                0x00082180                pad_zeros
-                0x000821c4                printf
- *fill*         0x000823e6        0x2 
- .text          0x000823e8       0x12 ../../lib/libc68k.a(strlen.o)
-                0x000823e8                strlen
- *fill*         0x000823fa        0x2 
- .text          0x000823fc       0x16 ../../lib/libc68k.a(memset.o)
-                0x000823fc                memset
- *fill*         0x00082412        0x2 
- .text          0x00082414       0x2a ../../lib/libc68k.a(putchar.o)
-                0x00082414                kbd_getchar
-                0x00082424                putchar
- *fill*         0x0008243e        0x2 
- .text          0x00082440       0x26 ../../lib/libc68k.a(puts.o)
-                0x00082440                puts
  *(.rodata*)
- .rodata        0x00082466       0x1c main.o
- .rodata.str1.1
-                0x00082482       0x20 ../../lib/libc68k.a(printf.o)
- .rodata        0x000824a2       0x28 ../../lib/libc68k.a(printf.o)
 
-.data           0x000824cc        0x0
+.data
  *(.data*)
- .data          0x000824cc        0x0 main.o
- .data          0x000824cc        0x0 ../../lib/libc68k.a(printf.o)
- .data          0x000824cc        0x0 ../../lib/libc68k.a(strlen.o)
- .data          0x000824cc        0x0 ../../lib/libc68k.a(memset.o)
- .data          0x000824cc        0x0 ../../lib/libc68k.a(putchar.o)
- .data          0x000824cc        0x0 ../../lib/libc68k.a(puts.o)
 
-.bss            0x000824cc        0x0
-                0x000824cc                        _bss_start = .
+org0001:0       0x00082000      0x5ec
+ org0001:0      0x00082000      0x5ec basic68k.o
+
+org0002:82000   0x000825ec     0x3500
+ org0002:82000  0x000825ec     0x3500 basic68k.o
+
+.bss            0x00085aec        0x0
+                0x00085aec                        _bss_start = .
  *(.bss*)
- .bss           0x000824cc        0x0 main.o
- .bss           0x000824cc        0x0 ../../lib/libc68k.a(printf.o)
- .bss           0x000824cc        0x0 ../../lib/libc68k.a(strlen.o)
- .bss           0x000824cc        0x0 ../../lib/libc68k.a(memset.o)
- .bss           0x000824cc        0x0 ../../lib/libc68k.a(putchar.o)
- .bss           0x000824cc        0x0 ../../lib/libc68k.a(puts.o)
  *(COMMON)
-                0x000824cc                        _bss_end = .
-                0x000824cc                        _end = .
+                0x00085aec                        _bss_end = .
+                0x00085aec                        _end = .
 
 /DISCARD/
  *(.comment)
  *(.note*)
  *(.eh_frame*)
-LOAD main.o
+LOAD basic68k.o
 LOAD ../../lib/libc68k.a
-OUTPUT(programa.elf elf32-m68k)
+OUTPUT(basic.elf elf32-m68k)

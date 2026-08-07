@@ -43,10 +43,11 @@ uint8_t ring_buf_is_full(void)
 
 uint16_t ring_buf_get_char(){
 	uint16_t ch=0;
-	if( ! ring_buf_is_empty() ){
+	if( ring_buf_is_empty() ){
 		return 0x8000;
 	}
-	ch |= ring_buf_get();    //le do teclado ps2 
+	ch = ring_buf_get();    //le do teclado ps2 
+	return ch;
 }
 
 #ifdef BUCETON
