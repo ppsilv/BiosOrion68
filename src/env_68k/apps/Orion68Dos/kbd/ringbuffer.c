@@ -15,7 +15,8 @@ void ring_buf_init(void)
 uint8_t ring_buf_get(void)
 {
 	uint8_t ret = rb->buffer[rb->tail];
-	rb->tail++;              // só get() mexe em tail
+
+	rb->tail++;   // só get() mexe em tail
 	return ret;
 }
 
@@ -40,6 +41,13 @@ uint8_t ring_buf_is_full(void)
 	return next_head == rb->tail;
 }
 
+uint16_t ring_buf_get_char(){
+	uint16_t ch=0;
+	if( ! ring_buf_is_empty() ){
+		return 0x8000;
+	}
+	ch |= ring_buf_get();    //le do teclado ps2 
+}
 
 #ifdef BUCETON
 void ring_buf_init(void)

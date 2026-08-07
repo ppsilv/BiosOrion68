@@ -169,7 +169,7 @@ int ata_read_sector(int sector, char *buffer)
 int ata_write_sector(int sector, const char *buffer)
 {
 	short saved_status;
-return 512;
+
 	LOCK(saved_status);
 
 	go_8bits_mode();

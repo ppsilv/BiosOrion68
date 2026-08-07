@@ -29,10 +29,17 @@ typedef struct {
     uint32_t crc32;
 } conexao_estado_t;
 
+typedef struct __attribute__((packed)) {
+    uint32_t crc32;
+    uint32_t tamanho_total;
+    char nome_arquivo[13]; // <--- O [13] CORRIGIDO AQUI!
+    char conteudo[];
+} file_t;
+
 // Variáveis globais de controle do arquivo vindo do Wi-Fi
 uint8_t *arquivo_buffer = NULL;
-uint8_t arquivo_tamh=0;
-uint8_t arquivo_tamL=0;
+//uint8_t arquivo_tamh=0;
+//uint8_t arquivo_tamL=0;
 uint8_t arquivo_ok=0;
 uint32_t arquivo_tamanho = 0;
 uint32_t ponteiro_leitura = 0;
@@ -167,15 +174,37 @@ static err_t tcp_server_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, er
     }
     // Dentro da verificação do final do arquivo no código TCP do Pico:
     if (es->bytes_recebidos >= es->tamanho_total) {
+        file_t *pfh;
+        pfh = (file_t *) malloc(sizeof(file_t) + es->tamanho_total);
+        arquivo_buffer = (uint8_t*)pfh;
+        memcpy(pfh->conteudo,es->buffer_ram,es->tamanho_total);
+        memcpy(pfh->nome_arquivo, es->nome_arquivo, strlen(es->nome_arquivo));
+        pfh->nome_arquivo[12] = '\0';
         // Transfere o ponteiro do buffer da rede para o barramento
-        arquivo_buffer = es->buffer_ram; 
-        arquivo_tamanho = es->tamanho_total;
+        arquivo_tamanho = sizeof(file_t) + es->tamanho_total;
+        pfh->tamanho_total = arquivo_tamanho;
+        
+        arquivo_crc32 = crc32_calculate( ((const uint8_t *)pfh)+4, arquivo_tamanho-4);
+
+        printf("**Struct es->*********************************************************************\n");
+        printf("Ponteiro do arquivo: %08X\n",(pfh));
+        printf("Ponteiro do arquivo: %08X\n",((const uint8_t *)pfh)+4);
+        printf("CRC32 do arquivo..: %08X\n",arquivo_crc32);
+        printf("Tamanho do arquivo: %08X\n",es->tamanho_total);
+        printf("Nome do arquivo...: %s \n",es->nome_arquivo);
+        printf("***********************************************************************\n");
+
+        // Grava com segurança nos limites corretos da struct
+        pfh->crc32 = arquivo_crc32; 
         ponteiro_leitura = 0;             // Reseta o índice de leitura do m68k
 
-        arquivo_crc32 = crc32_calculate((const uint8_t *)arquivo_buffer, arquivo_tamanho);
-        printf("CRC32 do arquivo %s %08X\n",es->nome_arquivo, arquivo_crc32);
+        printf("**Struct pfh->*********************************************************************\n");
+        printf("CRC32 do arquivo..: %08X\n",pfh->crc32);
+        printf("Tamanho dos dados : %08X\n",pfh->tamanho_total);
+        printf("Nome do arquivo...: %s \n",pfh->nome_arquivo);
+        printf("***********************************************************************\n");
         arquivo_pronto = true;            // Libera o Status para o m68k ver 0x01!
-        
+      
         printf("Orion68DOS: Arquivo liberado para o barramento.\n");
     }
     pbuf_free(p);

@@ -122,7 +122,7 @@ unsigned char ler_segundo();
 uint8_t rtc_read_config_byte(uint16_t endereco);
 void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
 void printString(char * str);
-
+uint16_t ring_buf_get_char();
 void main() {
     pico_write_ch('A');
     set_console_output(picovga_putchar);
@@ -135,7 +135,7 @@ void main() {
     pico_write_ch('C');
     //init_kbd();
     //ch9350_shut_up();
-    set_console_input(get_char);
+    set_console_input(ring_buf_get_char);
     printf("* - Console input seted to ps2 keyboard.\n");
 
     //picovga_set_color(RED,BLACK);

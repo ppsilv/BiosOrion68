@@ -1,5 +1,9 @@
 #include <stdint.h>
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 
 // Tabela de 1 KB gerada em tempo de execução
 static uint32_t crc32_table[256];
@@ -32,6 +36,28 @@ uint32_t crc32_update(uint32_t crc, const uint8_t *buffer, size_t length) {
     return crc;
 }
 
+// Função para ler o arquivo do disco e calcular o CRC-32
+uint32_t crc32_from_file(const char *filename) {
+    FILE *file = fopen(filename, "rb");
+    if (!file) {
+        perror("Erro ao abrir arquivo");
+        return 0;
+    }
+
+    uint32_t crc = 0xFFFFFFFFUL;
+    uint8_t buffer[4096]; // Bloco de leitura de 4 KB
+    size_t bytes_read;
+
+    while ((bytes_read = fread(buffer, 1, sizeof(buffer), file)) > 0) {
+        for (size_t i = 0; i < bytes_read; i++) {
+            crc = crc32_table[(crc ^ buffer[i]) & 0xFF] ^ (crc >> 8);
+        }
+    }
+
+    fclose(file);
+    return crc ^ 0xFFFFFFFFUL;
+}
+
 /**
  * Função para calcular o CRC-32 final de um buffer completo.
  */
@@ -40,7 +66,7 @@ uint32_t crc32_calculate(const uint8_t *buffer, size_t length) {
     return crc32_update(0xFFFFFFFFUL, buffer, length) ^ 0xFFFFFFFFUL;
 }
 
-
+/*
 int main(){
 
 crc32_init(); // No startup do m68k
@@ -63,3 +89,4 @@ if (crc_m68k == crc_pico) {
     // Arquivo 100% íntegro!
 }
 }
+*/

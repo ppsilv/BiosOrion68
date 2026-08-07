@@ -37,7 +37,7 @@ uint32_t crc32_from_file(const char *filename) {
     fclose(file);
     return crc ^ 0xFFFFFFFFUL;
 }
-
+/*
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         printf("Uso: %s <caminho_do_arquivo>\n", argv[0]);
@@ -51,3 +51,4 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+*/

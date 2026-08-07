@@ -53,6 +53,8 @@ const cmd_entry_t g_cmd_table[] = {
     {"rs",          1,  0, &do_readsect,    "Read a sector X from disk..." },
     {"writesect",   1,  0, &do_writesect,   "Write a sector X from disk..." },
     {"writemem1",   2,  0, &do_writemem1,   "Write a memory location" },
+    {"save",        2,  2, &do_save,   "Saves file from 82000 to disk " \
+                                            "save <filename> <filesize>" },
     {"tst",         2,  2, &do_tstkbd,      "Testa conversa com o picow...\n" \ 
                                             "\tcmd=0x00 dado=0 => chama receber_arquivo_do_pico\n" \
                                             "\tcmd=0x01 dado=0 => chama receber_setor_do_pico\n" \

@@ -86,7 +86,7 @@ bool receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     //printf("arq_crc_rec0 [%08X]\n",arq_crc_rec);
 
     printf("Orion68: crc32 recebido[%08X]\n", arq_crc_rec);
-    uint32_t arq_crc = crc32_calculate((const uint8_t *)destino_ram, tamanho_arquivo);
+    uint32_t arq_crc = crc32_calculate(((const uint8_t *)destino_ram)+4, tamanho_arquivo-4);
     printf("Orion68: crc32 calculado[%08X]\n", arq_crc);
 
     return arq_crc_rec == arq_crc;

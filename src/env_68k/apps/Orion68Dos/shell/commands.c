@@ -821,20 +821,31 @@ void do_writemem1(int argc, char *argv[]){
  *
  * Retorna 0 em sucesso, -1 em erro (mensagem impressa via printf).
  */
-int do_mem2file(const void *origem, size_t tamanho, const char *nome_arquivo){
+void do_save(int argc, char *argv[]){
     FIL     arquivo;
     FRESULT fr;
     UINT    bytes_escritos;
+    const void *origem = (const void *)0x82015;
+    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
+    size_t tamanho;
+
+    if (argc < 2) {
+        printf("uso: save <nome_arquivo> <tamanho_hex>\n");
+        return;
+    }
+
+    tamanho = strtoul(argv[1], NULL, 16);
+    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
 
     if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
         printf("dump_memoria_para_arquivo: parametros invalidos\n");
-        return -1;
+        return;
     }
 
     fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
     if (fr != FR_OK) {
         printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
-        return -1;
+        return;
     }
 
     fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
@@ -842,16 +853,15 @@ int do_mem2file(const void *origem, size_t tamanho, const char *nome_arquivo){
         printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
                nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
         f_close(&arquivo);
-        return -1;
+        return;
     }
 
     fr = f_close(&arquivo);
     if (fr != FR_OK) {
         printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
-        return -1;
+        return;
     }
 
     printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
            nome_arquivo, (unsigned)tamanho);
-    return 0;
 }

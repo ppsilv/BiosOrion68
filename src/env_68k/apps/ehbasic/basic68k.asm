@@ -83,8 +83,8 @@ nobrk		EQU	0				* null response to INPUT causes a break
 * Use this value to run out of RAM
 *	ORG		$000800			* past the vectors in a real system
 
-ACIA_1   =      $00010040        * Console ACIA base address
-ACIA_2   =      $00010041        * Auxiliary ACIA base address
+ACIA_1   =      $00100400        * Console ACIA base address
+ACIA_2   =      $00100410        * Auxiliary ACIA base address
 
          BRA    code_start       * For convenience, so you can start from first address
 
@@ -95,15 +95,9 @@ ACIA_2   =      $00010041        * Auxiliary ACIA base address
 * Output character to the console from register d0.b
 
 VEC_OUT
-        MOVEM.L  A0/D1,-(A7)    * Save working registers
-        LEA.L    ACIA_1,A0      * A0 points to console ACIA
-TXNOTREADY
-        MOVE.B   (A0),D1        * Read ACIA status
-        BTST     #1,D1          * Test TDRE bit
-        BEQ.S    TXNOTREADY     * Until ACIA Tx ready
-        MOVE.B   D0,2(A0)       * Write character to send
-        MOVEM.L  (A7)+,A0/D1    * Restore working registers
-        RTS
+		move.w	#2,D1		; Call cconout
+		trap	#1
+		RTS
 
 * Output character to the second (aux) serial port from register d0.b
 
@@ -111,12 +105,9 @@ TXNOTREADY
 
 VEC_OUT2
         MOVEM.L  A0/D1,-(A7)    * Save working registers
-        LEA.L    ACIA_2,A0      * A0 points to console ACIA
-TXNOTREADY1
-        MOVE.B   (A0),D1        * Read ACIA status
-        BTST     #1,D1          * Test TDRE bit
-        BEQ.s    TXNOTREADY1    * Until ACIA Tx ready
-        MOVE.B   D0,2(A0)       * Write character to send
+
+		jsr 	 UartWrCh
+
         MOVEM.L  (A7)+,A0/D1    * Restore working registers
         RTS
 
@@ -155,11 +146,13 @@ RET2    MOVEM.L  (A7)+,A0/D0    * Restore working registers
 
 VEC_IN
         MOVEM.L  A0/D1,-(A7)    * Save working registers
-        LEA.L    ACIA_1,A0      * A0 points to console ACIA
-        MOVE.B   (A0),D1        * Read ACIA status
-        BTST     #0,D1          * Test RDRF bit
-        BEQ.S    RXNOTREADY     * Branch if ACIA Rx not ready
-        MOVE.B   2(A0),D0       * Read character received
+		MOVE.b	#1,D1
+
+		trap	#1
+
+        CMP.W   #255,D0        ; compara D0 com 255 (sem afetar D0)
+        BHI     RXNOTREADY
+
         MOVEM.L  (A7)+,A0/D1    * Restore working registers
         ORI.B    #1,CCR         * Set the carry, flag we got a byte
         RTS                     * Return
