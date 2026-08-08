@@ -532,6 +532,30 @@ FatFs_SPI/src/rtc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.s
 .PHONY : FatFs_SPI/src/rtc.c.s
 
+Serial/orion_serial.o: Serial/orion_serial.c.o
+.PHONY : Serial/orion_serial.o
+
+# target to build an object file
+Serial/orion_serial.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/Serial/orion_serial.c.o
+.PHONY : Serial/orion_serial.c.o
+
+Serial/orion_serial.i: Serial/orion_serial.c.i
+.PHONY : Serial/orion_serial.i
+
+# target to preprocess a source file
+Serial/orion_serial.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/Serial/orion_serial.c.i
+.PHONY : Serial/orion_serial.c.i
+
+Serial/orion_serial.s: Serial/orion_serial.c.s
+.PHONY : Serial/orion_serial.s
+
+# target to generate assembly for a file
+Serial/orion_serial.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/Serial/orion_serial.c.s
+.PHONY : Serial/orion_serial.c.s
+
 home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.o: home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.c.o
 .PHONY : home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.o
 
@@ -4884,6 +4908,30 @@ hw_config.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/hw_config.c.s
 .PHONY : hw_config.c.s
 
+kbd_usb/kbd_usb.o: kbd_usb/kbd_usb.c.o
+.PHONY : kbd_usb/kbd_usb.o
+
+# target to build an object file
+kbd_usb/kbd_usb.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/kbd_usb/kbd_usb.c.o
+.PHONY : kbd_usb/kbd_usb.c.o
+
+kbd_usb/kbd_usb.i: kbd_usb/kbd_usb.c.i
+.PHONY : kbd_usb/kbd_usb.i
+
+# target to preprocess a source file
+kbd_usb/kbd_usb.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/kbd_usb/kbd_usb.c.i
+.PHONY : kbd_usb/kbd_usb.c.i
+
+kbd_usb/kbd_usb.s: kbd_usb/kbd_usb.c.s
+.PHONY : kbd_usb/kbd_usb.s
+
+# target to generate assembly for a file
+kbd_usb/kbd_usb.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/kbd_usb/kbd_usb.c.s
+.PHONY : kbd_usb/kbd_usb.c.s
+
 orion_bus.o: orion_bus.c.o
 .PHONY : orion_bus.o
 
@@ -4907,30 +4955,6 @@ orion_bus.s: orion_bus.c.s
 orion_bus.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_bus.c.s
 .PHONY : orion_bus.c.s
-
-orion_sd_test.o: orion_sd_test.c.o
-.PHONY : orion_sd_test.o
-
-# target to build an object file
-orion_sd_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o
-.PHONY : orion_sd_test.c.o
-
-orion_sd_test.i: orion_sd_test.c.i
-.PHONY : orion_sd_test.i
-
-# target to preprocess a source file
-orion_sd_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_sd_test.c.i
-.PHONY : orion_sd_test.c.i
-
-orion_sd_test.s: orion_sd_test.c.s
-.PHONY : orion_sd_test.s
-
-# target to generate assembly for a file
-orion_sd_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pds200Pico2.dir/build.make CMakeFiles/pds200Pico2.dir/orion_sd_test.c.s
-.PHONY : orion_sd_test.c.s
 
 pds200.o: pds200.c.o
 .PHONY : pds200.o
@@ -5107,6 +5131,9 @@ help:
 	@echo "... FatFs_SPI/src/rtc.o"
 	@echo "... FatFs_SPI/src/rtc.i"
 	@echo "... FatFs_SPI/src/rtc.s"
+	@echo "... Serial/orion_serial.o"
+	@echo "... Serial/orion_serial.i"
+	@echo "... Serial/orion_serial.s"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.o"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.i"
 	@echo "... home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.s"
@@ -5651,12 +5678,12 @@ help:
 	@echo "... hw_config.o"
 	@echo "... hw_config.i"
 	@echo "... hw_config.s"
+	@echo "... kbd_usb/kbd_usb.o"
+	@echo "... kbd_usb/kbd_usb.i"
+	@echo "... kbd_usb/kbd_usb.s"
 	@echo "... orion_bus.o"
 	@echo "... orion_bus.i"
 	@echo "... orion_bus.s"
-	@echo "... orion_sd_test.o"
-	@echo "... orion_sd_test.i"
-	@echo "... orion_sd_test.s"
 	@echo "... pds200.o"
 	@echo "... pds200.i"
 	@echo "... pds200.s"

@@ -3,7 +3,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/l
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/netif/lowpan6_common.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/netif/lowpan6_opts.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/opt.h \
- /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/debug.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/include/arch/cc.h \

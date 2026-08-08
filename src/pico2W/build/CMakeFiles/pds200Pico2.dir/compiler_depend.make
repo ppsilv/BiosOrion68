@@ -169,12 +169,12 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_card.c.o: /home/pdsilva/projec
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/crc.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_spi.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
   generated/pico_base/pico/config_autogen.h \
-  generated/pico_base/pico/version.h
+  generated/pico_base/pico/version.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h
 
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/sd_spi.c.o: /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_spi.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
@@ -347,11 +347,11 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.o: /home/pdsilva/project/Or
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
   generated/pico_base/pico/config_autogen.h \
-  generated/pico_base/pico/version.h
+  generated/pico_base/pico/version.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h
 
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/f_util.c.o: /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/src/f_util.c \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
@@ -482,11 +482,11 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o: /home/pdsilva/project/Orion68
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
   generated/pico_base/pico/config_autogen.h \
-  generated/pico_base/pico/version.h
+  generated/pico_base/pico/version.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h
 
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/my_debug.c.o: /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/src/my_debug.c \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
@@ -598,6 +598,73 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/rtc.c.o: /home/pdsilva/project/Orion68/
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/rtc.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/util.h \
+  generated/pico_base/pico/config_autogen.h \
+  generated/pico_base/pico/version.h
+
+CMakeFiles/pds200Pico2.dir/Serial/orion_serial.c.o: /home/pdsilva/project/Orion68/src/pico2W/Serial/orion_serial.c \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_stdlib_headers/include/pico/stdlib.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dreq.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/io_bank0.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/uart.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/interp.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/io_bank0.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pads_bank0.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/sio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/uart.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform/cpu_regs.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio_coproc.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/include/hardware/uart.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h
 
@@ -728,7 +795,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ll.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ll.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/firmware/w43439A0_7_95_49_00_combined.h \
@@ -940,7 +1007,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_stats.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_config.h \
@@ -1080,7 +1147,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api_msg.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1152,7 +1219,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/api
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1228,7 +1295,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/err
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_api.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1300,7 +1367,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/if_
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netbuf.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1372,7 +1439,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/net
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netdb.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1445,7 +1512,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/net
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/netifapi.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1517,7 +1584,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/net
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/sockets.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1589,7 +1656,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/soc
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcpip.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1661,7 +1728,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/api/tcp
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1733,7 +1800,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/al
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_alloc.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1805,7 +1872,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/al
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/altcp_tcp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1877,7 +1944,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/al
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/def.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/def.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -1953,7 +2020,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/de
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/dns.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/dns.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -2050,7 +2117,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/dn
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/inet_chksum.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/inet_chksum.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -2132,7 +2199,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/in
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/init.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/init.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/api.h \
@@ -2246,7 +2313,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/in
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -2336,7 +2403,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/acd.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/acd.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/acd.h \
@@ -2432,7 +2499,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/autoip.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -2504,7 +2571,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/dhcp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/dhcp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/acd.h \
@@ -2610,7 +2677,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/etharp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/etharp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/acd.h \
@@ -2716,7 +2783,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/icmp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/icmp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -2812,7 +2879,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/igmp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -2884,7 +2951,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -2992,7 +3059,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_addr.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_addr.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3077,7 +3144,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_frag.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv4/ip4_frag.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3174,7 +3241,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/dhcp6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3246,7 +3313,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ethip6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3318,7 +3385,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/icmp6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3390,7 +3457,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/inet6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3462,7 +3529,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3534,7 +3601,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3606,7 +3673,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_frag.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3703,7 +3770,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/mld6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3775,7 +3842,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/nd6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3847,7 +3914,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ip
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/mem.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/mem.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -3931,7 +3998,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/me
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/memp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/memp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/altcp.h \
@@ -4053,7 +4120,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/me
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/netif.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/netif.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/acd.h \
@@ -4167,7 +4234,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ne
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/pbuf.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/pbuf.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -4267,7 +4334,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/pb
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/raw.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/raw.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -4363,7 +4430,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ra
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/stats.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/stats.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -4445,7 +4512,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/st
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sys.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -4518,7 +4585,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/sy
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -4618,7 +4685,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tc
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_in.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_in.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -4719,7 +4786,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tc
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_out.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tcp_out.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -4819,7 +4886,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/tc
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/timeouts.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/timeouts.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/acd.h \
@@ -4934,7 +5001,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ti
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/udp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/udp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/acd.h \
@@ -5042,7 +5109,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ud
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5142,7 +5209,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/b
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/bridgeif_fdb.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5225,7 +5292,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/b
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ethernet.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ethernet.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5325,7 +5392,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/e
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5399,7 +5466,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/l
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5473,7 +5540,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/l
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5547,7 +5614,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/l
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/auth.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5620,7 +5687,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ccp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5693,7 +5760,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5766,7 +5833,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5839,7 +5906,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap_ms.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5912,7 +5979,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/demand.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -5985,7 +6052,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6058,7 +6125,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ecp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6131,7 +6198,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eui64.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6204,7 +6271,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/fsm.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6277,7 +6344,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipcp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6350,7 +6417,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6423,7 +6490,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/lcp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6496,7 +6563,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/magic.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6569,7 +6636,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/mppe.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6642,7 +6709,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/multilink.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6715,7 +6782,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/arc4.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6788,7 +6855,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/des.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6861,7 +6928,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md4.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -6934,7 +7001,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/md5.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7007,7 +7074,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/polarssl/sha1.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7080,7 +7147,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ppp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7153,7 +7220,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppapi.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7226,7 +7293,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppcrypt.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7299,7 +7366,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppoe.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7372,7 +7439,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7445,7 +7512,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppos.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7518,7 +7585,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/upap.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7591,7 +7658,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/utils.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7664,7 +7731,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/vj.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7737,7 +7804,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/p
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/slipif.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7826,7 +7893,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/s
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/zepif.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
@@ -7901,7 +7968,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/z
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_compiler.h \
@@ -11032,7 +11099,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c
 
@@ -11176,7 +11243,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/firmware/cyw43_btfw_43439.h \
@@ -11474,7 +11541,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
   pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.pio.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/cyw43_driver.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43.h \
@@ -11605,7 +11672,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
@@ -11895,7 +11962,7 @@ CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
@@ -12997,11 +13064,37 @@ CMakeFiles/pds200Pico2.dir/hw_config.c.o: /home/pdsilva/project/Orion68/src/pico
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
   generated/pico_base/pico/config_autogen.h \
-  generated/pico_base/pico/version.h
+  generated/pico_base/pico/version.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h
+
+CMakeFiles/pds200Pico2.dir/kbd_usb/kbd_usb.c.o: /home/pdsilva/project/Orion68/src/pico2W/kbd_usb/kbd_usb.c \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/stdlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdlib.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
+  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/keyboard.h
 
 CMakeFiles/pds200Pico2.dir/orion_bus.c.o: /home/pdsilva/project/Orion68/src/pico2W/orion_bus.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
@@ -13102,100 +13195,9 @@ CMakeFiles/pds200Pico2.dir/orion_bus.c.o: /home/pdsilva/project/Orion68/src/pico
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
   orion_bus.pio.h \
-  /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.h \
-  /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h \
-  /home/pdsilva/project/Orion68/src/pico2W/sd.h
-
-CMakeFiles/pds200Pico2.dir/orion_sd_test.c.o: /home/pdsilva/project/Orion68/src/pico2W/orion_sd_test.c \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_stdlib_headers/include/pico/stdlib.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/include/pico/time.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dma.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dreq.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/io_bank0.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pads_bank0.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/spi.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/uart.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma_debug.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/interp.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/io_bank0.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pads_bank0.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/sio.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/spi.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/timer.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/uart.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform/cpu_regs.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio_coproc.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_spi/include/hardware/spi.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/include/hardware/uart.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_compiler/include/pico/platform/compiler.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/include/pico/platform/panic.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_default_types.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/ieeefp.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_types.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/config.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
-  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
-  generated/pico_base/pico/config_autogen.h \
-  generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/sd.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/ps2_keyboard.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/ringbuffer.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/sd.h
 
 CMakeFiles/pds200Pico2.dir/pds200.c.o: /home/pdsilva/project/Orion68/src/pico2W/pds200.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
@@ -13306,9 +13308,9 @@ CMakeFiles/pds200Pico2.dir/pds200.c.o: /home/pdsilva/project/Orion68/src/pico2W/
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
   orion_bus.pio.h \
-  /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.h \
-  /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h \
-  /home/pdsilva/project/Orion68/src/pico2W/sd.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/ps2_keyboard.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/ringbuffer.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/sd.h
 
 CMakeFiles/pds200Pico2.dir/pds200_1.c.o: /home/pdsilva/project/Orion68/src/pico2W/pds200_1.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43.h \
@@ -13365,21 +13367,25 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: /home/pdsilva/project/Orion68/src/pico2
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/platform_defs.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/accessctrl.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/clocks.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dreq.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/intctrl.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/io_bank0.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/m33.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pio.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/uart.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/accessctrl.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/clocks.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/interp.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/io_bank0.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/m33.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/nvic.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pads_bank0.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pio.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/scb.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/sio.h \
@@ -13389,9 +13395,12 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: /home/pdsilva/project/Orion68/src/pico2
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform/cpu_regs.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio_coproc.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio.h \
+  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_resets/include/hardware/resets.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/include/hardware/sync.h \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
@@ -13462,7 +13471,8 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: /home/pdsilva/project/Orion68/src/pico2
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h
+  orion_bus.pio.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h
 
 CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o: /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
@@ -13551,8 +13561,8 @@ CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o: /home/pdsilva/project/Orion68/src/p
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
   ps2_keyboard.pio.h \
-  /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.h \
-  /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/ps2_keyboard.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/ringbuffer.h
 
 CMakeFiles/pds200Pico2.dir/ringbuffer.c.o: /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.c \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h \
@@ -13563,7 +13573,7 @@ CMakeFiles/pds200Pico2.dir/ringbuffer.c.o: /home/pdsilva/project/Orion68/src/pic
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/features.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
-  /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/ringbuffer.h
 
 CMakeFiles/pds200Pico2.dir/sd.c.o: /home/pdsilva/project/Orion68/src/pico2W/sd.c \
   /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
@@ -13656,31 +13666,35 @@ CMakeFiles/pds200Pico2.dir/sd.c.o: /home/pdsilva/project/Orion68/src/pico2W/sd.c
   /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
-  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
   /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/spi.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
-  /home/pdsilva/project/Orion68/src/pico2W/sd.h
+  /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h \
+  /home/pdsilva/project/Orion68/src/pico2W/includes/sd.h
 
 
 /home/pdsilva/project/Orion68/src/pico2W/sd.c:
 
 ps2_keyboard.pio.h:
 
-/home/pdsilva/project/Orion68/src/pico2W/sd.h:
+/home/pdsilva/project/Orion68/src/pico2W/includes/ringbuffer.h:
+
+/home/pdsilva/project/Orion68/src/pico2W/includes/ps2_keyboard.h:
 
 orion_bus.pio.h:
 
 /home/pdsilva/project/Orion68/src/pico2W/orion_bus.c:
+
+/home/pdsilva/project/Orion68/src/pico2W/includes/keyboard.h:
+
+/home/pdsilva/project/Orion68/src/pico2W/kbd_usb/kbd_usb.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/icmp6.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/core/ipv6/ip6_addr.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/osal/osal.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/iana.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/autoip.h:
 
@@ -13764,6 +13778,10 @@ orion_bus.pio.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stat.h:
 
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/iana.h:
+
+/home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/include/arch/cc.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/eap.c:
@@ -13837,6 +13855,10 @@ generated/pico_base/pico/version.h:
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_ctrl.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h:
+
+/home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/util.h:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/dns.h:
 
@@ -13948,13 +13970,9 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/c++/14.2.1/pstl/pstl_config.h:
 
-/home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/api.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_newlib_version.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_time_adapter/include/pico/time_adapter.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h:
 
@@ -14086,13 +14104,9 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.c:
 
-/home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.h:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/syslimits.h:
-
-/home/pdsilva/project/Orion68/src/pico2W/lwipopts.h:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/cdefs.h:
 
@@ -14240,6 +14254,8 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ethernet.c:
 
+/home/pdsilva/project/Orion68/src/pico2W/Serial/orion_serial.c:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/types.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/priv/api_msg.h:
@@ -14253,12 +14269,6 @@ generated/pico_base/pico/version.h:
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/include/pico/platform/common.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_sections/include/pico/platform/sections.h:
-
-/home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/util.h:
-
-/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c:
-
-/home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/error.h:
 
@@ -14302,9 +14312,9 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/src/cyw43_spi.h:
 
-/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c:
-
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_ble.c:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdatomic.h:
 
@@ -14337,6 +14347,8 @@ generated/pico_base/pico/version.h:
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c:
+
+/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_time_adapter/include/pico/time_adapter.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/cyw43-driver/firmware/wifi_nvram_43439.h:
 
@@ -14408,6 +14420,8 @@ generated/pico_base/pico/version.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/lowpan6_common.c:
 
+/home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h:
+
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/netif/lowpan6_common.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-md5.c:
@@ -14417,6 +14431,8 @@ generated/pico_base/pico/version.h:
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/ipv6cp.c:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/chap-new.c:
+
+/home/pdsilva/project/Orion68/src/pico2W/includes/sd.h:
 
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/netif/ppp/pppol2tp.c:
 
@@ -14495,8 +14511,6 @@ generated/pico_base/pico/version.h:
 /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_common.h:
 
 /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.c:
-
-/home/pdsilva/project/Orion68/src/pico2W/orion_sd_test.c:
 
 /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/math.h:
 

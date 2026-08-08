@@ -86,7 +86,7 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/include/cyw43_configport.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/netif.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/opt.h \
- /home/pdsilva/project/Orion68/src/pico2W/lwipopts.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/debug.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/include/arch/cc.h \
@@ -154,4 +154,12 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/tcp.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/tcpbase.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/icmp.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/icmp.h
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/prot/icmp.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pio.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pio.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
+ /home/pdsilva/project/Orion68/src/pico2W/build/orion_bus.pio.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/clocks.h \
+ /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/clocks.h

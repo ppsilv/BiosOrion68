@@ -68,9 +68,9 @@ include CMakeFiles/pds200Pico2_orion_bus_pio_h.dir/progress.make
 
 CMakeFiles/pds200Pico2_orion_bus_pio_h: orion_bus.pio.h
 
-orion_bus.pio.h: /home/pdsilva/project/Orion68/src/pico2W/orion_bus.pio
+orion_bus.pio.h: /home/pdsilva/project/Orion68/src/pico2W/PIOs/orion_bus.pio
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating orion_bus.pio.h"
-	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/project/Orion68/src/pico2W/orion_bus.pio /home/pdsilva/project/Orion68/src/pico2W/build/orion_bus.pio.h
+	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/project/Orion68/src/pico2W/PIOs/orion_bus.pio /home/pdsilva/project/Orion68/src/pico2W/build/orion_bus.pio.h
 
 pds200Pico2_orion_bus_pio_h: CMakeFiles/pds200Pico2_orion_bus_pio_h
 pds200Pico2_orion_bus_pio_h: orion_bus.pio.h

@@ -80,7 +80,7 @@ CMakeFiles/pds200Pico2.dir/sd.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
@@ -97,4 +97,4 @@ CMakeFiles/pds200Pico2.dir/sd.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/spi.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/sem.h \
- /home/pdsilva/project/Orion68/src/pico2W/sd.h
+ /home/pdsilva/project/Orion68/src/pico2W/includes/sd.h

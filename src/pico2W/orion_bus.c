@@ -126,7 +126,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                 byte_resposta = 0xFF;
                 break;
         }
-        if( operacao == OPER_LEITURA ){
+        //if( operacao == OPER_LEITURA ){
             pio_sm_put(pio, sm, byte_resposta);
 //            printf("%02x|",byte_resposta);
 //            i++;
@@ -134,7 +134,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
 //                i=0;
 //                printf("\n");
 //            }
-        }
+        //}
         //sio_hw->gpio_clr = (1 << 19);
     }
 }

@@ -79,7 +79,7 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/spi.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/_types.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/lock.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \

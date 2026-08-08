@@ -24,7 +24,7 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/glue.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/diskio.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/sd_card.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico.h \

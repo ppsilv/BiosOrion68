@@ -81,8 +81,8 @@ CMakeFiles/pds200Pico2.dir/orion_bus.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/clocks.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/clocks.h \
- /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h \
- /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/ringbuffer.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/ps2_keyboard.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dma.h \
@@ -90,7 +90,7 @@ CMakeFiles/pds200Pico2.dir/orion_bus.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdlib.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/stdlib.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
- /home/pdsilva/project/Orion68/src/pico2W/sd.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/sd.h \
  /home/pdsilva/project/Orion68/src/pico2W/./FatFs_SPI/sd_driver/sd_card.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/mutex.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/include/pico/lock_core.h \

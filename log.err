@@ -1,4 +1,22 @@
-2025-08-04
+2026-08-08
+        As vezes o computador não entra no ar e dá bus error, led verde fica aceso
+        precionando o chip scn68681 tem resolvido.
+        TODO: PESQUISAR ESSE DEFEITO PARA ACHAR O CAUSADOR.
+              Depois de ver o problema abaixo o 001, acho que e esse problema parece
+              ser igual, pois no problema 001 se resolvia quando pressionava o pico.
+              estou pensado em trocar o soquete do 68681 para um soquete estampado.
+
+        Problema 001: O pico parou de ler o teclado e enviar para o m68k
+                      o pino 21 do soquete TORNEADO do pico2W apresentou problemas quando o
+                      tirei verifiquei que ele parecia um tunel e o pino do pico2w
+                      um fusquinha passando nesse pino, toquei esse pino e tudo voltou
+                      ao normal. SOQUETE TORNEADO NUNCAMAIS
+
+2026-08-07
+        Quando adicionei o scn68681 à placa MultiIO, cometi os seguinte erros.
+        1 - O endereço base não foi atualizado, atualizei mas ainda não funcionou
+        2 - Endereços de offset dos registradores,estavam pares, trazidos do rosco, eu uso IO em D0-D7
+2026-08-04
         Acredito que esse problema intermitente veio mudando de causa ao longo do projeto, como nunca trabalhei
         com o m68k que parece ser muito mais chato que um 8088,8086 e z80, eu tive problemas que fui resolvendo
         e por isso o travamento sumia mas depois reaparecia porque eu o criava de outra forma essa última vez e há

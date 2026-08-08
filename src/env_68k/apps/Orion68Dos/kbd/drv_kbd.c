@@ -70,6 +70,9 @@ unsigned char get_keypress();
 static void send_cmd_keyboard(unsigned char led_status);
 unsigned char get_packet();
 unsigned char get_kbd_key(unsigned char code);
+extern uint8_t ring_buf_is_empty1(void);
+extern uint8_t ring_buf_get1(void);
+
 /*
 static void *mymemset(void *dest, int ch, unsigned int count)
 {
@@ -96,19 +99,6 @@ void liga_debug(){
 }
 void init_kbd()
 {
-    volatile unsigned char *uart_reg = (volatile unsigned char *)DRV_UART1_BASE;
-
-    // 1. Entra no modo DLAB para configurar Baud Rate
-    *(uart_reg + LCR) = 0x83;
-    *(uart_reg + DLL) = 8; // Divisor para 115200 com 14.7456MHz
-    *(uart_reg + DLM) = 0;
-    // 2. Sai do modo DLAB e define 8N1 (MUITO IMPORTANTE: usar 0x03)
-    *(uart_reg + LCR) = 0x03;
-
-    // 3. Configura FIFO (Habilita, limpa buffers e seta trigger de 14 bytes)
-    *(uart_reg + FCR) = 0x0D;
-
-
     // Nova situação agora gerando interrupção
     // 1. DesHabilita a interrupção de dados recebidos (RDAI) no IER
 //    *(uart_reg + IER1) = 0x00; // Garante que interrupções estão desligadas
@@ -152,11 +142,9 @@ void enable_kbd_interrupts(){
 //static unsigned char read_kbd_uart()
 static unsigned char read_kbd()
 {
-    volatile unsigned char *uart_reg = (volatile unsigned char *)DRV_UART1_BASE;
-    unsigned char ch;
-    while (!(*(uart_reg + LSR) & 0x01)) ;
-    return (unsigned char)*(uart_reg + RHR);
-    return ch;
+    while (ring_buf_is_empty1() == false);
+    
+    return ring_buf_get1();;
 }
 //char read_kbd(void) {
 //char read_kbd_int(void) {

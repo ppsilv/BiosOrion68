@@ -65,21 +65,63 @@ void duart_clock_115200_setup(void)
  * (usando o clock do Counter/Timer configurado por duart_clock_115200_setup).
  * Chame duart_clock_115200_setup() ANTES desta funcao.
  */
+//void duart_uartA_init(void)
+//{
+//    CRA = 0x10;   /* Reset MR pointer */
+//    CRA = 0x20;   /* Reset Receiver */
+//    CRA = 0x30;   /* Reset Transmitter */
+//
+//    MR1A_2 = 0x13;   /* MR1A: RxRDY (1 char), sem paridade, 8 bits */
+//    MR1A_2 = 0x07;   /* MR2A: 1 stop bit */
+//
+//    /* Habilita Set 2 do Baud Rate Generator (Bit 7 = 1) */
+//    ACR = 0x80;
+//
+//    /* 
+//     * CSRA = 0xDD:
+//     * Seleciona 28800 bps no Set 2 para Rx e Tx.
+//     * Com cristal de 14.7456 MHz (4x): 28800 * 4 = 115200 bps.
+//     */
+//    CSRA = 0xDD;
+//
+//    /* Habilita IRQ do Timer (0x08) + IRQ da UART A Rx (0x02) = 0x0A */
+//    IMR = 0x0A;
+//
+//    CRA = 0x05;   /* Enable Tx + Enable Rx */
+//}
 void duart_uartA_init(void)
 {
-    CRA = 0x10;   /* Reset MR pointer -- garante que a proxima escrita va para MR1A */
+    CRA = 0x10;   /* Reset MR pointer -> aponta para MR1A */
     CRA = 0x20;   /* Reset Receiver */
     CRA = 0x30;   /* Reset Transmitter */
+    CRA = 0x40;   /* Reset Error Status (limpa qualquer framing error de startup) */
 
-    MR1A_2 = 0x13;   /* MR1A: RxRDY (1 caractere), sem paridade, 8 bits */
-    MR1A_2 = 0x07;   /* MR2A: 1 stop bit */
+    MR1A_2 = 0x13; /* MR1A: RxRDY (1 char), 8 bits, sem paridade */
+    MR1A_2 = 0x07; /* MR2A: 1 stop bit */
 
-    CSRA = 0xFF;      /* Rx clock e Tx clock = saida do Counter/Timer (115200) */
+    ACR = 0x80;    /* Seleciona BRG Set 2 */
+    CSRA = 0xDD;   /* 115200 bps (28800 * 4) */
 
-    IMR = 0x02;       /* Habilita IRQ para RxRDYA */
+    //IVR = 0x40;    /* Vetor de interrupção (caso use ciclo IACK) */
+    IMR = 0x02;    /* Habilita apenas IRQ do RxRDYA */
 
-    CRA = 0x05;       /* Enable Tx (bit0) + Enable Rx (bit2) */    
+    CRA = 0x05;    /* Enable Tx + Enable Rx */
 }
+///void duart_uartA_init(void)
+///{
+///    CRA = 0x10;   /* Reset MR pointer -- garante que a proxima escrita va para MR1A */
+///    CRA = 0x20;   /* Reset Receiver */
+///    CRA = 0x30;   /* Reset Transmitter */
+///
+///    MR1A_2 = 0x13;   /* MR1A: RxRDY (1 caractere), sem paridade, 8 bits */
+///    MR1A_2 = 0x07;   /* MR2A: 1 stop bit */
+///
+///    CSRA = 0xFF;      /* Rx clock e Tx clock = saida do Counter/Timer (115200) */
+///
+///    IMR = 0x02;       /* Habilita IRQ para RxRDYA */
+///
+///    CRA = 0x05;       /* Enable Tx (bit0) + Enable Rx (bit2) */    
+///}
 
 /*
  * Inicializa o canal B: mesma configuracao do canal A.

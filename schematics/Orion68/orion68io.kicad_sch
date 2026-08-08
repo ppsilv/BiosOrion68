@@ -11873,7 +11873,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 140.97) (xy 77.47 143.51)
+			(xy 246.38 100.33) (xy 246.38 102.87)
 		)
 		(stroke
 			(width 0)
@@ -12123,7 +12123,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 130.81) (xy 80.01 130.81)
+			(xy 246.38 90.17) (xy 248.92 90.17)
 		)
 		(stroke
 			(width 0)
@@ -12675,7 +12675,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 128.27) (xy 77.47 130.81)
+			(xy 246.38 87.63) (xy 246.38 90.17)
 		)
 		(stroke
 			(width 0)
@@ -12955,7 +12955,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 140.97) (xy 80.01 140.97)
+			(xy 246.38 100.33) (xy 248.92 100.33)
 		)
 		(stroke
 			(width 0)
@@ -18283,6 +18283,16 @@
 		)
 		(uuid "02237d0f-49eb-43ee-a2ab-28ffc0b0c7ee")
 	)
+	(label "RX"
+		(at 227.33 133.35 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "02cae3a1-e05f-4a99-be40-7fd15023104b")
+	)
 	(label "A20"
 		(at 391.16 59.69 0)
 		(effects
@@ -18435,6 +18445,16 @@
 			(justify left bottom)
 		)
 		(uuid "107cf9fc-326e-4034-aebf-b0811202fc7e")
+	)
+	(label "TX"
+		(at 227.33 135.89 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "10c413ad-d7f3-453b-8930-1acfa6eae4d2")
 	)
 	(label "{slash}DTACK_68681"
 		(at 364.49 124.46 180)
@@ -19060,7 +19080,7 @@
 		(uuid "5a7fb845-5eaa-4eae-9570-f72800f25b7e")
 	)
 	(label "TXDA"
-		(at 80.01 138.43 180)
+		(at 248.92 97.79 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19240,7 +19260,7 @@
 		(uuid "782c76ee-3de0-4700-96f7-cd937f0a1d98")
 	)
 	(label "CS_SDCARD"
-		(at 227.33 133.35 0)
+		(at 227.33 130.81 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19473,7 +19493,7 @@
 		(uuid "911add98-6b0f-42f8-9111-b2a5b2b77afa")
 	)
 	(label "RXDA"
-		(at 80.01 135.89 180)
+		(at 248.92 95.25 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22636,7 +22656,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x05")
-		(at 85.09 135.89 0)
+		(at 254 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -22645,7 +22665,7 @@
 		(fields_autoplaced yes)
 		(uuid "1a34a22e-1a0d-4693-ad92-41cf71e581c7")
 		(property "Reference" "J22"
-			(at 87.63 134.6199 0)
+			(at 256.54 93.9799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22654,7 +22674,7 @@
 			)
 		)
 		(property "Value" "Kbd_usb"
-			(at 87.63 137.1599 0)
+			(at 256.54 96.5199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22663,7 +22683,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 85.09 135.89 0)
+			(at 254 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22672,7 +22692,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 85.09 135.89 0)
+			(at 254 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22681,7 +22701,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 85.09 135.89 0)
+			(at 254 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23304,7 +23324,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 77.47 143.51 0)
+		(at 246.38 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23313,7 +23333,7 @@
 		(fields_autoplaced yes)
 		(uuid "36b726ba-ed43-44cc-932b-8edc064e4bb5")
 		(property "Reference" "#PWR0194"
-			(at 77.47 149.86 0)
+			(at 246.38 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23322,7 +23342,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 77.47 148.59 0)
+			(at 246.38 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23331,7 +23351,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 77.47 143.51 0)
+			(at 246.38 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23340,7 +23360,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 143.51 0)
+			(at 246.38 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23349,7 +23369,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 77.47 143.51 0)
+			(at 246.38 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25095,7 +25115,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 77.47 128.27 0)
+		(at 246.38 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -25103,7 +25123,7 @@
 		(dnp no)
 		(uuid "7a2956a3-b652-40e6-93c0-3930de9e89fb")
 		(property "Reference" "#PWR0193"
-			(at 77.47 132.08 0)
+			(at 246.38 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25112,7 +25132,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 75.438 124.714 0)
+			(at 244.348 84.074 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25124,7 +25144,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 77.47 128.27 0)
+			(at 246.38 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25133,7 +25153,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 128.27 0)
+			(at 246.38 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25142,7 +25162,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 77.47 128.27 0)
+			(at 246.38 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -20,6 +20,7 @@
 .extern cconin
 .extern cconout
 .extern ring_buf_put
+.extern ring_buf_put1
 .extern tick_count
 
 /* =========================================================================
@@ -129,7 +130,7 @@ Int4Handler:
         ANDI.L  #0x000000FF,%D0  /*; Limpa a parte alta (garante o unsigned)*/
         MOVE.L  %D0, -(%A7)       /*; Empilha 4 bytes (mantém A7 alinhado em par)*/
         
-        jsr     ring_buf_put
+        jsr     ring_buf_put1
         
         ADDQ.L  #4,%A7          /*; Limpa os 4 bytes da pilha!*/
 

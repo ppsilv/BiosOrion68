@@ -88,5 +88,5 @@ CMakeFiles/pds200Pico2.dir/ps2_keyboard.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/stdlib.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
  /home/pdsilva/project/Orion68/src/pico2W/build/ps2_keyboard.pio.h \
- /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.h \
- /home/pdsilva/project/Orion68/src/pico2W/ringbuffer.h
+ /home/pdsilva/project/Orion68/src/pico2W/includes/ps2_keyboard.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/ringbuffer.h

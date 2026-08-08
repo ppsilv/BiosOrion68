@@ -68,9 +68,9 @@ include CMakeFiles/pds200Pico2_ps2_keyboard_pio_h.dir/progress.make
 
 CMakeFiles/pds200Pico2_ps2_keyboard_pio_h: ps2_keyboard.pio.h
 
-ps2_keyboard.pio.h: /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.pio
+ps2_keyboard.pio.h: /home/pdsilva/project/Orion68/src/pico2W/PIOs/ps2_keyboard.pio
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pdsilva/project/Orion68/src/pico2W/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ps2_keyboard.pio.h"
-	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/project/Orion68/src/pico2W/ps2_keyboard.pio /home/pdsilva/project/Orion68/src/pico2W/build/ps2_keyboard.pio.h
+	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/project/Orion68/src/pico2W/PIOs/ps2_keyboard.pio /home/pdsilva/project/Orion68/src/pico2W/build/ps2_keyboard.pio.h
 
 pds200Pico2_ps2_keyboard_pio_h: CMakeFiles/pds200Pico2_ps2_keyboard_pio_h
 pds200Pico2_ps2_keyboard_pio_h: ps2_keyboard.pio.h

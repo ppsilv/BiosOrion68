@@ -23,7 +23,7 @@ CMakeFiles/pds200Pico2.dir/hw_config.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/hw_config.h \
+ /home/pdsilva/project/Orion68/src/pico2W/includes/hw_config.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
  /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
