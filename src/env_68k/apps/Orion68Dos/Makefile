@@ -7,15 +7,16 @@ CFLAGS = -Wall -O0 -I ./includes -I../../include -ffreestanding -nostdlib
 CFLAGS += -DCHIP_$(CHIP_TYPE) -DROM_SIZE_BYTES=$(ROM_SIZE)
 CFLAGS += -fomit-frame-pointer
 
-VASMFLAGS = -devpac -Felf -m68000 -quiet -I ./includes -I../../include
+VASMFLAGS = -Felf -m68000 -quiet -I ./includes -I../../include
 
 LDFLAGS = -T ./orion68.ld -L../../lib -nostdlib  -Map=orion68.map
 LDLIBS = -lc68k
 
 # 1. ADICIONADO: Lista de arquivos em Assembly (.S)
-ASMS = ./xmodem/xmodem_asm.S vectors_asm.S 
+ASMS = ./xmodem/xmodem_asm.S vectors_asm.S
 
-VASMS = 
+
+VASMS =
 
 # Lista de arquivos C
 SRCS = orion68.c vectors.c console.c \
@@ -33,6 +34,7 @@ SRCS = orion68.c vectors.c console.c \
 ./rtc/rp5c01a.c \
 ./picoVga/drv_picoVga.c \
 ./uarts/drv_uart0.c \
+./duart/duart.c \
 ./ide/ata.c \
 ./fatfs/ff.c \
 ./fatfs/ffsystem.c \
@@ -50,7 +52,7 @@ timers.c interrupt.c
 
 
 # 2. ALTERADO: Agora a lista de objetos junta os .o vindos do .c e do .S
-OBJS = $(SRCS:.c=.o) $(ASMS:.S=.o) $(VASMS:.s=.o)
+OBJS = $(SRCS:.c=.o) $(ASMS:.S=.o) $(VASMS:.asm=.o)
 
 #Tools
 SPLITTER := python3 ./tools/split68k.py
@@ -90,6 +92,9 @@ all: orion68.bin
 # 3. ADICIONADO: Regra explícita para compilar arquivos Assembly (.S)
 %.o: %.S
 	$(CC) $(CFLAGS) -c $< -o $@
+
+%.o: %.asm
+	$(VASM) $(VASMFLAGS) $< -o $@
 
 orion68.elf: ./tools/build_counter.sh $(OBJS)
 	$(LD) $(LDFLAGS) ../../obj/orion68_startup.o $(OBJS) $(LDLIBS) -o $@

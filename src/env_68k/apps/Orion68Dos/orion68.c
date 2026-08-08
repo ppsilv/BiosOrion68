@@ -29,6 +29,7 @@ extern void execute_cmd(char *linebuffer);
 //__attribute__((section(".mram"))) char vbug_buffer[256];
 //__attribute__((section(".minha_ram"))) int vbug_status_flag;
 volatile __attribute__((section(".mram"))) long systemTick;
+volatile __attribute__((section(".mram"))) unsigned int tick_count;
 volatile __attribute__((section(".mram"))) unsigned int flg_system;
 
 #include "./tools/build_counter.h"
@@ -148,13 +149,21 @@ void main() {
     // uart3_init();
     // delay10ms(100);  //100ms    
     pico_write_ch('D');
+    printf("* - Initializing duart GPIO\n");
+    duart_opr_init();
+    pico_write_ch('E');
+    printf("* - Initializing duart A\n");
+    duart_uartA_init();
+    //printf("* - Initializing duart B\n");
+    //duart_uartB_init();
+    
     crc32_init();
 #ifdef DEBUG_ON
     ata_read_identity();    
 #endif
-    printf("* - Initializing IDE\n");
+    printf("* - Initializing IDE ");
     do_ideinit(0,NULL);
-    pico_write_ch('E');
+    pico_write_ch('F');
 
     printf("* - Initializing  RTC\n");
     rtc_inicializar();
@@ -198,13 +207,13 @@ void main() {
     printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
     printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
 */
-    pico_write_ch('F');
+    pico_write_ch('G');
 
     ring_buf_init();
     //********************************************************
     //T H I S   M U S T   B E   T H E  L A S T    T H I N G 
     display_prompt();
-    pico_write_ch('G');
+    pico_write_ch('H');
     while (1){
         if (getline(g_cmd_buffer, LINELEN) != -1) {
             execute_cmd(g_cmd_buffer);

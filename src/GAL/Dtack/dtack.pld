@@ -2,22 +2,24 @@ GAL20V8
 CHIP_U200
 
 ;Pinagem  CS=CHIP SELECT DT=DTACK
-; 1  2      3      4      5      6      7  8  9  10 11 12
-  NC CSSMIO DTAUTO DTSMIO DTPVGA CSPVGA NC NC NC NC NC GND
+; 1  2      3      4      5      6      7       8       9  10 11 12
+  NC CSSMIO DTAUTO DTSMIO DTPVGA CSPVGA DTDUART CSDUART NC NC NC GND
 
 ; 13 14 15 16 17 18 19 20 21 22     23 24
   NC NC NC NC NA NC NC NC NC DTACK  NC VCC
 
 
 
-/DTACK =  CSSMIO * CSPVGA * /DTAUTO + CSPVGA * /CSSMIO * /DTSMIO + /CSPVGA * CSSMIO * /DTPVGA
-
+/DTACK =   CSSMIO *  CSPVGA *  CSDUART *  /DTAUTO +
+           CSPVGA * CSDUART *  /CSSMIO *  /DTSMIO +
+           CSSMIO * CSDUART *  /CSPVGA *  /DTPVGA +
+           CSSMIO *  CSPVGA * /CSDUART * /DTDUART
 
 DESCRIPTION
 Modo simple.
 
 Sintese
-galette || galasm  dtack.pld
+galasm || galette  dtack.pld
 
 Use aquele que funcionar porque a sintaxe é a mesm
 

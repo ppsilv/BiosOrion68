@@ -1,10 +1,10 @@
 
 
 Pin 22 = DTACK        XOR = 0   AC1 = 0
-  0  x--- -x-- ---- ---- x--- ---- ---- ---- ---- ----
-  1  -x-- ---- -x-- ---- x--- ---- ---- ---- ---- ----
-  2  x--- ---- ---- -x-- -x-- ---- ---- ---- ---- ----
-  3  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+  0  x--- -x-- ---- ---- x--- ---- x--- ---- ---- ----
+  1  -x-- ---- -x-- ---- x--- ---- x--- ---- ---- ----
+  2  x--- ---- ---- -x-- -x-- ---- x--- ---- ---- ----
+  3  x--- ---- ---- ---- x--- -x-- -x-- ---- ---- ----
   4  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   5  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   6  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx

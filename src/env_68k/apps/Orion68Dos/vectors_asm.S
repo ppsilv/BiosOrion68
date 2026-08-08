@@ -20,6 +20,7 @@
 .extern cconin
 .extern cconout
 .extern ring_buf_put
+.extern tick_count
 
 /* =========================================================================
    1. EXCEÇÕES E INTERRUPÇÕES QUE NÃO FAZEM NADA (STUBS)
@@ -47,7 +48,6 @@ SvcLineF:
 bad_exception:
 SpuriousHandler:
 Int1Handler:
-Int4Handler:
 Int5Handler:
 Int6Handler:
 Int7Handler:
@@ -77,17 +77,35 @@ TrapDHandler:
    ========================================================================= */
 Int2Handler:
         /* Como mexe em registrador para somar na RAM, salva o D0 e A0 */
-        move.l  %d0,-(%sp)
         move.l  %a0,-(%sp)
 
         /* Incrementa a variável de 32 bits do C */
         move.l  #systemTick,%a0
         addq.l  #1,(%a0)
 
-        /* Restaura e sai com RTE */
-        move.l  (%sp)+,%a0
-        move.l  (%sp)+,%d0
-        rte
+    addq.w  #1,tick_count       
+    cmpi.w  #400,tick_count     
+    beq.s   .action_100
+    cmpi.w  #800,tick_count     
+    beq.s   .action_200
+    /* Restaura e sai com RTE */
+    move.l  (%sp)+,%a0
+    rte                         
+
+.action_100:
+    move.b  #0x1C,0xFF901D        
+    /* Restaura e sai com RTE */
+    move.l  (%sp)+,%a0
+    rte
+
+.action_200:
+    move.b  #0x1C,0xFF901F        
+    clr.w   tick_count          
+    /* Restaura e sai com RTE */
+    move.l  (%sp)+,%a0
+    rte
+
+
 Int3Handler:
         movem.l %d0-%d7/%a0-%a6,-(%sp)
 
@@ -102,6 +120,22 @@ Int3Handler:
 
         movem.l (%sp)+,%d0-%d7/%a0-%a6
         rte
+
+Int4Handler:
+        movem.l %d0-%d7/%a0-%a6,-(%sp)
+
+        MOVE.B  0xFF9007,%D0
+
+        ANDI.L  #0x000000FF,%D0  /*; Limpa a parte alta (garante o unsigned)*/
+        MOVE.L  %D0, -(%A7)       /*; Empilha 4 bytes (mantém A7 alinhado em par)*/
+        
+        jsr     ring_buf_put
+        
+        ADDQ.L  #4,%A7          /*; Limpa os 4 bytes da pilha!*/
+
+        movem.l (%sp)+,%d0-%d7/%a0-%a6
+        rte
+
 
 /* =========================================================================
    4. TRAP 1 (BIOS CONSOLE IO)

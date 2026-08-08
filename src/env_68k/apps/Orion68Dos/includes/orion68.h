@@ -53,6 +53,12 @@ extern uint32_t crc32_calculate(const uint8_t *buffer, size_t length);
 extern uint32_t carregar_elf32(const uint8_t *elf_buf, uint8_t *ram_destino);
 extern uint32_t carregar_elf32_fatfs(const char *caminho);
 extern unsigned int get_char();
+extern void duart_opr_init(); 
+extern void duart_uartA_init(void);
+extern void duart_uartB_init(void);
+extern void duart_led_op3_on(void);
+extern void duart_led_op3_off(void);
+
 
 //IDE
 //#define ATA_REG_BASE 0x00FF4400

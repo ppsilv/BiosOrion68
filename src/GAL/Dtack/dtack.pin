@@ -8,8 +8,8 @@
    4   | DTSMIO   | Input
    5   | DTPVGA   | Input
    6   | CSPVGA   | Input
-   7   | NC       | Input
-   8   | NC       | Input
+   7   | DTDUART  | Input
+   8   | CSDUART  | Input
    9   | NC       | Input
   10   | NC       | Input
   11   | NC       | Input

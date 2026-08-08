@@ -15,9 +15,9 @@
                           |                 |
                    CSPVGA |  6           19 | NC
                           |                 |
-                       NC |  7           18 | NC
+                  DTDUART |  7           18 | NC
                           |                 |
-                       NC |  8           17 | NA
+                  CSDUART |  8           17 | NA
                           |                 |
                        NC |  9           16 | NC
                           |                 |

@@ -689,6 +689,12 @@ void do_tstkbd(int argc, char *argv[])
                 break;
         case 0x03:    
                 break;            
+        case 0x04:    
+                duart_led_op3_on();
+                break;            
+        case 0x05:    
+                duart_led_op3_off();
+                break;            
         case 0xFF:
                 break;
         case 0x10:

@@ -2539,6 +2539,16 @@
 	)
 	(wire
 		(pts
+			(xy 123.19 78.74) (xy 128.27 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e19d164-b1b8-4f75-87e5-8c477468a7e6")
+	)
+	(wire
+		(pts
 			(xy 118.11 91.44) (xy 118.11 115.57)
 		)
 		(stroke
@@ -2746,6 +2756,26 @@
 			(type default)
 		)
 		(uuid "3a4077f2-e0aa-4922-9fd8-3103c7e5acc4")
+	)
+	(wire
+		(pts
+			(xy 128.27 78.74) (xy 128.27 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "43653dc1-c57b-4750-9238-bff076e472ce")
+	)
+	(wire
+		(pts
+			(xy 107.95 128.27) (xy 128.27 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "43aaf0d7-1172-4197-a1d1-67fd8e233696")
 	)
 	(wire
 		(pts
@@ -3357,7 +3387,7 @@
 		)
 		(uuid "08197134-f928-400f-9a07-95fc51c1c533")
 	)
-	(label "{slash}DTACK_68681"
+	(label "{slash}DTACK_DUART"
 		(at 107.95 125.73 180)
 		(effects
 			(font
@@ -3656,6 +3686,16 @@
 			(justify right bottom)
 		)
 		(uuid "62fb844f-b52d-48f6-9160-d1443875edaf")
+	)
+	(label "{slash}CS_DUART"
+		(at 107.95 128.27 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6300ed57-2733-4020-810c-fe275dc6b57a")
 	)
 	(label "{slash}AS"
 		(at 134.62 30.48 0)
