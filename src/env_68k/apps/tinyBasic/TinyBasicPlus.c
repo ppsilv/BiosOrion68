@@ -1712,6 +1712,7 @@ static void line_terminator(void)
 
 
 /***********************************************************/
+/*
 static unsigned char breakcheck(void)
 {
 
@@ -1723,6 +1724,18 @@ static unsigned char breakcheck(void)
 #endif
     return 0;
 
+}
+*/
+static unsigned char breakcheck(void)
+{
+  int got;
+    got = getchar();
+    if ( got < 255) {
+        if ( got == CTRLC) {
+            return 1;
+        }
+    }
+    return 0;
 }
 /***********************************************************/
 static int inchar()
