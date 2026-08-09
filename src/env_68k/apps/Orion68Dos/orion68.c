@@ -149,11 +149,13 @@ void main() {
     // uart3_init();
     // delay10ms(100);  //100ms    
     pico_write_ch('D');
+/* ENQUANTO NÃO TROCAR A MERDA DO SOQUETE DO 68681 DEIXA FORA ESSE CODIGO
     printf("* - Initializing duart GPIO\n");
     duart_opr_init();
     pico_write_ch('E');
     printf("* - Initializing duart A\n");
     duart_uartA_init();
+    */
     //printf("* - Initializing duart B\n");
     //duart_uartB_init();
     

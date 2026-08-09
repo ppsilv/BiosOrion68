@@ -90,6 +90,10 @@ static unsigned char *txtpos,*list_line, *tmptxtpos;
 static unsigned char expression_error;
 static unsigned char *tempsp;
 static void set_cursor_position(int x,int y);
+static int orion_load(void);
+static int file_read(char *filename, char * program, int size, int *bytes_read);
+static int file_write(char *filename,char * program, int size, int *bytes_written);
+static int get_filename(char *buf, int max_len);
 
 /***********************************************************/
 // Keyword table and constants - the last character has 0x80 added to it
@@ -247,7 +251,7 @@ static LINENUM linenum;
 
 static const unsigned char okmsg[]            PROGMEM = "OK";
 static const unsigned char whatmsg[]          PROGMEM = "Sintaxe error! ";
-static const unsigned char howmsg[]           PROGMEM =	"How?";
+static const unsigned char howmsg[]           PROGMEM =	"Execution error!";
 static const unsigned char sorrymsg[]         PROGMEM = "Sorry!";
 static const unsigned char initmsg[]          PROGMEM = "TinyBasic m68000 V1.0 2025 ";
 static const unsigned char memorymsg[]        PROGMEM = " bytes free.";
@@ -1015,8 +1019,8 @@ interperateAtTxtpos:
     goto list;
 //  case KW_CHAIN:
 //    goto chain;
-//  case KW_LOAD:
-//    goto load;
+  case KW_LOAD:
+    goto load;
   case KW_MEM:         //  ✔️
     goto mem;
   case KW_NEW:         //  ✔️
@@ -1027,8 +1031,8 @@ interperateAtTxtpos:
   case KW_RUN:         //  ✔️
     current_line = program_start;
     goto execline;
-//  case KW_SAVE:
-//    goto save;
+  case KW_SAVE:
+    goto save;
   case KW_NEXT:         //  ✔️
     goto next;
   case KW_LET:         //  ✔️
@@ -1682,19 +1686,48 @@ dwrite:
 //chain:
 //  runAfterLoad = true;
 //    goto run_next_statement;
-/*
+
 load:
-  // clear the program
+{
+  int bytes_read;
   program_end = program_start;
+  //memset(program, 0, BasicRamSize);
 
-  // load from a file into memory
+  char filename[32];
+
+  expression_error = 0;
+  if (!get_filename(filename, sizeof(filename)))
+      goto qwhat;
+
+  printf("Loading file: %s\n", filename);
+
+  file_read(filename, program, BasicRamSize - 1, &bytes_read);
+
+  program_end = program_start + bytes_read;
+
   goto run_next_statement;
-
+}
 
 
 save:
-  // save from memory out to a file
-*/
+{
+  int bytes_written;
+  expression_error = 0;
+  char filename[32];
+
+  if (!get_filename(filename, sizeof(filename)))
+      goto qwhat;
+
+  printf("Saving file: %s\n", filename);
+
+  /* Se a sua versão usa um ponteiro de fim (ex: program_end): */
+  size_t tamanho = (size_t)(program_end - program_start);
+
+  file_write(filename, program, tamanho, &bytes_written);
+
+  goto run_next_statement;
+}
+
 rseed:
   {
     short int value;
@@ -1710,7 +1743,72 @@ rseed:
 
 }
 
+// Copia o nome do arquivo da linha de comando para o buffer
+static int get_filename(char *buf, int max_len)
+{
+    ignore_blanks();
 
+    char delim = *txtpos;
+    int has_quotes = (delim == '"' || delim == '\'');
+
+    if (has_quotes)
+        txtpos++; // Pula a aspa inicial
+
+    int i = 0;
+    // Se tinha aspas, lê até a aspa final. Se não tinha, lê até espaço, ':' ou NL.
+    while (*txtpos != NL && *txtpos != '\0' && *txtpos != ':')
+    {
+        if (has_quotes && *txtpos == delim) break;
+        if (!has_quotes && *txtpos == ' ') break;
+
+        if (i < max_len - 1) {
+            buf[i++] = *txtpos;
+        }
+        txtpos++;
+    }
+
+    if (has_quotes && *txtpos == delim)
+        txtpos++; // Pula a aspa final
+
+    buf[i] = '\0'; // Finaliza a string em C
+    return (i > 0); // Retorna 1 se leu algum caractere
+}
+
+static int file_read(char *filename, char * program, int size, int *bytes_read) {
+    int result;
+
+    asm volatile (
+        "move.l #1, %%d1\n\t"   /* D1: Syscall Read (1) */
+        "move.l %1, %%a0\n\t"   /* A0: filename */
+        "move.l %2, %%a1\n\t"   /* A1: program (buffer) */
+        "move.l %3, %%d0\n\t"   /* D0: size */
+        "move.l %4, %%a2\n\t"   /* A2: bytes_read */
+        "trap #12\n\t"           /* Executa a Syscall */
+        "move.l %%d0, %0\n\t"   /* D0: Retorno (FRESULT) -> result */
+        : "=r" (result)
+        : "g" (filename), "g" (program), "g" (size), "g" (bytes_read)
+        : "d0", "d1", "a0", "a1", "a2", "cc", "memory"
+    );
+
+    return result & 0xff;
+}
+
+static int file_write(char *filename,char * program, int size, int*bytes_written){
+    int result;
+    asm volatile (
+        "move.l #2, %%d1\n\t"   /* D1: Syscall Read (1) */
+        "move.l %1, %%a0\n\t"   /* A0: filename */
+        "move.l %2, %%a1\n\t"   /* A1: program (buffer) */
+        "move.l %3, %%d0\n\t"   /* D0: size */
+        "move.l %4, %%a2\n\t"   /* A2: bytes_read */
+        "trap #12\n\t"           /* Executa a Syscall */
+        "move.l %%d0, %0\n\t"   /* D0: Retorno (FRESULT) -> result */
+        : "=r" (result)
+        : "g" (filename), "g" (program), "g" (size), "g" (bytes_written)
+        : "d0", "d1", "a0", "a1", "a2", "cc", "memory"
+    );
+    return result & 0xff ;
+}
 static void set_cursor_position(int x, int y) {
     unsigned char xh, xl, yh, yl;
 

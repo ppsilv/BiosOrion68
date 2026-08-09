@@ -827,7 +827,7 @@ void do_writemem1(int argc, char *argv[]){
  *
  * Retorna 0 em sucesso, -1 em erro (mensagem impressa via printf).
  */
-void do_save(int argc, char *argv[]){
+ void do_save(int argc, char *argv[]){
     FIL     arquivo;
     FRESULT fr;
     UINT    bytes_escritos;
@@ -870,4 +870,97 @@ void do_save(int argc, char *argv[]){
 
     printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
            nome_arquivo, (unsigned)tamanho);
+}
+
+char do_save_basic(int argc, char *argv[]){
+    FIL     arquivo;
+    FRESULT fr;
+    UINT    bytes_escritos;
+    int *ret_bytes_escritos = (int *)argv[3];
+    const void *origem = (const void *)argv[1];
+    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
+    size_t tamanho;
+
+    if (argc < 2) {
+        printf("uso: save <nome_arquivo> <tamanho_hex>\n");
+        return -1;
+    }
+
+    tamanho = (size_t)argv[2];
+    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
+
+    if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
+        printf("dump_memoria_para_arquivo: parametros invalidos\n");
+        return -1;
+    }
+
+    fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
+        return -1;
+    }
+
+    fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
+    if (fr != FR_OK || bytes_escritos != tamanho) {
+        printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
+               nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
+        f_close(&arquivo);
+        return -1;
+    }
+    if (ret_bytes_escritos != NULL) {
+       *ret_bytes_escritos = bytes_escritos; // Ex: 512
+    }
+    fr = f_close(&arquivo);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
+        return -1;
+    }
+
+    printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n", nome_arquivo, (unsigned)tamanho);
+    return 0;
+}
+char do_load_basic(int argc, char *argv[])
+{
+    FIL file;
+    uint32_t size_buffer=(uint32_t )argv[2];
+    int *ret_bytes_lidos = (int *)argv[3];
+    char *buffer = NULL;
+
+    if (f_open(&file, argv[0], FA_READ) == FR_OK)
+    {
+        unsigned int len = f_size(&file);
+        if( len > size_buffer){
+            printf("Unable to load file, file bigger than buffer.\n");
+            buffer[0]='\0';
+            f_close(&file);
+            return  -1;
+        }
+
+        buffer = (char*)argv[1];
+
+        unsigned int bytes_read = 0;
+
+        if (f_read(&file, buffer, len, &bytes_read) != FR_OK)
+        {
+            printf("Unable to load file.\n");
+            f_close(&file);
+            return -1;
+        }
+        
+        if (ret_bytes_lidos != NULL) {
+            *ret_bytes_lidos = bytes_read;
+        }
+
+        printf("Loaded %d bytes from file %s to location %lX\n", bytes_read, argv[0], (uint32_t)buffer);
+    }
+    else
+    {
+        printf("Unable to open file %s\n", argv[0]);
+    }
+
+    if (argc == 1)
+        free(buffer);
+
+    f_close(&file);
+    return 0;
 }
