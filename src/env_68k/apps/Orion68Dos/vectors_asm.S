@@ -214,7 +214,27 @@ Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
         beq     .file_read
         cmp.w   #2,%d1
         beq     .file_write
+        cmp.w   #3,%d1
+        beq     .file_list
         bra     .trapC_exit
+
+.file_list:
+    /* 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])*/
+    move.l  %a0,-(%sp)    /*; argv[0] = Ponteiro FIL / "teste.bas"*/
+    
+    move.l  %sp,%a2       /*; A2 = Endereço do início do vetor argv[]*/
+
+    /*; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda*/
+    move.l  %a2,-(%sp)    /*; 2º parâmetro: char *argv[]*/
+    move.l  #1,-(%sp)    /*; 1º parâmetro: int argc (3 argumentos)*/
+
+    /*; 3. Chama a função*/
+    jsr     do_ls
+
+    /*; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)*/
+    lea     12(%sp),%sp
+    bra     .trapC_exit
+
 
 .file_write:
     /* 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])*/

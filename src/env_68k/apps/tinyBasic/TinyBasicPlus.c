@@ -94,6 +94,7 @@ static int orion_load(void);
 static int file_read(char *filename, char * program, int size, int *bytes_read);
 static int file_write(char *filename,char * program, int size, int *bytes_written);
 static int get_filename(char *buf, int max_len);
+static int file_list(char *filter);
 
 /***********************************************************/
 // Keyword table and constants - the last character has 0x80 added to it
@@ -1013,8 +1014,8 @@ interperateAtTxtpos:
   {
   case KW_DELAY:
       goto unimplemented;
-//  case KW_FILES:
-//    goto files;
+  case KW_FILES:
+    goto files;
   case KW_LIST:         //  ✔️
     goto list;
 //  case KW_CHAIN:
@@ -1676,10 +1677,13 @@ dwrite:
   goto unimplemented;
 
   /*************************************************/
-//files:
+files:
   // display a listing of files on the device.
   // version 1: no support for subdirectories
-//   goto run_next_statement;
+  char filter[32]="*.*";
+  printf("listing files\n");
+  file_list(filter);
+  goto run_next_statement;
 
 
 
@@ -1695,7 +1699,6 @@ load:
 
   char filename[32];
 
-  expression_error = 0;
   if (!get_filename(filename, sizeof(filename)))
       goto qwhat;
 
@@ -1773,6 +1776,23 @@ static int get_filename(char *buf, int max_len)
     buf[i] = '\0'; // Finaliza a string em C
     return (i > 0); // Retorna 1 se leu algum caractere
 }
+
+static int file_list(char *filter) {
+    int result;
+
+    asm volatile (
+        "move.l #3, %%d1\n\t"   /* D1: Syscall Read (1) */
+        "move.l %1, %%a0\n\t"   /* A0: filename */
+        "trap #12\n\t"           /* Executa a Syscall */
+        "move.l %%d0, %0\n\t"   /* D0: Retorno (FRESULT) -> result */
+        : "=r" (result)
+        : "g" (filter)
+        : "d0", "d1", "a0", "cc", "memory"
+    );
+
+    return result & 0xff;
+}
+
 
 static int file_read(char *filename, char * program, int size, int *bytes_read) {
     int result;
