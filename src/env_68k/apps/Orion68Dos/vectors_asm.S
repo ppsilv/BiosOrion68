@@ -123,18 +123,6 @@ Int3Handler:
         rte
 
 Int4Handler:
-        movem.l %d0-%d7/%a0-%a6,-(%sp)
-
-        MOVE.B  0xFF9007,%D0
-
-        ANDI.L  #0x000000FF,%D0  /*; Limpa a parte alta (garante o unsigned)*/
-        MOVE.L  %D0, -(%A7)       /*; Empilha 4 bytes (mantém A7 alinhado em par)*/
-        
-        jsr     ring_buf_put1
-        
-        ADDQ.L  #4,%A7          /*; Limpa os 4 bytes da pilha!*/
-
-        movem.l (%sp)+,%d0-%d7/%a0-%a6
         rte
 
 

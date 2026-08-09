@@ -6,6 +6,7 @@
 #include "diskio.h"    // Interface de baixo nível da FatFs
 #include "drv_kbd.h"
 #include "ata.h"
+#include "../kbd/ringbuffer.h"
 
 // Estrutura do seu driver que guarda a partição encontrada no MBR
 // (Assumindo a estrutura que você já fez funcionar)
@@ -78,7 +79,10 @@ void listar_diretorio_raiz(void) {
         i++;
         if( i>=30 ){
             printf("Press to continue: ");
-            get_char();
+            while ( res == true ){      //le do teclado ps2
+                res = ring_buf_is_empty();
+            }
+            //ch = ring_buf_get();    //le do teclado ps2
             i=0;
         }
     }

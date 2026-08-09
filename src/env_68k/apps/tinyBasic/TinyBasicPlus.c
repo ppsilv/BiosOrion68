@@ -15,11 +15,26 @@
 ******************************************************************
 *    Copyright (C) 1984 by Gordon Brandly. This program may be   *
 *    freely distributed for personal use only. All commercial    *
-*                      rights are reserved.                      *
+*                      rights are reserved.
+* picoVGA comandos
+* 16744509₁₀  RUN_CMD
+* 164  CLEARSCREEN
 ******************************************************************/
 #include <stdio.h>
 #include  <string.h>
 //#include <stdlib.h>
+
+#define PICO_VGA_BASE 0x00FF8000
+#define RUN_CMD        (*((volatile unsigned char *)(0x00FF8000 + 0x3D)))
+#define REG_X_HIGH     (*((volatile unsigned char *)(PICO_VGA_BASE + 0x2D)))
+#define REG_X_LOW      (*((volatile unsigned char *)(PICO_VGA_BASE + 0x2F)))
+#define REG_Y_HIGH     (*((volatile unsigned char *)(PICO_VGA_BASE + 0x31)))
+#define REG_Y_LOW      (*((volatile unsigned char *)(PICO_VGA_BASE + 0x33)))
+#define CMD_CLEAR_SCREEN    0xA4
+#define CMD_SET_CUR_POS     0xA3
+#define CMD_SET_TXT_COLOR   0xA2
+#define CMD_GO_HOME         0xA1
+
 
 // size of our program ram
 #define BasicRamSize   64*1024 /* arbitrary - not dependant on libraries */
@@ -74,6 +89,7 @@ static const char *  sentinel = "HELLO";
 static unsigned char *txtpos,*list_line, *tmptxtpos;
 static unsigned char expression_error;
 static unsigned char *tempsp;
+static void set_cursor_position(int x,int y);
 
 /***********************************************************/
 // Keyword table and constants - the last character has 0x80 added to it
@@ -86,6 +102,7 @@ const static unsigned char keywords[]  = {
   'N','E','X','T'+0x80,
   'L','E','T'+0x80,
   'I','F'+0x80,
+  'G','O','T','O','X','Y'+0x80,
   'G','O','T','O'+0x80,
   'G','O','S','U','B'+0x80,
   'R','E','T','U','R','N'+0x80,
@@ -106,10 +123,11 @@ const static unsigned char keywords[]  = {
   'E','N','D'+0x80,
   'R','S','E','E','D'+0x80,
   'C','H','A','I','N'+0x80,
-  'W','H','I','L','E'+0x80,  // <--- ADICIONE AQUI
-  'W','E','N','D'+0x80,      // <--- ADICIONE AQUI
+  'W','H','I','L','E'+0x80,
+  'W','E','N','D'+0x80,
   'H','E','X'+0x80,
   'H','E','X','P','E','E','K'+0x80,
+  'C','L','S'+0X80,
   0
 };
 
@@ -119,6 +137,7 @@ enum {
   KW_LIST = 0,
   KW_LOAD, KW_NEW, KW_RUN, KW_SAVE,
   KW_NEXT, KW_LET, KW_IF,
+  KW_GOTOXY,
   KW_GOTO, KW_GOSUB, KW_RETURN,
   KW_REM,
   KW_FOR,
@@ -133,10 +152,11 @@ enum {
   KW_END,
   KW_RSEED,
   KW_CHAIN,
-  KW_WHILE,  // <--- ADICIONE AQUI
-  KW_WEND,   // <--- ADICIONE AQUI
-  KW_HEX,  // Adicione HEX$ como keyword
+  KW_WHILE,
+  KW_WEND,
+  KW_HEX,
   KW_HEXPEEK,
+  KW_CLS,
   KW_DEFAULT /* always the final one*/
 };
 
@@ -226,7 +246,7 @@ static unsigned char table_index;
 static LINENUM linenum;
 
 static const unsigned char okmsg[]            PROGMEM = "OK";
-static const unsigned char whatmsg[]          PROGMEM = "What? ";
+static const unsigned char whatmsg[]          PROGMEM = "Sintaxe error! ";
 static const unsigned char howmsg[]           PROGMEM =	"How?";
 static const unsigned char sorrymsg[]         PROGMEM = "Sorry!";
 static const unsigned char initmsg[]          PROGMEM = "TinyBasic m68000 V1.0 2025 ";
@@ -1085,7 +1105,7 @@ interperateAtTxtpos:
     }
     break;
     // Implementação:
-  case KW_HEXPEEK:         //  ✔️
+  case KW_HEXPEEK:
     {
         ignore_blanks();
         if(*txtpos != '(') goto qwhat;
@@ -1102,6 +1122,10 @@ interperateAtTxtpos:
         printf("%02X\n", val);
     }
     break;
+  case KW_GOTOXY:
+    goto gotoxy;
+  case KW_CLS:
+    goto cls;
   case KW_DEFAULT:
     goto assignment;
   default:
@@ -1118,6 +1142,32 @@ execline:
     goto warmstart;
   txtpos = current_line+sizeof(LINENUM)+sizeof(char);
   goto interperateAtTxtpos;
+
+
+cls:
+  RUN_CMD = 0xA4;
+  goto run_next_statement;
+
+gotoxy:
+    expression_error = 0;
+    int x = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+
+    // Now get the data to assign
+    expression_error = 0;
+    int y = expression(); /* Avalia a 2ª expressão (Y) */
+    if(expression_error) goto qwhat;
+
+    /* Aqui você aplica no seu hardware/display */
+    set_cursor_position(x, y);
+    goto run_next_statement;
 
 
 input:
@@ -1660,6 +1710,20 @@ rseed:
 
 }
 
+
+static void set_cursor_position(int x, int y) {
+    unsigned char xh, xl, yh, yl;
+
+    xh = (x >> 8) & 0xFF;  /* Bitwise Shift Right (>>) */
+    xl = x & 0xFF;
+    yh = (y >> 8) & 0xFF;  /* Bitwise Shift Right (>>) */
+    yl = y & 0xFF;
+    REG_X_HIGH = xh;
+    REG_X_LOW  = xl;
+    REG_Y_HIGH = yh;
+    REG_Y_LOW  = yl;
+    RUN_CMD=CMD_SET_CUR_POS;
+}
 // returns 1 if the character is valid in a filename
 static int isValidFnChar( char c )
 {

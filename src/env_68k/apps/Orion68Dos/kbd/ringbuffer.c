@@ -50,7 +50,7 @@ uint16_t ring_buf_get_char(){
 	ch = ring_buf_get();    //le do teclado ps2 
 	return ch;
 }
-
+/*
 uint8_t     ringbufferUSB[RING_BUFFER_SIZE];
 static ringbuffer_t rb_static1;
 static ringbuffer_t *rb1 = &rb_static1;   // point at init time, not run time — no ordering bug possible
@@ -89,3 +89,4 @@ uint8_t ring_buf_is_full1(void)
 	uint8_t next_head = rb1->head + 1;
 	return next_head == rb1->tail;
 }
+*/

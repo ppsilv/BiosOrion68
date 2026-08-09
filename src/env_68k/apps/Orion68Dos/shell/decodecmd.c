@@ -339,7 +339,7 @@ FRESULT open_executable_file(FIL *file, char *filename)
     //printf("Unable to open file %s, trying with extensions..\n", filename);
     for (int i = 0; i < NUM_FILE_EXTENSIONS; i++)
     {
-        printf("Trying extension %s\n", orion_extensions[i]);
+        //printf("Trying extension %s\n", orion_extensions[i]);
         if (strlen(filename) + strlen(orion_extensions[i]) < FF_MAX_LFN)
         {
             strcpy(fileext, filename);
@@ -364,14 +364,14 @@ int process_command_executable(int argc, char *argv[])
     char buffer[HEADER_EXAMINE_SIZE];
     unsigned int br;
 
-    for(int i=0; i < argc; i++){
-        printf("process_command_executable: argc=[%d] argv[%s]\n",argc,argv[i]);
-    }
+    //for(int i=0; i < argc; i++){
+    //    printf("process_command_executable: argc=[%d] argv[%s]\n",argc,argv[i]);
+    //}
 
     fr = open_executable_file(&file, argv[0]);
     if (fr != FR_OK)
     {
-        printf("%s: Command not found\n", argv[0]);
+        //printf("%s: Command not found\n", argv[0]);
         //printerro(fr);
         return 0;
     }
