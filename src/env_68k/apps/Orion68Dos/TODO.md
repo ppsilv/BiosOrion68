@@ -55,7 +55,3 @@
 
 
 # LOG ERROS:
-1 - Corrigir as funções load e save do basic que pararam 
-    de funcionar depois do acerto com trap12 para acessos
-    ao disco.
-

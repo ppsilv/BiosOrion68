@@ -96,6 +96,17 @@ static int file_write(char *filename,char * program, int size, int *bytes_writte
 static int get_filename(char *buf, int max_len);
 static int file_list(char *filter);
 
+//INICIO
+#define STRVAR_LEN    40   /* tamanho máximo de cada string, ajuste conforme necessário */
+#define NUM_STR_TEMP   4   /* buffers temporários rotativos, para permitir aninhar chamadas tipo LEFT$(MID$(A$,1,3),2) */
+
+static char string_vars[26][STRVAR_LEN];      /* A$ a Z$ */
+static char str_temp[NUM_STR_TEMP][STRVAR_LEN];
+static int  str_temp_idx = 0;
+
+static char *str_expr(void);   /* forward declaration, junto das outras */
+//FIM
+
 /***********************************************************/
 // Keyword table and constants - the last character has 0x80 added to it
 const static unsigned char keywords[]  = {
@@ -133,8 +144,10 @@ const static unsigned char keywords[]  = {
   'H','E','X'+0x80,
   'H','E','X','P','E','E','K'+0x80,
   'C','L','S'+0X80,
+  'I','N','C'+0X80,
   0
 };
+
 
 // by moving the command list to an enum, we can easily remove sections 
 // above and below simultaneously to selectively obliterate functionality.
@@ -162,6 +175,7 @@ enum {
   KW_HEX,
   KW_HEXPEEK,
   KW_CLS,
+  KW_INC,
   KW_DEFAULT /* always the final one*/
 };
 
@@ -186,6 +200,8 @@ const static unsigned char func_tab[] PROGMEM = {
   'A','R','E','A','D'+0x80,
   'D','R','E','A','D'+0x80,
   'R','N','D'+0x80,
+  'L','E','N'+0x80,        /* <--- NOVO */
+  'A','S','C'+0x80,        /* <--- NOVO */
   0
 };
 #define FUNC_PEEK    0
@@ -193,7 +209,27 @@ const static unsigned char func_tab[] PROGMEM = {
 #define FUNC_AREAD   2
 #define FUNC_DREAD   3
 #define FUNC_RND     4
-#define FUNC_UNKNOWN 5
+#define FUNC_LEN     5      /* <--- NOVO */
+#define FUNC_ASC     6      /* <--- NOVO */
+#define FUNC_UNKNOWN 7
+
+//*************************************************
+//INICIO
+const static unsigned char strfunc_tab[] PROGMEM = {
+  'L','E','F','T','$'+0x80,
+  'R','I','G','H','T','$'+0x80,
+  'M','I','D','$'+0x80,
+  'C','H','R','$'+0x80,
+  'S','T','R','$'+0x80,
+  0
+};
+#define STRFUNC_LEFT     0
+#define STRFUNC_RIGHT    1
+#define STRFUNC_MID      2
+#define STRFUNC_CHR      3
+#define STRFUNC_STR      4
+#define STRFUNC_UNKNOWN  5
+//FIM
 
 const static unsigned char to_tab[] PROGMEM = {
   'T','O'+0x80,
@@ -254,16 +290,11 @@ static const unsigned char okmsg[]            PROGMEM = "OK";
 static const unsigned char whatmsg[]          PROGMEM = "Sintaxe error! ";
 static const unsigned char howmsg[]           PROGMEM =	"Execution error!";
 static const unsigned char sorrymsg[]         PROGMEM = "Sorry!";
-static const unsigned char initmsg[]          PROGMEM = "TinyBasic m68000 V1.0 2025 ";
+static const unsigned char initmsg[]          PROGMEM = "TinyBasic m68000 V1.1 2026 ";
 static const unsigned char memorymsg[]        PROGMEM = " bytes free.";
-#ifdef ARDUINO
-#ifdef ENABLE_EEPROM
-static const unsigned char eeprommsg[]        PROGMEM = " EEProm bytes total.";
-static const unsigned char eepromamsg[]       PROGMEM = " EEProm bytes available.";
-#endif
-#endif
+
 static const unsigned char breakmsg[]         PROGMEM = "break!";
-static const unsigned char unimplimentedmsg[] PROGMEM = "Unimplemented";
+static const unsigned char unimplimentedmsg[] PROGMEM = "Command not found";
 static const unsigned char backspacemsg[]     PROGMEM = "\b \b";
 static const unsigned char indentmsg[]        PROGMEM = "    ";
 static const unsigned char sderrormsg[]       PROGMEM = "SD card error.";
@@ -593,7 +624,163 @@ static unsigned char peek(unsigned long a)
     //printf("Voce chamou honoravel peek a = [%lu]  p = [%lu] result [%x]\n", a, (unsigned long)p, b);
     return b;
 }
+//*******************************************************************
+//INICIO
+/***************************************************************************/
+static char *str_temp_alloc(void)
+{
+    char *buf = str_temp[str_temp_idx];
+    str_temp_idx = (str_temp_idx + 1) % NUM_STR_TEMP;
+    return buf;
+}
 
+/* peek não-destrutivo: verifica se txtpos começa com 'kw', sem consumir */
+static int peek_keyword(const char *kw)
+{
+    return strncmp((char *)txtpos, kw, strlen(kw)) == 0;
+}
+
+/***************************************************************************/
+static char *str_expr(void)
+{
+    char *buf;
+    ignore_blanks();
+
+    /* literal entre aspas */
+    if (*txtpos == '"' || *txtpos == '\'') {
+        char delim = *txtpos;
+        int i = 0;
+        txtpos++;
+        buf = str_temp_alloc();
+        while (*txtpos != delim && *txtpos != NL && i < STRVAR_LEN - 1) {
+            buf[i++] = *txtpos++;
+        }
+        buf[i] = '\0';
+        if (*txtpos == delim) txtpos++;
+        else expression_error = 1;
+        return buf;
+    }
+
+    /* função de string? */
+    scantable(strfunc_tab);
+    if (table_index != STRFUNC_UNKNOWN) {
+        unsigned char f = table_index;
+        char *src;
+        long p1, p2;
+        int srclen;
+
+        if (*txtpos != '(') { expression_error = 1; return ""; }
+        txtpos++;
+
+        switch (f) {
+        case STRFUNC_LEFT:
+            src = str_expr();
+            if (expression_error) return "";
+            ignore_blanks();
+            if (*txtpos != ',') { expression_error = 1; return ""; }
+            txtpos++;
+            p1 = (long)expression();
+            if (expression_error) return "";
+            if (*txtpos != ')') { expression_error = 1; return ""; }
+            txtpos++;
+            srclen = strlen(src);
+            if (p1 < 0) p1 = 0;
+            if (p1 > srclen) p1 = srclen;
+            buf = str_temp_alloc();
+            memcpy(buf, src, p1);
+            buf[p1] = '\0';
+            return buf;
+
+        case STRFUNC_RIGHT:
+            src = str_expr();
+            if (expression_error) return "";
+            ignore_blanks();
+            if (*txtpos != ',') { expression_error = 1; return ""; }
+            txtpos++;
+            p1 = (long)expression();
+            if (expression_error) return "";
+            if (*txtpos != ')') { expression_error = 1; return ""; }
+            txtpos++;
+            srclen = strlen(src);
+            if (p1 < 0) p1 = 0;
+            if (p1 > srclen) p1 = srclen;
+            buf = str_temp_alloc();
+            memcpy(buf, src + (srclen - p1), p1);
+            buf[p1] = '\0';
+            return buf;
+
+        case STRFUNC_MID:
+            src = str_expr();
+            if (expression_error) return "";
+            ignore_blanks();
+            if (*txtpos != ',') { expression_error = 1; return ""; }
+            txtpos++;
+            p1 = (long)expression();      /* posição inicial, 1-based */
+            if (expression_error) return "";
+            srclen = strlen(src);
+            ignore_blanks();
+            if (*txtpos == ',') {
+                txtpos++;
+                p2 = (long)expression();  /* comprimento */
+                if (expression_error) return "";
+            } else {
+                p2 = srclen;               /* até o fim, se omitido */
+            }
+            if (*txtpos != ')') { expression_error = 1; return ""; }
+            txtpos++;
+
+            if (p1 < 1) p1 = 1;
+            if (p1 > srclen) { buf = str_temp_alloc(); buf[0] = '\0'; return buf; }
+            if (p2 < 0) p2 = 0;
+            if (p1 - 1 + p2 > srclen) p2 = srclen - (p1 - 1);
+            buf = str_temp_alloc();
+            memcpy(buf, src + (p1 - 1), p2);
+            buf[p2] = '\0';
+            return buf;
+
+        case STRFUNC_CHR:
+            p1 = (long)expression();
+            if (expression_error) return "";
+            if (*txtpos != ')') { expression_error = 1; return ""; }
+            txtpos++;
+            buf = str_temp_alloc();
+            buf[0] = (char)(p1 & 0xFF);
+            buf[1] = '\0';
+            return buf;
+
+        case STRFUNC_STR:
+            p1 = (long)expression();
+            if (expression_error) return "";
+            if (*txtpos != ')') { expression_error = 1; return ""; }
+            txtpos++;
+            buf = str_temp_alloc();
+            {
+                char tmp[12];
+                int ti = 0, neg = 0, j;
+                unsigned long uv;
+                if (p1 < 0) { neg = 1; uv = (unsigned long)(-p1); }
+                else          uv = (unsigned long)p1;
+                if (uv == 0) tmp[ti++] = '0';
+                while (uv > 0) { tmp[ti++] = '0' + (uv % 10); uv /= 10; }
+                if (neg) tmp[ti++] = '-';
+                for (j = 0; j < ti; j++) buf[j] = tmp[ti - 1 - j];
+                buf[ti] = '\0';
+            }
+            return buf;
+        }
+    }
+
+    /* variável de string: letra maiúscula seguida de '$' */
+    if (txtpos[0] >= 'A' && txtpos[0] <= 'Z' && txtpos[1] == '$') {
+        buf = string_vars[txtpos[0] - 'A'];
+        txtpos += 2;
+        return buf;
+    }
+
+    expression_error = 1;
+    return "";
+}
+//FIM
 /***************************************************************************/
 static unsigned long expr4(void)
 {
@@ -647,7 +834,19 @@ static unsigned long expr4(void)
       goto expr4_error;
 
     txtpos++;
+//*****************************************************
+//INICIO
 
+    /* LEN e ASC recebem STRING como argumento, não número */
+    if (f == FUNC_LEN || f == FUNC_ASC) {
+        char *s = str_expr();
+        if (expression_error) goto expr4_error;
+        if (*txtpos != ')') goto expr4_error;
+        txtpos++;
+        if (f == FUNC_LEN) return (unsigned long)strlen(s);
+        else                return (unsigned long)(unsigned char)s[0];
+    }
+//FIM
     a = expression();
     if(*txtpos != ')')
       goto expr4_error;
@@ -1127,6 +1326,21 @@ interperateAtTxtpos:
         printf("%02X\n", val);
     }
     break;
+  case KW_INC:
+    // Ignora espaços em branco se houver
+    while (*txtpos == SPACE || *txtpos == TAB) txtpos++;
+
+    // No Palo Alto, variáveis são identificadas de 'A' a 'Z'
+    if (*txtpos >= 'A' && *txtpos <= 'Z') {
+      // Calcula o endereço de memória da variável baseada em variables_begin
+      short int *var_ptr = (short int *)(variables_begin + ((*txtpos - 'A') * VAR_SIZE));
+      (*var_ptr)++; // Incrementa o valor de 16 bits diretamente na RAM do BASIC
+      txtpos++;     // Avança o ponteiro do texto do programa
+    } else {
+      // Se não encontrou uma letra após o INC, dispara o erro de sintaxe padrão
+      expression_error = 1;
+    }
+    break;
   case KW_GOTOXY:
     goto gotoxy;
   case KW_CLS:
@@ -1542,7 +1756,26 @@ assignment:
   {
     short int value;
     short int *var;
-
+//***********************************************************
+//INICIO
+     if (txtpos[0] >= 'A' && txtpos[0] <= 'Z' && txtpos[1] == '$') {
+        /* atribuição de STRING: X$ = <string_expr> */
+        unsigned char varidx = txtpos[0] - 'A';
+        char *s;
+        txtpos += 2;
+        ignore_blanks();
+        if (*txtpos != '=') goto qwhat;
+        txtpos++;
+        ignore_blanks();
+        expression_error = 0;
+        s = str_expr();
+        if (expression_error) goto qwhat;
+        if (*txtpos != NL && *txtpos != ':') goto qwhat;
+        strncpy(string_vars[varidx], s, STRVAR_LEN - 1);
+        string_vars[varidx][STRVAR_LEN - 1] = '\0';
+        goto run_next_statement;
+    }
+//FIM
     if(*txtpos < 'A' || *txtpos > 'Z')
       goto qhow;
     var = (short int *)variables_begin + *txtpos - 'A';
@@ -1634,6 +1867,21 @@ print:
     }
     else if(*txtpos == '"' || *txtpos == '\'')
       goto qwhat;
+//************************************************************
+//INICIO
+    else if ( (txtpos[0] >= 'A' && txtpos[0] <= 'Z' && txtpos[1] == '$') ||
+              peek_keyword("LEFT$") || peek_keyword("RIGHT$") ||
+              peek_keyword("MID$")  || peek_keyword("CHR$")   ||
+              peek_keyword("STR$") )
+    {
+      char *s;
+      expression_error = 0;
+      s = str_expr();
+      if(expression_error)
+        goto qwhat;
+      printmsgNoNL((const unsigned char *)s);
+    }
+//FIM
     else
     {
       short int e;
@@ -1740,7 +1988,7 @@ rseed:
     value = expression();
     if(expression_error)
       goto qwhat;
-
+    srand((unsigned int)value);
     goto run_next_statement;
   }
 
