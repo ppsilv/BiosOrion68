@@ -32,146 +32,56 @@
 #define SOPBC    (*(volatile uint8_t *)(DUART_BASE + 0x1D))   /* escrita: Set Output Port Bits Command (1 = liga o bit correspondente) */
 #define ROPBC    (*(volatile uint8_t *)(DUART_BASE + 0x1F))   /* escrita: Reset Output Port Bits Command (1 = desliga o bit correspondente) */
 
-/* ---------------------------------------------------------------------
- * ATENCAO -- confirme estes valores contra o datasheet do SCN68681C1N40
- * antes de gravar, principalmente:
- *   - ACR[6:4] = 011 deve corresponder a "Counter mode, clock = X1/CLK
- *     direto" (nao X1/CLK/16, o que mudaria o calculo por um fator de 16)
- *   - CSR = 0xF em cada nibble deve selecionar "clock vindo do C/T" como
- *     fonte de 16x para aquele canal
- * ------------------------------------------------------------------- */
+#include <stdint.h>
 
-/*
- * Configura o Counter/Timer do chip (registrador GLOBAL, vale para os
- * dois canais) para gerar 115200*16 = 1.843.200 Hz a partir do cristal
- * de 14.7456MHz:
- *   freq_saida = X1 / (2*(N+1))
- *   1.843.200  = 14.745.600 / (2*(N+1))  ->  N = 3
- *
- * Chame isso UMA VEZ, antes de duart_uartA_init()/duart_uartB_init().
- */
-void duart_clock_115200_setup(void)
-{
-    CTUR = 0x00;
-    CTLR = 0x03;              /* N = 3 */
-
-    ACR = 0x30;                /* bits 6-4 = 011: Counter mode, clock = X1/CLK direto */
-
-    (void)START_CT;            /* leitura deste endereco = comando "Start Counter" */
+/* Delay curto para respeitar o tempo interno da DUART entre escritas no CR */
+static inline void duart_delay(void) {
+    for (volatile int i = 0; i < 10; i++) {
+        __asm__ volatile("nop");
+    }
 }
 
-/*
- * Inicializa o canal A: 8 bits, sem paridade, 1 stop bit, 115200 baud
- * (usando o clock do Counter/Timer configurado por duart_clock_115200_setup).
- * Chame duart_clock_115200_setup() ANTES desta funcao.
- */
-//void duart_uartA_init(void)
-//{
-//    CRA = 0x10;   /* Reset MR pointer */
-//    CRA = 0x20;   /* Reset Receiver */
-//    CRA = 0x30;   /* Reset Transmitter */
-//
-//    MR1A_2 = 0x13;   /* MR1A: RxRDY (1 char), sem paridade, 8 bits */
-//    MR1A_2 = 0x07;   /* MR2A: 1 stop bit */
-//
-//    /* Habilita Set 2 do Baud Rate Generator (Bit 7 = 1) */
-//    ACR = 0x80;
-//
-//    /* 
-//     * CSRA = 0xDD:
-//     * Seleciona 28800 bps no Set 2 para Rx e Tx.
-//     * Com cristal de 14.7456 MHz (4x): 28800 * 4 = 115200 bps.
-//     */
-//    CSRA = 0xDD;
-//
-//    /* Habilita IRQ do Timer (0x08) + IRQ da UART A Rx (0x02) = 0x0A */
-//    IMR = 0x0A;
-//
-//    CRA = 0x05;   /* Enable Tx + Enable Rx */
-//}
-void duart_uartA_init(void)
-{
-    CRA = 0x10;   /* Reset MR pointer -> aponta para MR1A */
-    CRA = 0x20;   /* Reset Receiver */
-    CRA = 0x30;   /* Reset Transmitter */
-    CRA = 0x40;   /* Reset Error Status (limpa qualquer framing error de startup) */
+void duart_init_canal_a(void) {
+    /* 1. Desabilita TX e RX do Canal A */
+    CRA = 0x0A; 
+    duart_delay();
 
-    MR1A_2 = 0x13; /* MR1A: RxRDY (1 char), 8 bits, sem paridade */
-    MR1A_2 = 0x07; /* MR2A: 1 stop bit */
+    /* 2. Reseta estados e o ponteiro dos registradores MR */
+    CRA = 0x20; duart_delay(); /* Reset RX */
+    CRA = 0x30; duart_delay(); /* Reset TX */
+    CRA = 0x10; duart_delay(); /* APONTA ponteiro interno para MR1A */
 
-    ACR = 0x80;    /* Seleciona BRG Set 2 */
-    CSRA = 0xDD;   /* 115200 bps (28800 * 4) */
+    /* 3. Configura formato do quadro: 8N1 */
+    /* Primeira escrita grava no MR1A (Ponteiro avança automaticamente para MR2A) */
+    MR1A_2 = 0x13;             /* MR1A: Sem paridade, 8 bits por caractere */
+    
+    /* Segunda escrita grava no MR2A */
+    MR1A_2 = 0x07;             /* MR2A: Modo normal, 1 Stop bit */
 
-    //IVR = 0x40;    /* Vetor de interrupção (caso use ciclo IACK) */
-    IMR = 0x02;    /* Habilita apenas IRQ do RxRDYA */
+    /* 4. Seleciona a Tabela 1 de Baud Rates (Bit 7 do ACR = 0) */
+    ACR = 0x00;
 
-    CRA = 0x05;    /* Enable Tx + Enable Rx */
-}
-///void duart_uartA_init(void)
-///{
-///    CRA = 0x10;   /* Reset MR pointer -- garante que a proxima escrita va para MR1A */
-///    CRA = 0x20;   /* Reset Receiver */
-///    CRA = 0x30;   /* Reset Transmitter */
-///
-///    MR1A_2 = 0x13;   /* MR1A: RxRDY (1 caractere), sem paridade, 8 bits */
-///    MR1A_2 = 0x07;   /* MR2A: 1 stop bit */
-///
-///    CSRA = 0xFF;      /* Rx clock e Tx clock = saida do Counter/Timer (115200) */
-///
-///    IMR = 0x02;       /* Habilita IRQ para RxRDYA */
-///
-///    CRA = 0x05;       /* Enable Tx (bit0) + Enable Rx (bit2) */    
-///}
+    /* 5. Configura 38400 bps para RX (nibble alto) e TX (nibble baixo) */
+    /* Na Tabela 1, o código 0xC (1100) corresponde a 38400 baud */
+    CSRA = 0xCC;
 
-/*
- * Inicializa o canal B: mesma configuracao do canal A.
- * NAO reescreve ACR aqui -- e' registrador global, ja configurado por
- * duart_clock_115200_setup(); reescrever mudaria o canal A tambem.
- */
-void duart_uartB_init(void)
-{
-    CRB = 0x10;   /* Reset MR pointer -- garante que a proxima escrita va para MR1B */
-    CRB = 0x20;   /* Reset Receiver */
-    CRB = 0x30;   /* Reset Transmitter */
-
-    MR1B_2 = 0xE3;   /* 1a escrita -> MR1B: no parity, 8 data bits */
-    MR1B_2 = 0x07;   /* 2a escrita -> MR2B: 1 stop bit */
-
-    CSRB = 0xFF;      /* Rx clock e Tx clock = saida do Counter/Timer (115200) */
-
-    CRB = 0x05;       /* Enable Tx (bit0) + Enable Rx (bit2) */
+    /* 6. Habilita Receptor e Transmissor do Canal A */
+    CRA = 0x05; 
+    duart_delay();
 }
 
-/* ===================== I/O canal A ===================== */
+/* Funções básicas de E/S para teste */
 
-void duart_uartA_putc(uint8_t c)
-{
-    while (!(SRA & 0x04))   /* espera bit TxRDY (bit 2) */
-        ;
+void duart_putc(char c) {
+    /* Aguarda o buffer de transmissão ficar vazio (SRA Bit 2 = TxRDY) */
+    while (!(SRA & 0x04));
     THRA = c;
 }
 
-uint8_t duart_uartA_getc(void)
-{
-    while (!(SRA & 0x01))   /* espera bit RxRDY (bit 0) */
-        ;
+char duart_getc(void) {
+    /* Aguarda chegar um caractere (SRA Bit 0 = RxRDY) */
+    while (!(SRA & 0x01));
     return RHRA;
-}
-
-/* ===================== I/O canal B ===================== */
-
-void duart_uartB_putc(uint8_t c)
-{
-    while (!(SRB & 0x04))   /* espera bit TxRDY (bit 2) */
-        ;
-    THRB = c;
-}
-
-uint8_t duart_uartB_getc(void)
-{
-    while (!(SRB & 0x01))   /* espera bit RxRDY (bit 0) */
-        ;
-    return RHRB;
 }
 
 /* ===================== Output Port / LED em OP3 ===================== */
@@ -211,19 +121,3 @@ void duart_led_op3_toggle(void)
     else
         duart_led_op3_off();
 }
-
-/* ===================== Exemplo de uso ===================== */
-/*
-void exemplo_init_completo(void)
-{
-    duart_clock_115200_setup();   // UMA VEZ, para o chip inteiro
-    duart_uartA_init();
-    duart_uartB_init();
-    duart_opr_init();             // UMA VEZ, antes de usar o LED
-
-    duart_uartA_putc('A');
-    duart_uartB_putc('B');
-
-    duart_led_op3_on();
-}
-*/

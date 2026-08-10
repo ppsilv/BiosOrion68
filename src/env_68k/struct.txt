@@ -7,28 +7,34 @@ mc68000-lib/
 │   ├── stdlib.h
 │   ├── string.h
 │   └── math.h
-├── src/
-│   ├── crt0.s           # ✅ Arquivo de inicialização
-│   ├── stdio/
-│   │   ├── printf.c
-│   │   ├── putchar.c
-│   │   └── gets.c
-│   ├── stdlib/
-│   │   ├── malloc.c
-│   │   ├── itoa.c
-│   │   └── atoi.c
-│   ├── string/
-│   │   ├── strlen.c
-│   │   ├── strcpy.c
-│   │   └── memcpy.c
-│   ├── math/
-│   │   ├── add.c
-│   │   ├── sub.c
-│   │   └── mul.c
-│   └── drivers/
-│       ├── serial.c
-│       ├── timer.c
-│       └── interrupt.c
+├── libc ──src/
+│          ├── crt0.s           # ✅ Arquivo de inicialização
+│          ├── stdio/
+│          │   ├── printf.c
+│          │   ├── putchar.c
+│          │   └── gets.c
+│          ├── stdlib/
+│          │   ├── malloc.c
+│          │   ├── itoa.c
+│          │   └── atoi.c
+│          ├── string/
+│          │   ├── strlen.c
+│          │   ├── strcpy.c
+│          │   └── memcpy.c
+│          ├── math/
+│          │   ├── add.c
+│          │   ├── sub.c
+│          │   └── mul.c
+│          └── drivers/
+│              ├── serial.c
+│              ├── timer.c
+│              └── interrupt.c
+|
+|── libfileio ──src/
+|               └── fileio.c
+|
+|
+|
 ├── lib/                  # ✅ libmc68000.a
 │   └──libmc68000.a
 ├── apps/                 # ✅ Diretório para aplicações

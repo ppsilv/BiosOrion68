@@ -10,16 +10,16 @@ CFLAGS += -fomit-frame-pointer
 VASMFLAGS = -Felf -m68000 -quiet -I ./includes -I../../include
 
 LDFLAGS = -T ./orion68.ld -L../../lib -nostdlib  -Map=orion68.map
-LDLIBS = -lc68k
+LDLIBS = -lfileio -lc68k
 
 # 1. ADICIONADO: Lista de arquivos em Assembly (.S)
-ASMS = ./xmodem/xmodem_asm.S vectors_asm.S
+ASMS = vectors_asm.S trap12_asm.S cpm_bios.S
 
 
 VASMS =
 
 # Lista de arquivos C
-SRCS = orion68.c vectors.c console.c \
+SRCS = orion68.c vectors.c console.c trap12.c timers.c interrupt.c \
 ./dump/mem_dump.c \
 ./shell/io.c \
 ./shell/picow.c \
@@ -35,19 +35,14 @@ SRCS = orion68.c vectors.c console.c \
 ./uarts/drv_uart0.c \
 ./duart/duart.c \
 ./ide/ata.c \
-./fatfs/ff.c \
-./fatfs/ffsystem.c \
-./fatfs/diskio.c \
-./tst_fat/tstfat.c \
-timers.c interrupt.c
+./ide/diskio.c 
+
+#./tst_fat/tstfat.c 
+
 
 #./shell/srecord.c \
-
-
-#./fatfs/diskio.c \
 #./fatfs/ff.c \
-#./tst_fat/tstfat.c \
-#./tst_fat/ler_joblog.c \
+#./fatfs/ffsystem.c \
 
 
 # 2. ALTERADO: Agora a lista de objetos junta os .o vindos do .c e do .S
@@ -96,7 +91,7 @@ all: orion68.bin
 	$(VASM) $(VASMFLAGS) $< -o $@
 
 orion68.elf: ./tools/build_counter.sh $(OBJS)
-	$(LD) $(LDFLAGS) ../../obj/orion68_startup.o $(OBJS) $(LDLIBS) -o $@
+	$(LD) $(LDFLAGS) ../../libc/obj/orion68_startup.o $(OBJS) $(LDLIBS) -o $@
 	@echo "Linked: $@"
 	@echo "╔══════════════════════════╗"
 	@echo "║  COMPILACAO TERMINADA!   ║"

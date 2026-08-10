@@ -27238,7 +27238,7 @@
 				)
 			)
 		)
-		(property "Value" "14.7456MHz"
+		(property "Value" "3.6864MHz"
 			(at 21.59 62.8142 0)
 			(effects
 				(font

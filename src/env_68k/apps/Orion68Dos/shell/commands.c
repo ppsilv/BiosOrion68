@@ -18,20 +18,20 @@
 #include "picow.h"
 #include "color.h"
 #include "drv_picoVga.h"
-
+#include "../kbd/ringbuffer.h"
 
 extern FATFS FatFs;      // Objeto de controle do sistema de arquivos (Work area)
 extern char syspath[128];
 
-//static DIR Dir;          // Objeto de diretório
-//static FILINFO Fno;      // Estrutura que recebe os metadados do arquivo/pasta
+static DIR Dir;          // Objeto de diretório
+static FILINFO Fno;      // Estrutura que recebe os metadados do arquivo/pasta
 static __attribute__((aligned(2)))FIL Arq;               // Objeto de controle do arquivo (File Object)
 extern struct ata_drive drives[]; 
 
 extern void printerro(int eno);
 extern void dump_memory(void * addr,int size);
 extern const cmd_entry_t g_cmd_table[];
-extern void listar_diretorio_raiz();
+
 extern unsigned long get_system_tick(void);
 
 static int fromhex(char c)
@@ -47,7 +47,9 @@ static int fromhex(char c)
 
     return -1;
 }
-
+static uint8_t serial_has_char(){
+    return 1;
+}
 void do_help(int argc, char *argv[])
 {
 	int i = 0;
@@ -61,85 +63,6 @@ void do_help(int argc, char *argv[])
 	}
 }
 
-void do_notimplemented(int argc, char *argv[])
-{
-    printf("This command is currently not implemented\n");
-}
-
-void do_runelf_fromhd(int argc, char *argv[]){
-    const char *filename = argv[0] ;
-    uint32_t entry = carregar_elf32_fatfs(filename);
-
-    if (entry != 0) {
-        // Salta e executa o programa no m68k
-        void (*app)(void) = (void (*)(void))entry;
-        app();
-    } else {
-        // Tratar erro (arquivo não encontrado ou desalinhado)
-    }
-}
-
-void do_runelf(int argc, char *argv[]){
-    // Retorna o endereço da primeira instrução
-    uint8_t * buffer_elf_recebido = (uint8_t * )argv[0];
-    uint8_t * mem_addr = (uint8_t *)argv[1];
-    uint32_t entry_point = carregar_elf32(buffer_elf_recebido, mem_addr);
-
-    if (entry_point != 0) {
-        // Executa o binário a partir do entry point obtido
-        void (*executar)(void) = (void (*)(void))entry_point;
-        executar();
-    }
-}
-
-void do_dump(int argc, char *argv[]){
-    unsigned long start, count;
-
-    //printf("numargs=%d args[0]=%s,args[1]=%s,args[2]=%s\n",argc,argv[0],argv[1],argv[2]);
-
-    start = strtoul((const char *)argv[0], NULL, 16);
-    count = strtoul((const char *)argv[1], NULL, 16);
-
-
-    //printf("do_dump [%lu] [%lu]",start,count);
-
-    dump_memory((void*)start, count);
-}
-
-uint8_t serial_has_char(){
-    return 1;
-}
-
-void do_srecord(int argc, char *argv[])
-{
-    char *rec_buf = (char *)0x00300000;
-    unsigned int timeout = 10000;
-
-    printf("Download for S-Record file, waiting for serial transfer\n");
-
-    // Disable printing to display as currently the display output is slow
-    // This can cause timing issues if the display scrolls
-
-    // wait for the first character
-    *rec_buf++ = uart0_read();
-
-    // recieve characters until transmit stops
-    while (timeout--)
-    {
-        if (serial_has_char())
-        {
-            *rec_buf++ = uart0_read();
-            timeout = 10000;
-            if (((uint32_t)rec_buf % 250) == 0)
-                putchar('.');
-        }
-    }
-
-    printf("\nData recieved, processing S-Record file\n");
-    rec_buf = (char *)0x00300000;
-//    if (read_srecord(rec_buf))
-//        printf("SRecord load failed\n");
-}
 
 void do_binfile(int argc, char *argv[])
 {
@@ -235,314 +158,6 @@ void do_binmem(int argc, char *argv[])
     ENABLE_INTERRUPTS();
     printf("\nWritten %d bytes to memory at 0x%06X\n", bytes_transferred, addr);
 }
-
-void do_ideinit(int argc, char *argv[])
-{
-    FRESULT fr;
-    fr = f_mount(&FatFs, "", 0);
-    if (fr != FR_OK) {
-        printf("PANIC: Erro ao montar FAT: %d\n", fr);
-    }else{
-        printf("FAT montado com sucesso!\n");
-    }
-}
-
-void do_idemode(int argc, char *argv[])
-{
-    char mode=0;
-    if(argc == 1){
-        mode = atoi(argv[0]);
-        printf("Setting ide mode to %d\n",mode);
-        set_ide_bus_mode(mode);
-    }
-}
-
-
-void do_run(int argc, char *argv[])
-{
-    unsigned long start;
-    start = strtoul(argv[0], NULL, 16);
-
-    void (*entry)(void) = (void (*)(void))start;
-    entry();
-}
-
-void do_writemem(int argc, char *argv[])
-{
-    unsigned long value;
-    unsigned char *ptr;
-    int i, j, l;
-
-    value = strtoul(argv[0], NULL, 16);
-    ptr = (unsigned char*)value;
-
-    /* This can deal with values like: 1, 12, 1234, 123456, 12345678.
-       Values > 2 characters are interpreted as big-endian words ie
-       "12345678" is the same as "12 34 56 78" */
-
-    /* first check we're happy with the arguments */
-    for (i = 1; i < argc; i++)
-    {
-        l = strlen(argv[i]);
-
-        if (l != 1 && l % 2)
-        {
-            printf("Ambiguous value: \"%s\" (odd length).\n", argv[i]);
-            return; /* abort! */
-        }
-
-        for (j = 0; j < l; j++)
-            if(fromhex(argv[i][j]) < 0)
-            {
-                printf("Bad hex character \"%c\" in value \"%s\".\n", argv[i][j], argv[i]);
-                return; /* abort! */
-            }
-    }
-
-    /* then we do the write */
-    for (i = 1; i < argc; i++)
-    {
-        l = strlen(argv[i]);
-        if (l <= 2) /* one or two characters - a single byte */
-            *(ptr++) = strtoul(argv[i], NULL, 16);
-        else
-        {
-            /* it's a multi-byte value */
-            j = 0;
-            while(j < l)
-            {
-                value = (fromhex(argv[i][j]) << 4) | fromhex(argv[i][j+1]);
-                *(ptr++) = (unsigned char)value;
-                j += 2;
-            }
-        }
-    }
-}
-
-void do_ls(int argc, char *argv[])
-{
-    FRESULT fr;
-    const char *filename;
-    DIR fat_dir;
-    FILINFO fat_file;
-    uint16_t dir = 1;
-    char path[128];
-    strcpy(path,syspath);    
-    uint16_t total_files=0;
-
-    if(argc > 0){
-        strcat(path,argv[0]);
-    }
-    if( path[0] >= 'A' && path[0] <= 'H'){
-        path[0] = 'A' - 0x41;
-    }
-
-    fr = f_opendir(&fat_dir, path);
-    if (fr != FR_OK)
-    {
-        printf("f_opendir(\"%s\"): ", path);
-        printerro(fr);
-        return;
-    }
-
-    while (1)
-    {
-        fr = f_readdir(&fat_dir, &fat_file);
-        if (fr != FR_OK)
-        {
-            printf("f_readdir(): ");
-           printerro(fr);
-            break;
-        }
-
-        if (fat_file.fname[0] == 0){ /* end of directory? */
-            if( total_files == 0 ){
-                printf("Empty directory\n");
-            }
-            break;
-        }
-        total_files++;
-        
-        filename = fat_file.fname;
-
-        dir = fat_file.fattrib & AM_DIR;
-
-        if (dir) {
-            /* directory */
-            printf("%04d/%02d/%02d %02d:%02d    <DIR> \t%s/", 1980 + ((fat_file.fdate >> 9) & 0x7F),
-                    (fat_file.fdate >> 5) & 0xF, fat_file.fdate & 0x1F,
-                    fat_file.ftime >> 11, (fat_file.ftime >> 5) & 0x3F, filename);
-        }else if (!(fat_file.fattrib & AM_HID))  {
-            /* regular file */
-            printf("%04d/%02d/%02d %02d:%02d %8ld \t%12s", 1980 + ((fat_file.fdate >> 9) & 0x7F),
-                    (fat_file.fdate >> 5) & 0xF, fat_file.fdate & 0x1F, fat_file.ftime >> 11,
-                    (fat_file.ftime >> 5) & 0x3F, fat_file.fsize, filename);
-        }
-
-        printf(" \n");
-    }
-
-    fr = f_closedir(&fat_dir);
-    if (fr != FR_OK)
-    {
-        printf("f_closedir(): ");
-       printerro(fr);
-        return;
-    }
-}
-
-void do_delete(int argc, char *argv[])
-{
-    FRESULT fr;
-    const char *path;
-
-    path = argv[0];
-
-    fr = f_unlink(path);
-
-    if (fr != FR_OK)
-    {
-       // printf("Error deleting file %s: ", path);
-       printerro(fr);
-    }
-}
-
-void do_exit(int argc, char *argv[]){
-    f_mount(NULL, "0:", 0);
-    printf("YOU CAN TURN OFF THE SYSTEM.\n");
-}
-
-void do_mkdir(int argc, char *argv[])
-{
-    FRESULT fr;
-    char path[128];
-    memset(path,0,128);
-    int size = strlen(syspath);
-    strcpy(path,&syspath[0]);
-    if( path[size-1] != '/'){
-    path[strlen(path)]='/';
-    }
-    strcat(path,argv[0]);
-    if( path[0] >= 'A' && path[0] <= 'I'){
-        path[0] = path[0] - 0x11;
-    }
-    
-    printf("path to mkdir %s\n",path);
-    fr = f_mkdir(path);
-
-    if (fr != FR_OK) {
-        printf("do_mkdir: Error creating folder %s: ", path);
-        printerro(fr);
-    }
-}
-void do_rmdir(int argc, char *argv[]){
-FRESULT res;
-char path[128];
-
-    memset(path,0,128);
-    int size = strlen(syspath);
-    strcpy(path,&syspath[0]);
-    if( path[size-1] != '/'){
-        path[strlen(path)]='/';
-    }
-    strcat(path,argv[0]);
-    if( path[0] >= 'A' && path[0] <= 'I'){
-        path[0] = path[0] - 0x11;
-    }
-    res = f_rmdir(path);
-
-    if (res == FR_OK) {
-        printf("Directory remove succeded!\n");
-    } else if (res == FR_NO_PATH || res == FR_NO_FILE) {
-        printf("Erro: Directory not found.\n");
-    } else if (res == FR_DENIED) {
-        printf("Erro: Empty directory or protected directory .\n");
-    } else {
-        printf("Remove error: %d\n", res);
-    }    
-}
-void do_rename(int argc, char *argv[])
-{
-    FRESULT fr;
-    const char *srcpath;
-    const char *destpath;
-
-    srcpath = argv[0];
-    destpath = argv[1];
-
-    fr = f_rename(srcpath, destpath);
-
-    if (fr != FR_OK)
-    {
-        printf("Error renaming file %s to %s: ", srcpath, destpath);
-       printerro(fr);
-    }
-}
-
-void do_cd(int argc, char *argv[])
-{
-    FRESULT fr;
-
-    fr = f_chdir(argv[0]);
-    if(fr != FR_OK)
-       printerro(fr);
-}
-
-void do_dir(int argc, char *argv[]){
-    listar_diretorio_raiz();
-}
-void do_shst(int argc, char *argv[]){
-    printf("Systemtick = %ld\n",get_system_tick());
-}
-
-void do_loadmem(int argc, char *argv[])
-{
-    FIL file;
-    uint32_t location;
-    char *buffer = NULL;
-
-    if (argc == 2)
-        location = strtoul(argv[1], NULL, 16);
-
-
-    if (f_open(&file, argv[0], FA_READ) == FR_OK)
-    {
-        unsigned int len = f_size(&file);
-
-        if (argc == 2)
-            buffer = (char *)location;
-        else
-        {
-            buffer = malloc(len);
-            if (buffer == NULL)
-            {
-                printf("Unable to allocate %d for file.\n", len);
-                f_close(&file);
-                return;
-            }
-        }
-        unsigned int bytes_read = 0;
-
-        if (f_read(&file, buffer, len, &bytes_read) != FR_OK)
-        {
-            printf("Unable to load file.\n");
-            f_close(&file);
-            return;
-        }
-
-        printf("Loaded %d bytes from file %s to location %lX\n", bytes_read, argv[0], (uint32_t)buffer);
-    }
-    else
-    {
-        printf("Unable to open file %s\n", argv[0]);
-    }
-
-    if (argc == 1)
-        free(buffer);
-
-    f_close(&file);
-}
-
 void do_copyfile(int argc, char *argv[])
 {
     FIL src;
@@ -647,6 +262,456 @@ void do_cat(int argc, char *argv[])
 
 }
 
+void do_cd(int argc, char *argv[])
+{
+    FRESULT fr;
+
+    fr = f_chdir(argv[0]);
+    if(fr != FR_OK)
+       printerro(fr);
+}
+
+void do_delete(int argc, char *argv[])
+{
+    FRESULT fr;
+    const char *path;
+
+    path = argv[0];
+
+    fr = f_unlink(path);
+
+    if (fr != FR_OK)
+    {
+       // printf("Error deleting file %s: ", path);
+       printerro(fr);
+    }
+}
+void do_dump(int argc, char *argv[]){
+    unsigned long start, count;
+
+    //printf("numargs=%d args[0]=%s,args[1]=%s,args[2]=%s\n",argc,argv[0],argv[1],argv[2]);
+
+    start = strtoul((const char *)argv[0], NULL, 16);
+    count = strtoul((const char *)argv[1], NULL, 16);
+
+
+    //printf("do_dump [%lu] [%lu]",start,count);
+
+    dump_memory((void*)start, count);
+}
+
+void do_exit(int argc, char *argv[]){
+    f_mount(NULL, "0:", 0);
+    printf("YOU CAN TURN OFF THE SYSTEM.\n");
+}
+void do_ideinit(int argc, char *argv[])
+{
+    FRESULT fr;
+    fr = f_mount(&FatFs, "", 0);
+    if (fr != FR_OK) {
+        printf("PANIC: Erro ao montar FAT: %d\n", fr);
+    }else{
+        printf(": FAT success mounted!\n");
+    }
+}
+
+void do_idemode(int argc, char *argv[])
+{
+    char mode=0;
+    if(argc == 1){
+        mode = atoi(argv[0]);
+        printf("Setting ide mode to %d\n",mode);
+        set_ide_bus_mode(mode);
+    }
+}
+void do_ls(int argc, char *argv[]){
+    FRESULT res;
+    int i=0;
+    char path[128];
+    strcpy(path,syspath);    
+    if( path[0] >= 'A' && path[0] <= 'H'){
+        path[0] = 'A' - 0x41;
+    }
+
+    res = f_opendir(&Dir, path);
+    if (res != FR_OK) {
+        printf("Erro ao abrir diretorio: %d\n", res);
+        return;
+    }
+
+    // Agora o loop lê APENAS UMA VEZ por iteração
+    for (;;) {
+        //dump_memory((long)&FatFs.win[0],512);
+        res = f_readdir(&Dir, &Fno);                   // Lê a próxima entrada
+        //printf("Nome: %02x%02x%02x%02x%02x%02x%02x%02x  ",Fno.fname[0],Fno.fname[1],Fno.fname[2],Fno.fname[3],Fno.fname[4],Fno.fname[5],Fno.fname[6],Fno.fname[7]);
+       // printf("Nome: %02x%02x%02x%02x%02x%02x  ",Fno.fname[8],Fno.fname[9],Fno.fname[10],Fno.fname[11],Fno.fname[12],Fno.fname[13]);
+        
+        if (res != FR_OK || Fno.fname[0] == 0) break;  // Erro ou Fim do diretório
+
+        // Ignora arquivos ocultos ou do sistema se quiser, ou imprime tudo
+        //if (Fno.fname[0] == '.') continue; 
+
+        // Verifica se é um diretório ou um arquivo
+        if (Fno.fattrib & AM_DIR) {
+//            printf(" [DIR]  %s\n", Fno.fname);
+            printf("%04d/%02d/%02d %02d:%02d    <DIR> \t%s\n", 1980 + ((Fno.fdate >> 9) & 0x7F),
+                    (Fno.fdate >> 5) & 0xF, Fno.fdate & 0x1F,
+                    Fno.ftime >> 11, (Fno.ftime >> 5) & 0x3F, Fno.fname);
+
+        } else {
+            // Imprime o nome original e o tamanho
+           //printf(" FILE   %s  (%ld bytes)\n", Fno.fname, (unsigned long)Fno.fsize);
+            printf("%04d/%02d/%02d %02d:%02d %8ld \t%12s\n", 1980 + ((Fno.fdate >> 9) & 0x7F),
+                    (Fno.fdate >> 5) & 0xF, Fno.fdate & 0x1F, Fno.ftime >> 11,
+                    (Fno.ftime >> 5) & 0x3F, Fno.fsize, Fno.fname);
+
+        }
+        i++;
+        if( i>=30 ){
+            printf("Press to continue: ");
+            while ( res == true ){      //le do teclado ps2
+                res = ring_buf_is_empty();
+            }
+            //ch = ring_buf_get();    //le do teclado ps2
+            i=0;
+        }
+    }
+
+    f_closedir(&Dir);
+    printf("-----------------------------------\n");
+}
+
+
+/*void do_ls(int argc, char *argv[])
+{
+    FRESULT fr;
+    const char *filename;
+    DIR fat_dir;
+    FILINFO fat_file;
+    uint16_t dir = 1;
+    char path[128];
+    strcpy(path,syspath);    
+    uint16_t total_files=0;
+
+    if(argc > 0){
+        strcat(path,argv[0]);
+    }
+    if( path[0] >= 'A' && path[0] <= 'H'){
+        path[0] = 'A' - 0x41;
+    }
+
+    fr = f_opendir(&fat_dir, path);
+    if (fr != FR_OK)
+    {
+        printf("f_opendir(\"%s\"): ", path);
+        printerro(fr);
+        return;
+    }
+
+    while (1)
+    {
+        fr = f_readdir(&fat_dir, &fat_file);
+        if (fr != FR_OK)
+        {
+            printf("f_readdir(): ");
+           printerro(fr);
+            break;
+        }
+
+        if (fat_file.fname[0] == 0){ // end of directory? 
+            if( total_files == 0 ){
+                printf("Empty directory\n");
+            }
+            break;
+        }
+        total_files++;
+        
+        filename = fat_file.fname;
+
+        dir = fat_file.fattrib & AM_DIR;
+
+        if (dir) {
+            // directory 
+            printf("%04d/%02d/%02d %02d:%02d    <DIR> \t%s/", 1980 + ((fat_file.fdate >> 9) & 0x7F),
+                    (fat_file.fdate >> 5) & 0xF, fat_file.fdate & 0x1F,
+                    fat_file.ftime >> 11, (fat_file.ftime >> 5) & 0x3F, filename);
+        }else if (!(fat_file.fattrib & AM_HID))  {
+            // regular file
+            printf("%04d/%02d/%02d %02d:%02d %8ld \t%12s", 1980 + ((fat_file.fdate >> 9) & 0x7F),
+                    (fat_file.fdate >> 5) & 0xF, fat_file.fdate & 0x1F, fat_file.ftime >> 11,
+                    (fat_file.ftime >> 5) & 0x3F, fat_file.fsize, filename);
+        }
+
+        printf(" \n");
+    }
+
+    fr = f_closedir(&fat_dir);
+    if (fr != FR_OK)
+    {
+        printf("f_closedir(): ");
+       printerro(fr);
+        return;
+    }
+}*/
+void do_loadmem(int argc, char *argv[])
+{
+    FIL file;
+    uint32_t location;
+    char *buffer = NULL;
+
+    if (argc == 2)
+        location = strtoul(argv[1], NULL, 16);
+
+
+    if (f_open(&file, argv[0], FA_READ) == FR_OK)
+    {
+        unsigned int len = f_size(&file);
+
+        if (argc == 2)
+            buffer = (char *)location;
+        else
+        {
+            buffer = malloc(len);
+            if (buffer == NULL)
+            {
+                printf("Unable to allocate %d for file.\n", len);
+                f_close(&file);
+                return;
+            }
+        }
+        unsigned int bytes_read = 0;
+
+        if (f_read(&file, buffer, len, &bytes_read) != FR_OK)
+        {
+            printf("Unable to load file.\n");
+            f_close(&file);
+            return;
+        }
+
+        printf("Loaded %d bytes from file %s to location %lX\n", bytes_read, argv[0], (uint32_t)buffer);
+    }
+    else
+    {
+        printf("Unable to open file %s\n", argv[0]);
+    }
+
+    if (argc == 1)
+        free(buffer);
+
+    f_close(&file);
+}
+void do_mkdir_shel(int argc, char *argv[])
+{
+    FRESULT fr;
+    char path[128];
+    memset(path,0,128);
+    int size = strlen(syspath);
+    strcpy(path,&syspath[0]);
+    if( path[size-1] != '/'){
+    path[strlen(path)]='/';
+    }
+    strcat(path,argv[0]);
+    if( path[0] >= 'A' && path[0] <= 'I'){
+        path[0] = path[0] - 0x11;
+    }
+    
+    printf("path to mkdir %s\n",path);
+    fr = f_mkdir(path);
+
+    if (fr != FR_OK) {
+        printf("do_mkdir: Error creating folder %s: ", path);
+        printerro(fr);
+    }
+}
+void do_notimplemented(int argc, char *argv[])
+{
+    printf("This command is currently not implemented\n");
+}
+void do_rename_shel(int argc, char *argv[])
+{
+    FRESULT fr;
+    const char *srcpath;
+    const char *destpath;
+
+    srcpath = argv[0];
+    destpath = argv[1];
+
+    fr = f_rename(srcpath, destpath);
+
+    if (fr != FR_OK)
+    {
+        printf("Error renaming file %s to %s: ", srcpath, destpath);
+       printerro(fr);
+    }
+}
+void do_rmdir(int argc, char *argv[]){
+FRESULT res;
+char path[128];
+
+    memset(path,0,128);
+    int size = strlen(syspath);
+    strcpy(path,&syspath[0]);
+    if( path[size-1] != '/'){
+        path[strlen(path)]='/';
+    }
+    strcat(path,argv[0]);
+    if( path[0] >= 'A' && path[0] <= 'I'){
+        path[0] = path[0] - 0x11;
+    }
+    res = f_rmdir(path);
+
+    if (res == FR_OK) {
+        printf("Directory remove succeded!\n");
+    } else if (res == FR_NO_PATH || res == FR_NO_FILE) {
+        printf("Erro: Directory not found.\n");
+    } else if (res == FR_DENIED) {
+        printf("Erro: Empty directory or protected directory .\n");
+    } else {
+        printf("Remove error: %d\n", res);
+    }    
+}
+
+void do_runelf_fromhd(int argc, char *argv[]){
+    const char *filename = argv[0] ;
+    uint32_t entry = carregar_elf32_fatfs(filename);
+
+    if (entry != 0) {
+        // Salta e executa o programa no m68k
+        void (*app)(void) = (void (*)(void))entry;
+        app();
+    } else {
+        // Tratar erro (arquivo não encontrado ou desalinhado)
+    }
+}
+
+void do_runelf(int argc, char *argv[]){
+    // Retorna o endereço da primeira instrução
+    uint8_t * buffer_elf_recebido = (uint8_t * )argv[0];
+    uint8_t * mem_addr = (uint8_t *)argv[1];
+    uint32_t entry_point = carregar_elf32(buffer_elf_recebido, mem_addr);
+
+    if (entry_point != 0) {
+        // Executa o binário a partir do entry point obtido
+        void (*executar)(void) = (void (*)(void))entry_point;
+        executar();
+    }
+}
+void do_run(int argc, char *argv[])
+{
+    unsigned long start;
+    start = strtoul(argv[0], NULL, 16);
+
+    void (*entry)(void) = (void (*)(void))start;
+    entry();
+}
+/*
+ * Grava 'tamanho' bytes a partir do endereco 'origem' num arquivo chamado
+ * 'nome_arquivo' no cartao SD. Sobrescreve o arquivo se ja existir.
+ * Sobrescreve o arquivo se já existir (FA_CREATE_ALWAYS). 
+ * Se você preferir dar erro em vez de sobrescrever, troco pra FA_CREATE_NEW.
+ * Assume que f_mount() já foi chamado antes (montagem do FS geralmente é feita uma vez na inicialização, não a cada gravação).
+ * nome_arquivo aceita path relativo tipo "dump.bin" ou 
+ * path completo "0:/dumps/dump.bin", 
+ * dependendo de como você configurou o FatFs (multi-drive ou não).
+ *
+ * Retorna 0 em sucesso, -1 em erro (mensagem impressa via printf).
+ */
+ void do_save(int argc, char *argv[]){
+    FIL     arquivo;
+    FRESULT fr;
+    UINT    bytes_escritos;
+    const void *origem = (const void *)0x82015;
+    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
+    size_t tamanho;
+
+    if (argc < 2) {
+        printf("uso: save <nome_arquivo> <tamanho_hex>\n");
+        return;
+    }
+
+    tamanho = strtoul(argv[1], NULL, 16);
+    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
+
+    if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
+        printf("dump_memoria_para_arquivo: parametros invalidos\n");
+        return;
+    }
+
+    fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
+        return;
+    }
+
+    fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
+    if (fr != FR_OK || bytes_escritos != tamanho) {
+        printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
+               nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
+        f_close(&arquivo);
+        return;
+    }
+
+    fr = f_close(&arquivo);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
+        return;
+    }
+
+    printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
+           nome_arquivo, (unsigned)tamanho);
+}
+
+
+void do_shst(int argc, char *argv[]){
+    printf("Systemtick = %ld\n",get_system_tick());
+}
+char do_save_basic(int argc, char *argv[]){
+    FIL     arquivo;
+    FRESULT fr;
+    UINT    bytes_escritos;
+    int *ret_bytes_escritos = (int *)argv[3];
+    const void *origem = (const void *)argv[1];
+    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
+    size_t tamanho;
+
+    if (argc < 2) {
+        printf("uso: save <nome_arquivo> <tamanho_hex>\n");
+        return -1;
+    }
+
+    tamanho = (size_t)argv[2];
+    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
+
+    if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
+        printf("dump_memoria_para_arquivo: parametros invalidos\n");
+        return -1;
+    }
+
+    fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
+        return -1;
+    }
+
+    fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
+    if (fr != FR_OK || bytes_escritos != tamanho) {
+        printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
+               nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
+        f_close(&arquivo);
+        return -1;
+    }
+    if (ret_bytes_escritos != NULL) {
+       *ret_bytes_escritos = bytes_escritos; // Ex: 512
+    }
+    fr = f_close(&arquivo);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
+        return -1;
+    }
+
+    printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n", nome_arquivo, (unsigned)tamanho);
+    return 0;
+}
 void do_time(int argc, char *argv[])
 {
     if (argc != 6)
@@ -725,6 +790,7 @@ void do_tstkbd(int argc, char *argv[])
                     printf("receber_arquivo_do_pico retornou[Error]\n"); 
     }
 }
+
 unsigned long get_system_tick(void) ;
 void do_uptime(int argc, char *argv[])
 {
@@ -741,56 +807,56 @@ void do_uptime(int argc, char *argv[])
     printf("Uptime: %d days, %d hours, %d minutes, %d seconds\n", days, hours, minutes, seconds);
 }
 
-/*
-void do_traptest(int argc, char *argv[]){
-    uint32_t cmd, value;
-    char *str;
-
-    syscall_data sys;
-
-    int ret;
-
-    cmd = strtoul(argv[0], NULL, 16);
-    value = strtoul(argv[1], NULL, 16);
-    str = argv[2];
-    sys.command = cmd;
-    sys.d0 = value;
-    sys.a0 = str;
-
-	__asm__ volatile(
-	"move.l	%1, %%a0\n"
-	"trap	#15\n"
-	"move.l %%d0, %0\n"
-	: "=g" (ret)
-	: "g" (&sys)
-	: "%a0"
-	);
-
-    printf("Return value = %ld\n", ret);
-    printf("  return data = %s\n", (char *)sys.a1);
-}
-*/
-int ehbasic(void);
-
-uint8_t basic_running = 0;
-
-void do_ehbasic(int argc, char *argv[])
+void do_writemem(int argc, char *argv[])
 {
-    //ehbasic();
-}
+    unsigned long value;
+    unsigned char *ptr;
+    int i, j, l;
 
-int le_setor(int sector);
-int wr_setor(int sector);
+    value = strtoul(argv[0], NULL, 16);
+    ptr = (unsigned char*)value;
 
-void do_readsect(int argc, char *argv[]) {
-    int sector = atoi(argv[0]);
-    printf("do_readsect: sector[%d]\n",sector);
-    le_setor(sector);
-}
-void do_writesect(int argc, char *argv[]){
-    int sector = atoi(argv[0]);
-    printf("do_writesect: sector[%d]\n",sector);
-    wr_setor(sector);
+    /* This can deal with values like: 1, 12, 1234, 123456, 12345678.
+       Values > 2 characters are interpreted as big-endian words ie
+       "12345678" is the same as "12 34 56 78" */
+
+    /* first check we're happy with the arguments */
+    for (i = 1; i < argc; i++)
+    {
+        l = strlen(argv[i]);
+
+        if (l != 1 && l % 2)
+        {
+            printf("Ambiguous value: \"%s\" (odd length).\n", argv[i]);
+            return; /* abort! */
+        }
+
+        for (j = 0; j < l; j++)
+            if(fromhex(argv[i][j]) < 0)
+            {
+                printf("Bad hex character \"%c\" in value \"%s\".\n", argv[i][j], argv[i]);
+                return; /* abort! */
+            }
+    }
+
+    /* then we do the write */
+    for (i = 1; i < argc; i++)
+    {
+        l = strlen(argv[i]);
+        if (l <= 2) /* one or two characters - a single byte */
+            *(ptr++) = strtoul(argv[i], NULL, 16);
+        else
+        {
+            /* it's a multi-byte value */
+            j = 0;
+            while(j < l)
+            {
+                value = (fromhex(argv[i][j]) << 4) | fromhex(argv[i][j+1]);
+                *(ptr++) = (unsigned char)value;
+                j += 2;
+            }
+        }
+    }
 }
 
 void do_writemem1(int argc, char *argv[]){
@@ -811,114 +877,81 @@ void do_writemem1(int argc, char *argv[]){
     }
 }
 
-#include <stdio.h>
-#include <stdint.h>
-#include "ff.h"      /* FatFs (elm-chan) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void do_srecord(int argc, char *argv[])
+{
+    char *rec_buf = (char *)0x00300000;
+    unsigned int timeout = 10000;
+
+    printf("Download for S-Record file, waiting for serial transfer\n");
+
+    // Disable printing to display as currently the display output is slow
+    // This can cause timing issues if the display scrolls
+
+    // wait for the first character
+    *rec_buf++ = uart0_read();
+
+    // recieve characters until transmit stops
+    while (timeout--)
+    {
+        if (serial_has_char())
+        {
+            *rec_buf++ = uart0_read();
+            timeout = 10000;
+            if (((uint32_t)rec_buf % 250) == 0)
+                putchar('.');
+        }
+    }
+
+    printf("\nData recieved, processing S-Record file\n");
+    rec_buf = (char *)0x00300000;
+//    if (read_srecord(rec_buf))
+//        printf("SRecord load failed\n");
+}
+
+
+
+
+
+
+
+
+
+
 
 /*
- * Grava 'tamanho' bytes a partir do endereco 'origem' num arquivo chamado
- * 'nome_arquivo' no cartao SD. Sobrescreve o arquivo se ja existir.
- * Sobrescreve o arquivo se já existir (FA_CREATE_ALWAYS). 
- * Se você preferir dar erro em vez de sobrescrever, troco pra FA_CREATE_NEW.
- * Assume que f_mount() já foi chamado antes (montagem do FS geralmente é feita uma vez na inicialização, não a cada gravação).
- * nome_arquivo aceita path relativo tipo "dump.bin" ou 
- * path completo "0:/dumps/dump.bin", 
- * dependendo de como você configurou o FatFs (multi-drive ou não).
- *
- * Retorna 0 em sucesso, -1 em erro (mensagem impressa via printf).
- */
- void do_save(int argc, char *argv[]){
-    FIL     arquivo;
-    FRESULT fr;
-    UINT    bytes_escritos;
-    const void *origem = (const void *)0x82015;
-    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
-    size_t tamanho;
 
-    if (argc < 2) {
-        printf("uso: save <nome_arquivo> <tamanho_hex>\n");
-        return;
-    }
 
-    tamanho = strtoul(argv[1], NULL, 16);
-    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
+#include <stdio.h>
+#include <stdint.h>
+#include "ff.h"      
 
-    if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
-        printf("dump_memoria_para_arquivo: parametros invalidos\n");
-        return;
-    }
 
-    fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
-    if (fr != FR_OK) {
-        printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
-        return;
-    }
-
-    fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
-    if (fr != FR_OK || bytes_escritos != tamanho) {
-        printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
-               nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
-        f_close(&arquivo);
-        return;
-    }
-
-    fr = f_close(&arquivo);
-    if (fr != FR_OK) {
-        printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
-        return;
-    }
-
-    printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
-           nome_arquivo, (unsigned)tamanho);
-}
-
-char do_save_basic(int argc, char *argv[]){
-    FIL     arquivo;
-    FRESULT fr;
-    UINT    bytes_escritos;
-    int *ret_bytes_escritos = (int *)argv[3];
-    const void *origem = (const void *)argv[1];
-    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
-    size_t tamanho;
-
-    if (argc < 2) {
-        printf("uso: save <nome_arquivo> <tamanho_hex>\n");
-        return -1;
-    }
-
-    tamanho = (size_t)argv[2];
-    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
-
-    if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
-        printf("dump_memoria_para_arquivo: parametros invalidos\n");
-        return -1;
-    }
-
-    fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
-    if (fr != FR_OK) {
-        printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
-        return -1;
-    }
-
-    fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
-    if (fr != FR_OK || bytes_escritos != tamanho) {
-        printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
-               nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
-        f_close(&arquivo);
-        return -1;
-    }
-    if (ret_bytes_escritos != NULL) {
-       *ret_bytes_escritos = bytes_escritos; // Ex: 512
-    }
-    fr = f_close(&arquivo);
-    if (fr != FR_OK) {
-        printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
-        return -1;
-    }
-
-    printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n", nome_arquivo, (unsigned)tamanho);
-    return 0;
-}
 char do_load_basic(int argc, char *argv[])
 {
     FIL file;
@@ -964,3 +997,4 @@ char do_load_basic(int argc, char *argv[])
     f_close(&file);
     return 0;
 }
+*/

@@ -25,14 +25,11 @@ extern bool kb_get(uint8_t *data);
 
 const cmd_entry_t g_cmd_table[] = {
     // name         min max function
-    {"basic",       0,  1, &do_ehbasic,     "Start EhBASIC" },
     {"binfile",     1,  1, &do_binfile,     "Recieve binary file over serial and save to disk <filename>" },
     {"binmem",      1,  1, &do_binmem,      "Recieve binary file over serial to location in RAM" },
     {"cat",         1,  1, &do_cat,         "Display contents of <file>"},
     {"cd",          1,  1, &do_cd,          "Change directory <dir>"},
     {"cp",          2,  2, &do_copyfile,    "Copy file <src> <dest>"},
-    {"ls",          0,  1, &do_dir,	        "List directory contents" },
-    {"dir",         0,  1, &do_ls,	        "List directory contents" },
     {"del",         1,  1, &do_delete,	    "Delete file <file>" },
     {"dump",        2,  2, &do_dump,        "Dump memory <from> <count>" },
     {"exit",        0,  0, &do_exit,        "Exit system in a clean way.." },
@@ -40,21 +37,17 @@ const cmd_entry_t g_cmd_table[] = {
     {"ideinit",     0,  0, &do_ideinit,     "Mount ide fatfs.." },
     {"idemode",     1,  0, &do_idemode,     "Sets ide mode 0=8bits 1=16bits.." },
     {"loadmem",	    1,  2, &do_loadmem,	    "Load a file to the specified memory location <file> <mem>" },
-    {"mkdir",	    1,  1, &do_mkdir,	    "Create the specified folder <dir>" },
-    {"mv",          2,  2, &do_rename,      "Rename file <src> to <dest>" },
+    {"ls",          0,  1, &do_ls,	        "List directory contents" },
+    {"mkdir",	    1,  1, &do_mkdir_shel,	    "Create the specified folder <dir>" },
+    {"mv",          2,  2, &do_rename_shel,      "Rename file <src> to <dest>" },
     {"rmdir",	    1,  1, &do_rmdir,	    "Delete the specified folder <dir>" },
     {"run",         1,  1, &do_run,         "Run code at address <addr>" },
+    {"save",        2,  2, &do_save,   "Saves file from 82000 to disk save <filename> <filesize>" },
     {"shst",        0,  0, &do_shst,        "Show systemtick" },
-    {"srec",        0,  0, &do_srecord,     "Recieve S-Record file over serial" },
     {"time",        0,  6, &do_time,        "Display or set the current time and date (time ? for help)" },
-  /*  {"trap",        3,  3, &do_traptest,    "Test the trap function <command> <value> <string>" }, */
     {"uptime",      0,  0, &do_uptime,      "Display the time the system has been running" },
     {"writemem",    2,  0, &do_writemem,    "Write memory <addr> [byte ...]" },
-    {"rs",          1,  0, &do_readsect,    "Read a sector X from disk..." },
-    {"writesect",   1,  0, &do_writesect,   "Write a sector X from disk..." },
     {"writemem1",   2,  0, &do_writemem1,   "Write a memory location" },
-    {"save",        2,  2, &do_save,   "Saves file from 82000 to disk " \
-                                            "save <filename> <filesize>" },
     {"tst",         2,  2, &do_tstkbd,      "Testa conversa com o picow...\n" \ 
                                             "\tcmd=0x00 dado=0 => chama receber_arquivo_do_pico\n" \
                                             "\tcmd=0x01 dado=0 => chama receber_setor_do_pico\n" \

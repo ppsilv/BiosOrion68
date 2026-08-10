@@ -1,0 +1,8 @@
+These disk images seem to be standard IBM-3740 format. That is :
+
+Single sided
+77 tracks
+26 sectors per track
+128 bytes per sector
+
+cpmtools can produce directory listings and extract files

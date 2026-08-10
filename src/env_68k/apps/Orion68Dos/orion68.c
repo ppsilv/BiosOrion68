@@ -72,7 +72,7 @@ void print_msg(char *str){
 
 const char MsgOrionInit[] = 
     "\nPDS317-Hardware copyright (C) pdsilva(pgordao).\n"
-    "Orion68OS for m68k System.\n"
+    "Orion68OS V0.8 for m68k System.\n"
     "Build Date: " __DATE__ " - " __TIME__ "\n"
     "Build Counter: " BUILD_COUNTER "\n"
     "-----------------------------------------------\n\n";
@@ -124,6 +124,8 @@ uint8_t rtc_read_config_byte(uint16_t endereco);
 void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
 void printString(char * str);
 uint16_t ring_buf_get_char();
+void duart_init_canal_a(void);
+
 void main() {
     pico_write_ch('A');
     set_console_output(picovga_putchar);
@@ -149,13 +151,13 @@ void main() {
     // uart3_init();
     // delay10ms(100);  //100ms    
     pico_write_ch('D');
-/* ENQUANTO NÃO TROCAR A MERDA DO SOQUETE DO 68681 DEIXA FORA ESSE CODIGO
+/* ENQUANTO NÃO TROCAR A MERDA DO SOQUETE DO 68681 DEIXA FORA ESSE CODIGO*/
     printf("* - Initializing duart GPIO\n");
     duart_opr_init();
     pico_write_ch('E');
     printf("* - Initializing duart A\n");
-    duart_uartA_init();
-    */
+    duart_init_canal_a();
+    
     //printf("* - Initializing duart B\n");
     //duart_uartB_init();
     

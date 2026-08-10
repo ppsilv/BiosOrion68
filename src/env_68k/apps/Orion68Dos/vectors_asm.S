@@ -25,6 +25,7 @@
 .extern do_save_basic
 .extern do_load_basic
 
+| teste
 /* =========================================================================
    1. EXCEÇÕES E INTERRUPÇÕES QUE NÃO FAZEM NADA (STUBS)
    ========================================================================= */
@@ -84,7 +85,7 @@ Int2Handler:
         /* Incrementa a variável de 32 bits do C */
         move.l  #systemTick,%a0
         addq.l  #1,(%a0)
-/*
+
     addq.w  #1,tick_count       
     cmpi.w  #400,tick_count     
     beq.s   .action_100
@@ -101,7 +102,7 @@ Int2Handler:
 .action_200:
     move.b  #0x1C,0xFF901F        
     clr.w   tick_count          
-*/
+
     move.l  (%sp)+,%a0
     rte
 
@@ -209,72 +210,128 @@ Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
 
         movem.l %d1-%d7/%a0-%a6,-(%sp)
 
-        /* Avalia a função passada em D0 */
+        /* Avalia a função passada em D1 */
         cmp.w   #1,%d1
-        beq     .file_read
+        beq     fopen
         cmp.w   #2,%d1
-        beq     .file_write
+        beq     fclose
         cmp.w   #3,%d1
-        beq     .file_list
-        bra     .trapC_exit
+        beq     fread
+        cmp.w   #4,%d1
+        beq     fwrite
+        cmp.w   #5,%d1
+        beq     fsync
+        cmp.w   #6,%d1
+        beq     funlink
+        cmp.w   #7,%d1
+        beq     flseek
+        cmp.w   #8,%d1
+        beq     ftell
+        cmp.w   #9,%d1
+        beq     fsize
+        cmp.w   #10,%d1
+        beq     feof
+        cmp.w   #11,%d1
+        beq     frename
+        cmp.w   #12,%d1
+        beq     fstat
+        cmp.w   #13,%d1
+        beq     fopendir
+        cmp.w   #14,%d1
+        beq     freaddir
+        cmp.w   #15,%d1
+        beq     fclosedir
+        cmp.w   #16,%d1
+        beq     fmkdir
+        cmp.w   #17,%d1
+        beq     fmount
+        cmp.w   #18,%d1
+        beq     funmount
 
+        /* Restaura o mundo (D0 contém o retorno de cconin se foi chamada) */
+        movem.l (%sp)+,%d1-%d7/%a0-%a6
+        rte
+/*
 .file_list:
-    /* 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])*/
-    move.l  %a0,-(%sp)    /*; argv[0] = Ponteiro FIL / "teste.bas"*/
+    | 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])
+    move.l  %a0,-(%sp)    |/*; argv[0] = Ponteiro FIL / "teste.bas"
     
-    move.l  %sp,%a2       /*; A2 = Endereço do início do vetor argv[]*/
+    move.l  %sp,%a2       |/*; A2 = Endereço do início do vetor argv[]
 
-    /*; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda*/
-    move.l  %a2,-(%sp)    /*; 2º parâmetro: char *argv[]*/
-    move.l  #1,-(%sp)    /*; 1º parâmetro: int argc (3 argumentos)*/
+    |/*; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda
+    move.l  %a2,-(%sp)   | /*; 2º parâmetro: char *argv[]
+    move.l  #1,-(%sp)    |/*; 1º parâmetro: int argc (3 argumentos)
 
-    /*; 3. Chama a função*/
+    |/*; 3. Chama a função
     jsr     do_ls
 
-    /*; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)*/
+    |/*; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)
     lea     12(%sp),%sp
     bra     .trapC_exit
 
 
 .file_write:
-    /* 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])*/
-    move.l  %A2,-(%sp)    /*; argv[3] = bytes_escritos*/
-    move.l  %d0,-(%sp)    /*; argv[2] = Quantidade de bytes*/
-    move.l  %a1,-(%sp)    /*; argv[1] = Ponteiro do buffer*/
-    move.l  %a0,-(%sp)    /*; argv[0] = Ponteiro FIL / "teste.bas"*/
+    | 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])
+    move.l  %A2,-(%sp)    |; argv[3] = bytes_escritos
+    move.l  %d0,-(%sp)    |; argv[2] = Quantidade de bytes
+    move.l  %a1,-(%sp)    |; argv[1] = Ponteiro do buffer
+    move.l  %a0,-(%sp)    |; argv[0] = Ponteiro FIL / "teste.bas"
     
-    move.l  %sp,%a2       /*; A2 = Endereço do início do vetor argv[]*/
+    move.l  %sp,%a2       |; A2 = Endereço do início do vetor argv[]
 
-    /*; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda*/
-    move.l  %a2,-(%sp)    /*; 2º parâmetro: char *argv[]*/
-    move.l  #4,-(%sp)    /*; 1º parâmetro: int argc (3 argumentos)*/
+    |; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda
+    move.l  %a2,-(%sp)    |; 2º parâmetro: char *argv[]
+    move.l  #4,-(%sp)     |; 1º parâmetro: int argc (3 argumentos)
 
-    /*; 3. Chama a função*/
+    |; 3. Chama a função
     jsr     do_save_basic
 
-    /*; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)*/
+    |; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)
     lea     24(%sp),%sp
     bra     .trapC_exit
 
 .file_read:
-    /* 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])*/
-    move.l  %A2,-(%sp)    /*; argv[3] = bytes_escritos*/
-    move.l  %d0,-(%sp)    /*; argv[2] = Quantidade de bytes*/
-    move.l  %a1,-(%sp)    /*; argv[1] = Ponteiro do buffer de dados*/
-    move.l  %a0,-(%sp)    /*; argv[0] = "teste.bas"*/
-    */
-    move.l  %sp,%a2       /*; A2 = Endereço do início do vetor argv[]*/
+    ||/* 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])
+    move.l  %A2,-(%sp)    |; argv[3] = bytes_escritos
+    move.l  %d0,-(%sp)    |; argv[2] = Quantidade de bytes
+    move.l  %a1,-(%sp)    |; argv[1] = Ponteiro do buffer de dados
+    move.l  %a0,-(%sp)    |; argv[0] = "teste.bas"
+    
+    move.l  %sp,%a2       |; A2 = Endereço do início do vetor argv[]
 
-    /*; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda*/
-    move.l  %a2,-(%sp)    /*; 2º parâmetro: char *argv[]*/
-    move.l  #4, -(%sp)    /*; 1º parâmetro: int argc (3 argumentos)*/
-
-    /*; 3. Chama a função*/
+    |; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda
+    move.l  %a2,-(%sp)    |; 2º parâmetro: char *argv[]
+    move.l  #4, -(%sp)    |; 1º parâmetro: int argc (3 argumentos)
+   |; 3. Chama a funç
     jsr     do_load_basic
 
-    /*; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)*/
+    |; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)
     lea     24(%sp),%sp
-.trapC_exit:
-        /* Restaura o mundo (D0 contém o retorno de cconin se foi chamada) */
-        movem.l (%sp)+,%d1-%d7/%a0-%a6
-        rte
+
+*/
+
+/*Dispatcher*/
+/*
+
+trap_dispatcher:
+    move.w  d0,d7               ; Salva ID da função
+    cmpi.w  #MAX_SYSCALLS,d7    ; Valida se a chamada existe
+    bhs     sys_bad_id
+
+    lsl.w   #2,d7               ; Multiplica por 4 (tamanho de ponteiro .L)
+    lea     syscall_table,a6
+    move.l  (a6,d7.w),a6        ; Carrega endereço da função
+    jsr     (a6)                ; Executa
+    rte
+
+sys_bad_id:
+    move.q  #-1,d0              ; Retorna erro
+    rte
+
+syscall_table:
+    dc.l    sys_con_read        ; ID 0: Ler caractere
+    dc.l    sys_con_write       ; ID 1: Escrever caractere
+    dc.l    sys_disk_read_sec   ; ID 2: Ler setor do disco
+    dc.l    sys_video_set_mode  ; ID 3: Configurar modo de vídeo
+
+*/
