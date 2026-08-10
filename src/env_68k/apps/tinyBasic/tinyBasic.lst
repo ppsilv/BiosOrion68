@@ -1383,7 +1383,7 @@
  1241 0bd4 43EE FFC0 		lea (-64,%fp),%a1
  1242               	#APP
  1243               	| 1783 "TinyBasicPlus.c" 1
- 1244 0bd8 7203      		move.l #3, %d1
+ 1244 0bd8 7213      		move.l #19, %d1
  1245 0bda 2049      		move.l %a1, %a0
  1246 0bdc 4E4C      		trap #12
  1247 0bde 2240      		move.l %d0, %a1
@@ -1497,7 +1497,7 @@
  1331 0cf4 D88E      		add.l %fp,%d4
  1332               	#APP
  1333               	| 1818 "TinyBasicPlus.c" 1
- 1334 0cf6 7202      		move.l #2, %d1
+ 1334 0cf6 7214      		move.l #20, %d1
  1335 0cf8 2042      		move.l %d2, %a0
  1336 0cfa 227C 0000 		move.l #program, %a1
  1336      0000 
@@ -2280,7 +2280,7 @@
  1957 1554 D68E      		add.l %fp,%d3
  1958               	#APP
  1959               	| 1800 "TinyBasicPlus.c" 1
- 1960 1556 7201      		move.l #1, %d1
+ 1960 1556 7215      		move.l #21, %d1
  1961 1558 2042      		move.l %d2, %a0
  1962 155a 227C 0000 		move.l #program, %a1
  1962      0000 

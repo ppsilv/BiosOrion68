@@ -55,5 +55,7 @@
 
 
 # LOG ERROS:
-1 - Verificar o tempo de leitura do m68k no MultiIO para carregar arquivo vindo do pico2w
+1 - Corrigir as funções load e save do basic que pararam 
+    de funcionar depois do acerto com trap12 para acessos
+    ao disco.
 

@@ -73,7 +73,6 @@ bool receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     // 3. Loop de leitura dos dados do arquivo
     for (uint16_t i = 0; i < tamanho_arquivo; i++) {       
         destino_ram[i] = PICO_DATA_REG; 
-        _delay_ms();
     }
     delay10ms(1);
     uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);

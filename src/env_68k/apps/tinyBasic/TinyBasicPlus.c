@@ -1781,7 +1781,7 @@ static int file_list(char *filter) {
     int result;
 
     asm volatile (
-        "move.l #3, %%d1\n\t"   /* D1: Syscall Read (1) */
+        "move.l #19, %%d1\n\t"   /* D1: Syscall Read (19) */
         "move.l %1, %%a0\n\t"   /* A0: filename */
         "trap #12\n\t"           /* Executa a Syscall */
         "move.l %%d0, %0\n\t"   /* D0: Retorno (FRESULT) -> result */
@@ -1798,7 +1798,7 @@ static int file_read(char *filename, char * program, int size, int *bytes_read) 
     int result;
 
     asm volatile (
-        "move.l #1, %%d1\n\t"   /* D1: Syscall Read (1) */
+        "move.l #21, %%d1\n\t"   /* D1: Syscall Read (21) */
         "move.l %1, %%a0\n\t"   /* A0: filename */
         "move.l %2, %%a1\n\t"   /* A1: program (buffer) */
         "move.l %3, %%d0\n\t"   /* D0: size */
@@ -1816,7 +1816,7 @@ static int file_read(char *filename, char * program, int size, int *bytes_read) 
 static int file_write(char *filename,char * program, int size, int*bytes_written){
     int result;
     asm volatile (
-        "move.l #2, %%d1\n\t"   /* D1: Syscall Read (1) */
+        "move.l #20, %%d1\n\t"   /* D1: Syscall Read (20) */
         "move.l %1, %%a0\n\t"   /* A0: filename */
         "move.l %2, %%a1\n\t"   /* A1: program (buffer) */
         "move.l %3, %%d0\n\t"   /* D0: size */

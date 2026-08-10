@@ -453,6 +453,51 @@ void do_ls(int argc, char *argv[]){
         return;
     }
 }*/
+char do_load_basic(int argc, char *argv[])
+{
+    FIL file;
+    uint32_t size_buffer=(uint32_t )argv[2];
+    int *ret_bytes_lidos = (int *)argv[3];
+    char *buffer = NULL;
+
+    if (f_open(&file, argv[0], FA_READ) == FR_OK)
+    {
+        unsigned int len = f_size(&file);
+        if( len > size_buffer){
+            printf("Unable to load file, file bigger than buffer.\n");
+            buffer[0]='\0';
+            f_close(&file);
+            return  -1;
+        }
+
+        buffer = (char*)argv[1];
+
+        unsigned int bytes_read = 0;
+
+        if (f_read(&file, buffer, len, &bytes_read) != FR_OK)
+        {
+            printf("Unable to load file.\n");
+            f_close(&file);
+            return -1;
+        }
+        
+        if (ret_bytes_lidos != NULL) {
+            *ret_bytes_lidos = bytes_read;
+        }
+
+        printf("Loaded %d bytes from file %s to location %lX\n", bytes_read, argv[0], (uint32_t)buffer);
+    }
+    else
+    {
+        printf("Unable to open file %s\n", argv[0]);
+    }
+
+    if (argc == 1)
+        free(buffer);
+
+    f_close(&file);
+    return 0;
+}
 void do_loadmem(int argc, char *argv[])
 {
     FIL file;
@@ -660,11 +705,6 @@ void do_run(int argc, char *argv[])
     printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
            nome_arquivo, (unsigned)tamanho);
 }
-
-
-void do_shst(int argc, char *argv[]){
-    printf("Systemtick = %ld\n",get_system_tick());
-}
 char do_save_basic(int argc, char *argv[]){
     FIL     arquivo;
     FRESULT fr;
@@ -711,6 +751,11 @@ char do_save_basic(int argc, char *argv[]){
 
     printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n", nome_arquivo, (unsigned)tamanho);
     return 0;
+}
+
+
+void do_shst(int argc, char *argv[]){
+    printf("Systemtick = %ld\n",get_system_tick());
 }
 void do_time(int argc, char *argv[])
 {
@@ -933,68 +978,3 @@ void do_srecord(int argc, char *argv[])
 //    if (read_srecord(rec_buf))
 //        printf("SRecord load failed\n");
 }
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-#include <stdio.h>
-#include <stdint.h>
-#include "ff.h"      
-
-
-char do_load_basic(int argc, char *argv[])
-{
-    FIL file;
-    uint32_t size_buffer=(uint32_t )argv[2];
-    int *ret_bytes_lidos = (int *)argv[3];
-    char *buffer = NULL;
-
-    if (f_open(&file, argv[0], FA_READ) == FR_OK)
-    {
-        unsigned int len = f_size(&file);
-        if( len > size_buffer){
-            printf("Unable to load file, file bigger than buffer.\n");
-            buffer[0]='\0';
-            f_close(&file);
-            return  -1;
-        }
-
-        buffer = (char*)argv[1];
-
-        unsigned int bytes_read = 0;
-
-        if (f_read(&file, buffer, len, &bytes_read) != FR_OK)
-        {
-            printf("Unable to load file.\n");
-            f_close(&file);
-            return -1;
-        }
-        
-        if (ret_bytes_lidos != NULL) {
-            *ret_bytes_lidos = bytes_read;
-        }
-
-        printf("Loaded %d bytes from file %s to location %lX\n", bytes_read, argv[0], (uint32_t)buffer);
-    }
-    else
-    {
-        printf("Unable to open file %s\n", argv[0]);
-    }
-
-    if (argc == 1)
-        free(buffer);
-
-    f_close(&file);
-    return 0;
-}
-*/

@@ -23,6 +23,7 @@
 #define SYS_FMKDIR      16
 #define SYS_FMOUNT      17
 #define SYS_FUNMOUNT    18
+#define SYS_FILELIST    19
 
 #endif
 

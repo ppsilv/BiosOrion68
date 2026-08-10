@@ -20,8 +20,8 @@ all: tBasic.bin
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Regra específica para cada arquivo para evitar problemas com $<
-tBasic.elf: tinyBasic.o TinyBasicPlus.o ../../obj/crt0.o ../../obj/startup.o
-	#$(LD) $(LDFLAGS) ../../obj/crt0.o ../../obj/startup.o tinyBasic.o TinyBasicPlus.o -lc68k -L/usr/local/m68k-elf/lib -lgcc -o $@
+tBasic.elf: tinyBasic.o TinyBasicPlus.o ../../libc/obj/crt0.o ../../libc/obj/startup.o
+	#$(LD) $(LDFLAGS) ../../obj/crt0.o ../../libc/obj/startup.o tinyBasic.o TinyBasicPlus.o -lc68k -L/usr/local/m68k-elf/lib -lgcc -o $@
 	$(LD) $(LDFLAGS) $(OBJS) -o $@ $(LDLIBS)
 	@echo "Linked: $@"
 
