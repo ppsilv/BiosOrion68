@@ -22,7 +22,8 @@
 ******************************************************************/
 #include <stdio.h>
 #include  <string.h>
-//#include <stdlib.h>
+#include <vga_video.h>
+#include <color.h>
 
 #define PICO_VGA_BASE 0x00FF8000
 #define RUN_CMD        (*((volatile unsigned char *)(0x00FF8000 + 0x3D)))
@@ -30,10 +31,10 @@
 #define REG_X_LOW      (*((volatile unsigned char *)(PICO_VGA_BASE + 0x2F)))
 #define REG_Y_HIGH     (*((volatile unsigned char *)(PICO_VGA_BASE + 0x31)))
 #define REG_Y_LOW      (*((volatile unsigned char *)(PICO_VGA_BASE + 0x33)))
-#define CMD_CLEAR_SCREEN    0xA4
-#define CMD_SET_CUR_POS     0xA3
-#define CMD_SET_TXT_COLOR   0xA2
-#define CMD_GO_HOME         0xA1
+//#define CMD_CLEAR_SCREEN    0xA4
+//#define CMD_SET_CUR_POS     0xA3
+//#define CMD_SET_TXT_COLOR   0xA2
+//#define CMD_GO_HOME         0xA1
 
 
 // size of our program ram
@@ -89,7 +90,7 @@ static const char *  sentinel = "HELLO";
 static unsigned char *txtpos,*list_line, *tmptxtpos;
 static unsigned char expression_error;
 static unsigned char *tempsp;
-static void set_cursor_position(int x,int y);
+static void set_cursor_position(uint16_t x,uint16_t y);
 static int orion_load(void);
 static int file_read(char *filename, char * program, int size, int *bytes_read);
 static int file_write(char *filename,char * program, int size, int *bytes_written);
@@ -145,6 +146,8 @@ const static unsigned char keywords[]  = {
   'H','E','X','P','E','E','K'+0x80,
   'C','L','S'+0X80,
   'I','N','C'+0X80,
+  'C','O','L','O','R'+0X80,
+  'H','O','M','E'+0x80,
   0
 };
 
@@ -176,6 +179,8 @@ enum {
   KW_HEXPEEK,
   KW_CLS,
   KW_INC,
+  KW_COLOR,
+  KW_HOME,
   KW_DEFAULT /* always the final one*/
 };
 
@@ -1341,6 +1346,12 @@ interperateAtTxtpos:
       expression_error = 1;
     }
     break;
+  case KW_COLOR:
+    goto tbsetcolor;
+    break;
+  case KW_HOME:
+    goto tbsethome;
+    break;
   case KW_GOTOXY:
     goto gotoxy;
   case KW_CLS:
@@ -1367,6 +1378,32 @@ cls:
   RUN_CMD = 0xA4;
   goto run_next_statement;
 
+tbsetcolor:
+    expression_error = 0;
+    uint8_t txtcolor = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+
+    // Now get the data to assign
+    expression_error = 0;
+    uint8_t bgcolor = expression(); /* Avalia a 2ª expressão (Y) */
+    if(expression_error) goto qwhat;
+
+    setcolor(txtcolor,bgcolor);
+
+  goto run_next_statement;
+
+tbsethome:
+  gohome();
+  goto run_next_statement;
+
+
 gotoxy:
     expression_error = 0;
     int x = expression(); /* Avalia a 1ª expressão (X) */
@@ -1385,7 +1422,8 @@ gotoxy:
     if(expression_error) goto qwhat;
 
     /* Aqui você aplica no seu hardware/display */
-    set_cursor_position(x, y);
+    gotoxy(x, y);
+
     goto run_next_statement;
 
 
@@ -2077,12 +2115,19 @@ static int file_write(char *filename,char * program, int size, int*bytes_written
     );
     return result & 0xff ;
 }
+//static void set_cursor_position(uint16_t x, uint16_t y) {
+//  gotoxy(x,y);
+//}
+//static void tbsetcolor(uint8_t txtcolor,uint8_t bgcolor){
+//    setcolor(txtcolor,bgcolor);
+//}
+/*
 static void set_cursor_position(int x, int y) {
     unsigned char xh, xl, yh, yl;
 
-    xh = (x >> 8) & 0xFF;  /* Bitwise Shift Right (>>) */
+    xh = (x >> 8) & 0xFF;
     xl = x & 0xFF;
-    yh = (y >> 8) & 0xFF;  /* Bitwise Shift Right (>>) */
+    yh = (y >> 8) & 0xFF;
     yl = y & 0xFF;
     REG_X_HIGH = xh;
     REG_X_LOW  = xl;
@@ -2090,6 +2135,8 @@ static void set_cursor_position(int x, int y) {
     REG_Y_LOW  = yl;
     RUN_CMD=CMD_SET_CUR_POS;
 }
+
+ */
 // returns 1 if the character is valid in a filename
 static int isValidFnChar( char c )
 {

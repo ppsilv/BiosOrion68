@@ -15,23 +15,20 @@ BINS = $(SRCS:.c=.bin)
 .PHONY: all clean
 
 #all: $(BINS)
-all: tBasic.bin
+all: tst_t12.bin
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Regra específica para cada arquivo para evitar problemas com $<
-tBasic.elf: tinyBasic.o TinyBasicPlus.o ../../libc/obj/crt0.o ../../libc/obj/startup.o
+tst_t12.elf: tst_t12.o ../../libc/obj/crt0.o ../../libc/obj/startup.o
 	$(LD) $(LDFLAGS) $(OBJS) -o $@ $(LDLIBS)
 	@echo "Linked: $@"
 
-test.elf: test.o ../../obj/crt0.o
-	$(LD) $(LDFLAGS) ../../obj/crt0.o test.o -lmc68000 -o $@
-	@echo "Linked: $@"
 
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@
 	@echo "Binary: $@"
 
 clean:
-	rm -f $(OBJS) $(ELFS) $(BINS) tBasic.bin tBasic.elf
+	rm -f $(OBJS) $(ELFS) $(BINS)
 	@echo "Clean complete"

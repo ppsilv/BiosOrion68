@@ -54,18 +54,18 @@ vid_writechar:
     bra     trap2_exit
 
 /* =========================================================================
- * 1. vid_gotoxy VGA: 2 argments D0 = cursor X D1 = cursor Y int16_T 
- * Regs used: A0,D0,D1 
+ * 1. vid_gotoxy VGA: 2 argments D0 = cursor X D2 = cursor Y int16_T 
+ * Regs used: A0,D0,D2 
  * ========================================================================= */
 vid_gotoxy:
     movea.l #PICO_VGA_BASE, %a0
     move.b %d0, REG_X_LOW(%A0)                      | Salva os 8 bits inferiores primeiro
     lsr.w  #8, %d0                                  | Desloca D0 8 bits para a direita
     move.b %d0, REG_X_HIGH(%A0)                     | Salva o próximo byte
-    move.b %d1, REG_Y_LOW(%A0)                      | Salva os 8 bits inferiores primeiro
-    lsr.w  #8, %d1                                  | Desloca D0 8 bits para a direita
-    move.b %d1, REG_Y_HIGH(%A0)                     | Salva o próximo byte
-    move.b #CMD_SET_CUR_POS,REG_CHANGE_CUR_POS(%A0)     | Muda o cursor de posição
+    move.b %d2, REG_Y_LOW(%A0)                      | Salva os 8 bits inferiores primeiro
+    lsr.w  #8, %d2                                  | Desloca D0 8 bits para a direita
+    move.b %d2, REG_Y_HIGH(%A0)                     | Salva o próximo byte
+    move.b  #CMD_SET_CUR_POS,REG_RUN_CMD(%A0)          | Muda o cursor de posição
     bra     trap2_exit
 
 /* =========================================================================
@@ -79,7 +79,7 @@ vid_clrscr:
 
 vid_gohome:
     movea.l #PICO_VGA_BASE, %a0
-    move.b  #CMD_GO_HOME,REG_RUN_CMD(%A0)          | Limpa a tela
+    move.b  #CMD_GO_HOME,REG_RUN_CMD(%A0)          
     bra     trap2_exit
 
 /* =========================================================================
@@ -88,7 +88,7 @@ vid_gohome:
  * ========================================================================= */
 vid_setcolor:
     movea.l #PICO_VGA_BASE, %a0
-    move.b  %D0,REG_SET_TXT_COLOR(%A0)          | Limpa a tela
+    move.b  %D0,REG_SET_TXT_COLOR(%A0)          
     bra     trap2_exit
 
 trap2_exit:

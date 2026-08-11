@@ -103,7 +103,7 @@ Linker script and memory map
  *(.vectors)
                 0x00000000                        . = ALIGN (0x400)
 
-.text           0x00000000     0xb15c
+.text           0x00000000     0xb158
                 0x00000000                        . = ALIGN (0x2)
  *(.text*)
  .text          0x00000000      0x2c4 ../../libc/obj/orion68_startup.o
@@ -445,46 +445,46 @@ Linker script and memory map
  .text          0x000090fc       0x32 ../../lib/libc68k.a(strtol.o)
                 0x000090fc                strtol
  *fill*         0x0000912e        0x2 
- .text          0x00009130       0x40 ../../lib/libvideo.a(vga_video.o)
+ .text          0x00009130       0x3c ../../lib/libvideo.a(vga_video.o)
                 0x00009130                run_cmd
                 0x00009132                gotoxy
-                0x00009148                gohome
-                0x0000914e                setcolor
-                0x0000916a                clrscr
+                0x00009144                gohome
+                0x0000914a                setcolor
+                0x00009166                clrscr
  *(.rodata)
- .rodata        0x00009170      0x1e8 orion68.o
-                0x000091a4                MsgOrionInit
- .rodata        0x00009358       0x51 vectors.o
- .rodata        0x000093a9      0x1c5 ./dump/mem_dump.o
- .rodata        0x0000956e        0x5 ./shell/io.o
- .rodata        0x00009573      0x150 ./shell/picow.o
- .rodata        0x000096c3      0x2fa ./shell/printerro.o
- .rodata        0x000099bd      0x98f ./shell/commands.o
- .rodata        0x0000a34c      0xac9 ./shell/decodecmd.o
-                0x0000a34c                g_elf_header_bytes
-                0x0000a900                g_cmd_table
- .rodata        0x0000ae15       0x48 ./rtc/rp5c01a.o
- .rodata        0x0000ae5d       0x2d ./uarts/drv_uart0.o
- .rodata        0x0000ae8a       0x11 ./duart/duart.o
- .rodata        0x0000ae9b      0x1ec ./ide/ata.o
- .rodata        0x0000b087       0x2d ./ide/diskio.o
- .rodata        0x0000b0b4       0x80 ../../lib/libfileio.a(ff.o)
- .rodata        0x0000b134       0x28 ../../lib/libc68k.a(printf.o)
-                0x0000b15c                        . = ALIGN (0x2)
+ .rodata        0x0000916c      0x1e8 orion68.o
+                0x000091a0                MsgOrionInit
+ .rodata        0x00009354       0x51 vectors.o
+ .rodata        0x000093a5      0x1c5 ./dump/mem_dump.o
+ .rodata        0x0000956a        0x5 ./shell/io.o
+ .rodata        0x0000956f      0x150 ./shell/picow.o
+ .rodata        0x000096bf      0x2fa ./shell/printerro.o
+ .rodata        0x000099b9      0x98f ./shell/commands.o
+ .rodata        0x0000a348      0xac9 ./shell/decodecmd.o
+                0x0000a348                g_elf_header_bytes
+                0x0000a8fc                g_cmd_table
+ .rodata        0x0000ae11       0x48 ./rtc/rp5c01a.o
+ .rodata        0x0000ae59       0x2d ./uarts/drv_uart0.o
+ .rodata        0x0000ae86       0x11 ./duart/duart.o
+ .rodata        0x0000ae97      0x1ec ./ide/ata.o
+ .rodata        0x0000b083       0x2d ./ide/diskio.o
+ .rodata        0x0000b0b0       0x80 ../../lib/libfileio.a(ff.o)
+ .rodata        0x0000b130       0x28 ../../lib/libc68k.a(printf.o)
+                0x0000b158                        . = ALIGN (0x2)
 
-.rodata         0x0000b15c       0x38
-                0x0000b15c                        . = ALIGN (0x2)
+.rodata         0x0000b158       0x38
+                0x0000b158                        . = ALIGN (0x2)
  *(.rodata*)
  .rodata.str1.1
-                0x0000b15c       0x38 ../../lib/libfileio.a(ff.o)
+                0x0000b158       0x38 ../../lib/libfileio.a(ff.o)
                                  0x18 (size before relaxing)
  .rodata.str1.1
-                0x0000b194        0xf ../../lib/libc68k.a(sprintf.o)
+                0x0000b190        0xf ../../lib/libc68k.a(sprintf.o)
  .rodata.str1.1
-                0x0000b194       0x20 ../../lib/libc68k.a(printf.o)
-                0x0000b1b4                        . = ALIGN (0x2)
+                0x0000b190       0x20 ../../lib/libc68k.a(printf.o)
+                0x0000b1b0                        . = ALIGN (0x2)
 
-.data           0x00080004       0x60 load address 0x0000b194
+.data           0x00080004       0x60 load address 0x0000b190
                 0x00080004                        . = ALIGN (0x2)
                 0x00080004                        __data_start = .
  *(.data*)
@@ -540,15 +540,15 @@ Linker script and memory map
                 0x00080064                        . = ALIGN (0x2)
                 0x00080064                        __data_end = .
 
-.mram           0x00080064        0xc load address 0x0000b1f4
+.mram           0x00080064        0xc load address 0x0000b1f0
  *(?.mram)
  .mram          0x00080064        0xc orion68.o
                 0x00080064                systemTick
                 0x00080068                tick_count
                 0x0008006c                flg_system
-                0x0000b194                        __data_load_start = LOADADDR (.data)
+                0x0000b190                        __data_load_start = LOADADDR (.data)
 
-.bss            0x00080070      0xdbc load address 0x0000b1f4
+.bss            0x00080070      0xdbc load address 0x0000b1f0
                 0x00080070                        . = ALIGN (0x2)
                 0x00080070                        __bss_start = .
  *(.bss*)

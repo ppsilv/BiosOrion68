@@ -55,7 +55,7 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                     vga->setTextColor(text_color, bg_color);  
                     break;    
                 case D_REG_X_HIGH:
-                        cursor_x = (uint16_t)(dado_m68k) | (cursor_x & 0x00FF);
+                        cursor_x = (uint16_t)(dado_m68k << 8) | (cursor_x & 0x00FF);
                         break;
                 case D_REG_X_LOW:
                         cursor_x = (cursor_x & 0xFF00) | dado_m68k;

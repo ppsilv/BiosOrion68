@@ -4,8 +4,8 @@
 #include "vga_video.h"
 #include "color.h"
 
-#define SYS_VGACOLOR        1
-#define SYS_GOTOXY          2
+#define SYS_VGAWRITECHAR    1
+#define SYS_VGAGOTOXY       2
 #define SYS_VGACLS          3
 #define SYS_VGAHOME         4
 #define SYS_VGASETCOLOR     5
@@ -15,9 +15,9 @@ void run_cmd(uint8_t cmd){
 
 }
 
-void gotoxy(uint8_t x,uint8_t y){
+void gotoxy(uint16_t x,uint16_t y){
     register uint32_t res    __asm__("d0");
-    register uint32_t cmd    __asm__("d1") = SYS_GOTOXY;
+    register uint32_t cmd    __asm__("d1") = SYS_VGAGOTOXY;
     register uint16_t arg_d2 __asm__("d2") = (uint16_t)y;
     register uint16_t arg_d0 __asm__("d0") = (uint16_t)x;
 
@@ -32,7 +32,7 @@ void setcolor(uint8_t txtcolor,uint8_t bgcolor){
     color  = (txtcolor << 4) & 0xF0;
     color |= (bgcolor & 0x0F);
     register uint32_t res    __asm__("d0");
-    register uint32_t cmd    __asm__("d1") = SYS_VGACOLOR;
+    register uint32_t cmd    __asm__("d1") = SYS_VGASETCOLOR;
     register uint32_t arg_d0 __asm__("d0") = (uint8_t)color;
 
     __asm__ volatile ("trap #2" : "=r"(res) : "r"(cmd), "r"(arg_d0) : "memory");

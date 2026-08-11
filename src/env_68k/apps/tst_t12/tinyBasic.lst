@@ -1,0 +1,59 @@
+   1               	#NO_APP
+   2               		.file	"tst_t12.c"
+   3               		.text
+   4               		.section	.rodata.str1.1,"aMS",@progbits,1
+   5               	.LC0:
+   6 0000 5465 7374 		.string	"Teste TRAP #2 2026...\n"
+   6      6520 5452 
+   6      4150 2023 
+   6      3220 3230 
+   6      3236 2E2E 
+   7               	.LC1:
+   8 0017 436F 6D70 		.string	"Compiled for Orion68 cpu MC68000.\n"
+   8      696C 6564 
+   8      2066 6F72 
+   8      204F 7269 
+   8      6F6E 3638 
+   9               	.LC2:
+  10 003a 5445 5354 		.string	"TESTE 20,20"
+  10      4520 3230 
+  10      2C32 3000 
+  11               	.LC3:
+  12 0046 5445 5354 		.string	"TESTE RED,BLACK"
+  12      4520 5245 
+  12      442C 424C 
+  12      4143 4B00 
+  13               		.section	.text.startup,"ax",@progbits
+  14               		.align	2
+  15               		.globl	main
+  17               	main:
+  18 0000 2F0A      		move.l %a2,-(%sp)
+  19 0002 4879 0000 		pea .LC0
+  19      0000 
+  20 0008 45F9 0000 		lea printf,%a2
+  20      0000 
+  21 000e 4E92      		jsr (%a2)
+  22 0010 4879 0000 		pea .LC1
+  22      0000 
+  23 0016 4E92      		jsr (%a2)
+  24 0018 4EB9 0000 		jsr clrscr
+  24      0000 
+  25 001e 4878 0014 		pea 20.w
+  26 0022 4878 0014 		pea 20.w
+  27 0026 4EB9 0000 		jsr gotoxy
+  27      0000 
+  28 002c 4879 0000 		pea .LC2
+  28      0000 
+  29 0032 4E92      		jsr (%a2)
+  30 0034 42A7      		clr.l -(%sp)
+  31 0036 4878 0004 		pea 4.w
+  32 003a 4EB9 0000 		jsr setcolor
+  32      0000 
+  33 0040 4879 0000 		pea .LC3
+  33      0000 
+  34 0046 4E92      		jsr (%a2)
+  35 0048 4FEF 0020 		lea (32,%sp),%sp
+  36 004c 7001      		moveq #1,%d0
+  37 004e 245F      		move.l (%sp)+,%a2
+  38 0050 4E75      		rts
+  40               		.ident	"GCC: (GNU) 15.1.0"
