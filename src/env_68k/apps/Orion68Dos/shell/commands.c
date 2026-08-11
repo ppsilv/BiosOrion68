@@ -3,6 +3,7 @@
 #include <malloc.h>
 #include <ctype.h>
 #include <string.h>
+#include <vga_video.h>
 
 #include "orion68.h"
 #include "commands.h"
@@ -17,7 +18,6 @@
 #include "drv_uart.h"
 #include "picow.h"
 #include "color.h"
-#include "drv_picoVga.h"
 #include "../kbd/ringbuffer.h"
 
 extern FATFS FatFs;      // Objeto de controle do sistema de arquivos (Work area)
@@ -795,7 +795,7 @@ void do_tstkbd(int argc, char *argv[])
                     printf("receber_setor_do_pico retornou[Error]\n"); 
                 break;
         case 0x02:
-                picovga_set_color(data,BLACK);
+                setcolor(data,BLACK);
                 break;
         case 0x03:    
                 break;            

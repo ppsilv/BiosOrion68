@@ -10,10 +10,10 @@ CFLAGS += -fomit-frame-pointer
 VASMFLAGS = -Felf -m68000 -quiet -I ./includes -I../../include
 
 LDFLAGS = -T ./orion68.ld -L../../lib -nostdlib  -Map=orion68.map
-LDLIBS = -lfileio -lc68k
+LDLIBS = -lfileio -lc68k -lvideo
 
 # 1. ADICIONADO: Lista de arquivos em Assembly (.S)
-ASMS = vectors_asm.S trap12_asm.S cpm_bios.S
+ASMS = vectors_asm.S trap2_asm.S trap12_asm.S cpm_bios.S
 
 
 VASMS =
@@ -31,19 +31,13 @@ SRCS = orion68.c vectors.c console.c trap12.c timers.c interrupt.c \
 ./shell/cmd_repeat.c \
 ./kbd/ringbuffer.c \
 ./rtc/rp5c01a.c \
-./picoVga/drv_picoVga.c \
 ./uarts/drv_uart0.c \
 ./duart/duart.c \
 ./ide/ata.c \
 ./ide/diskio.c 
 
 #./tst_fat/tstfat.c 
-
-
-#./shell/srecord.c \
-#./fatfs/ff.c \
-#./fatfs/ffsystem.c \
-
+#./picoVga/drv_picoVga.c \
 
 # 2. ALTERADO: Agora a lista de objetos junta os .o vindos do .c e do .S
 OBJS = $(SRCS:.c=.o) $(ASMS:.S=.o) $(VASMS:.asm=.o)

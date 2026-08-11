@@ -22,10 +22,8 @@ void write_str(){
     }
 }
 */
-void picovga_putchar(unsigned char ch){
-//    int x=0x60;  //🚀🛠️    funciona para a cpu em 4Mhz
+void picovga_putchar( char ch){
     WRITE_SCREEN = ch;
-//    while(x--); //0,11us
     uart0_write(ch); 
 }
 

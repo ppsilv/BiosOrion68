@@ -14,6 +14,14 @@
 .global Trap5Handler, Trap6Handler, Trap7Handler, Trap8Handler, Trap9Handler
 .global TrapAHandler, TrapBHandler, TrapCHandler, TrapDHandler, TrapEHandler, TrapFHandler
 
+//TRAP2
+.extern vid_writechar
+.extern vid_clrscr
+.extern vid_gohome
+.extern vid_gotoxy
+.extern vid_setcolor
+
+
 // Importa os símbolos externos do C e outras partes do sistema
 .extern TRAP14_Handler
 .extern systemTick
@@ -74,7 +82,6 @@ Int5Handler:
 Int6Handler:
 Int7Handler:
 Trap0Handler:
-Trap2Handler:
 Trap3Handler:
 Trap4Handler:
 Trap5Handler:
@@ -191,26 +198,45 @@ Trap1Handler:
         rte
 
 /* =========================================================================
-   5. TRAP 14 (A FAMOSA TRAP DO XMODEM / SERIAL)
+    TRAP 2  All VGA video funcionts.
    ========================================================================= */
-TrapEHandler:
-        /* 1. Salva o contexto na pilha para restaurar depois */
+Trap2Handler:
+/*
+Convenção de Registradores Exemplo
+D1: Número da Syscall (1 = Read, 2 = Write)
+A0: Ponteiro para FIL (arquivo)
+A1: Ponteiro para o buffer de dados
+D0: Character
+A2: Ponteiro para variável de bytes processados (br / bw)
+Retorno (D0): Resultado FRESULT    
+
+Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
+ da direita para a esquerda (32 bits / 4 bytes cada) e a limpeza da pilha 
+ é feita pelo chamador (caller).
+*/
+
         movem.l %d1-%d7/%a0-%a6,-(%sp)
 
-        /* 2. Empurra os valores REAIS de D0 e D1 para a pilha como argumentos para o C */
-        move.l  %d1,-(%sp)    /* Segundo argumento de TRAP14_Handler */
-        move.l  %d0,-(%sp)    /* Primeiro argumento de TRAP14_Handler */
-
-        /* 3. Chama o despachante em C */
-        jsr     TRAP14_Handler
-
-        /* 4. Remove os dois argumentos (4 bytes cada = 8 bytes) da pilha */
-        addq.l  #8,%sp
-
-        /* 5. Restaura o contexto original */
+        /* Avalia a função passada em D1 */
+        cmp.w   #1,%d1
+        beq     vid_writechar
+        cmp.w   #2,%d1
+        beq     vid_gotoxy
+        cmp.w   #3,%d1
+        beq     vid_clrscr
+        cmp.w   #4,%d1
+        beq     vid_gohome
+        cmp.w   #5,%d1
+        beq     vid_setcolor
+ 
+        /* Restaura o mundo (D0 contém o retorno de cconin se foi chamada) */
         movem.l (%sp)+,%d1-%d7/%a0-%a6
         rte
 
+
+/* =========================================================================
+    TRAP 12  All diskdriver funcionts.
+   ========================================================================= */
 TrapCHandler:
 /*
 Convenção de Registradores Exemplo
@@ -275,6 +301,29 @@ Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
         /* Restaura o mundo (D0 contém o retorno de cconin se foi chamada) */
         movem.l (%sp)+,%d1-%d7/%a0-%a6
         rte
+
+/* =========================================================================
+    TRAP 14 (A FAMOSA TRAP DO XMODEM / SERIAL)
+   ========================================================================= */
+TrapEHandler:
+        /* 1. Salva o contexto na pilha para restaurar depois */
+        movem.l %d1-%d7/%a0-%a6,-(%sp)
+
+        /* 2. Empurra os valores REAIS de D0 e D1 para a pilha como argumentos para o C */
+        move.l  %d1,-(%sp)    /* Segundo argumento de TRAP14_Handler */
+        move.l  %d0,-(%sp)    /* Primeiro argumento de TRAP14_Handler */
+
+        /* 3. Chama o despachante em C */
+        jsr     TRAP14_Handler
+
+        /* 4. Remove os dois argumentos (4 bytes cada = 8 bytes) da pilha */
+        addq.l  #8,%sp
+
+        /* 5. Restaura o contexto original */
+        movem.l (%sp)+,%d1-%d7/%a0-%a6
+        rte
+
+
 /*
 */
 

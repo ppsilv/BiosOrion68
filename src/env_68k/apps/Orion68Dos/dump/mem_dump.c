@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "drv_picoVga.h"
+#include <vga_video.h>
 #include "drv_kbd.h"
 #include "drv_uart.h"
 #include "timers.h"

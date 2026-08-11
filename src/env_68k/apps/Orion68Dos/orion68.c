@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "drv_picoVga.h"
+#include <vga_video.h>
 #include "drv_uart.h"
 #include "drv_kbd.h"
 #include "io.h"
@@ -66,7 +66,7 @@ void print_msg(char *str){
         unsigned char x,y;
         y = 0x1D; //29
         x = 0;
-        picovga_gotoxy(x,y); //padrao col,row
+        gotoxy(x,y); //padrao col,row
         printf("%s",str);
 }
 
@@ -128,21 +128,20 @@ void duart_init_canal_a(void);
 
 void main() {
     pico_write_ch('A');
-    set_console_output(picovga_putchar);
+    set_console_output(putchar);
     printf("%s",MsgOrionInit);
+    pico_write_ch('c');
     m68k_enable_all_interrupts(); 
-    delay10ms(10);
     printf("* All Interrupts enabled.\n");
-    pico_write_ch('B');
+    pico_write_ch('D');
     printf("* - Console output seted to picoVGA.\n");
-    pico_write_ch('C');
-    //init_kbd();
-    //ch9350_shut_up();
+    pico_write_ch('E');
     set_console_input(ring_buf_get_char);
     printf("* - Console input seted to ps2 keyboard.\n");
+    pico_write_ch('F');
 
     //picovga_set_color(RED,BLACK);
-    picovga_set_color(GREEN,BLACK);
+    setcolor(GREEN,BLACK);
 
     // uart1_init();
     // delay10ms(100);  //100ms    
@@ -150,16 +149,15 @@ void main() {
     // delay10ms(100);  //100ms    
     // uart3_init();
     // delay10ms(100);  //100ms    
-    pico_write_ch('D');
-/* ENQUANTO NÃO TROCAR A MERDA DO SOQUETE DO 68681 DEIXA FORA ESSE CODIGO*/
+    pico_write_ch('G');
     printf("* - Initializing duart GPIO\n");
     duart_opr_init();
-    pico_write_ch('E');
+    pico_write_ch('H');
     printf("* - Initializing duart A\n");
     duart_init_canal_a();
-    
-    //printf("* - Initializing duart B\n");
-    //duart_uartB_init();
+    pico_write_ch('I');
+    printf("* - Initializing duart B\n");
+    duart_init_canal_a();
     
     crc32_init();
 #ifdef DEBUG_ON
@@ -167,7 +165,7 @@ void main() {
 #endif
     printf("* - Initializing IDE ");
     do_ideinit(0,NULL);
-    pico_write_ch('F');
+    pico_write_ch('J');
 
     printf("* - Initializing  RTC\n");
     rtc_inicializar();
@@ -211,13 +209,12 @@ void main() {
     printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
     printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
 */
-    pico_write_ch('G');
-
+    pico_write_ch('K');
     ring_buf_init();
     //********************************************************
     //T H I S   M U S T   B E   T H E  L A S T    T H I N G 
     display_prompt();
-    pico_write_ch('H');
+    pico_write_ch('L');
     while (1){
         if (getline(g_cmd_buffer, LINELEN) != -1) {
             execute_cmd(g_cmd_buffer);
