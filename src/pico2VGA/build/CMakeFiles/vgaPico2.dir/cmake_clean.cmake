@@ -177,6 +177,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/vgaPico2.dir/vga.c.o.d"
   "CMakeFiles/vgaPico2.dir/vga_drv.c.o"
   "CMakeFiles/vgaPico2.dir/vga_drv.c.o.d"
+  "CMakeFiles/vgaPico2.dir/vga_graphos.c.o"
+  "CMakeFiles/vgaPico2.dir/vga_graphos.c.o.d"
   "CMakeFiles/vgaPico2.dir/vga_primitives.c.o"
   "CMakeFiles/vgaPico2.dir/vga_primitives.c.o.d"
   "vgaPico2.bin"

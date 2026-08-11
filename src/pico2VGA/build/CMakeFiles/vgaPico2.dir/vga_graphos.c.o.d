@@ -1,5 +1,5 @@
-CMakeFiles/vgaPico2.dir/vga_primitives.c.o: \
- /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_primitives.c \
+CMakeFiles/vgaPico2.dir/vga_graphos.c.o: \
+ /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_graphos.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
@@ -20,6 +20,8 @@ CMakeFiles/vgaPico2.dir/vga_primitives.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdlib.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/machine/stdlib.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/alloca.h \
+ /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_private.h \
+ /home/pdsilva/Projects/Orion68/src/pico2VGA/cursor.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/string.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
@@ -80,20 +82,9 @@ CMakeFiles/vgaPico2.dir/vga_primitives.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/resets.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pio.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pio.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/include/hardware/dma.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/dma.h \
- /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/dma_debug.h \
- /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_private.h \
- /home/pdsilva/Projects/Orion68/src/pico2VGA/cursor.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_primitives.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_drv.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/screen_mode.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/colors.h \
  /home/pdsilva/Projects/Orion68/src/pico2VGA/font.h \
- /home/pdsilva/Projects/Orion68/src/pico2VGA/font_5x7.h \
- /home/pdsilva/Projects/Orion68/src/pico2VGA/eeprom.h
+ /home/pdsilva/Projects/Orion68/src/pico2VGA/font_5x7.h

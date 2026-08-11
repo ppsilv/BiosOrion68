@@ -21,9 +21,14 @@
 * 164  CLEARSCREEN
 ******************************************************************/
 #include <stdio.h>
+#include <stddef.h>
 #include  <string.h>
 #include <vga_video.h>
 #include <color.h>
+#include <vga_video_graphics.h>
+#include <stdint.h>
+
+#define NULL 0
 
 #define PICO_VGA_BASE 0x00FF8000
 #define RUN_CMD        (*((volatile unsigned char *)(0x00FF8000 + 0x3D)))
@@ -148,6 +153,16 @@ const static unsigned char keywords[]  = {
   'I','N','C'+0X80,
   'C','O','L','O','R'+0X80,
   'H','O','M','E'+0x80,
+  'L','I','N','E'+0x80,
+  'V','L','I','N','E'+0x80,
+  'H','L','I','N','E'+0x80,
+  'C','I','R','C','L','E'+0x80,
+  'H','C','I','R','C','L','E'+0x80,
+  'F','C','I','R','C','L','E'+0x80,
+  'F','H','C','I','R','C','L','E'+0x80,
+  'R','R','E','C','T'+0x80,
+  'F','R','R','E','C','T'+0x80,
+  'F','R','E','C','T'+0x80,
   0
 };
 
@@ -181,6 +196,16 @@ enum {
   KW_INC,
   KW_COLOR,
   KW_HOME,
+  KW_LINE,
+  KW_VLINE,
+  KW_HLINE,
+  KW_CIRCLE,
+  KW_HCIRCLE,
+  KW_FCIRCLE,
+  KW_FHCIRCLE,
+  KW_RRECT,
+  KW_FRRECT,
+  KW_FRECT,
   KW_DEFAULT /* always the final one*/
 };
 
@@ -323,9 +348,6 @@ static unsigned char peek(unsigned long a);
 static unsigned long expression(void);
 
 
-#include <stdint.h>
-
-#define NULL 0
 
 static uint32_t rand_seed = 1;
 
@@ -1348,10 +1370,28 @@ interperateAtTxtpos:
     break;
   case KW_COLOR:
     goto tbsetcolor;
-    break;
   case KW_HOME:
     goto tbsethome;
-    break;
+  case KW_LINE:
+    goto tbline;
+  case KW_VLINE:
+    goto tbvline;
+  case KW_HLINE:
+    goto tbhline;
+  case KW_CIRCLE:
+    goto tbcircle;
+  case KW_HCIRCLE:
+    goto tbcirclehelper;
+  case KW_FCIRCLE:
+    goto tbfillcircle;
+  case KW_FHCIRCLE:
+    goto tbfillcirclehelper;
+  case KW_RRECT:
+    goto tbdrawRoundRect;
+  case KW_FRRECT:
+    goto tbfillRoundRect;
+  case KW_FRECT:
+    goto tbfillRect;
   case KW_GOTOXY:
     goto gotoxy;
   case KW_CLS:
@@ -1403,6 +1443,463 @@ tbsethome:
   gohome();
   goto run_next_statement;
 
+tbline:
+    expression_error = 0;
+    //x0
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0
+    uint16_t y0 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //x1
+    //x0
+    uint16_t x1 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y1
+    uint16_t y1 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0
+    uint8_t color = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+
+  drawLine( x0,  y0,  x1,  y1,  color);
+  goto run_next_statement;
+
+tbvline:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (y0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //h ***********************************************************
+    uint16_t h = expression(); /* Avalia a 3ª expressão (h) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 4ª expressão (color) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+
+  drawVLine( x0,  y0,  h,  color);
+  goto run_next_statement;
+}
+tbhline:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (y0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //h ***********************************************************
+    uint16_t w = expression(); /* Avalia a 3ª expressão (h) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 4ª expressão (color) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+
+  drawHLine( x0,  y0,  w,  color);
+  goto run_next_statement;
+}
+tbcircle:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (y0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //h ***********************************************************
+    uint16_t r = expression(); /* Avalia a 3ª expressão (h) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 4ª expressão (color) */
+    if(expression_error) goto qwhat;
+
+  drawCircle( x0,  y0,  r,  color);
+  goto run_next_statement;
+}
+tbcirclehelper:
+{
+    expression_error = 0;
+    //x0
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r
+    uint16_t r = expression(); /* Avalia a 3ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //cornername
+    uint16_t cornername = expression(); /* Avalia a 4ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color
+    uint8_t color = expression(); /* Avalia a 5ª expressão (X) */
+    if(expression_error) goto qwhat;
+
+    drawCircleHelper( x0, y0, r, cornername, color);
+    goto run_next_statement;
+}
+tbfillcircle:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (y0) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r ***********************************************************
+    uint16_t r = expression(); /* Avalia a 3ª expressão (h) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 4ª expressão (color) */
+    if(expression_error) goto qwhat;
+
+    fillCircle(  x0,   y0,   r,   color);
+    goto run_next_statement;
+}
+tbfillcirclehelper:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r ***********************************************************
+    uint16_t r = expression(); /* Avalia a 3ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //cornername ***********************************************************
+    uint16_t cornername = expression(); /* Avalia a 4ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //delta ***********************************************************
+    uint16_t delta = expression(); /* Avalia a 5ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 5ª expressão (X) */
+    if(expression_error) goto qwhat;
+
+
+    fillCircleHelper( x0, y0, r, cornername, delta, color);
+    goto run_next_statement;
+}
+tbdrawRoundRect:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r ***********************************************************
+    uint16_t w = expression(); /* Avalia a 3ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //h ***********************************************************
+    uint16_t h = expression(); /* Avalia a 4ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r ***********************************************************
+    uint16_t r = expression(); /* Avalia a 5ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 6ª expressão (X) */
+    if(expression_error) goto qwhat;
+
+
+    drawRoundRect( x0, y0, w, h, r, color);
+    goto run_next_statement;
+}
+tbfillRoundRect:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r ***********************************************************
+    uint16_t w = expression(); /* Avalia a 3ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //h ***********************************************************
+    uint16_t h = expression(); /* Avalia a 4ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r ***********************************************************
+    uint16_t r = expression(); /* Avalia a 5ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 6ª expressão (X) */
+    if(expression_error) goto qwhat;
+
+
+    fillRoundRect( x0, y0, w, h, r, color);
+    goto run_next_statement;
+}
+tbfillRect:
+{
+    expression_error = 0;
+    //x0 ***********************************************************
+    uint16_t x0 = expression(); /* Avalia a 1ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //y0 ***********************************************************
+    uint16_t y0 = expression(); /* Avalia a 2ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //r ***********************************************************
+    uint16_t w = expression(); /* Avalia a 3ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //h ***********************************************************
+    uint16_t h = expression(); /* Avalia a 4ª expressão (X) */
+    if(expression_error) goto qwhat;
+    // check for a comma
+    ignore_blanks();
+    if (*txtpos != ',')
+      goto qwhat;
+    txtpos++;
+    ignore_blanks();
+    //color ***********************************************************
+    uint8_t color = expression(); /* Avalia a 6ª expressão (X) */
+    if(expression_error) goto qwhat;
+
+    fillRect( x0, y0, w, h, color);
+    goto run_next_statement;
+}
 
 gotoxy:
     expression_error = 0;
@@ -1764,7 +2261,7 @@ gosub_return:
         // Is the the variable we are looking for?
         if(txtpos[-1] == f->for_var)
         {
-          short int *varaddr = ((short int *)variables_begin) + txtpos[-1] - 'A'; 
+          short int *varaddr = ((short int *)variables_begin) + txtpos[-1] - 'A';
           *varaddr = *varaddr + f->step;
           // Use a different test depending on the sign of the step increment
           if((f->step > 0 && *varaddr <= f->terminal) || (f->step < 0 && *varaddr >= f->terminal))
@@ -1861,7 +2358,7 @@ poke:
     if(expression_error)
       goto qwhat;
 
-    printf("Poke %x data %i\n",address, (unsigned char)data);
+    //printf("Poke %x data %i\n",address, (unsigned char)data);
     *address=(unsigned char)data;
 
     // Check that we are at the end of the statement
@@ -2031,6 +2528,8 @@ rseed:
   }
 
 }
+
+
 
 // Copia o nome do arquivo da linha de comando para o buffer
 static int get_filename(char *buf, int max_len)

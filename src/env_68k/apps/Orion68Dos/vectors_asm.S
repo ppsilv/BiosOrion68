@@ -51,6 +51,19 @@
 .extern file_list
 .extern file_save
 .extern file_load
+
+.extern vid_drawHLine
+.extern vid_drawVLine
+.extern vid_drawLine
+.extern vid_drawCircle
+.extern vid_drawCircleHelper
+.extern vid_fillCircle
+.extern vid_fillCircleHelper
+.extern vid_drawRoundRect
+.extern vid_fillRoundRect
+.extern vid_fillRect
+.extern vid_fillTri
+
 | teste
 /* =========================================================================
    1. EXCEÇÕES E INTERRUPÇÕES QUE NÃO FAZEM NADA (STUBS)
@@ -228,6 +241,29 @@ Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
         beq     vid_gohome
         cmp.w   #5,%d1
         beq     vid_setcolor
+        cmp.w   #6,%d1
+        beq     vid_drawVLine
+        cmp.w   #7,%d1
+        beq     vid_drawHLine
+        cmp.w   #8,%d1
+        beq     vid_drawLine
+        cmp.w   #9,%d1
+        beq     vid_drawCircle
+        cmp.w   #10,%d1
+        beq     vid_drawCircleHelper
+        cmp.w   #11,%d1
+        beq     vid_fillCircle
+        cmp.w   #12,%d1
+        beq     vid_fillCircleHelper
+        cmp.w   #13,%d1
+        beq     vid_drawRoundRect
+        cmp.w   #14,%d1
+        beq     vid_fillRoundRect
+        cmp.w   #15,%d1
+        beq     vid_fillRect
+        cmp.w   #16,%d1
+        beq     vid_fillTri
+
  
         /* Restaura o mundo (D0 contém o retorno de cconin se foi chamada) */
         movem.l (%sp)+,%d1-%d7/%a0-%a6

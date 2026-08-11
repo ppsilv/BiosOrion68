@@ -7,6 +7,7 @@
 #include "hardware/pio.h"
 #include "hardware/dma.h"
 
+#include "vga_private.h"
 #include "vga_primitives.h"
 #include "font.h"
 
@@ -19,22 +20,8 @@ static void inc_cursor_x();
 static void dec_cursor_y();
 static void dec_cursor_x();
 
-
-typedef struct  {
-    uint16_t width;  //320, 640
-    uint16_t height; //240, 480
-    cursor_t *cursor ;
-    screenMode_t video_mode ;
-    font_t font ;
-    color_t textcolor ;
-    color_t textbgcolor ;
-
-    uint32_t txcount;
-    uint16_t topmask;
-    uint16_t bottommask;
-    uint8_t tabspace;    
-    uint8_t* vga_data_array;    
-}vga_text_private_t;
+void initialize_graphos();
+static void setTextCursorVisible(bool v);
 
 static vga_t * vga = NULL ;
 
@@ -102,7 +89,9 @@ static void set_vga_data_array(uint8_t video_data_array[])
 } 
 
 static void set_vga_home(void){
+  setTextCursorVisible(false);
   vga->setTextCursorPos(0,0);
+  setTextCursorVisible(true);
 }
 
 static void set_vga_mode(uint8_t mode){
@@ -154,8 +143,7 @@ void drawPixel(short x, short y, color_t color) {
         priv->vga_data_array[pixel>>1] = (priv->vga_data_array[pixel>>1] & priv->bottommask) | (color) ;
     }
 }
-
-void drawHLine(int x, int y, int w, color_t color) {
+void drawHLine_old(int x, int y, int w, color_t color) {
     vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
   // range checks
   if((x >= priv->width) || (y >= priv->height)) return;
@@ -179,7 +167,7 @@ void drawHLine(int x, int y, int w, color_t color) {
   if (len>0 && y<480 ) memset(&priv->vga_data_array[320*y+(x>>1)], both_color, len) ;
  }
 
-void fillRect(short x, short y, short w, short h, color_t color) {
+void fillRect_old(short x, short y, short w, short h, color_t color) {
    vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
    if((y + h - 1) >= priv->height) h = priv->height - y - 1;
 
@@ -187,6 +175,8 @@ void fillRect(short x, short y, short w, short h, color_t color) {
       for( int j=y;j <= h;j++)
           drawPixel( i,  j, color ) ;
 }
+
+
 
 static void drawChar_interna(vga_text_private_t* priv, short x, short y, uint8_t c, color_t color, color_t bg, uint8_t size) {
   //vga_text_private_t* priv = (vga_text_private_t*)vga->_private;
@@ -452,9 +442,11 @@ static inline void u8_to_hex(uint8_t val, char *buf) {
 }
 
 static void printString(char* str){
+    vga->setTextCursorVisible(false);    
     while (*str){
         tft_write(*str++);
     }
+    vga->setTextCursorVisible(true);    
 }
 
 static void printString1(char* str,int32_t num){
@@ -521,7 +513,7 @@ short readPixel(short x, short y) {
 //extern char *active_buffer;
 #define TXCOUNT 153600 // Total pixels/2 (since we have 2 pixels per byte)
 char vga_video_data_array0[TXCOUNT];
-char vga_video_data_array1[TXCOUNT];
+//char vga_video_data_array1[TXCOUNT];
 char *active_buffer = (char *)&vga_video_data_array0[0];
 unsigned char buffer=0;
 font_t *font;
@@ -585,6 +577,8 @@ vga_t* create_screen(screenMode_t mode){ //,uint8_t active_buffer1[],uint32_t tx
   vga->inc_cursor_x = inc_cursor_x;
   vga->dec_cursor_y = dec_cursor_y;
   vga->dec_cursor_x = dec_cursor_x;
+
+  initialize_graphos();
 
   return vga;
 }

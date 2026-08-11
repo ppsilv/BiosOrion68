@@ -78,4 +78,9 @@ void put_cursor(uint8_t c);
 vga_t* get_vga();
 
 
+//Graphos
+void drawPixel(short x, short y, color_t color);
+void drawHLine(int x, int y, int w, color_t color);
+void fillRect(short x, short y, short w, short h, color_t color);
+
 #endif

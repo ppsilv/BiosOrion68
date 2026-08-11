@@ -111,10 +111,24 @@ CMakeFiles/vgaPico2.dir/vga_primitives.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/vgaPico2.dir/vga_primitives.c.s"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_primitives.c -o CMakeFiles/vgaPico2.dir/vga_primitives.c.s
 
+CMakeFiles/vgaPico2.dir/vga_graphos.c.o: CMakeFiles/vgaPico2.dir/flags.make
+CMakeFiles/vgaPico2.dir/vga_graphos.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_graphos.c
+CMakeFiles/vgaPico2.dir/vga_graphos.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/vgaPico2.dir/vga_graphos.c.o"
+	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/vga_graphos.c.o -MF CMakeFiles/vgaPico2.dir/vga_graphos.c.o.d -o CMakeFiles/vgaPico2.dir/vga_graphos.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_graphos.c
+
+CMakeFiles/vgaPico2.dir/vga_graphos.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/vgaPico2.dir/vga_graphos.c.i"
+	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_graphos.c > CMakeFiles/vgaPico2.dir/vga_graphos.c.i
+
+CMakeFiles/vgaPico2.dir/vga_graphos.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/vgaPico2.dir/vga_graphos.c.s"
+	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pdsilva/Projects/Orion68/src/pico2VGA/vga_graphos.c -o CMakeFiles/vgaPico2.dir/vga_graphos.c.s
+
 CMakeFiles/vgaPico2.dir/orion_bus.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/orion_bus.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/orion_bus.c
 CMakeFiles/vgaPico2.dir/orion_bus.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/vgaPico2.dir/orion_bus.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/vgaPico2.dir/orion_bus.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/orion_bus.c.o -MF CMakeFiles/vgaPico2.dir/orion_bus.c.o.d -o CMakeFiles/vgaPico2.dir/orion_bus.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/orion_bus.c
 
 CMakeFiles/vgaPico2.dir/orion_bus.c.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/vgaPico2.dir/orion_bus.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/cursor.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/cursor.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/cursor.c
 CMakeFiles/vgaPico2.dir/cursor.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/vgaPico2.dir/cursor.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/vgaPico2.dir/cursor.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/cursor.c.o -MF CMakeFiles/vgaPico2.dir/cursor.c.o.d -o CMakeFiles/vgaPico2.dir/cursor.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/cursor.c
 
 CMakeFiles/vgaPico2.dir/cursor.c.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/vgaPico2.dir/cursor.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/font.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/font.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/font.c
 CMakeFiles/vgaPico2.dir/font.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/vgaPico2.dir/font.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/vgaPico2.dir/font.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/font.c.o -MF CMakeFiles/vgaPico2.dir/font.c.o.d -o CMakeFiles/vgaPico2.dir/font.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/font.c
 
 CMakeFiles/vgaPico2.dir/font.c.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/vgaPico2.dir/font.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/font_8x12.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/font_8x12.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x12.c
 CMakeFiles/vgaPico2.dir/font_8x12.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/vgaPico2.dir/font_8x12.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/vgaPico2.dir/font_8x12.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/font_8x12.c.o -MF CMakeFiles/vgaPico2.dir/font_8x12.c.o.d -o CMakeFiles/vgaPico2.dir/font_8x12.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x12.c
 
 CMakeFiles/vgaPico2.dir/font_8x12.c.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/vgaPico2.dir/font_8x12.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/font_8x14.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/font_8x14.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x14.c
 CMakeFiles/vgaPico2.dir/font_8x14.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/vgaPico2.dir/font_8x14.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/vgaPico2.dir/font_8x14.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/font_8x14.c.o -MF CMakeFiles/vgaPico2.dir/font_8x14.c.o.d -o CMakeFiles/vgaPico2.dir/font_8x14.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x14.c
 
 CMakeFiles/vgaPico2.dir/font_8x14.c.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/vgaPico2.dir/font_8x14.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/font_8x16.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/font_8x16.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x16.c
 CMakeFiles/vgaPico2.dir/font_8x16.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/vgaPico2.dir/font_8x16.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/vgaPico2.dir/font_8x16.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/font_8x16.c.o -MF CMakeFiles/vgaPico2.dir/font_8x16.c.o.d -o CMakeFiles/vgaPico2.dir/font_8x16.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x16.c
 
 CMakeFiles/vgaPico2.dir/font_8x16.c.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/vgaPico2.dir/font_8x16.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/font_8x18.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/font_8x18.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x18.c
 CMakeFiles/vgaPico2.dir/font_8x18.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/vgaPico2.dir/font_8x18.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/vgaPico2.dir/font_8x18.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/font_8x18.c.o -MF CMakeFiles/vgaPico2.dir/font_8x18.c.o.d -o CMakeFiles/vgaPico2.dir/font_8x18.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x18.c
 
 CMakeFiles/vgaPico2.dir/font_8x18.c.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/vgaPico2.dir/font_8x18.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/eeprom.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/eeprom.c.o: /home/pdsilva/Projects/Orion68/src/pico2VGA/eeprom.c
 CMakeFiles/vgaPico2.dir/eeprom.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/vgaPico2.dir/eeprom.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/vgaPico2.dir/eeprom.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/eeprom.c.o -MF CMakeFiles/vgaPico2.dir/eeprom.c.o.d -o CMakeFiles/vgaPico2.dir/eeprom.c.o -c /home/pdsilva/Projects/Orion68/src/pico2VGA/eeprom.c
 
 CMakeFiles/vgaPico2.dir/eeprom.c.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/vgaPico2.dir/eeprom.c.s: cmake_force
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/platform.c.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platfor
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_common/common.c.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_pla
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_platform_panic/panic.c.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_pla
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_claim/claim.c.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/hardware_cla
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync/sync.c.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq.c.i: cmake_force
@@ -351,7 +365,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_irq/irq_handler_chain.S.i: cmake_force
@@ -365,7 +379,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/sem.c.i: cmake_force
@@ -379,7 +393,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/se
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lock_core.c.i: cmake_force
@@ -393,7 +407,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/lo
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mutex.c.i: cmake_force
@@ -407,7 +421,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/mu
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/critical_section.c.i: cmake_force
@@ -421,7 +435,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_sync/cr
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/time.c.i: cmake_force
@@ -435,7 +449,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/ti
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/timeout_helper.c.i: cmake_force
@@ -449,7 +463,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_time/ti
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_timer/timer.c.i: cmake_force
@@ -463,7 +477,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/datetime.c.i: cmake_force
@@ -477,7 +491,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/da
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/pheap.c.i: cmake_force
@@ -491,7 +505,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/ph
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/queue.c.i: cmake_force
@@ -505,7 +519,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_util/qu
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_uart/uart.c.i: cmake_force
@@ -519,7 +533,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
@@ -533,7 +547,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pll/pll.c.i: cmake_force
@@ -547,7 +561,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
@@ -561,7 +575,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
@@ -575,7 +589,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_ticks/ticks.c.i: cmake_force
@@ -589,7 +603,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
@@ -603,7 +617,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_boo
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bootrom/bootrom_lock.c.i: cmake_force
@@ -617,7 +631,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_boo
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_boot_lock/boot_lock.c.i: cmake_force
@@ -631,7 +645,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flash/flash.c.i: cmake_force
@@ -645,7 +659,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fla
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
@@ -659,7 +673,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_divider/divider.c.i: cmake_force
@@ -673,7 +687,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
@@ -687,7 +701,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_run
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init.c.i: cmake_force
@@ -701,7 +715,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_run
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i: cmake_force
@@ -715,7 +729,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_run
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i: cmake_force
@@ -728,7 +742,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_run
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i: cmake_force
@@ -742,7 +756,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_bit
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_divider/divider_compiler.c.i: cmake_force
@@ -756,7 +770,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_div
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_math.c.i: cmake_force
@@ -769,7 +783,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_dou
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_aeabi_dcp.S.i: cmake_force
@@ -782,7 +796,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_dou
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_fma_dcp.S.i: cmake_force
@@ -795,7 +809,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_dou
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_sci_m33.S.i: cmake_force
@@ -808,7 +822,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_dou
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_double/double_conv_m33.S.i: cmake_force
@@ -822,7 +836,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_dou
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_math.c.i: cmake_force
@@ -835,7 +849,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flo
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_conv32_vfp.S.i: cmake_force
@@ -848,7 +862,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flo
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_common_m33.S.i: cmake_force
@@ -861,7 +875,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flo
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_float/float_sci_m33_vfp.S.i: cmake_force
@@ -875,7 +889,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_flo
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_malloc/malloc.c.i: cmake_force
@@ -889,7 +903,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_mal
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_atomic/atomic.c.i: cmake_force
@@ -903,7 +917,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_ato
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx_options/new_delete.cpp.i: cmake_force
@@ -917,7 +931,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cxx
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i: cmake_force
@@ -931,7 +945,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_sta
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_printf/printf.c.i: cmake_force
@@ -944,7 +958,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_pri
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building ASM object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.o   -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/crt0.S.i: cmake_force
@@ -958,7 +972,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_clib_interface/newlib_interface.c.i: cmake_force
@@ -972,7 +986,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cli
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
@@ -986,7 +1000,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/reset_interface.c.i: cmake_force
@@ -1000,7 +1014,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb.c.i: cmake_force
@@ -1014,7 +1028,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i: cmake_force
@@ -1028,7 +1042,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_std
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_unique_id/unique_id.c.i: cmake_force
@@ -1042,7 +1056,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_uni
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_flash/flash.c.i: cmake_force
@@ -1056,7 +1070,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_xip_cache/xip_cache.c.i: cmake_force
@@ -1070,7 +1084,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i: cmake_force
@@ -1084,7 +1098,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portabl
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i: cmake_force
@@ -1098,7 +1112,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/portabl
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd.c.i: cmake_force
@@ -1112,7 +1126,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/usbd_control.c.i: cmake_force
@@ -1126,7 +1140,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/device/
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/audio/audio_device.c.i: cmake_force
@@ -1140,7 +1154,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/a
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/cdc/cdc_device.c.i: cmake_force
@@ -1154,7 +1168,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_device.c.i: cmake_force
@@ -1168,7 +1182,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/d
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i: cmake_force
@@ -1182,7 +1196,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/d
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/hid/hid_device.c.i: cmake_force
@@ -1196,7 +1210,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/h
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/midi/midi_device.c.i: cmake_force
@@ -1210,7 +1224,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/m
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/msc/msc_device.c.i: cmake_force
@@ -1224,7 +1238,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/m
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ecm_rndis_device.c.i: cmake_force
@@ -1238,7 +1252,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/n
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/net/ncm_device.c.i: cmake_force
@@ -1252,7 +1266,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/n
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i: cmake_force
@@ -1266,7 +1280,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/u
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/vendor/vendor_device.c.i: cmake_force
@@ -1280,7 +1294,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/v
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/video/video_device.c.i: cmake_force
@@ -1294,7 +1308,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/class/v
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.i: cmake_force
@@ -1308,7 +1322,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/tusb.c.
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/tusb_fifo.c.i: cmake_force
@@ -1322,7 +1336,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/lib/tinyusb/src/common/
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i: cmake_force
@@ -1336,7 +1350,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_fix
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/pio.c.i: cmake_force
@@ -1350,7 +1364,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_dma/dma.c.i: cmake_force
@@ -1364,7 +1378,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_multicore/multicore.c.i: cmake_force
@@ -1378,7 +1392,7 @@ CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_mul
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o: CMakeFiles/vgaPico2.dir/flags.make
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o: CMakeFiles/vgaPico2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o"
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o -MF CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o.d -o CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.o -c /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c
 
 CMakeFiles/vgaPico2.dir/home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_i2c/i2c.c.i: cmake_force
@@ -1394,6 +1408,7 @@ vgaPico2_OBJECTS = \
 "CMakeFiles/vgaPico2.dir/vga.c.o" \
 "CMakeFiles/vgaPico2.dir/vga_drv.c.o" \
 "CMakeFiles/vgaPico2.dir/vga_primitives.c.o" \
+"CMakeFiles/vgaPico2.dir/vga_graphos.c.o" \
 "CMakeFiles/vgaPico2.dir/orion_bus.c.o" \
 "CMakeFiles/vgaPico2.dir/cursor.c.o" \
 "CMakeFiles/vgaPico2.dir/font.c.o" \
@@ -1493,6 +1508,7 @@ vgaPico2_EXTERNAL_OBJECTS =
 vgaPico2.elf: CMakeFiles/vgaPico2.dir/vga.c.o
 vgaPico2.elf: CMakeFiles/vgaPico2.dir/vga_drv.c.o
 vgaPico2.elf: CMakeFiles/vgaPico2.dir/vga_primitives.c.o
+vgaPico2.elf: CMakeFiles/vgaPico2.dir/vga_graphos.c.o
 vgaPico2.elf: CMakeFiles/vgaPico2.dir/orion_bus.c.o
 vgaPico2.elf: CMakeFiles/vgaPico2.dir/cursor.c.o
 vgaPico2.elf: CMakeFiles/vgaPico2.dir/font.c.o
@@ -1589,7 +1605,7 @@ vgaPico2.elf: CMakeFiles/vgaPico2.dir/build.make
 vgaPico2.elf: pico-sdk/src/rp2350/boot_stage2/CMakeFiles/bs2_default_library.dir/bs2_default_padded_checksummed.S.o
 vgaPico2.elf: /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_crt0/rp2350/memmap_default.ld
 vgaPico2.elf: CMakeFiles/vgaPico2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Linking CXX executable vgaPico2.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Linking CXX executable vgaPico2.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vgaPico2.dir/link.txt --verbose=$(VERBOSE)
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-objdump -h /home/pdsilva/Projects/Orion68/src/pico2VGA/build/vgaPico2.elf > vgaPico2.dis
 	/home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-objdump -d /home/pdsilva/Projects/Orion68/src/pico2VGA/build/vgaPico2.elf >> vgaPico2.dis

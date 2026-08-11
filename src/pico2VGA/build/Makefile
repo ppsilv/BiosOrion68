@@ -2381,6 +2381,30 @@ vga_drv.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vgaPico2.dir/build.make CMakeFiles/vgaPico2.dir/vga_drv.c.s
 .PHONY : vga_drv.c.s
 
+vga_graphos.o: vga_graphos.c.o
+.PHONY : vga_graphos.o
+
+# target to build an object file
+vga_graphos.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vgaPico2.dir/build.make CMakeFiles/vgaPico2.dir/vga_graphos.c.o
+.PHONY : vga_graphos.c.o
+
+vga_graphos.i: vga_graphos.c.i
+.PHONY : vga_graphos.i
+
+# target to preprocess a source file
+vga_graphos.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vgaPico2.dir/build.make CMakeFiles/vgaPico2.dir/vga_graphos.c.i
+.PHONY : vga_graphos.c.i
+
+vga_graphos.s: vga_graphos.c.s
+.PHONY : vga_graphos.s
+
+# target to generate assembly for a file
+vga_graphos.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vgaPico2.dir/build.make CMakeFiles/vgaPico2.dir/vga_graphos.c.s
+.PHONY : vga_graphos.c.s
+
 vga_primitives.o: vga_primitives.c.o
 .PHONY : vga_primitives.o
 
@@ -2688,6 +2712,9 @@ help:
 	@echo "... vga_drv.o"
 	@echo "... vga_drv.i"
 	@echo "... vga_drv.s"
+	@echo "... vga_graphos.o"
+	@echo "... vga_graphos.i"
+	@echo "... vga_graphos.s"
 	@echo "... vga_primitives.o"
 	@echo "... vga_primitives.i"
 	@echo "... vga_primitives.s"

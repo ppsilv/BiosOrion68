@@ -34,10 +34,10 @@ extern uint bus_sm;
 extern bool bus_try_get_event(uint8_t *value,uint8_t *reg,PIO pio, uint sm);
 
 //VGA variables
-volatile uint16_t cursor_x = 0;
-volatile uint16_t cursor_y = 0;
-volatile uint8_t  text_color = 0;
-volatile uint8_t  bg_color = 0;
+//volatile uint16_t cursor_x = 0;
+//volatile uint16_t cursor_y = 0;
+//volatile uint8_t  text_color = 0;
+//volatile uint8_t  bg_color = 0;
 sys_config_t vga_nvc_config;
 
 //Prototypes
@@ -73,16 +73,23 @@ void video_welcome_screen(){
     vga->setTextCursorPos(0,0);
     vga->setTextColor(RED, BLACK);
     vga->printString("Orion Vpico2 vga312k   VGA BIOS VRP2350\n");
-    vga->setTextColor(YELLOW, BLACK);
-    vga->printString("Version 1.2.25.16.00RA\n"); /*1.0 version 21 week 18 day*/
     vga->setTextColor(CYAN, BLACK);
+    vga->printString("Version 1.2.25.16.00RA\n"); /*1.0 version 21 week 18 day*/
+    vga->setTextColor(YELLOW, BLACK);
     if ( video_mode < MODE_TEXT_80_S){
         vga->printString("Copyright (C) 2026 pdsilva(aka pgordao).\nV1.2 Vpico2vga312k\n");
     }else{
         vga->printString("Copyright (C) 2026 pdsilva(aka pgordao).V1.2 Vpico2vga312k -2620\n");
     }
-    vga->setTextCursorPos(0,4);
     vga->setTextColor(GREEN, BLACK);
+    drawHLine(0,48,640,YELLOW);
+    drawHLine(0,49,640,YELLOW);
+    drawHLine(0,50,640,YELLOW);
+    drawHLine(0,51,640,YELLOW);
+
+
+    vga->setTextCursorPos(0,4);
+
 }
 
 int verify_start() {
@@ -143,16 +150,11 @@ int main(){
     vga = create_screen( MODE_TEXT_80_S ); //, 0, 0, font );
     video_mode = MODE_TEXT_80_S;
 
-    drawHLine(0,48,640,YELLOW);
-    drawHLine(0,49,640,YELLOW);
-    drawHLine(0,50,640,YELLOW);
-    drawHLine(0,51,640,YELLOW);
-
     video_welcome_screen();
 
     // === config threads ========================
     // for core 0
-    create_timer(CURSOR_BLINK_ON); //Com o timer para o cursor ele não engasga como quando controlado pela protothread
+    create_timer(CURSOR_BLINK_ON);
     // Lança a função do Core 1 no segundo núcleo
     multicore_launch_core1(core1_entry);
 
