@@ -325,7 +325,7 @@ static const unsigned char memorymsg[]        PROGMEM = " bytes free.";
 
 static const unsigned char breakmsg[]         PROGMEM = "break!";
 static const unsigned char unimplimentedmsg[] PROGMEM = "Command not found";
-static const unsigned char backspacemsg[]     PROGMEM = "\b \b";
+static const unsigned char backspacemsg[]     PROGMEM = "\b";
 static const unsigned char indentmsg[]        PROGMEM = "    ";
 static const unsigned char sderrormsg[]       PROGMEM = "SD card error.";
 static const unsigned char sdfilemsg[]        PROGMEM = "SD file error.";
@@ -537,6 +537,13 @@ void printmsg(const unsigned char *msg)
 }
 
 /***************************************************************************/
+#define PS2_BACKSPACE		0x08
+#define PS2_TAB				0x09
+#define PS2_ENTER			0x0D
+#define PS2_LINEFEED        0x0A
+#define PS2_BACKSPACE		0x08
+#define PS2_ESC				0x1B
+
 static void getln(char prompt)
 {
   outchar(prompt);
@@ -544,37 +551,42 @@ static void getln(char prompt)
 
   while(1)
   {
+
     char c = inchar();
     switch(c)
     {
-      case 0x1B:
+     // case PS2_BACKSPACE:
+     //   putchar('\b');
+     //   txtpos--;
+     //   break;
+      case PS2_ESC:
         exit=1;
         return;
-    case NL:
-      //break;
-    case CR:
-      line_terminator();
-      // Terminate all strings with a NL
-      txtpos[0] = NL;
-      return;
-    case CTRLH:
-      if(txtpos == program_end)
+      case NL:
+        //break;
+      case CR:
+        line_terminator();
+        // Terminate all strings with a NL
+        txtpos[0] = NL;
+        return;
+      case CTRLH:
+        if(txtpos == program_end)
+          break;
+        txtpos--;
+        putchar('\b');
+        //printmsg(backspacemsg);
         break;
-      txtpos--;
-
-      printmsg(backspacemsg);
-      break;
-    default:
-      // We need to leave at least one space to allow us to shuffle the line into order
-      if(txtpos == variables_begin-2)
-        outchar(BELL);
-      else
-      {
-        txtpos[0] = c;
-        txtpos++;
-        outchar(c);
-      }
-    }
+      default:
+        // We need to leave at least one space to allow us to shuffle the line into order
+        if(txtpos == variables_begin-2)
+          outchar(BELL);
+        else
+        {
+          txtpos[0] = c;
+          txtpos++;
+          outchar(c);
+        }
+     }
   }
 }
 

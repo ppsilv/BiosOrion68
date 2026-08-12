@@ -23,3 +23,5 @@ typedef struct  {
 }vga_text_private_t;
 
 #endif
+
+
