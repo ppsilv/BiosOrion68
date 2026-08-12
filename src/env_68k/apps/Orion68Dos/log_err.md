@@ -2,9 +2,17 @@
         O modulo grafico vga_graphics.c está com alguns problemas.
         Problema 1: a lib não chega até o pico tem algum erro o unico debug que aparece é:
                         printf("VGA_Video: x0[%d] y0[%d] x1[%d] x1[%d] col[%d]\n",x0,y0,x1,y1,color);
+                     tinha varios erros
+                     1 - d1 não estava sendo populado.
+                     2 - d1 não estava sendo enviado.
+                     3 - um printf de debug colocado depois da população dos registradores 
+                         estava matando o conteudo dos registradores.   
         Problema 2: a função drawLine no pico não está desenhando nada, testei com o poke do basic 
                         enviando cada valor individualmente e o print de debug do comando   CMD_DRAW_LINE dentro
                         do pico imprimiu  PICO: x0[20] y0[10] x1[40] x1[10] col[5]\n"           
+                     1 - nesse caso não era ero esses valores mostram uma linha misnuscula na tela
+                         que eu não estava vendo
+        AVISO:  RETIRAR OS DEBUGS NO VGA_VIDEO e no PICO                               
 # 2026-08-10
         A transferencia de arquivos entre o pico2w e o m68k estava demorando 1ms por byte
         quando em minhas contas deveria ser 6ms por byte

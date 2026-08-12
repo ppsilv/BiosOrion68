@@ -135,8 +135,8 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                         case CMD_DRAW_PIXEL:           
                             break;
                         case CMD_DRAW_LINE:  
-                            sprintf(buf,"PICO:x0[%d] y0[%d] x1[%d] x1[%d] col[%d]\n",cursor_x,cursor_y,cursor_x1,cursor_y1,primitive_color);
-                            vga->printString(buf);
+                            //sprintf(buf,"PICO:x0[%d] y0[%d] x1[%d] x1[%d] col[%d]\n",cursor_x,cursor_y,cursor_x1,cursor_y1,primitive_color);
+                            //vga->printString(buf);
                             drawLine( cursor_x,  cursor_y,  cursor_x1,  cursor_y1,  primitive_color);
                             break;
                         case CMD_DRAW_VLINE:           

@@ -35,7 +35,7 @@ void drawHLine(int x, int y, int w, color_t color){
     );
 }
 void drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, char color){
-    printf("VGA_Video: x0[%d] y0[%d] x1[%d] x1[%d] col[%d]\n",x0,y0,x1,y1,color);
+    //printf("VGA_Video: x0[%d] y0[%d] x1[%d] x1[%d] col[%d]\n",x0,y0,x1,y1,color);
 
     register uint32_t d0 asm("d0") = color;
     register uint32_t d1 asm("d1") = VID_DRAW_LINE;

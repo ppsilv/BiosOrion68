@@ -555,10 +555,6 @@ static void getln(char prompt)
     char c = inchar();
     switch(c)
     {
-     // case PS2_BACKSPACE:
-     //   putchar('\b');
-     //   txtpos--;
-     //   break;
       case PS2_ESC:
         exit=1;
         return;
@@ -569,7 +565,7 @@ static void getln(char prompt)
         // Terminate all strings with a NL
         txtpos[0] = NL;
         return;
-      case CTRLH:
+      case CTRLH: //PS2_BACKSPACE
         if(txtpos == program_end)
           break;
         txtpos--;

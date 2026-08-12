@@ -1897,7 +1897,7 @@
  1693      0000 
  1694 10a0 43EE FFC0 		lea (-64,%fp),%a1
  1695               	#APP
- 1696               	| 2580 "TinyBasicPlus.c" 1
+ 1696               	| 2576 "TinyBasicPlus.c" 1
  1697 10a4 7213      		move.l #19, %d1
  1698 10a6 2049      		move.l %a1, %a0
  1699 10a8 4E4C      		trap #12
@@ -2007,7 +2007,7 @@
  1780 11b4 78BC      		moveq #-68,%d4
  1781 11b6 D88E      		add.l %fp,%d4
  1782               	#APP
- 1783               	| 2615 "TinyBasicPlus.c" 1
+ 1783               	| 2611 "TinyBasicPlus.c" 1
  1784 11b8 7214      		move.l #20, %d1
  1785 11ba 2042      		move.l %d2, %a0
  1786 11bc 227C 0000 		move.l #program, %a1
@@ -3723,7 +3723,7 @@
  3166 242a 76BC      		moveq #-68,%d3
  3167 242c D68E      		add.l %fp,%d3
  3168               	#APP
- 3169               	| 2597 "TinyBasicPlus.c" 1
+ 3169               	| 2593 "TinyBasicPlus.c" 1
  3170 242e 7215      		move.l #21, %d1
  3171 2430 2042      		move.l %d2, %a0
  3172 2432 227C 0000 		move.l #program, %a1
