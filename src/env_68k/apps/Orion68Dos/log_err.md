@@ -12,7 +12,7 @@
                         do pico imprimiu  PICO: x0[20] y0[10] x1[40] x1[10] col[5]\n"           
                      1 - nesse caso não era ero esses valores mostram uma linha misnuscula na tela
                          que eu não estava vendo
-        AVISO:  RETIRAR OS DEBUGS NO VGA_VIDEO e no PICO                               
+        AVISO:  RETIRAR OS DEBUGS NO VGA_VIDEO e no PICO--> Feito-->OK                               
 # 2026-08-10
         A transferencia de arquivos entre o pico2w e o m68k estava demorando 1ms por byte
         quando em minhas contas deveria ser 6ms por byte

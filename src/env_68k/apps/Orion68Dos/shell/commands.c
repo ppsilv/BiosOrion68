@@ -20,8 +20,20 @@
 #include "color.h"
 #include "../kbd/ringbuffer.h"
 
+
+#define PICO_STATUS_REG  (*(volatile uint8_t *)0xFF9103)
+#define PICO_STATE_IDLE       0x00
+#define PICO_STATE_HAS_FILE   0x01
+#define PICO_STATE_EOF        0x02
+
 extern FATFS FatFs;      // Objeto de controle do sistema de arquivos (Work area)
 extern char syspath[128];
+extern void main_teste_teclado(void); 
+extern char teste01();
+extern bool receber_arquivo_do_pico(uint8_t *destino_ram,uint8_t reg);
+extern bool noblk_receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg);
+extern bool receber_setor_do_pico(uint8_t *destino_ram, uint16_t sector);
+extern void pico_write_ch(uint8_t ch);
 
 static DIR Dir;          // Objeto de diretório
 static FILINFO Fno;      // Estrutura que recebe os metadados do arquivo/pasta
@@ -62,8 +74,6 @@ void do_help(int argc, char *argv[])
 		++i;
 	}
 }
-
-
 void do_binfile(int argc, char *argv[])
 {
     char *rec_buf = (char *)0x00100000;
@@ -673,8 +683,9 @@ void do_run(int argc, char *argv[])
         printf("uso: save <nome_arquivo> <tamanho_hex>\n");
         return;
     }
-
+   
     tamanho = strtoul(argv[1], NULL, 16);
+   
     printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
 
     if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
@@ -704,6 +715,76 @@ void do_run(int argc, char *argv[])
 
     printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
            nome_arquivo, (unsigned)tamanho);
+}
+void do_save2(int argc, char *argv[]){
+    uint8_t status=0;
+    status = PICO_STATUS_REG;
+    if ( status == PICO_STATE_IDLE) {
+        return;
+    }
+    if (status < 1 ) {
+        return;
+    }
+
+    noblk_receber_arquivo_do_pico((uint8_t *)0x82000,0);
+
+    const void *origem = (const void *)0x82015;
+    const char *nome_arquivo1 = (const void *)0x82008;
+    
+    volatile uint8_t *p1 = (volatile uint8_t *)0x82004;
+
+    uint32_t tamanho1 = ((uint32_t)p1[3] << 24) |
+                       ((uint32_t)p1[2] << 16) |
+                       ((uint32_t)p1[1] << 8)  |
+                       ((uint32_t)p1[0]);
+    tamanho1=tamanho1-0x15;
+    //printf("0-origem [%08X] nome[%s] tamanho[%04x]\n",origem,nome_arquivo1,tamanho1);
+
+    if( strlen(nome_arquivo1) > 13 ){
+        printf("Error: filename bigger than 13bytes...\n");
+        return;
+    }
+
+    //dump_memory((void*)0x82000, 0x32);
+
+    FIL     arquivo;
+    FRESULT fr;
+    UINT    bytes_escritos;
+    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
+    size_t tamanho;
+
+    nome_arquivo=nome_arquivo1;
+    tamanho = strtoul(argv[1], NULL, 16);
+    tamanho = tamanho1;
+//    printf("1-origem [%08X] nome[%s] tamanho[%04x]\n",origem,nome_arquivo1,tamanho1-0x15);
+//    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
+
+    if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
+        printf("dump_memoria_para_arquivo: parametros invalidos\n");
+        return;
+    }
+
+    fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
+        return;
+    }
+
+    fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
+    if (fr != FR_OK || bytes_escritos != tamanho) {
+        printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
+               nome_arquivo, fr, bytes_escritos, (unsigned)tamanho);
+        f_close(&arquivo);
+        return;
+    }
+
+    fr = f_close(&arquivo);
+    if (fr != FR_OK) {
+        printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
+        return;
+    }
+
+    //printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",nome_arquivo, (unsigned)tamanho);
 }
 char do_save_basic(int argc, char *argv[]){
     FIL     arquivo;
@@ -776,11 +857,6 @@ void do_time(int argc, char *argv[])
     printf("Setting the date and time to %02d/%02d/%04d %02d:%02d:%02d\n", date.tm_day, date.tm_mon, date.tm_year, date.tm_hour, date.tm_min, date.tm_sec);
   //  rtc_set_time(&date);
 }
-extern void main_teste_teclado(void); 
-extern char teste01();
-extern bool receber_arquivo_do_pico(uint8_t *destino_ram,uint8_t reg);
-extern bool receber_setor_do_pico(uint8_t *destino_ram, uint16_t sector);
-extern void pico_write_ch(uint8_t ch);
 void do_tstkbd(int argc, char *argv[])
 {
     uint8_t cmd =(uint8_t ) strtoul((const char *)argv[0], NULL, 16);

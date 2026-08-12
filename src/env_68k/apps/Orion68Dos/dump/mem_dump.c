@@ -16,7 +16,7 @@ void dump_memory(long addr,int size){
     while(1){
         // Inicializa os ponteiros baseado no 'addr' ATUAL da página
         
-        clrscr();
+        //clrscr();
         
         printf("----------------------------------------------------------------------------\n");
         printf("Dumping %03x bytes from addr %08X\n",size, pcharhex);

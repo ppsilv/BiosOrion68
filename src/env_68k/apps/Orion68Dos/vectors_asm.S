@@ -63,6 +63,7 @@
 .extern vid_fillRoundRect
 .extern vid_fillRect
 .extern vid_fillTri
+.extern do_save2
 
 | teste
 /* =========================================================================
@@ -140,7 +141,7 @@ Int2Handler:
 .action_200:
     move.b  #0x1C,0xFF901F        
     clr.w   tick_count          
-
+    jsr     do_save2
     move.l  (%sp)+,%a0
     rte
 

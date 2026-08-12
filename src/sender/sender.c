@@ -118,6 +118,11 @@ int main(int argc, char * argv[]) {
 
     buffer = (unsigned char *)carregar_arquivo_completo(argv[1],(size_t *)&tam);
 
+    if ( buffer == NULL ){
+        printf("Erro: buffer vazio, provavelmente arquivo não encontrado ou vazio.\n");
+        return 1;
+    }
+
     int socket_pico = conectar_servidor(SERVER_HOST, SERVER_PORT);
     if (socket_pico < 0) {
         return EXIT_FAILURE;

@@ -21,6 +21,7 @@ void do_rename_shel(int argc, char *argv[]);
 void do_rmdir(int argc, char *argv[]);
 void do_run(int argc, char *argv[]);
 void do_save(int argc, char *argv[]);
+void do_save2(int argc, char *argv[]);
 void do_shst(int argc, char *argv[]);
 void do_time(int argc, char *argv[]);
 void do_tstkbd(int argc, char *argv[]);

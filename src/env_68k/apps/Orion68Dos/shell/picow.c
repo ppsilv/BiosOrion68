@@ -91,6 +91,35 @@ bool receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     return arq_crc_rec == arq_crc;
 }
 
+bool noblk_receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
+    volatile uint8_t *reg = (volatile uint8_t *)(0xFF9100 + preg);
+
+    // 2. Captura o tamanho do arquivo enviado pelo Pico (16 bits fatiados em 2 bytes)
+    uint16_t tamanho_arquivo=0;
+    uint8_t tamanho_high = PICO_SIZE_HIGH;
+    tamanho_high = PICO_SIZE_HIGH;
+    uint8_t tamanho_low = PICO_SIZE_LOW;
+    tamanho_low = PICO_SIZE_LOW;
+    
+    tamanho_arquivo = (tamanho_high <<8) | tamanho_low;
+
+    if (tamanho_arquivo == 0) {
+        return 0;
+    }
+
+    // 3. Loop de leitura dos dados do arquivo
+    for (uint16_t i = 0; i < tamanho_arquivo; i++) {       
+        destino_ram[i] = PICO_DATA_REG; 
+    }
+    uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);
+    arq_crc_rec |= ((uint32_t)PICO_CRC_REG2 << 16) & 0x00FF0000;
+    arq_crc_rec |= ((uint32_t)PICO_CRC_REG1 << 8)  & 0x0000FF00; // Corrigido: 0x0000FF00
+    arq_crc_rec |= (uint32_t)PICO_CRC_REG0 & 0xFF;
+
+    uint32_t arq_crc = crc32_calculate(((const uint8_t *)destino_ram)+4, tamanho_arquivo-4);
+
+    return arq_crc_rec == arq_crc;
+}
 
 //#define SECTOR_LOW_REG         0x0A
 //#define SECTOR_HIGH_REG        0x0B
