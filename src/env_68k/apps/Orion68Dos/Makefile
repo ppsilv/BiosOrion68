@@ -13,7 +13,7 @@ LDFLAGS = -T ./orion68.ld -L../../lib -nostdlib  -Map=orion68.map
 LDLIBS = -lfileio -lc68k -lvideo
 
 # 1. ADICIONADO: Lista de arquivos em Assembly (.S)
-ASMS = vectors_asm.S trap2_asm.S trap12_asm.S cpm_bios.S
+ASMS = vectors_asm.S trap2_asm.S trap4_asm.S trap12_asm.S cpm_bios.S
 
 
 VASMS =
@@ -31,6 +31,7 @@ SRCS = orion68.c vectors.c console.c trap12.c timers.c interrupt.c \
 ./shell/cmd_repeat.c \
 ./kbd/ringbuffer.c \
 ./rtc/rp5c01a.c \
+./rtc/i2cbb.c \
 ./uarts/drv_uart0.c \
 ./duart/duart.c \
 ./ide/ata.c \

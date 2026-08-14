@@ -49,12 +49,13 @@ const cmd_entry_t g_cmd_table[] = {
     {"uptime",      0,  0, &do_uptime,      "Display the time the system has been running" },
     {"writemem",    2,  0, &do_writemem,    "Write memory <addr> [byte ...]" },
     {"writemem1",   2,  0, &do_writemem1,   "Write a memory location" },
-    {"tst",         2,  2, &do_tstkbd,      "Testa conversa com o picow...\n" \ 
+    /*
+    {"tst",         2,  2, &do_tstkbd,      "Testa conversa com o picow...\n" \
                                             "\tcmd=0x00 dado=0 => chama receber_arquivo_do_pico\n" \
                                             "\tcmd=0x01 dado=0 => chama receber_setor_do_pico\n" \
                                             "\tcmd=0x04 dado=0 => chama liga led\n" \
                                             "\tcmd=0x05 dado=0 => chama desliga led\n" \
-                                            "\tcmd=0x0A dado=sec.low => chama send_sector_low\n" \ 
+                                            "\tcmd=0x0A dado=sec.low => chama send_sector_low\n" \
                                             "\tcmd=0x0B dado=sec. high => chama send_sector_high\n" \
                                             "\tcmd=0x0C dado=0 => chama send_read_cmd\n" \
                                             "\tcmd=0x0D dado=0 => chama read_sector\n"
@@ -63,6 +64,7 @@ const cmd_entry_t g_cmd_table[] = {
                                             "\tcmd=0x12 dado=x => chama pico write char\n" \
                                             "\tcmd-0xff dado=0 => chama read_kbd"
                                             },
+    */                                            
 
     {0, 0, 0, 0, 0 }
 };
@@ -219,11 +221,12 @@ int load_elf_executable(int argc, char *argv[], FIL *fd)
         printf("Cannot read ELF file header\n");
         return -1;
     }
+#ifdef DEBUG_ELF    
     else
     {
         printf("ELF file header read, %d bytes\n", bytesRead);
     }
-
+#endif
     if (header.ident_magic[0] != 0x7F ||
         header.ident_magic[1] != 'E' ||
         header.ident_magic[2] != 'L' ||
@@ -275,8 +278,9 @@ int load_elf_executable(int argc, char *argv[], FIL *fd)
                 return -1;
 
             case PT_LOAD:
-				printf("Loading %d byte segment from offset 0x%x to address 0x%x\n\r",
-					progHeader.filesz, progHeader.offset, progHeader.paddr);
+#ifdef DEBUG_ELF    
+				printf("Loading %d byte segment from offset 0x%x to address 0x%x\n\r",	progHeader.filesz, progHeader.offset, progHeader.paddr);
+#endif                
                 f_lseek(fd, progHeader.offset);
 
                 if(f_read(fd, (char*)progHeader.paddr, progHeader.filesz, &bytesRead) != FR_OK || bytesRead != progHeader.filesz)
@@ -287,8 +291,7 @@ int load_elf_executable(int argc, char *argv[], FIL *fd)
 
                 if (progHeader.memsz > progHeader.filesz)
                 {
-				    printf("Clearing %d bytes BSS at 0x%x\n\r",
-					    progHeader.memsz - progHeader.filesz, progHeader.paddr + progHeader.filesz);
+				    printf("Clearing %d bytes BSS at 0x%x\n\r", progHeader.memsz - progHeader.filesz, progHeader.paddr + progHeader.filesz);
                     memset((char*)progHeader.paddr + progHeader.filesz, 0, progHeader.memsz - progHeader.filesz);
                 }
 
@@ -305,17 +308,19 @@ int load_elf_executable(int argc, char *argv[], FIL *fd)
         }
         progIndex++;
     }
-
+#ifdef DEBUG_ELF    
     printf("Program entry point is at 0x%x\n", header.entry);
     printf("Calling with %d args\n", argc);
     for (int i = 0; i < argc; i++)
         printf("  arg %d : %s\n", i, argv[i]);
 
     printf("Running program %s\n\n", argv[0]);
-
+#endif
     int (*entry)(int, char**) = (int (*)(int, char**))header.entry;
     int ret = (*entry)(argc, argv);
+#ifdef DEBUG_ELF    
     printf("Program returned value %d\n", ret);
+#endif
     return ret;
 }
 
@@ -371,9 +376,9 @@ int process_command_executable(int argc, char *argv[])
     }
 
     memset(buffer, 0, HEADER_EXAMINE_SIZE);
-
+#ifdef DEBUG_ELF    
     printf("%s: File size is %d bytes, ", argv[0], f_size(&file));
-
+#endif
     /* sniff the first few bytes, then rewind to the start of the file */
     fr = f_read(&file, buffer, HEADER_EXAMINE_SIZE, &br);
     f_lseek(&file, 0);
@@ -382,7 +387,7 @@ int process_command_executable(int argc, char *argv[])
     {
         if (memcmp(buffer,(const char *) g_elf_header_bytes, sizeof(g_elf_header_bytes)) == 0)
         {
-            printf("ELF executable\n\n");
+            //printf("ELF executable\n\n");
             load_elf_executable(argc, argv, &file);
         }
         else

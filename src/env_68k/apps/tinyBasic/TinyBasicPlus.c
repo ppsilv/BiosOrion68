@@ -102,6 +102,8 @@ static int file_write(char *filename,char * program, int size, int *bytes_writte
 static int get_filename(char *buf, int max_len);
 static int file_list(char *filter);
 
+void read_date();
+
 //INICIO
 #define STRVAR_LEN    40   /* tamanho máximo de cada string, ajuste conforme necessário */
 #define NUM_STR_TEMP   4   /* buffers temporários rotativos, para permitir aninhar chamadas tipo LEFT$(MID$(A$,1,3),2) */
@@ -163,6 +165,7 @@ const static unsigned char keywords[]  = {
   'R','R','E','C','T'+0x80,
   'F','R','R','E','C','T'+0x80,
   'F','R','E','C','T'+0x80,
+  'D','A','T','E'+0x80,
   0
 };
 
@@ -206,6 +209,7 @@ enum {
   KW_RRECT,
   KW_FRRECT,
   KW_FRECT,
+  KW_DATE,
   KW_DEFAULT /* always the final one*/
 };
 
@@ -1400,6 +1404,8 @@ interperateAtTxtpos:
     goto tbfillRoundRect;
   case KW_FRECT:
     goto tbfillRect;
+  case  KW_DATE:
+    goto tbdate;
   case KW_GOTOXY:
     goto gotoxy;
   case KW_CLS:
@@ -1908,8 +1914,11 @@ tbfillRect:
     fillRect( x0, y0, w, h, color);
     goto run_next_statement;
 }
+tbdate:
+    read_date();
+    goto run_next_statement;
 
-gotoxy:
+    gotoxy:
     expression_error = 0;
     int x = expression(); /* Avalia a 1ª expressão (X) */
     if(expression_error) goto qwhat;
@@ -2536,8 +2545,18 @@ rseed:
   }
 
 }
+#include <orion_rtc.h>
 
-
+rtc_time_t t;
+void read_date(){
+  sys_rtc_read_time( &t);
+  printf("seg :%02x\n",t.sec);
+  printf("min :%02x\n",t.min);
+  printf("hour:%02x\n",t.hour);
+  printf("mday:%02x\n",t.mday);
+  printf("mon :%02x\n",t.mon);
+  printf("year:%02x\n",t.year);
+}
 
 // Copia o nome do arquivo da linha de comando para o buffer
 static int get_filename(char *buf, int max_len)

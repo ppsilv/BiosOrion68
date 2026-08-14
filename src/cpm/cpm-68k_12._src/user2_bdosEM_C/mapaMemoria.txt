@@ -1,0 +1,152 @@
+No CP/M-68K (a versão para o processador Motorola 68000), o mapa de memória muda drasticamente em relação ao Z80. O sistema opera em modo binário linear e relocável, permitindo o uso de até 16 MB de RAM e movendo a TPA para o topo da memória.
+A organização padrão da memória no CP/M-68K segue esta estrutura fixa:
+
++------------------------+ (Fim da RAM Física / Topo)
+
+|  TPA (Transient Program| -> Área livre para programas do usuário
+|       Area)            |    (Cresce até o limite da memória)
++------------------------+
+
+|          BDOS          | -> Gerencia o sistema de arquivos (relocável)
++------------------------+
+
+|          BIOS          | -> Controla o hardware (relocável)
++------------------------+
+
+|          CCP           | -> Interpretador de comandos (relocável)
++------------------------+ 000400h
+
+|  TPA Exception Vectors | -> Vetores de exceção do usuário/sistema
++------------------------+ 000000h (Início da RAM)
+
+## Alocação Prática no M68K
+
+*
+* Vetores de Exceção (000000h - 0003FFh): Contém a tabela de vetores do processador 68000 (como interrupções, erros de barramento e instruções TRAP).
+* Módulos do Sistema (000400h em diante): O CCP, BIOS e BDOS são carregados sequencialmente logo após os vetores de exceção. Eles não ficam mais no topo da memória como no Z80.
+* TPA Superior: A área de execução de programas começa logo após o BDOS e se estende até o limite físico da memória RAM da máquina.
+* Chamadas de Sistema: Programas usam a instrução TRAP #2 em vez de saltar para o endereço 0005h.
+*
+
+Se precisar analisar o seu código, posso ajudar a identificar:
+
+*
+* A estrutura do cabeçalho de arquivo executável (68K OMF)
+* A inicialização dos vetores de TRAP #2 no código
+* A configuração da BIOS (Bios Def Block)
+*
+
+Qual parte do código você gostaria de analisar agora?
+
+O arquivo CPM.SYS é a imagem binária consolidada de todo o sistema operacional CP/M-68K. Ele contém o código executável dos três módulos principais que você viu no primeiro mapa de memória: o CCP, o BDOS e o BIOS.
+Quando o Loader (aquele segundo código que você enviou) termina de ler o CPM.SYS do disco e o joga na memória RAM, a estrutura interna que é descompactada possui três partes:
+## 1. O Cabeçalho (Header) do Arquivo
+O CPM.SYS usa o formato de arquivo executável padrão do CP/M-68K. Ele começa com um cabeçalho que diz ao Loader exatamente o tamanho de cada seção na memória (Tamanho do Código, Tamanho das Variáveis Globais e Tabela de Relocação).
+## 2. Os Três Módulos Unidos
+Dentro do arquivo, os módulos estão concatenados na seguinte ordem:
+
+* CCP (Console Command Processor): O interpretador de comandos (comandos residentes na memória como DIR, ERA, USER).
+* BDOS (Basic Disk Operating System): O código completo do primeiro arquivo em C que você enviou, contendo todas as regras de gerenciamento de disco, leitura e escrita.
+* BIOS (Basic Input/Output System): O código customizado para a sua máquina específica que conversa com o hardware. [1]
+
+## 3. A Tabela de Relocação (Relocation Triplets)
+Como o processador Motorola 68000 gerencia a memória de forma linear e os computadores da época podiam ter quantidades diferentes de memória RAM, o CPM.SYS não pode ter endereços fixos "amarrados" no código.
+No final do arquivo CPM.SYS existe uma lista de ponteiros chamada tabela de relocação. O Loader lê essa tabela para ajustar todos os endereços de memória do CCP, BDOS e BIOS em tempo de execução, garantindo que eles se encaixem perfeitamente a partir do endereço de RAM inicial da sua máquina (geralmente 000400h).
+------------------------------
+Resumo da Ópera:
+O CPM.SYS é o "coração" do sistema pronto para execução. O código que você viu na USER 2 foi compilado e transformado em parte deste arquivo binário.
+Quer entender como esses módulos são gerados e juntados na hora de criar o arquivo CPM.SYS final usando as ferramentas de desenvolvimento do CP/M-68K?
+
+[1] [https://www.linkedin.com](https://www.linkedin.com/advice/0/what-some-common-bios-firmware-issues-how-can-you?lang=pt)
+[
+Para compilar e linkar o CP/M-68K usando o m68k-elf-gcc, você precisará usar um script de linkagem personalizado (Linker Script) ou passar flags específicas para o ld. O GCC moderno trabalha com o formato ELF, o que torna muito mais fácil gerar um binário purificado (raw binary) sem cabeçalhos.
+Como você quer que o código rode exatamente a partir do endereço 0x82000, a seção de texto (.text) deve começar rigorosamente nesse endereço.
+Aqui está o passo a passo com os comandos exatos do GCC:
+## 1. Comando de Compilação dos Arquivos .c e .s
+Compile todos os arquivos gerando os arquivos de objeto (.o). Certifique-se de desativar bibliotecas padrão do C (-nostdlib), pois o CP/M fornece o próprio ambiente.
+
+# Compilando os arquivos C
+m68k-elf-gcc -m68000 -c bdosmain.c -o bdosmain.o -nostdlib -O2# ... repita para os outros arquivos .c (ccp, bios, etc.)
+# Montando os arquivos em Assembly (como o bdosif.s)
+m68k-elf-gcc -m68000 -c bdosif.s -o bdosif.o
+
+## 2. O Linker Script (link.ld)
+A melhor abordagem com o GCC é criar um arquivo de texto chamado link.ld para garantir que o CCP fique exatamente no início do binário (no endereço 0x82000), seguido pelo BDOS e pela BIOS.
+Crie o arquivo link.ld com o seguinte conteúdo:
+
+OUTPUT_ARCH(m68k)
+ENTRY(_start) /* Altere para o rótulo de entrada do seu CCP, se for diferente */
+
+SECTIONS
+{
+    /* Força todo o binário a começar rigidamente em 0x82000 */
+    . = 0x82000;
+
+    .text :
+    {
+        /* Garante que o arquivo de entrada do CCP seja o primeiro */
+        ccp.o(.text .text.*)
+        *(.text .text.*)
+    }
+
+    .rodata :
+    {
+        *(.rodata .rodata.*)
+    }
+
+    .data :
+    {
+        *(.data .data.*)
+    }
+
+    .bss :
+    {
+        *(.bss .bss.*)
+        *(COMMON)
+    }
+}
+
+## 3. Comando de Linkagem absoluta
+Chame o linker do GCC passando o script criado. Para gerar o mapa de símbolos (cpm.map) e descobrir o endereço exato de variáveis e funções (como o _bdosif), adicione a flag -Map:
+
+m68k-elf-ld -T link.ld bdosif.o bdosmain.o ccp.o bios.o -o cpm.elf -Map=cpm.map
+
+## 4. Gerando o arquivo purificado (cpm.bin)
+O arquivo cpm.elf gerado contém metadados do formato ELF. Use o objcopy para extrair apenas os bytes puros de código e dados.
+
+m68k-elf-objcopy -O binary cpm.elf cpm.bin
+
+## Como verificar e chamar:
+
+   1. Abra o arquivo cpm.map gerado no passo 3 e procure pela string _bdosif (ou o nome da rotina de entrada do TRAP que está no seu bdosif.o). O arquivo de mapa lhe dirá o endereço hexadecimal exato em que ela ficou alocada (algo ligeiramente acima de 0x82000).
+   2. Configure seu vetor TRAP #2 (0x88) com o endereço encontrado no mapa.
+   3. Carregue o arquivo cpm.bin diretamente no endereço 0x82000 da memória da sua máquina.
+   4. Execute o seu jmp 0x82000.
+
+Quer ajuda para estruturar o arquivo de mapa ou interpretar onde os símbolos do BDOS foram parar após a compilação no GCC?
+
+Quase. Se você compilou com o Makefile e o Linker Script configurados para 0x82000, o endereço correto para o salto é 0x82000, e não 0x82100.
+A confusão com o endereço 0x82100 só existiria se você estivesse usando o compilador original dos anos 80 (LO68), que embutia um cabeçalho de 256 bytes (0x100) dentro do arquivo final.
+Como nós usamos o comando m68k-elf-objcopy -O binary, esse cabeçalho foi completamente eliminado. O arquivo cpm.bin gerado é um binário puro.
+Portanto, o cenário real para colocar o sistema no ar é o seguinte:
+## 1. O Alinhamento da Memória
+
+* O primeiro byte do arquivo cpm.bin é o início real do código do CCP.
+* Ao carregar o arquivo em 0x82000, a primeira instrução executável estará exatamente no endereço 0x82000.
+
+## 2. O Script de Inicialização (Assembly)
+No seu loader, a sequência exata de execução deve ser:
+
+* 1. Configurar o vetor do TRAP #2 antes de saltar
+* (Procure o endereço exato do símbolo '_bdosif' dentro do arquivo 'cpm.map' gerado)
+move.l  #_bdosif, $88.w     ; Aponta o TRAP 2 para a entrada do BDOS
+
+* 2. Dar o jump para o início do binário puro
+jmp     $82000              ; SALTO CORRETO (Início do CCP)
+
+## Resumo técnico:
+Se o código compilou sem erros, o arquivo cpm.bin foi gravado em 0x82000, e você apontou o TRAP #2 para o endereço indicado no mapa (cpm.map), dar um jmp 0x82000 vai inicializar o Console Command Processor (CCP). O CCP, por sua vez, chamará a rotina de inicialização da sua BIOS para colocar o CP/M-68K definitivamente no ar.
+Se você quiser, abra o arquivo cpm.map gerado pela compilação e me mostre a linha onde aparece a função _bdosif (ou similar) para confirmarmos o endereço exato que você deve jogar no vetor 0x88.
+
+
+

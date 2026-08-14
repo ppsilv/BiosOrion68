@@ -169,46 +169,7 @@ void main() {
 
     printf("* - Initializing  RTC\n");
     rtc_inicializar();
-/*   
-    printf(" Primeira vez [%d] TICK[%ld]\n",ler_segundo(),get_system_tick());
-    delay10ms(120);
-    printf(" Segunda vez [%d] TICK[%ld]\n",ler_segundo(),get_system_tick());
-    delay10ms(120);
-    printf(" Terceira vez [%d] TICK[%ld]\n",ler_segundo(),get_system_tick());
-
-    printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
-    printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
-
-    printf("Zerando posicao 0x01 e 0x03\n");
-    rtc_write_config_byte(0x01,0x00);
-    rtc_write_config_byte(0x03,0x00);
-    printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
-    printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
-
-    printf("Gravando posicao 0x01=1 e 0x03=1\n");
-    rtc_write_config_byte(0x01,0x01);
-    rtc_write_config_byte(0x03,0x01);
-    printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
-    printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
-
-    printf("Gravando posicao 0x01=2 e 0x03=2\n");
-    rtc_write_config_byte(0x01,0x02);
-    rtc_write_config_byte(0x03,0x02);
-    printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
-    printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
-
-    printf("Gravando posicao 0x01=4 e 0x03=4\n");
-    rtc_write_config_byte(0x01,0x04);
-    rtc_write_config_byte(0x03,0x04);
-    printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
-    printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
-
-    printf("Gravando posicao 0x01=8 e 0x03=8\n");
-    rtc_write_config_byte(0x01,0x08);
-    rtc_write_config_byte(0x03,0x08);
-    printf("Endereco 0x01 [%x] \n",rtc_read_config_byte(0x01));
-    printf("Endereco 0x03 [%x] \n",rtc_read_config_byte(0x03));
-*/
+   
     pico_write_ch('K');
     ring_buf_init();
     //********************************************************

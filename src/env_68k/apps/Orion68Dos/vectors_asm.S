@@ -97,7 +97,7 @@ Int6Handler:
 Int7Handler:
 Trap0Handler:
 Trap3Handler:
-Trap4Handler:
+
 Trap5Handler:
 Trap6Handler:
 Trap7Handler:
@@ -140,8 +140,10 @@ Int2Handler:
 
 .action_200:
     move.b  #0x1C,0xFF901F        
-    clr.w   tick_count          
+    clr.w   tick_count   
+    move.w  #0x2700, %sr  /*Desable all interrupts supervisor mode*/       
     jsr     do_save2
+    move.w  #0x2000, %sr  /*Enable all interrupts supervisor mode*/    
     move.l  (%sp)+,%a0
     rte
 
@@ -270,6 +272,23 @@ Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
         movem.l (%sp)+,%d1-%d7/%a0-%a6
         rte
 
+/* =========================================================================
+    TRAP 4  RTC
+   ========================================================================= */
+
+Trap4Handler:
+        movem.l %d1-%d7/%a0-%a6,-(%sp)
+        cmp.w   #1,%d1
+        beq     rtc_ds3231_read_time
+        cmp.w   #2,%d1
+        beq     rtc_ds3231_set_time
+        cmp.w   #3,%d1
+        beq     rtc_eeprom_read_byte
+        cmp.w   #4,%d1
+        beq     rtc_eeprom_write_byte
+
+        movem.l (%sp)+,%d1-%d7/%a0-%a6
+        rte
 
 /* =========================================================================
     TRAP 12  All diskdriver funcionts.

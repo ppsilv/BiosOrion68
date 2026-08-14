@@ -10,7 +10,7 @@
 60 print "CPU: MC68000  Qtd. mem rom: Ate 512KB rom   Qt. mem. ram: Ate 4MB"
 65 color 5,0
 70 print "Clock 16Mhz,8Mhz,4Mhz,2Mhz Selecionavel     Sistema Int.: Atmega8 "
-75 color 6,0
+75 color 6,0cd
 80 print "."
 90 print "IDE Disks: Hd 16MB MIDE      "
 95 color 3,0

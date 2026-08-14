@@ -18689,6 +18689,16 @@
 		)
 		(uuid "24a138e3-b4e4-497c-b701-3869ff4abb50")
 	)
+	(label "RX"
+		(at 248.92 95.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "26464aed-bfd9-46e3-b30a-e8dc484a9a9e")
+	)
 	(label "-5V"
 		(at 397.51 92.71 0)
 		(effects
@@ -19078,16 +19088,6 @@
 			(justify left bottom)
 		)
 		(uuid "5a7fb845-5eaa-4eae-9570-f72800f25b7e")
-	)
-	(label "TXDA"
-		(at 248.92 97.79 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5b25d536-d73a-4eb6-90ea-491cde6d608a")
 	)
 	(label "5V"
 		(at 151.13 55.88 0)
@@ -19491,16 +19491,6 @@
 			(justify right bottom)
 		)
 		(uuid "911add98-6b0f-42f8-9111-b2a5b2b77afa")
-	)
-	(label "RXDA"
-		(at 248.92 95.25 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "933a8183-f36e-4cfa-adeb-6e31fd7373e7")
 	)
 	(label "BD9"
 		(at 466.09 172.72 180)
@@ -19954,6 +19944,16 @@
 			(justify left bottom)
 		)
 		(uuid "cbb66f1f-300e-4da6-b688-55fa6f2f12ac")
+	)
+	(label "TX"
+		(at 248.92 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cc6e5752-e633-4364-955c-38802246fa18")
 	)
 	(label "{slash}IOCS16"
 		(at 478.79 205.74 0)

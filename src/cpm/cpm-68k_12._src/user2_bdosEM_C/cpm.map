@@ -1,0 +1,293 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD bdosif.o
+LOAD ccpbdos.o
+LOAD ccpif.o
+LOAD ccpload.o
+LOAD exceptn.o
+LOAD filetyps.o
+LOAD pgmld.o
+LOAD stack.o
+LOAD bdosmain.o
+LOAD bdosmisc.o
+LOAD bdosrw.o
+LOAD ccp.o
+LOAD conbdos.o
+LOAD dskutil.o
+LOAD fileio.o
+LOAD iosys.o
+                0x00082000                        . = 0x82000
+
+.text           0x00082000     0x628c
+ *bdosif.o(.text .text.*)
+ .text          0x00082000       0xa0 bdosif.o
+                0x00082000                _traphnd
+                0x00082046                bios5
+                0x00082046                _bios5
+                0x0008204e                bios4
+                0x0008204e                _bios4
+                0x00082056                _bios3
+                0x00082056                bios3
+                0x0008205e                bios2
+                0x0008205e                _bios2
+                0x00082066                _bios6
+                0x00082066                bios1
+                0x00082066                _bios1
+                0x0008207a                _swap
+                0x00082086                _udiv
+ *(.text .text.*)
+ .text          0x000820a0        0xc ccpbdos.o
+                0x000820a0                _bdos
+ .text          0x000820ac       0x97 ccpif.o
+                0x000820ac                cpm
+                0x00082133                _ccp
+ *fill*         0x00082143        0x1 
+ .text          0x00082144      0x108 ccpload.o
+                0x00082144                _load68k
+ .text          0x0008224c      0x2fa exceptn.o
+                0x0008224c                _initexc
+                0x000824ee                gouser
+ *fill*         0x00082546        0x2 
+ .text          0x00082548       0x52 filetyps.o
+                0x00082548                init_tbl
+ *fill*         0x0008259a        0x2 
+ .text          0x0008259c      0x52c pgmld.o
+                0x0008259c                _pgmld
+ .text          0x00082ac8        0x0 stack.o
+ .text          0x00082ac8      0xa0e bdosmain.o
+                0x00082ac8                tmp_sel
+ *fill*         0x000834d6        0x2 
+ .text          0x000834d8      0x54c bdosmisc.o
+                0x000834d8                bdosinit
+                0x00083560                warmboot
+                0x0008362c                prt_err
+                0x00083660                abrt_err
+                0x0008369e                ext_err
+                0x000837be                ro_err
+                0x000838b2                error
+                0x0008398c                setexc
+                0x000839de                set_tpa
+ .text          0x00083a24      0x664 bdosrw.o
+                0x00083a24                blkindx
+                0x00083a60                blknum
+                0x00083a88                setblk
+                0x00083ace                do_io
+                0x00083b10                new_ext
+                0x00083c70                calcext
+                0x00083cd6                get_rc
+                0x00083d02                bdosrw
+ .text          0x00084088     0x2568 ccp.o
+                0x00084088                cr_lf
+                0x000840ac                cpy
+                0x000840bc                strcmp
+                0x000840ea                copy_cmd
+                0x0008413e                prompt
+                0x000841f0                echo_cmd
+                0x00084290                check_cmd
+                0x000842fc                get_cmd
+                0x0008441a                scan_cmd
+                0x0008444e                get_parms
+                0x00084520                delim
+                0x00084548                true_char
+                0x00084580                fill_fcb
+                0x000847da                decode
+                0x000848f2                too_many
+                0x0008495c                find_colon
+                0x0008497e                chk_colon
+                0x00084a08                dir_cmd
+                0x00084e0e                type_cmd
+                0x00085004                ren_cmd
+                0x000853b2                era_cmd
+                0x000855e2                user_cmd
+                0x000856da                cmd_file
+                0x00085ce6                sub_read
+                0x00085d12                dollar
+                0x00085ef2                comments
+                0x00085ff2                translate
+                0x000862ce                submit_cmd
+                0x000863f6                execute_cmd
+ .text.startup  0x000865f0      0x2c0 ccp.o
+                0x000865f0                main
+ .text          0x000868b0      0x948 conbdos.o
+                0x000868b0                constat
+                0x000868ca                conbrk
+                0x00086970                conout
+                0x000869dc                tabout
+                0x00086a60                cookdout
+                0x00086b34                getch
+                0x00086b8c                conin
+                0x00086c20                rawconio
+                0x00086cbe                prt_line
+                0x00086d56                newline
+                0x00086dbc                backsp
+                0x00086e44                readline
+ .text          0x000871f8      0x456 dskutil.o
+                0x000871f8                rdwrt
+                0x000872e8                dir_rd
+                0x00087302                dir_wr
+                0x0008735e                dchksum
+                0x00087384                dirscan
+                0x000874ee                setaloc
+                0x0008751e                clraloc
+                0x00087550                chkaloc
+                0x00087582                getaloc
+ *fill*         0x0008764e        0x2 
+ .text          0x00087650      0xa4c fileio.o
+                0x00087650                alltrue
+                0x00087654                alloc
+                0x000876ca                udiv
+                0x00087710                seldsk
+                0x00087872                move
+                0x00087892                match
+                0x00087918                close
+                0x00087a9a                matchit
+                0x00087aa4                fsize
+                0x00087b02                openfile
+                0x00087b56                flushit
+                0x00087b96                close_fi
+                0x00087bfc                search
+                0x00087c8e                create
+                0x00087d2e                delete
+                0x00087e0a                rename
+                0x00087e96                set_attr
+                0x00087eea                extsize
+                0x00087f14                setran
+                0x00087f54                getsize
+                0x00087fce                free_sp
+ .text          0x0008809c      0x1f0 iosys.o
+                0x0008809c                do_phio
+
+.rodata         0x0008828c      0x197
+ *(.rodata .rodata.*)
+ .rodata.str1.1
+                0x0008828c      0x197 bdosmisc.o
+                                0x175 (size before relaxing)
+ .rodata.str1.1
+                0x00088423       0x26 ccp.o
+
+.data           0x00088424      0x1f4
+ *(.data .data.*)
+ .data          0x00088424        0x0 bdosif.o
+ .data          0x00088424        0x0 ccpbdos.o
+ .data          0x00088424        0x0 ccpif.o
+ .data          0x00088424        0x0 ccpload.o
+ .data          0x00088424        0x9 exceptn.o
+ *fill*         0x0008842d        0x3 
+ .data          0x00088430        0xa filetyps.o
+ *fill*         0x0008843a        0x2 
+ .data          0x0008843c        0x0 pgmld.o
+ .data          0x0008843c        0x0 stack.o
+ .data          0x0008843c        0x0 bdosmain.o
+ .data          0x0008843c        0xc bdosmisc.o
+                0x0008843c                warning
+                0x00088440                serial
+                0x00088444                copyrt
+ .data          0x00088448        0x0 bdosrw.o
+ .data          0x00088448      0x1d0 ccp.o
+                0x00088448                del
+                0x00088458                lderror
+                0x0008846c                lderr3
+                0x0008848d                lderr2
+                0x000884a9                lderr1
+                0x000884d1                msg13
+                0x000884e7                msg12
+                0x000884ff                msg11
+                0x00088514                msg10
+                0x00088525                msg9
+                0x00088535                msg8
+                0x00088552                msg7
+                0x00088569                msg6
+                0x00088572                msg5
+                0x00088587                msg4
+                0x00088599                msg3
+                0x000885ab                msg2
+                0x000885bd                msg
+                0x000885d8                cmd_tbl
+ .data          0x00088618        0x0 conbdos.o
+ .data          0x00088618        0x0 dskutil.o
+ .data          0x00088618        0x0 fileio.o
+ .data          0x00088618        0x0 iosys.o
+
+.bss            0x00088618      0xbe9
+ *(.bss .bss.*)
+ .bss           0x00088618        0x0 bdosif.o
+ .bss           0x00088618        0x0 ccpbdos.o
+ .bss           0x00088618       0xee ccpif.o
+                0x00088618                _autost
+                0x00088619                _usercmd
+                0x0008869e                _submit
+                0x000886a0                _morecmds
+                0x000886a2                _patch
+ *fill*         0x00088706        0x2 
+ .bss           0x00088708       0x20 ccpload.o
+                0x0008871c                flags
+                0x0008871e                TPAB
+ .bss           0x00088728        0x4 exceptn.o
+ .bss           0x0008872c       0x28 filetyps.o
+                0x0008872c                _load_tbl
+ .bss           0x00088754       0x44 pgmld.o
+ .bss           0x00088798      0x642 stack.o
+                0x00088dd8                stack
+ *fill*         0x00088dda        0x2 
+ .bss           0x00088ddc      0x112 bdosmain.o
+                0x00088ddc                gbls
+                0x00088ece                tpa_ht
+                0x00088ed2                tpa_hp
+                0x00088ed6                tpa_lt
+                0x00088eda                tpa_lp
+                0x00088ede                crit_dsk
+                0x00088ee2                ro_dsk
+                0x00088ee6                log_dsk
+                0x00088eea                chainp
+ *fill*         0x00088eee        0x2 
+ .bss           0x00088ef0        0x4 bdosmisc.o
+ .bss           0x00088ef4        0x4 bdosrw.o
+ .bss           0x00088ef8      0x2f8 ccp.o
+                0x00088ef8                ldrpgm
+                0x00088f00                parm
+                0x00088f78                dma
+                0x00088ffb                autorom
+                0x00088ffc                tail
+                0x00089000                cmdfcb
+                0x00089024                subfcb
+                0x00089048                save_sub
+                0x000890ca                glb_index
+                0x000890ce                user_ptr
+                0x000890d2                subdma
+                0x00089154                subcom
+                0x000891d6                cur_disk
+                0x000891da                user
+                0x000891de                sub_user
+                0x000891e2                index
+                0x000891e6                sub_index
+                0x000891ea                subprompt
+                0x000891eb                dirflag
+                0x000891ec                end_of_file
+                0x000891ed                chain_sub
+                0x000891ee                first_sub
+                0x000891ef                load_try
+ .bss           0x000891f0        0x4 conbdos.o
+ .bss           0x000891f4        0x4 dskutil.o
+ .bss           0x000891f8        0x4 fileio.o
+ .bss           0x000891fc        0x5 iosys.o
+ *(COMMON)
+OUTPUT(cpm.elf elf32-m68k)
+
+.comment        0x00000000       0x12
+ .comment       0x00000000       0x12 bdosmain.o
+                                 0x13 (size before relaxing)
+ .comment       0x00000012       0x13 bdosmisc.o
+ .comment       0x00000012       0x13 bdosrw.o
+ .comment       0x00000012       0x13 ccp.o
+ .comment       0x00000012       0x13 conbdos.o
+ .comment       0x00000012       0x13 dskutil.o
+ .comment       0x00000012       0x13 fileio.o
+ .comment       0x00000012       0x13 iosys.o
