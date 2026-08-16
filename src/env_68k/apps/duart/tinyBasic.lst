@@ -1,0 +1,52 @@
+   1               	#NO_APP
+   2               		.file	"duart_b.c"
+   3               		.text
+   4               		.align	2
+   5               		.globl	duart_b_init_9600
+   7               	duart_b_init_9600:
+   8 0000 13FC 0000 		move.b #0,16748553
+   8      00FF 9009 
+   9 0008 13FC FFBB 		move.b #-69,16748563
+   9      00FF 9013 
+  10 0010 207C 00FF 		move.l #16748565,%a0
+  10      9015 
+  11 0016 10BC 0010 		move.b #16,(%a0)
+  12 001a 227C 00FF 		move.l #16748561,%a1
+  12      9011 
+  13 0020 12BC 0013 		move.b #19,(%a1)
+  14 0024 12BC 0007 		move.b #7,(%a1)
+  15 0028 10BC 0020 		move.b #32,(%a0)
+  16 002c 10BC 0030 		move.b #48,(%a0)
+  17 0030 10BC 0005 		move.b #5,(%a0)
+  18 0034 4E75      		rts
+  20               		.align	2
+  21               		.globl	duart_b_send_char
+  23               	duart_b_send_char:
+  24 0036 202F 0004 		move.l 4(%sp),%d0
+  25               	.L3:
+  26 003a 1239 00FF 		move.b 16748563,%d1
+  26      9013 
+  27 0040 44C1      		move.w %d1,%ccr
+  28 0042 66F6      		jne .L3
+  29 0044 13C0 00FF 		move.b %d0,16748567
+  29      9017 
+  30 004a 4E75      		rts
+  32               		.align	2
+  33               		.globl	duart_b_recv_char
+  35               	duart_b_recv_char:
+  36               	.L7:
+  37 004c 1039 00FF 		move.b 16748563,%d0
+  37      9013 
+  38 0052 0800 0000 		btst #0,%d0
+  39 0056 67F4      		jeq .L7
+  40 0058 1039 00FF 		move.b 16748567,%d0
+  40      9017 
+  41 005e 4E75      		rts
+  43               		.align	2
+  44               		.globl	duart_b_char_available
+  46               	duart_b_char_available:
+  47 0060 1039 00FF 		move.b 16748563,%d0
+  47      9013 
+  48 0066 0200 0001 		and.b #1,%d0
+  49 006a 4E75      		rts
+  51               		.ident	"GCC: (GNU) 15.1.0"

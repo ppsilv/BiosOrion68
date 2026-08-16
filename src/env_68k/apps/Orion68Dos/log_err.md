@@ -1,3 +1,9 @@
+# 2026-08-16
+        Ao enviar um arquivo do pc para o OrionDOS, sendo que o OrionDOS usa o sistema de interrupção para buscar o arquivo
+        Quando o arquivo era enviado várias vezes coisas estranhas acontecia com o prompt, repetir comandos, travar...
+        A interrupção que antes não alterava registrador algum agora esta chamando uma função em C sem salvar registradores,
+        ou seja o contexto da aplicação era prejudicado.
+        Coloquei salvar e resgatar registradores d1-d7,a0,a6 problema desapareceu.
 # 2026-08-11
         O modulo grafico vga_graphics.c está com alguns problemas.
         Problema 1: a lib não chega até o pico tem algum erro o unico debug que aparece é:
@@ -6,12 +12,12 @@
                      1 - d1 não estava sendo populado.
                      2 - d1 não estava sendo enviado.
                      3 - um printf de debug colocado depois da população dos registradores 
-                         estava matando o conteudo dos registradores.   
+                    RESOLVIDO     estava matando o conteudo dos registradores.
         Problema 2: a função drawLine no pico não está desenhando nada, testei com o poke do basic 
                         enviando cada valor individualmente e o print de debug do comando   CMD_DRAW_LINE dentro
                         do pico imprimiu  PICO: x0[20] y0[10] x1[40] x1[10] col[5]\n"           
-                     1 - nesse caso não era ero esses valores mostram uma linha misnuscula na tela
-                         que eu não estava vendo
+                    RESOLVIDO 1 - nesse caso não era erro esses valores mostram uma linha misnuscula na tela
+                         que eu não estava sendo vista.
         AVISO:  RETIRAR OS DEBUGS NO VGA_VIDEO e no PICO--> Feito-->OK                               
 # 2026-08-10
         A transferencia de arquivos entre o pico2w e o m68k estava demorando 1ms por byte

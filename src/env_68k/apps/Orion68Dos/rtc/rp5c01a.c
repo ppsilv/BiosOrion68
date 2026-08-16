@@ -30,7 +30,7 @@
 #define RTC_REG_TEST  0x0F
 
 // Modos de Operação do Mode Register
-#define RTC_MODE_CLOCK      0x0C // Modo relógio
+#define RTC_MODE_CLOCK      0x00 // Modo relógio
 #define RTC_MODE_CLOCK_ALR  0x01 // Modo alarm
 #define RTC_MODE_RAM_BLOCK0 0x02 // Seleciona o Bloco 1 da RAM (Endereços 0x0 a 0xD)
 #define RTC_MODE_RAM_BLOCK1 0x03 // Seleciona o Bloco 0 da RAM (Endereços 0x0 a 0xD)

@@ -1,0 +1,446 @@
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <orion_rtc.h>
+#include <timers.h>
+#include <string.h>
+
+/*
+Resumo:
+
+1 - O chip não tem problema: foi testado no arduino.
+2 - O endereço está correto é 0x57
+3 - O pino Op7 saida para SDA agora vai para um resistor 2k2 que vai para a base de transistor bc547 cujo o coletor vai para SDA e emisso para gnd
+4 - O pino IP0 vai direto no SDA.
+5 - O RTC continua funcionando corretamente.
+6 - Mas a escrita parece não funcionar de forma alguma
+7 - A leitura parece estar funcionando, mas enquanto não ler um valor correto não teremos certeza.
+
+
+
+
+*/
+
+/* ====================================================================
+   MAPEAMENTO DA MC68681 DUART (Orion68K)
+   ==================================================================== */
+#define DUART_IPR     (*(volatile uint8_t *)0xFF901B) /* Input Port (IP0 = Pino 7) */
+#define DUART_SOPR    (*(volatile uint8_t *)0xFF901D) /* Set Output Port */
+#define DUART_ROPR    (*(volatile uint8_t *)0xFF901F) /* Reset Output Port */
+
+/* Pinos na DUART (MC68681 DIP-40) */
+#define SCL_BIT       0x20  // Pino 14 (OP5)
+#define SDA_OUT_BIT   0x80  // Pino 15 (OP7)
+#define SDA_IN_BIT    0x01  // Pino 7  (IP0 - Leitura)
+
+
+
+/* Endereços I2C (7 bits) */
+#define DS3231_ADDR   0x68
+#define EEPROM_ADDR   0x50
+
+/* ====================================================================
+   PRIMITIVAS I2C (Bit-Bang)
+   ==================================================================== */
+static void i2c_delay(void) {
+    for (volatile int i = 0; i < 20; i++) { __asm__("nop"); }
+}
+static void i2c_delay2(void) {
+    for (volatile int i = 0; i < 40000; i++) { __asm__("nop"); }
+}
+
+
+
+static inline void scl_high(void) { DUART_ROPR = SCL_BIT; }
+static inline void scl_low(void)  { DUART_SOPR = SCL_BIT; }
+
+//static inline void sda_high(void) { DUART_ROPR = SDA_OUT_BIT; } /* Libera linha (HIGH via pull-up) */
+//static inline void sda_low(void)  { DUART_SOPR = SDA_OUT_BIT; } /* Puxa linha para GND */
+
+static inline void sda_high(void) { DUART_SOPR = SDA_OUT_BIT; } /* Set   -> OP7 em VSS -> transistor desliga -> pull-up puxa SDA alto */
+static inline void sda_low(void)  { DUART_ROPR = SDA_OUT_BIT; } /* Reset -> OP7 em VDD -> transistor liga -> puxa SDA pra GND */
+
+
+static inline uint8_t sda_read(void) {
+    return (DUART_IPR & SDA_IN_BIT) ? 1 : 0;
+}
+
+void i2c_start(void) {
+    sda_high();
+    scl_high();
+    i2c_delay();
+    sda_low();
+    i2c_delay();
+    scl_low();
+    i2c_delay();
+}
+
+void i2c_stop(void) {
+    sda_low();
+    scl_high();
+    i2c_delay();
+    sda_high();
+    i2c_delay();
+}
+
+uint8_t i2c_write_byte(uint8_t data) {
+    for (int i = 0; i < 8; i++) {
+        if (data & 0x80) sda_high();
+        else             sda_low();
+        i2c_delay();
+        scl_high();
+        i2c_delay();
+        scl_low();
+        data <<= 1;
+    }
+    
+    /* Leitura de ACK */
+    sda_high();
+    i2c_delay();
+    scl_high();
+    i2c_delay();
+    uint8_t ack = sda_read();
+    scl_low();
+    return ack; /* 0 = ACK, 1 = NACK */
+}
+
+uint8_t i2c_read_byte(uint8_t ack) {
+    uint8_t data = 0;
+    sda_high();
+    
+    for (int i = 0; i < 8; i++) {
+        data <<= 1;
+        scl_high();
+        i2c_delay();
+        if (sda_read()) data |= 1;
+        scl_low();
+        i2c_delay();
+    }
+    
+    /* Envia ACK/NACK */
+    if (ack) sda_low();  /* ACK */
+    else     sda_high(); /* NACK */
+    i2c_delay();
+    scl_high();
+    i2c_delay();
+    scl_low();
+    sda_high();
+    
+    return data;
+}
+
+/* ====================================================================
+   FUNÇÕES BCD
+   ==================================================================== */
+static inline uint8_t bcd2bin(uint8_t val) { return ((val >> 4) * 10) + (val & 0x0F); }
+static inline uint8_t bin2bcd(uint8_t val) { return ((val / 10) << 4) | (val % 10); }
+
+/* ====================================================================
+   DRIVER DS3231 (RTC)
+   ==================================================================== */
+
+/* Recebe o ponteiro alocado pela aplicação/caller */
+uint8_t ds3231_read_time(rtc_time_t *t) {
+    if (!t) return 1;
+
+    i2c_start();
+    if (i2c_write_byte((DS3231_ADDR << 1) | 0)) {
+        i2c_stop();
+        return 1; /* Erro de ACK */
+    }
+    i2c_write_byte(0x00); /* Registrador 0x00 (Segundos) */
+    
+    i2c_start();
+    i2c_write_byte((DS3231_ADDR << 1) | 1); /* Leitura */
+    
+    t->sec  = bcd2bin(i2c_read_byte(1) & 0x7F);
+    t->min  = bcd2bin(i2c_read_byte(1));
+    t->hour = bcd2bin(i2c_read_byte(1) & 0x3F);
+    i2c_read_byte(1); /* Pula dia da semana */
+    t->mday = bcd2bin(i2c_read_byte(1));
+    t->mon  = bcd2bin(i2c_read_byte(1) & 0x1F);
+    t->year = bcd2bin(i2c_read_byte(0)); /* NACK no último byte */
+    
+    i2c_stop();
+    return 0; /* Sucesso */
+}
+
+void ds3231_set_time(const rtc_time_t *t) {
+    if (!t) return;
+
+    i2c_start();
+    if (i2c_write_byte((DS3231_ADDR << 1) | 0)) {
+        i2c_stop();
+        return;
+    }
+    i2c_write_byte(0x00);
+    
+    i2c_write_byte(bin2bcd(t->sec));
+    i2c_write_byte(bin2bcd(t->min));
+    i2c_write_byte(bin2bcd(t->hour));
+    i2c_write_byte(0x01); /* Dia da semana padrão = 1 */
+    i2c_write_byte(bin2bcd(t->mday));
+    i2c_write_byte(bin2bcd(t->mon));
+    i2c_write_byte(bin2bcd(t->year));
+    
+    i2c_stop();
+}
+
+/* ====================================================================
+   DRIVER AT24C32 (EEPROM NVM de 4KB)
+   ==================================================================== */
+
+void eeprom_write_byte2(uint16_t addr, uint8_t data) {
+    i2c_start();
+    if (i2c_write_byte((EEPROM_ADDR << 1) | 0) != 0) { i2c_stop(); printf("NACK ctrl\n"); return; }
+    if (i2c_write_byte((uint8_t)(addr >> 8))   != 0) { i2c_stop(); printf("NACK addrH\n"); return; }
+    if (i2c_write_byte((uint8_t)(addr & 0xFF)) != 0) { i2c_stop(); printf("NACK addrL\n"); return; }
+    if (i2c_write_byte(data)                   != 0) { i2c_stop(); printf("NACK data\n"); return; }
+    i2c_stop();
+    i2c_stop();
+    i2c_stop();
+
+    i2c_delay2();
+    i2c_delay2();
+    i2c_delay2();
+}
+
+void eeprom_write_byte(uint16_t addr, uint8_t data) {
+    int tentativas = 0;
+
+    i2c_start();
+    if (i2c_write_byte((EEPROM_ADDR << 1) | 0) != 0) { i2c_stop(); return; }
+    if (i2c_write_byte((uint8_t)(addr >> 8))   != 0) { i2c_stop(); return; }
+    if (i2c_write_byte((uint8_t)(addr & 0xFF)) != 0) { i2c_stop(); return; }
+    if (i2c_write_byte(data)                   != 0) { i2c_stop(); return; }
+    i2c_stop();
+    i2c_delay();
+
+    for (int i = 0; i < 1000; i++) {
+        i2c_start();
+        if (i2c_write_byte((EEPROM_ADDR << 1) | 0) == 0) {
+            i2c_stop();
+            tentativas = i;
+            i2c_delay2();
+            i2c_delay2();
+            i2c_delay2();
+            break;
+        }
+        i2c_stop();
+        i2c_delay();
+    }
+    printf("Write polling levou %d tentativas\n", tentativas);
+}
+uint8_t eeprom_read_byte(uint16_t addr) {
+    uint8_t val = 0x11;
+
+    i2c_start();
+    if (i2c_write_byte((EEPROM_ADDR << 1) | 0) != 0) { i2c_stop(); return 0xA5; }
+    if (i2c_write_byte((uint8_t)(addr >> 8))   != 0) { i2c_stop(); return 0xA5; }
+    if (i2c_write_byte((uint8_t)(addr & 0xFF)) != 0) { i2c_stop(); return 0xA5; }
+    i2c_stop();
+
+    /* Polling: espera a EEPROM sair do estado ocupado, se houver */
+    for (int i = 0; i < 1000; i++) {
+        i2c_start();
+        if (i2c_write_byte((EEPROM_ADDR << 1) | 0) == 0) break;
+        i2c_stop();
+        i2c_delay();
+    }
+
+    if (i2c_write_byte((EEPROM_ADDR << 1) | 1) != 0) { i2c_stop(); return 0x5A; }
+    val = i2c_read_byte(0);
+    i2c_stop();
+
+    return val;
+}
+/* ====================================================================
+   DETECÇÃO E INICIALIZAÇÃO
+   ==================================================================== */
+
+/* Retorna 1 se o RTC respondeu (ACK), 0 se não respondeu (NACK) */
+uint8_t ds3231_probe(void) {
+    i2c_start();
+    uint8_t ack = i2c_write_byte((DS3231_ADDR << 1) | 0);
+    i2c_stop();
+    
+    return (ack == 0);
+}
+
+/* Função de inicialização no boot do sistema */
+uint8_t rtc_init(void) {
+    /* 1. Coloca o barramento I2C em IDLE */
+    scl_high();
+    sda_high();
+    i2c_delay();
+
+    /* 2. Verifica se o hardware responde */
+    if (!ds3231_probe()) {
+        return 0; /* RTC Não encontrado */
+    }
+
+    /* 3. Garante oscilador ativo na bateria (Reg 0x0E = 0x00) */
+    i2c_start();
+    if (i2c_write_byte((DS3231_ADDR << 1) | 0) == 0) {
+        i2c_write_byte(0x0E); /* Ponteiro no reg de Controle */
+        i2c_write_byte(0x00); /* EOSC=0, INTCN=0, SQW desativado */
+    }
+    i2c_stop();
+
+    return 1; /* RTC OK e Inicializado */
+}
+
+void i2c_scan(void) {
+    printf("Varrendo barramento I2C (0x01 a 0x7F)...\n");
+    uint8_t achou = 0;
+    
+    for (uint8_t addr = 1; addr < 128; addr++) {
+        i2c_start();
+        uint8_t ack = i2c_write_byte((addr << 1) | 0);
+
+        i2c_delay();
+        
+        if (ack == 0) {
+            printf(" -> Dispositivo respondeu no endereco 7-bit: 0x%02X\n", addr);
+            achou++;
+            if (i2c_write_byte((uint8_t)(0x0 >> 8)) != 0) {
+                printf("[ERRO] NACK no Addr High (0x%02X)\n", addr >> 8);
+                i2c_stop();
+                return ;
+            }
+            if (i2c_write_byte((uint8_t)(0x0 & 0xFF)) != 0) {
+                printf("[ERRO] NACK no Addr Low (0x%02X)\n", addr & 0xFF);
+                i2c_stop();
+                return ;
+            }       
+        }
+        i2c_stop();
+    }
+    
+    if (!achou) printf("Nenhum dispositivo respondeu!\n");
+}
+
+//unit8_t month[]= {"jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"};
+//unit8_t week[]= {"segunda","terca","quarta","quinta","sexta","sabado","domingo"};
+
+void printtime(void) {
+    rtc_time_t t;
+    uint8_t last_sec = 0xFF; /* valor impossível, força primeira impressão */
+
+    while (1) {
+        ds3231_read_time(&t);
+
+        if (t.sec != last_sec) {
+            last_sec = t.sec;
+
+            printf("%04d/%02d/%02d - %02d:%02d:%02d\n",
+                   t.year + 2000, t.mon, t.mday,
+                   t.hour, t.min, t.sec);
+        }
+    }
+}
+
+void printtim1e(){
+    rtc_time_t t;
+    while(1){
+        ds3231_read_time(&t);
+
+        printf("sec  %02d\n", t.sec   );
+        printf("min  %02d\n", t.min );
+        printf("hour %02d\n", t.hour );
+        printf("mday %02d\n", t.mday );
+        printf("mon  %02d\n", t.mon );
+        printf("year %02d\n", t.year+2000);
+
+        printf("%04d/%02d/%02d - %02d:%02d:%02d\n",t.year+2000,t.mon,t.mday,t.hour,t.min,t.sec);
+        i2c_delay2();
+    }
+}
+
+/*
+./rtc -a 2000 -M 8 -d 14 -h 22 -m 22 -s 00 
+*/
+int main_acertoRTC(int argc, char * argv[]){
+    rtc_time_t t;
+    ds3231_read_time(&t);
+
+    if( argc < 13){
+        printf("Usage: %s -a|-m|-d|-h|-m|-s valor\n",argv[0]);
+        return 1;
+    }
+
+    if( strstr(argv[1],"-a") ){
+        printf("Ano %02d ",strtol(argv[2],NULL,10));
+        t.year= atoi(argv[2]);
+    }
+    if( strstr(argv[1],"-a") ){
+        printf("mes %02d ",strtol(argv[3],NULL,10));
+        t.mon = atoi(argv[4]);
+    }
+    if( strstr(argv[1],"-a") ){
+        printf("dia %02d ",strtol(argv[4],NULL,10));
+        t.mday= atoi(argv[6]);
+    }
+    if( strstr(argv[1],"-a") ){
+        printf("Hora %02d ",strtol(argv[5],NULL,10));
+        t.hour= atoi(argv[8]);
+    }
+    if( strstr(argv[1],"-a") ){
+        printf("Minu %02d ",strtol(argv[6],NULL,10));
+        t.min = atoi(argv[10]);
+    }
+    if( strstr(argv[1],"-a") ){
+        printf("Segu %02d\n ",strtol(argv[7],NULL,10));
+        t.sec = atoi(argv[12]);
+    }
+
+    ds3231_set_time(&t);
+    return 0;
+}
+
+
+int main( int argc, char ** argv ){
+    uint16_t addr;
+    uint8_t data;
+    
+    if( argc > 4 ){
+        main_acertoRTC(argc,argv);
+        return 1;
+    }
+    if( strstr(argv[1],"-r")){
+        rtc_init();
+        printtime();
+    }
+
+    if( strstr(argv[1],"-i")){
+        i2c_scan();
+    }
+    printf("Teste do i2c e do rtc\n");
+
+
+  
+    
+
+    addr=0x00;
+    data=0xaa;
+//    eeprom_write_byte(addr,data);
+    printf("Addr[%02x] data[%02x]\n",addr,eeprom_read_byte(addr));    
+    addr++;
+//    eeprom_write_byte(addr,data);
+    printf("Addr[%02x] data[%02x]\n",addr,eeprom_read_byte(addr));    
+    addr++;
+//    eeprom_write_byte(addr,data);
+    printf("Addr[%02x] data[%02x]\n",addr,eeprom_read_byte(addr));    
+    addr++;
+    eeprom_write_byte(addr,data);
+    printf("Addr[%02x] data[%02x]\n",addr,eeprom_read_byte(addr));    
+    addr++;
+    eeprom_write_byte(addr,data);
+    printf("Addr[%02x] data[%02x]\n",addr,eeprom_read_byte(addr));    
+    addr++;
+    eeprom_write_byte(addr,data);
+    printf("Addr[%02x] data[%02x]\n",addr,eeprom_read_byte(addr));    
+
+  return 0;
+
+}

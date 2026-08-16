@@ -9,7 +9,7 @@ ROM
 
 RAM
 080000  -   0FFFFF   512KW de espaço para ram - populado
-100000  -   17FFFF   512KW de espaço para ram - NÃO populado
+100000  -   17FFFF   512KW de espaço para ram - populado
 180000  -   17FFFF   512KW de espaço para ram - NÃO populado
 180000  -   1FFFFF   512KW de espaço para ram - NÃO populado
 
@@ -24,23 +24,17 @@ RAM
 580000  -   5FFFFF   512KW de espaço para ram - NÃO populado
 
 
-
-
-
 # I/O mapeado          FF0xxx -> FFFxxx
+0x00FF4000  -  0x00FF40FF---------------->Uart0
+0x00FF4100  -  0x00FF41FF---------------->Uart1
+0x00FF4200  -  0x00FF42FF---------------->Uart2
+0x00FF4300  -  0x00FF43FF---------------->Uart3
+0x00FF4400  -  0x00FF44FF---------------->IDE
+0x00FF8000  -  0x00FF80FF---------------->PicoVGA
+0x00FF9000  -  0x00FF90FF---------------->Duart
+0x00FF9100  -  0x00FF91FF---------------->MultiIO
 
-F00000 – Bottin address rom acess this address to change its address from 0x00000 to 0xE00000
-F00001 – F000FF   Free
-F00100 – F000FF   UART0
-F00200 – F001FF   UART1
-F00300 – F002FF   UART2
-F00400 – F003FF   UART3
 
-F10000 – F1FFFF   Video interface (RPi Pico)
-
-F20000 – FFFFFF   Future devices
-
-23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
 
 
 

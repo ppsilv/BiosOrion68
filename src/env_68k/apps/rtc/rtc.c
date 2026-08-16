@@ -69,7 +69,7 @@ void read_rtc(){
 }
 void reset();
 void read_cfg(char mode);
-int main( int argc, char ** argv )
+int main_ricoch( int argc, char ** argv )
 {
     //RUN_CMD = 0xA4;
     //setcolor(4,0);
@@ -124,3 +124,75 @@ int main( int argc, char ** argv )
     }
     return 0;
 }
+
+/* ====================================================================
+   MAPEAMENTO DA MC68681 DUART (Orion68K)
+   ==================================================================== */
+#define DUART_IPR     (*(volatile uint8_t *)0xFF901B) /* Input Port (IP0 = Pino 7) */
+#define DUART_SOPR    (*(volatile uint8_t *)0xFF901D) /* Set Output Port */
+#define DUART_ROPR    (*(volatile uint8_t *)0xFF901F) /* Reset Output Port */
+/*
+// Pinos na DUART (MC68681 DIP-40)
+#define SCL_BIT       (1 << 1) // OP1 (Pino 14) 
+#define SDA_OUT_BIT   (1 << 2) // OP2 (Pino 15) 
+#define SDA_IN_BIT    (1 << 0) // IP0 (Pino 7)  
+*/
+/* Pinos ajustados para o mapeamento real da sua fiação no Orion68K 
+#define SCL_BIT       (1 << 3) //0x08 -> Aciona OP1 (Pino 14)
+#define SDA_OUT_BIT   (1 << 4) //0x10 -> Aciona OP2 (Pino 15)
+#define SDA_IN_BIT    (1 << 2) //0x04 -> Lê IP0 (Pino 7)    
+*/
+#define SCL_BIT       0x20  // Pino 14 (OP5)
+#define SDA_OUT_BIT   0x80  // Pino 15 (OP7)
+#define SDA_IN_BIT    0x01  // Pino 7  (IP0 - Leitura)
+
+
+   // move.b  #0x1C,0xFF901D        
+   // move.b  #0x1C,0xFF901F        
+
+/* Teste isolado de hardware */
+void test_duart_pins(void) {
+    /* Zera OPCR para garantir OP1 e OP2 como I/O simples */
+    (*(volatile uint8_t *)0xFF901B) = 0x00;
+    int j=100;
+    while(j--) {
+        DUART_SOPR = SCL_BIT | SDA_OUT_BIT; /* Força SCL e SDA para NÍVEL BAIXO (0V) */
+        for (volatile int i = 0; i < 5000; i++);
+
+        DUART_ROPR = SCL_BIT | SDA_OUT_BIT; /* Libera SCL e SDA para NÍVEL ALTO (5V) */
+        for (volatile int i = 0; i < 5000; i++);
+    }
+}
+
+void le_ivr(){
+volatile uint8_t *DUART_IVR = (volatile uint8_t *)0xFF9019;
+
+*DUART_IVR = 0x55;
+uint8_t val1 = *DUART_IVR; // Esperado: 0x55
+
+*DUART_IVR = 0xAA;
+uint8_t val2 = *DUART_IVR; // Esperado: 0xAA
+printf("Val1=[%02X] Val2=[%02X]\n",val1,val2);    
+}
+
+void ler_pino7(){
+    #define DUART_IPR (*(volatile uint8_t *)0xFF901B) // Leitura das entradas IP0..IP5
+
+    uint8_t ipr = DUART_IPR; // Lê o registrador apenas uma vez
+    int j=100;
+    while(j--) {
+        printf("IP0 (Pino 7): %d\n", (ipr >> 0) & 1); // Pino 7 (SDA In)
+        printf("IP1:          %d\n", (ipr >> 1) & 1);
+        printf("IP2:          %d\n", (ipr >> 2) & 1);
+        printf("IP3:          %d\n", (ipr >> 3) & 1);
+    }    
+}
+
+int mainTeste( int argc, char ** argv ){
+    printf("Teste das poras da duart...\n");
+    printf("scl_bit[%02x] SDA_OUT_BIT[%02x]\n",SCL_BIT,SDA_OUT_BIT);
+    le_ivr();
+    ler_pino7();
+    //test_duart_pins();
+
+} 

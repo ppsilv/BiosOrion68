@@ -119,7 +119,7 @@ TrapDHandler:
    ========================================================================= */
 Int2Handler:
         /* Como mexe em registrador para somar na RAM, salva o D0 e A0 */
-        move.l  %a0,-(%sp)
+        movem.l %d0-%d7/%a0-%a6,-(%sp)
 
         /* Incrementa a variável de 32 bits do C */
         move.l  #systemTick,%a0
@@ -130,21 +130,21 @@ Int2Handler:
     beq.s   .action_100
     cmpi.w  #800,tick_count     
     beq.s   .action_200
-    move.l  (%sp)+,%a0
-    rte                         
+    movem.l (%sp)+,%d0-%d7/%a0-%a6
+    rte
 
 .action_100:
-    move.b  #0x1C,0xFF901D        
-    move.l  (%sp)+,%a0
+    move.b  #0x08,0xFF901D        
+    movem.l (%sp)+,%d0-%d7/%a0-%a6
     rte
 
 .action_200:
-    move.b  #0x1C,0xFF901F        
+    move.b  #0x08,0xFF901F        
     clr.w   tick_count   
     move.w  #0x2700, %sr  /*Desable all interrupts supervisor mode*/       
     jsr     do_save2
     move.w  #0x2000, %sr  /*Enable all interrupts supervisor mode*/    
-    move.l  (%sp)+,%a0
+    movem.l (%sp)+,%d0-%d7/%a0-%a6
     rte
 
 

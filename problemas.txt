@@ -1,0 +1,19 @@
+Eu tenho uma situação no meu OrionDOS que eu não consigo entender.
+
+
+
+Tenha um loop getchar() que lé um ringbuffer com dados vindos do teclado, esse loop verifica se tem tecla disponivel se tiver chama getchar(). Tudo isso funciona perfeitamente rodo todos os comandos sem problema chamo o tinybasic que é um comando executo programa quando saio do tinybasic volta pro loop normalmente e o sistema continua funcinando perfeitamente.
+
+
+
+O problema que não entendo é:
+
+Fiz uma implementação onde: na interrupção do systick que roda a cada 10ms eu incremento uma outra variavel e quando ela chega no valor 100 ou seja 1segundo ela verifica se o pico tem algo para transmitir. Se tiver ele pede os dados gravando na memoria e depois de tudo recebido salva no disco o programa. Isso funciona perfeitamente para fazer tudo isso desabilito a interrupção antes e habilito depois.
+
+
+
+O problema aparece que depois de algumas vezes ou nem sempre precisa de algumas vezes o loop do getchar repete o ultimo comando, o sistema de interpretação de comandos guarda o último comando que eu posso repetir usando teclas seta para cima ou seta para baixo, isso eu herdei do OS gloworm, não fui que fiz e não sei como funciona.
+
+Eu não entendo, porque interrupção não deveria fazer nada disso, a interrupção do systick funciona normalmente.
+
+Essa é a interrupção:

@@ -43,16 +43,6 @@ extern void UartWriteCh(uint8_t ch);
 
 typedef void (*ProgramaXModem)(void);
 
-void executar_xmodem(void) {
-    // 2. Cria o ponteiro apontando diretamente para o endereço 0x82000
-    ProgramaXModem rodar_xmodem = (ProgramaXModem)0x82000;
-
-    printf("Passando o controle para o XModem em 0x82000...\n");
-
-    // 3. Salta para o programa! (O GCC vai traduzir isso em um JSR ou JMP)
-    rodar_xmodem(); 
-}
-
 void clr_flg_program_loaded(){
        flg_system &= 0xFE;
 }
@@ -118,7 +108,8 @@ void display_prompt(void)
     }
 }
 
-void rtc_inicializar(void);
+uint8_t rtc_init(void);
+uint8_t ds3231_probe(void);
 unsigned char ler_segundo();
 uint8_t rtc_read_config_byte(uint16_t endereco);
 void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
@@ -168,7 +159,12 @@ void main() {
     pico_write_ch('J');
 
     printf("* - Initializing  RTC\n");
-    rtc_inicializar();
+    rtc_init();
+    if(ds3231_probe()){
+        printf("RTC-present");
+    }else{
+        printf("RTC- NOT FOUND...");
+    }
    
     pico_write_ch('K');
     ring_buf_init();
