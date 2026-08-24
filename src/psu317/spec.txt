@@ -1,0 +1,31 @@
+
+
+Programa para arduino Nano Power controll PWRCNTRL
+
+3 - saidas de power good PWRG.
+-5V = PWRG3
++5V = PWRQ2
++12V= PWRG1
+
+3 entradas analógicas, configuradas assim:
+Entrada A0 - 0 ~ 5 --> Volts para uma fonte de 0 a 12  -->  Relé 1
+Entrada A1 - 0 ~ 5 --> Volts para uma fonte de 0 a 5   -->  Relé 2
+Entrada A2 - -5 ~ +5-> Volts para uma fonte de -5 ~ 0  -->  Relé 3
+
+3 saidas digitais para 3 relés relé 1,relé 2 e relé 3.
+
+1 - D5 - quando cada uma das tensões atinjam 95% da
+    tensão nominal é para ligar o relé correspondente.
+    e ligar o power good correspondente
+2 - D6 - quando quaisquer uma das tensões cair 10% da
+    tensão nominal é para desligar o power good PWRx
+    correspondente.
+    Talvez uma coisa legal aqui seria receber um feed
+    back da CPU sobre oque fazer, atravez de um pino.
+3 - D7 - printar sempre o valor de cada tensão em um lcd
+    16 COLUNAS E 4 LINHAS conectado via I2C.Endereço padrão.
+
+
+
+
+

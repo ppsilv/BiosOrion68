@@ -1,0 +1,48 @@
+0001 xxxx -> Power- PSU
+0000 -> circuit board
+0001 -> manual da board
+0002 -> schematic
+0003 -> pcb
+0010 -> firmware(rom,microcontrollers).
+0040 -> gerber top
+0041 -> gerber botton
+0042 -> gerber top mask
+0043 -> gerber botton mask
+0044 -> gerber top  silk-screen
+0045 -> gerber botton silk-screen
+0046 -> gerber top  comp-name
+0047 -> gerber botton comp-name
+0100 -> componentes part-numbers
+
+1000 xxxx -> Memory board ROM & RAM
+0000 -> circuit board
+0001 -> manual da board
+0002 -> schematic
+0003 -> pcb
+0010 -> firmware(rom,microcontrollers).
+0040 -> gerber top
+0041 -> gerber botton
+0042 -> gerber top mask
+0043 -> gerber botton mask
+0044 -> gerber top  silk-screen
+0045 -> gerber botton silk-screen
+0046 -> gerber top  comp-name
+0047 -> gerber botton comp-name
+0100 -> componentes part-numbers
+
+
+6000 xxxx -> CPU- MC68000-DIP,MC68010-DIP
+0000 -> circuit board
+0001 -> manual da board
+0002 -> schematic
+0003 -> pcb
+0010 -> firmware(rom,microcontrollers).
+0040 -> gerber top
+0041 -> gerber botton
+0042 -> gerber top mask
+0043 -> gerber botton mask
+0044 -> gerber top  silk-screen
+0045 -> gerber botton silk-screen
+0046 -> gerber top  comp-name
+0047 -> gerber botton comp-name
+0100 -> componentes part-numbers

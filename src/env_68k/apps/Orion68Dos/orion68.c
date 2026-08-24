@@ -123,7 +123,7 @@ void main() {
     printf("%s",MsgOrionInit);
     pico_write_ch('c');
     m68k_enable_all_interrupts(); 
-    printf("* All Interrupts enabled.\n");
+    printf("* - All Interrupts enabled.\n");
     pico_write_ch('D');
     printf("* - Console output seted to picoVGA.\n");
     pico_write_ch('E');
@@ -158,12 +158,12 @@ void main() {
     do_ideinit(0,NULL);
     pico_write_ch('J');
 
-    printf("* - Initializing  RTC\n");
+    printf("* - Initializing  RTC: ");
     rtc_init();
     if(ds3231_probe()){
-        printf("RTC-present");
+        printf("RTC-present\n");
     }else{
-        printf("RTC- NOT FOUND...");
+        printf("RTC- NOT FOUND...\n");
     }
    
     pico_write_ch('K');

@@ -1,0 +1,26 @@
+A CPU diferencia interrupção **Vetorada** de **Auto-vetorada** exclusivamente pelo sinal de resposta do hardware durante o ciclo de **IACK** (Interrupt Acknowledge):
+
+* **Vetorada (`/DTACK`):** O periférico (ou sua GAL) coloca o número do vetor (`$00`..`$FF`) no barramento de dados $D0..D7$ e aciona o **`/DTACK`**. A CPU lê esse byte, multiplica por 4 e salta para o endereço apontado na RAM.
+* **Auto-vetorada (`/VPA`):** O hardware aciona o pino **`/VPA`** (*Valid Peripheral Address*) em vez do `/DTACK`. A CPU ignora o barramento de dados e seleciona automaticamente um vetor fixo interno de acordo com o nível da interrupção (IPL0..IPL2).
+
+---
+
+### Estrutura da Tabela na RAM
+
+Cada vetor ocupa **4 bytes** (ponteiro de 32 bits) na memória. O endereço da ISR é calculado por:
+
+$$\text{Offset na RAM} = \text{Número do Vetor} \times 4$$
+
+* **Auto-vetores (Fixos do Nível 1 ao 7):**
+* Nível 1: Vetor 25 (Offset `$000064`)
+* Nível 2: Vetor 26 (Offset `$000068`)
+* Nível 3: Vetor 27 (Offset `$00006C`)
+* Nível 4: Vetor 28 (Offset `$000070`)
+* Nível 5: Vetor 29 (Offset `$000074`)
+* Nível 6: Vetor 30 (Offset `$000078`)
+* Nível 7: Vetor 31 (Offset `$00007C` - NMI)
+
+
+* **Vetores Livres de Usuário (Vetorados via `/DTACK`):**
+* Vetores 64 a 255 (Offsets `$000100` a `$0003FF`).
+* *Exemplo do seu projeto:* O vetor `$40` (64 em decimal) fica no offset $64 \times 4 = 256$ (`$000100`).

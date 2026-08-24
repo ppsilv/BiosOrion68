@@ -10,10 +10,10 @@
     TRAP #XX------------------------------------------>trap12 disco-> OK trap1 console->OK
     libc----------------------------------------------> OK
     libfileIO fopen,fread,fwrite...-------------------> OK
-    libSerial----------------------------------------->
+    libSerial-----------------------------------------> trap12 --> testar fortemente
     libParallel--------------------------------------->
-    libRtc-------------------------------------------->
-    libVideo acesso as funções da interface de video-->
+    libRtc--------------------------------------------> trap4 --> testar fortemente
+    libVideo acesso as funções da interface de video--> trap2 --> testar fortemente
 # 3 - Validar interruções.
     systick ------------------------------------------> OK
     teclado ps2---------------------------------------> OK
@@ -33,16 +33,16 @@
     Inserido mais 0x100000 total 2Mb------------------> OK
 # 7 - RTC
     Implementar hardware testar acesso----------------> OK
-    leitura data/hora--------------------------------->
-    escrita data/hora--------------------------------->
+    leitura data/hora---------------------------------> OK
+    escrita data/hora---------------------------------> OK
 # 8 - TinyBasic
     Implementar---------------------------------------> OK
-    Verificar as função save e load do tinybasic------>
+    Verificar as função save e load do tinybasic------> OK
 # 9 - Duart
     Implementar o hardware----------------------------> OK
     Led piscante para sinalizar cpu ON----------------> OK
-    Testar serial escrita----------------------------->
-    Testar serial leitura----------------------------->
+    Testar serial escrita-----------------------------> OK
+    Testar serial leitura-----------------------------> OK
 # 10 -PIO - Parallel Input/Output
     Implementar o hardware --------------------------->
     Testar escrita nas portas------------------------->
@@ -53,6 +53,13 @@
     Refatoração com melhoria na interface com m68k----> OK
     Implementar uma biblioteca grafica---------------->
 
+# 13 - AT24C32
+    Implementar uma forma de ler essa memoria--------->
+    Uma vez que o no arduino li a memoria mas no m68k
+    com bitbang não funciona, sem motivo aparente,
+    já testei retestei verifiquei codigo hardware e
+    de forma alguma consegui ler ou escrever na memoria
+    com sucesso.
 
 # LOG ERROS:
 

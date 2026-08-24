@@ -10207,7 +10207,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 236.22) (xy 149.86 236.22)
+			(xy 111.76 236.22) (xy 149.86 236.22)
 		)
 		(stroke
 			(width 0)
@@ -10887,7 +10887,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 223.52) (xy 124.46 223.52)
+			(xy 111.76 223.52) (xy 124.46 223.52)
 		)
 		(stroke
 			(width 0)
@@ -11087,7 +11087,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 223.52) (xy 119.38 236.22)
+			(xy 111.76 223.52) (xy 111.76 236.22)
 		)
 		(stroke
 			(width 0)
@@ -17796,6 +17796,16 @@
 		)
 		(uuid "7e065447-462b-403d-a945-9212275c3504")
 	)
+	(label "IORDY"
+		(at 104.14 208.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7f4ac828-f7be-45cf-b525-0b5380967182")
+	)
 	(label "RXC"
 		(at 187.96 92.71 0)
 		(effects
@@ -18445,6 +18455,16 @@
 			(justify right bottom)
 		)
 		(uuid "e65845b4-6bbc-4fc8-9d7a-00a541a59de9")
+	)
+	(label "INTRQ"
+		(at 104.14 213.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e6d653cf-2146-48dd-8fb6-e51de0016b37")
 	)
 	(label "RX1"
 		(at 281.94 236.22 0)

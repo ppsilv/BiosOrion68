@@ -1,0 +1,86 @@
+Name     orion68k_irq_vector ;
+PartNo   PLD-22V10 ;
+Date     22/08/2026 ;
+Revision 02 ;
+Designer pdsilva ;
+Company  Orion68K ;
+Assembly Hardware ;
+Location U1 ;
+Device   G22V10 ;
+
+/* =========================================================================
+ * MAPEAMENTO DE PINOS (GAL22V10 - Encapsulamento DIP24)
+ * ========================================================================= */
+
+/* --- Entradas de Controle e Requisições (Ativas em Nível Baixo) --- */
+PIN 1  = !IACK ;       /* Sinal de Reconhecimento de Interrupção do 68K */
+PIN 2  = !REQ1 ;       /* Requisição 1 (Prioridade 1 - Maior) */
+PIN 3  = !REQ2 ;       /* Requisição 2 (Prioridade 2) */
+PIN 4  = !REQ3 ;       /* Requisição 3 (Prioridade 3) */
+PIN 5  = !REQ4 ;       /* Requisição 4 (Prioridade 4) */
+PIN 6  = !REQ5 ;       /* Requisição 5 (Prioridade 5 - Menor) */
+
+/* --- Saídas do Barramento de Dados (D7..D0 do MC68000) --- */
+PIN 14 = D0 ;
+PIN 15 = D1 ;
+PIN 16 = D2 ;
+PIN 17 = D3 ;
+PIN 18 = D4 ;
+PIN 19 = D5 ;
+PIN 20 = D6 ;
+PIN 21 = D7 ;
+
+/* --- Saída de Resposta do Barramento --- */
+PIN 22 = !DTACK ;      /* Gera o ACK de barramento para o 68000 */
+
+/* =========================================================================
+ * CONTROLE DE TRI-STATE (.oe)
+ * O barramento D7..D0 e o DTACK ficam em Alta Impedância (Hi-Z) até que
+ * o 68K entre no ciclo de IACK (IACK = 0).
+ * ========================================================================= */
+D0.oe = !IACK ;
+D1.oe = !IACK ;
+D2.oe = !IACK ;
+D3.oe = !IACK ;
+D4.oe = !IACK ;
+D5.oe = !IACK ;
+D6.oe = !IACK ;
+D7.oe = !IACK ;
+DTACK.oe = !IACK ;
+
+/* =========================================================================
+ * ENCODADOR DE PRIORIDADE ENCADEADO
+ * Se duas interrupções dispararem juntas, prevalece a de menor número.
+ * ========================================================================= */
+SEL1 = REQ1 ;
+SEL2 = REQ2 & !REQ1 ;
+SEL3 = REQ3 & !REQ2 & !REQ1 ;
+SEL4 = REQ4 & !REQ3 & !REQ2 & !REQ1 ;
+SEL5 = REQ5 & !REQ4 & !REQ3 & !REQ2 & !REQ1 ;
+
+/* =========================================================================
+ * TABELA DE VETORES DE INTERRUPÇÃO
+ * Base do Vetor = 0x40 (Faixa livre de usuário no MC68000: $40 a $FF)
+ *
+ * REQ1 -> Off: 0x0 (0000b) -> Vetor final: 0x40 (Vetor 64)
+ * REQ2 -> Off: 0x4 (0100b) -> Vetor final: 0x44 (Vetor 68)
+ * REQ3 -> Off: 0x6 (0110b) -> Vetor final: 0x46 (Vetor 70)
+ * REQ4 -> Off: 0x8 (1000b) -> Vetor final: 0x48 (Vetor 72)
+ * REQ5 -> Off: 0xC (1100b) -> Vetor final: 0x4C (Vetor 76)
+ * ========================================================================= */
+
+D0 = 'b'0 ;                               /* Sempre 0 (offsets pares) */
+D1 = SEL3 ;                               /* Bit 1 ativo apenas em 0x6 (0110b) */
+D2 = SEL2 # SEL3 # SEL5 ;                 /* Bit 2 ativo em 0x4, 0x6 e 0xC */
+D3 = SEL4 # SEL5 ;                        /* Bit 3 ativo em 0x8 e 0xC */
+
+D4 = 'b'0 ;                               /* Nibble superior fixo em 0x4 */
+D5 = 'b'0 ;
+D6 = 'b'1 ;                               /* Bit 6 = 1 define base 0x40 */
+D7 = 'b'0 ;
+
+/* =========================================================================
+ * RESPOSTA DE BARRAMENTO
+ * Mantém /DTACK em nível baixo durante todo o ciclo de IACK ativo
+ * ========================================================================= */
+DTACK = !IACK ;

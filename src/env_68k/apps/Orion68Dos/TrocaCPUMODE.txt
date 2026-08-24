@@ -1,0 +1,117 @@
+/* =========================================================================
+ * Transição de Modo Supervisor -> Modo Usuário no MC68000
+ * ========================================================================= */
+
+.equ USER_STACK_TOP,  0x00080000  /* Topo da RAM para a pilha do usuário */
+.equ USER_ENTRY_POINT, 0x00004000  /* Endereço de início do programa do usuário */
+
+.section .text
+.global start_user_mode
+
+start_user_mode:
+    | 1. Configura o User Stack Pointer (USP)
+    | A instrução 'move %an, %usp' só funciona em Modo Supervisor.
+    movea.l #USER_STACK_TOP, %a0
+    move.l  %a0, %usp
+
+    | 2. Monta o Frame de Exceção na Pilha do Supervisor (SSP)
+    | O RTE desempilha primeiro o SR (16 bits) e depois o PC (32 bits).
+    | Empilhamos na ordem inversa:
+    
+    move.l  #USER_ENTRY_POINT, -(%sp)  /* Empilha o PC de destino (Long) */
+    move.w  #0x0000, -(%sp)             /* Empilha o SR desejado (Word)   */
+
+    | 3. Executa o RTE (Return from Exception)
+    | - Desempilha 0x0000 para o SR: Bit S (bit 13) vira 0 -> Muda p/ Modo Usuário.
+    | - Desempilha o PC e salta para USER_ENTRY_POINT.
+    | - O ponteiro de pilha ativo muda automaticamente de SSP para USP.
+    rte
+
+
+    Pilha (SSP) antes do RTE:
++-----------------------+ <- %sp aponta aqui
+|  Status Register (SR) |  (2 bytes / 1 Word)  -> 0x0000 (Bit S = 0)
++-----------------------+
+|  Program Counter (PC) |  (4 bytes / 1 Long)  -> Endereço de execução
++-----------------------+
+
+
+
+Em um sistema operacional real, esse endereço não costuma ser uma constante fixa (.equ), mas sim dinâmico:
+
+O Kernel lê o arquivo executável de uma mídia (disco, SD, serial).
+
+Aloca um bloco de RAM e copia o código do programa para lá.
+
+Passa o ponteiro do início desse código para a rotina que faz o salto para modo usuário.
+
+Exemplo dinâmico (recebendo o endereço em %a0):
+Snippet de código
+| A0 = Endereço onde o programa foi carregado na RAM
+| D0 = Topo da pilha alocada para o programa
+run_user_program:
+    move.l  %d0, %usp           | Configura a pilha do usuário
+    
+    move.l  %a0, -(%sp)         | Empilha o PC (endereço dinâmico do programa em RAM)
+    move.w  #0x0000, -(%sp)     | Empilha o SR (Modo Usuário, interrupções liberadas)
+    
+    rte
+
+Para capturar a tentativa de acesso não autorizado, a captura ocorre por dois caminhos no MC68000: por instrução e por hardware (I/O).
+
+---
+
+### 1. Instruções Privilegiadas (Automático pela CPU)
+
+Se o programa em modo usuário tentar executar instruções restritas ao supervisor (`MOVE to SR`, `STOP`, `RESET`, `MOVE to USP`), a própria CPU impede a execução e dispara automaticamente a **Exceção de Violação de Privilégio (Vetor 8)**.
+
+### 2. Acesso Direto à Memória/I/O (Requer Hardware / GAL)
+
+Como o 68000 usa I/O mapeado em memória, um `MOVE.B` no endereço da PicoVGA (`0x00FF8000`) é uma instrução válida em modo usuário. A CPU só saberá que é proibido se o seu hardware externo (GAL/decodificador) barrar o acesso.
+
+1. Durante o ciclo de barramento, o 68000 coloca o tipo de acesso nos pinos de **Function Code (`FC0-FC2`)**:
+* `FC2 = 1`: Modo Supervisor
+* `FC2 = 0`: Modo Usuário
+
+
+2. Sua GAL decodifica o endereço. Se `FC2 = 0` e o endereço for da área de I/O (`0x00FF8000`), a GAL **não gera o `/DTACK**` e ativa o sinal **`/BERR` (Bus Error)**.
+3. A CPU intercepta o `/BERR` e dispara a **Exceção de Bus Error (Vetor 2)**.
+
+---
+
+### Configurando os Handlers no Kernel
+
+Na tabela de vetores (início da ROM/RAM):
+
+```assembly
+.section .vectors
+.org 0x00000008
+    .long handle_bus_error         | Vetor 2: Bus Error (Offset 0x0008)
+
+.org 0x00000020
+    .long handle_priv_violation    | Vetor 8: Privilege Violation (Offset 0x0020)
+
+```
+
+### Exemplo dos Handlers de Captura
+
+```assembly
+.section .text
+
+| Captura de instruções privilegiadas
+handle_priv_violation:
+    movem.l %d0-%d7/%a0-%a6, -(%sp) | Salva registradores
+    | [Código do Kernel: Encerra o processo do usuário ou exibe erro]
+    bra     kill_user_process
+
+| Captura de acesso direto a I/O não permitido (BERR)
+handle_bus_error:
+    movem.l %d0-%d7/%a0-%a6, -(%sp)
+    | [Código do Kernel: Trata a falha de segmentação / bus error]
+    bra     kill_user_process
+
+kill_user_process:
+    | Restaura o estado e retorna o controle de forma segura para o shell do Oriondos
+    movea.l #KERNEL_STACK_TOP, %sp
+    jmp     oriondos_shell_prompt
+    

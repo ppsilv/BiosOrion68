@@ -120,6 +120,48 @@
 		)
 	)
 	(sheet
+		(at 19.05 115.57)
+		(size 32.258 4.572)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "5455728c-12b6-4d1f-a689-04b2dec68816")
+		(property "Sheetname" "Ogion68-PSUcontrol"
+			(at 19.05 114.8584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ide.kicad_sch"
+			(at 19.05 120.7266 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Orion68"
+				(path "/c7ab032b-c937-44de-ab42-c91dee57f0a8"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 19.05 65.405)
 		(size 32.385 5.08)
 		(exclude_from_sim no)
