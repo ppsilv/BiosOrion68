@@ -158,13 +158,13 @@ void main() {
     do_ideinit(0,NULL);
     pico_write_ch('J');
 
-    printf("* - Initializing  RTC: ");
-    rtc_init();
-    if(ds3231_probe()){
-        printf("RTC-present\n");
-    }else{
-        printf("RTC- NOT FOUND...\n");
-    }
+//    printf("* - Initializing  RTC: ");
+//    rtc_init();
+//    if(ds3231_probe()){
+//        printf("RTC-present\n");
+//    }else{
+//        printf("RTC- NOT FOUND...\n");
+//    }
    
     pico_write_ch('K');
     ring_buf_init();
