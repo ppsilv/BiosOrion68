@@ -83,6 +83,7 @@ Svcaddress_err:
 
 SvcIllegalIns:
 SvcDiv0_handler:
+        rte
 SvcChkIns:
 SvcTrapvIns:
 SvcPrivViolation:

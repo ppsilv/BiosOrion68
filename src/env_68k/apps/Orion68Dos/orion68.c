@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vga_video.h>
+#include <fatfs/ff.h>
 #include "drv_uart.h"
 #include "drv_kbd.h"
 #include "io.h"
@@ -9,7 +10,6 @@
 #include "timers.h"
 #include "interrupt.h"
 #include "ata.h"
-#include "ff.h"
 #include "show_registers.h"
 #include "sysflags.h"
 #include "orion68.h"
@@ -141,30 +141,31 @@ void main() {
     // uart3_init();
     // delay10ms(100);  //100ms    
     pico_write_ch('G');
-    printf("* - Initializing duart GPIO\n");
+    printf("* - Initializing:\n");
+    printf("    * duart GPIO\n");
     duart_opr_init();
     pico_write_ch('H');
-    printf("* - Initializing duart A\n");
+    printf("    * duart A\n");
     duart_init_canal_a();
     pico_write_ch('I');
-    printf("* - Initializing duart B\n");
+    printf("    * duart B\n");
     duart_init_canal_a();
     
     crc32_init();
 #ifdef DEBUG_ON
     ata_read_identity();    
 #endif
-    printf("* - Initializing IDE ");
+    printf("    * IDE ");
     do_ideinit(0,NULL);
     pico_write_ch('J');
 
-//    printf("* - Initializing  RTC: ");
-//    rtc_init();
-//    if(ds3231_probe()){
-//        printf("RTC-present\n");
-//    }else{
-//        printf("RTC- NOT FOUND...\n");
-//    }
+    printf("    * RTC: ");
+    rtc_init();
+    if(ds3231_probe()){
+        printf("RTC-present\n");
+    }else{
+        printf("RTC- NOT FOUND...\n");
+    }
    
     pico_write_ch('K');
     ring_buf_init();

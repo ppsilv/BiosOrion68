@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <vga_video.h>
+#include <fatfs/ff.h>
 
 #include "orion68.h"
 #include "commands.h"
@@ -12,7 +13,6 @@
 #include "io.h"
 
 #include "rtc.h"
-#include "ff.h"
 #include "srecord.h"
 #include "diskio.h"
 #include "drv_uart.h"
@@ -726,10 +726,14 @@ void do_save2(int argc, char *argv[]){
         return;
     }
 
-    noblk_receber_arquivo_do_pico((uint8_t *)0x82000,0);
+    if(!noblk_receber_arquivo_do_pico((uint8_t *)0x82000,0) ){
+        puts("noblk_receber_arquivo_do_pico CRC error...\n");
+        return;
+    }
 
     const void *origem = (const void *)0x82015;
-    const char *nome_arquivo1 = (const void *)0x82008;
+    char *nome_arquivo1 = (void *)0x82008;
+    *(nome_arquivo1+12)='\0';
     
     volatile uint8_t *p1 = (volatile uint8_t *)0x82004;
 
@@ -739,12 +743,6 @@ void do_save2(int argc, char *argv[]){
                        ((uint32_t)p1[0]);
     tamanho1=tamanho1-0x15;
     //printf("0-origem [%08X] nome[%s] tamanho[%04x]\n",origem,nome_arquivo1,tamanho1);
-
-    if( strlen(nome_arquivo1) > 13 ){
-        printf("Error: filename bigger than 13bytes...\n");
-        return;
-    }
-
     //dump_memory((void*)0x82000, 0x32);
 
     FIL     arquivo;

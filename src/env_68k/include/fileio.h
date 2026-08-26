@@ -23,4 +23,4 @@ FRESULT fclosedir(DIR* dp);
 FRESULT fmkdir(const TCHAR* path);
 
 FRESULT fmount(FATFS* fs, const TCHAR* path, BYTE opt);
-FRESULT funmount(const TCHAR* path):
+FRESULT funmount(const TCHAR* path);

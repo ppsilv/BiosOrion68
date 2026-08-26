@@ -60,7 +60,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "ide.kicad_sch"
+		(property "Sheetfile" "io_support.kicad_sch"
 			(at 19.304 108.5346 0)
 			(effects
 				(font

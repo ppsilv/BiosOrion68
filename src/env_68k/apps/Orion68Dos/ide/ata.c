@@ -8,7 +8,7 @@
 
 struct ata_drive drives[ATA_MAX_DRIVES];
 
-
+extern uint32_t get_tick_count();
 
 #define ATA_REG_BASE 0x00FF4400
 
@@ -45,9 +45,12 @@ struct ata_drive drives[ATA_MAX_DRIVES];
 #define ATA_CMD_IDENTIFY	0xEC
 #define ATA_CMD_SET_FEATURE	0xEF
 
-#define ATA_ST_BUSY			0x80
-#define ATA_ST_DATA_READY	0x08
-#define ATA_ST_ERROR		0x01
+#define ATA_ST_BUSY     	0x80    // BSY
+#define ATA_ST_DRDY     	0x40    // Drive Ready
+#define ATA_ST_DF       	0x20    // Device Fault
+#define ATA_ST_DSC      	0x10    // Seek Complete (obsoleto, mas alguns CF ainda setam)
+#define ATA_ST_DATA_READY	0x08    // Data Request (tem dado pronto pra transferir)
+#define ATA_ST_ERROR    	0x01    // Error
 
 #define log_notice printf
 #define log_info   printf
@@ -77,16 +80,130 @@ void go_8bits_mode()
 		ATA_WAIT();
 	}	
 }
-
-int ata_detect(void)
-{
+/* Ajuste esse valor conforme a frequência da sua rotina de delay.
+ * Datasheets de CF tipicamente pedem até 30s no pior caso (spin-up),
+ * mas CF de estado sólido normalmente responde em poucos ms. 
+ */
+#define ATA_TIMEOUT_LOOPS   1000000UL
+/*
+static int ata_wait_busy_clear(void){
+    unsigned long timeout = ATA_TIMEOUT_LOOPS;
+    uint8_t status;
+    do {
+        status = *ATA_REG_STATUS;
+        if (!(status & ATA_ST_BUSY)) {
+            return 1;   // saiu de BUSY, sucesso 
+        }
+        timeout--;
+    } while (timeout > 0);
+    return 0;   // timeout - disco não respondeu a tempo 
+}*/
+static int ata_wait_busy_clear_timed(uint32_t timeout_ms){
+    uint32_t start = get_tick_count();   /* ajuste ao nome real da sua API de RTC */
+    uint8_t status;
+    do {
+        status = *ATA_REG_STATUS;
+        if (!(status & ATA_ST_BUSY)) {
+            return 1;
+        }
+    } while ((get_tick_count() - start) < (timeout_ms/10));
+    return 0;
+}
+static int has_master_disk4(void){
+    uint8_t status;
+    *ATA_REG_DRIVE_HEAD = 0xA0;
+    for (volatile int i = 0; i < 100; i++);
+    /* Teste de assinatura */
+    *ATA_REG_SECTOR_COUNT = 0x55;
+    *ATA_REG_SECTOR_NUM   = 0xAA;
+    if (*ATA_REG_SECTOR_COUNT != 0x55 || *ATA_REG_SECTOR_NUM != 0xAA) {
+        return 0;
+    }
+    *ATA_REG_SECTOR_COUNT = 0xAA;
+    *ATA_REG_SECTOR_NUM   = 0x55;
+    if (*ATA_REG_SECTOR_COUNT != 0xAA || *ATA_REG_SECTOR_NUM != 0x55) {
+        return 0;
+    }
+    status = *ATA_REG_STATUS;
+    if (status == 0xFF) {
+        return 0;   /* barramento flutuando, nada respondendo */
+    }
+    /* Disco parece presente (respondeu à assinatura), mas pode
+     * ainda estar em power-on / self-test. Espera sair de BUSY. */
+    if (!ata_wait_busy_clear_timed(1000)) {
+        return 0;   /* presente mas nunca ficou pronto -> trate como falha */
+    }
+    return 1;   /* disco presente e pronto */
+}
+static int has_master_disk3(void){
+    uint8_t status;
+    /* Seleciona drive 0 (master) antes de testar - alguns
+     * controladores só respondem no barramento se DRIVE_HEAD
+     * estiver setado corretamente (bit 5 e 7 sempre em 1 por
+     * compatibilidade, LBA=0, drive=0) */
+    *ATA_REG_DRIVE_HEAD = 0xA0;
+    /* pequeno delay pro barramento estabilizar após troca de drive */
+    for (volatile int i = 0; i < 100; i++);
+    /* Teste de assinatura: escreve e relê SECTOR_COUNT */
+    *ATA_REG_SECTOR_COUNT = 0x55;
+    *ATA_REG_SECTOR_NUM   = 0xAA;
+    if (*ATA_REG_SECTOR_COUNT != 0x55 || *ATA_REG_SECTOR_NUM != 0xAA) {
+        return 0;   /* não gravou -> barramento flutuando, sem disco */
+    }
+    *ATA_REG_SECTOR_COUNT = 0xAA;
+    *ATA_REG_SECTOR_NUM   = 0x55;
+    if (*ATA_REG_SECTOR_COUNT != 0xAA || *ATA_REG_SECTOR_NUM != 0x55) {
+        return 0;
+    }
+    /* Confirma que STATUS não está com o barramento flutuando */
+    status = *ATA_REG_STATUS;
+    if (status == 0xFF) {
+        return 0;
+    }
+    return 1;   /* dispositivo presente */
+}
+static int has_master_disk(void){
+    // escreve um valor de teste em um registrador gravável
+    *ATA_REG_SECTOR_COUNT = 0x55;
+    if (*ATA_REG_SECTOR_COUNT != 0x55) {
+        return 0;  // não gravou = sem disco
+    }
+    *ATA_REG_SECTOR_COUNT = 0xAA;
+    if (*ATA_REG_SECTOR_COUNT != 0xAA) {
+        return 0;
+    }
+    // registrador responde normalmente, dispositivo presente
+    return 1;
+}
+static int has_master_disk2(void){
+    uint8_t status;
+    // teste de assinatura
+    *ATA_REG_SECTOR_COUNT = 0x55;
+    *ATA_REG_SECTOR_COUNT = 0xAA;
+    if (*ATA_REG_SECTOR_COUNT != 0xAA) {
+        return 0;
+    }
+    // confirma que status não está "flutuando"
+    status = *ATA_REG_STATUS;
+    if (status == 0xFF) {
+        return 0;
+    }
+    return 1;
+}
+int ata_detect(void){
 	uint8_t status;
 
-	status = *ATA_REG_STATUS;
+	//status = *ATA_REG_STATUS;
 	// If the busy bit is already set, or the two bits that are always 0, then perhaps nothing is connected
-	if (status & (ATA_ST_BUSY | 0x06)){
+	//if (status & ATA_ST_BUSY) {
+	//	return 0;   // ainda ocupado, tenta de novo depois
+	//}
+	//if (!(status & ATA_ST_DRDY)) {
+	//	return 0;   // não ocupado, mas ainda não sinalizou "pronto"
+	//}	
+	if( ! has_master_disk() ){
 		return 0;
-    }
+	}
 	ATA_DELAY(10);
 
 	// Reset the IDE bus
@@ -94,7 +211,6 @@ int ata_detect(void)
 
 	for (int i = 0; i < 1000; i++) {
 		ATA_DELAY(10);
-
 		status = *ATA_REG_STATUS;
 		// If it becomes unbusy within the timeout then a drive is connected
 		if (!(status & ATA_ST_BUSY)) {

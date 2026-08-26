@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
-#include "ff.h"      // Biblioteca FatFs
+#include <fatfs/ff.h>      // Biblioteca FatFs
 
 #define PT_LOAD 1
 

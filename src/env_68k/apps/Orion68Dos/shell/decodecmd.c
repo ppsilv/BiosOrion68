@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <fatfs/ff.h>
 
 #include "decodecmd.h"
 #include "commands.h"
 #include "elf.h"
 #include "io.h"
 
-#include "ff.h"
 #include "diskio.h"
 #include "keycodes.h"
 #include "drv_uart.h"

@@ -30,6 +30,7 @@ SRCS = orion68.c vectors.c console.c trap12.c timers.c interrupt.c \
 ./shell/crc32.c \
 ./shell/cmd_repeat.c \
 ./kbd/ringbuffer.c \
+./rtc/i2cbb.c \
 ./uarts/drv_uart0.c \
 ./duart/duart.c \
 ./ide/ata.c \

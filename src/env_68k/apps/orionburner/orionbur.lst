@@ -1,0 +1,555 @@
+   1               	#NO_APP
+   2               		.file	"orionbur.c"
+   3               		.text
+   4               		.align	2
+   6               	video_puts:
+   7 0000 206F 0004 		move.l 4(%sp),%a0
+   8               	.L2:
+   9 0004 1010      		move.b (%a0),%d0
+  10 0006 6602      		jne .L3
+  11 0008 4E75      		rts
+  12               	.L3:
+  13 000a 5288      		addq.l #1,%a0
+  14 000c 13C0 00FF 		move.b %d0,16744449
+  14      8001 
+  15 0012 60F0      		jra .L2
+  17               		.align	2
+  19               	fmt_dec_u16:
+  20 0014 518F      		subq.l #8,%sp
+  21 0016 48E7 203A 		movem.l #8250,-(%sp)
+  22 001a 2C6F 0020 		move.l 32(%sp),%a6
+  23 001e 246F 0024 		move.l 36(%sp),%a2
+  24 0022 BCFC 0000 		cmp.w #0,%a6
+  25 0026 6610      		jne .L11
+  26 0028 14BC 0030 		move.b #48,(%a2)
+  27 002c 422A 0001 		clr.b 1(%a2)
+  28               	.L4:
+  29 0030 4CDF 5C04 		movem.l (%sp)+,#23556
+  30 0034 508F      		addq.l #8,%sp
+  31 0036 4E75      		rts
+  32               	.L11:
+  33 0038 7400      		moveq #0,%d2
+  34               	.L5:
+  35 003a 4878 000A 		pea 10.w
+  36 003e 2F0E      		move.l %a6,-(%sp)
+  37 0040 4EB9 0000 		jsr __umodsi3
+  37      0000 
+  38 0046 508F      		addq.l #8,%sp
+  39 0048 0600 0030 		add.b #48,%d0
+  40 004c 1F80 2817 		move.b %d0,23(%sp,%d2.l)
+  41 0050 7009      		moveq #9,%d0
+  42 0052 B08E      		cmp.l %a6,%d0
+  43 0054 6516      		jcs .L7
+  44 0056 1002      		move.b %d2,%d0
+  45 0058 5200      		addq.b #1,%d0
+  46               	.L9:
+  47 005a 41F7 2817 		lea 23(%sp,%d2.l),%a0
+  48 005e 7200      		moveq #0,%d1
+  49               	.L8:
+  50 0060 B200      		cmp.b %d0,%d1
+  51 0062 6D24      		jlt .L10
+  52 0064 4880      		ext.w %d0
+  53 0066 4232 0000 		clr.b (%a2,%d0.w)
+  54 006a 60C4      		jra .L4
+  55               	.L7:
+  56 006c 4878 000A 		pea 10.w
+  57 0070 2F0E      		move.l %a6,-(%sp)
+  58 0072 4EB9 0000 		jsr __udivsi3
+  58      0000 
+  59 0078 508F      		addq.l #8,%sp
+  60 007a 2C40      		move.l %d0,%a6
+  61 007c 5282      		addq.l #1,%d2
+  62 007e 7005      		moveq #5,%d0
+  63 0080 B082      		cmp.l %d2,%d0
+  64 0082 66B6      		jne .L5
+  65 0084 7404      		moveq #4,%d2
+  66 0086 60D2      		jra .L9
+  67               	.L10:
+  68 0088 1590 1800 		move.b (%a0),(%a2,%d1.l)
+  69 008c 5281      		addq.l #1,%d1
+  70 008e 5388      		subq.l #1,%a0
+  71 0090 60CE      		jra .L8
+  73               		.section	.rodata.str1.1,"aMS",@progbits,1
+  74               	.LC0:
+  75 0000 3A20 00   		.string	": "
+  76               	.LC1:
+  77 0003 2520 2800 		.string	"% ("
+  78               	.LC2:
+  79 0007 2F00      		.string	"/"
+  80               	.LC3:
+  81 0009 2920 2020 		.string	")      "
+  81      2020 2000 
+  82               		.text
+  83               		.align	2
+  85               	video_show_progress:
+  86 0092 518F      		subq.l #8,%sp
+  87 0094 48E7 3032 		movem.l #12338,-(%sp)
+  88 0098 242F 0020 		move.l 32(%sp),%d2
+  89 009c 246F 0024 		move.l 36(%sp),%a2
+  90 00a0 262F 0028 		move.l 40(%sp),%d3
+  91 00a4 6700 0086 		jeq .L15
+  92 00a8 200A      		move.l %a2,%d0
+  93 00aa D08A      		add.l %a2,%d0
+  94 00ac D08A      		add.l %a2,%d0
+  95 00ae 2200      		move.l %d0,%d1
+  96 00b0 EB89      		lsl.l #5,%d1
+  97 00b2 D081      		add.l %d1,%d0
+  98 00b4 2F03      		move.l %d3,-(%sp)
+  99 00b6 4872 0800 		pea (%a2,%d0.l)
+ 100 00ba 4EB9 0000 		jsr __udivsi3
+ 100      0000 
+ 101 00c0 508F      		addq.l #8,%sp
+ 102 00c2 2640      		move.l %d0,%a3
+ 103               	.L14:
+ 104 00c4 13FC 000D 		move.b #13,16744449
+ 104      00FF 8001 
+ 105 00cc 2F02      		move.l %d2,-(%sp)
+ 106 00ce 4DFA FF30 		lea video_puts,%a6
+ 107 00d2 4E96      		jsr (%a6)
+ 108 00d4 4879 0000 		pea .LC0
+ 108      0000 
+ 109 00da 4E96      		jsr (%a6)
+ 110 00dc 741E      		moveq #30,%d2
+ 111 00de D48F      		add.l %sp,%d2
+ 112 00e0 2F02      		move.l %d2,-(%sp)
+ 113 00e2 2F0B      		move.l %a3,-(%sp)
+ 114 00e4 47FA FF2E 		lea fmt_dec_u16,%a3
+ 115 00e8 4E93      		jsr (%a3)
+ 116 00ea 2F02      		move.l %d2,-(%sp)
+ 117 00ec 4E96      		jsr (%a6)
+ 118 00ee 4879 0000 		pea .LC1
+ 118      0000 
+ 119 00f4 4E96      		jsr (%a6)
+ 120 00f6 2F02      		move.l %d2,-(%sp)
+ 121 00f8 2F0A      		move.l %a2,-(%sp)
+ 122 00fa 4E93      		jsr (%a3)
+ 123 00fc 4FEF 001C 		lea (28,%sp),%sp
+ 124 0100 2E82      		move.l %d2,(%sp)
+ 125 0102 4E96      		jsr (%a6)
+ 126 0104 4879 0000 		pea .LC2
+ 126      0000 
+ 127 010a 4E96      		jsr (%a6)
+ 128 010c 2F02      		move.l %d2,-(%sp)
+ 129 010e 2F03      		move.l %d3,-(%sp)
+ 130 0110 4E93      		jsr (%a3)
+ 131 0112 2F02      		move.l %d2,-(%sp)
+ 132 0114 4E96      		jsr (%a6)
+ 133 0116 4FEF 0014 		lea (20,%sp),%sp
+ 134 011a 2F7C 0000 		move.l #.LC3,32(%sp)
+ 134      0000 0020 
+ 135 0122 4CDF 4C0C 		movem.l (%sp)+,#19468
+ 136 0126 508F      		addq.l #8,%sp
+ 137 0128 6000 FED6 		jra video_puts
+ 138               	.L15:
+ 139 012c 97CB      		sub.l %a3,%a3
+ 140 012e 6094      		jra .L14
+ 142               		.section	.rodata.str1.1
+ 143               	.LC4:
+ 144 0011 5573 6F3A 		.string	"Uso: orionburn <arquivo_firmware>\r\n"
+ 144      206F 7269 
+ 144      6F6E 6275 
+ 144      726E 203C 
+ 144      6172 7175 
+ 145               	.LC5:
+ 146 0035 4F72 696F 		.string	"OrionBurn - gravador de firmware AT28C256 (Orion68)\r\n"
+ 146      6E42 7572 
+ 146      6E20 2D20 
+ 146      6772 6176 
+ 146      6164 6F72 
+ 147               	.LC6:
+ 148 006b 4172 7175 		.string	"Arquivo: %s\r\n"
+ 148      6976 6F3A 
+ 148      2025 730D 
+ 148      0A00 
+ 149               	.LC7:
+ 150 0079 4552 524F 		.string	"ERRO: nao foi possivel abrir o arquivo.\r\n"
+ 150      3A20 6E61 
+ 150      6F20 666F 
+ 150      6920 706F 
+ 150      7373 6976 
+ 151               	.LC8:
+ 152 00a3 4552 524F 		.string	"ERRO: tamanho de firmware invalido.\r\n"
+ 152      3A20 7461 
+ 152      6D61 6E68 
+ 152      6F20 6465 
+ 152      2066 6972 
+ 153               	.LC9:
+ 154 00c9 4552 524F 		.string	"ERRO: leitura incompleta do arquivo.\r\n"
+ 154      3A20 6C65 
+ 154      6974 7572 
+ 154      6120 696E 
+ 154      636F 6D70 
+ 155               	.LC10:
+ 156 00f0 4C69 646F 		.string	"Lidos %u bytes do arquivo.\r\n"
+ 156      7320 2575 
+ 156      2062 7974 
+ 156      6573 2064 
+ 156      6F20 6172 
+ 157               	.LC11:
+ 158 010d 496E 6963 		.string	"Iniciando gravacao. Interrupcoes serao desabilitadas agora.\r\n"
+ 158      6961 6E64 
+ 158      6F20 6772 
+ 158      6176 6163 
+ 158      616F 2E20 
+ 159               	.LC12:
+ 160 014b 4120 7061 		.string	"A partir daqui, todo o progresso e mostrado direto na tela.\r\n"
+ 160      7274 6972 
+ 160      2064 6171 
+ 160      7569 2C20 
+ 160      746F 646F 
+ 161               	.LC13:
+ 162 0189 2047 7261 		.string	" Gravando"
+ 162      7661 6E64 
+ 162      6F00 
+ 163               	.LC14:
+ 164 0193 0D0A 00   		.string	"\r\n"
+ 165               	.LC15:
+ 166 0196 4552 524F 		.string	"ERRO: timeout no endereco"
+ 166      3A20 7469 
+ 166      6D65 6F75 
+ 166      7420 6E6F 
+ 166      2065 6E64 
+ 167               	.LC16:
+ 168 01b0 2030 7800 		.string	" 0x"
+ 169               	.LC17:
+ 170 01b4 4E41 4F20 		.string	"NAO REINICIE.\r\n"
+ 170      5245 494E 
+ 170      4943 4945 
+ 170      2E0D 0A00 
+ 171               	.LC18:
+ 172 01c4 5665 7269 		.string	"Verificando"
+ 172      6669 6361 
+ 172      6E64 6F00 
+ 173               	.LC19:
+ 174 01d0 0D0A 4641 		.string	"\r\nFALHA NA VERIFICACAO: "
+ 174      4C48 4120 
+ 174      4E41 2056 
+ 174      4552 4946 
+ 174      4943 4143 
+ 175               	.LC20:
+ 176 01e9 2062 7974 		.string	" byte(s) divergente(s). NAO REINICIE.\r\n"
+ 176      6528 7329 
+ 176      2064 6976 
+ 176      6572 6765 
+ 176      6E74 6528 
+ 177               	.LC21:
+ 178 0211 5355 4345 		.string	"SUCESSO - firmware gravado e verificado. Reiniciando..."
+ 178      5353 4F20 
+ 178      2D20 6669 
+ 178      726D 7761 
+ 178      7265 2067 
+ 179               		.section	.text.startup,"ax",@progbits
+ 180               		.align	2
+ 181               		.globl	main
+ 183               	main:
+ 184 0000 4FEF FDC4 		lea (-572,%sp),%sp
+ 185 0004 48E7 3F3E 		movem.l #16190,-(%sp)
+ 186 0008 246F 0270 		move.l 624(%sp),%a2
+ 187 000c 49F9 0000 		lea printf,%a4
+ 187      0000 
+ 188 0012 7001      		moveq #1,%d0
+ 189 0014 B0AF 026C 		cmp.l 620(%sp),%d0
+ 190 0018 6D16      		jlt .L17
+ 191 001a 4879 0000 		pea .LC4
+ 191      0000 
+ 192               	.L46:
+ 193 0020 4E94      		jsr (%a4)
+ 194 0022 588F      		addq.l #4,%sp
+ 195               	.L18:
+ 196 0024 7001      		moveq #1,%d0
+ 197               	.L16:
+ 198 0026 4CDF 7CFC 		movem.l (%sp)+,#31996
+ 199 002a 4FEF 023C 		lea (572,%sp),%sp
+ 200 002e 4E75      		rts
+ 201               	.L17:
+ 202 0030 4879 0000 		pea .LC5
+ 202      0000 
+ 203 0036 4E94      		jsr (%a4)
+ 204 0038 2F2A 0004 		move.l 4(%a2),-(%sp)
+ 205 003c 4879 0000 		pea .LC6
+ 205      0000 
+ 206 0042 4E94      		jsr (%a4)
+ 207 0044 4878 0001 		pea 1.w
+ 208 0048 2F2A 0004 		move.l 4(%a2),-(%sp)
+ 209 004c 7450      		moveq #80,%d2
+ 210 004e D48F      		add.l %sp,%d2
+ 211 0050 2F02      		move.l %d2,-(%sp)
+ 212 0052 4EB9 0000 		jsr fopen
+ 212      0000 
+ 213 0058 2C40      		move.l %d0,%a6
+ 214 005a 4FEF 0018 		lea (24,%sp),%sp
+ 215 005e 4A80      		tst.l %d0
+ 216 0060 6708      		jeq .L19
+ 217 0062 4879 0000 		pea .LC7
+ 217      0000 
+ 218 0068 60B6      		jra .L46
+ 219               	.L19:
+ 220 006a 2F02      		move.l %d2,-(%sp)
+ 221 006c 4EB9 0000 		jsr fsize
+ 221      0000 
+ 222 0072 2F40 0268 		move.l %d0,616(%sp)
+ 223 0076 2200      		move.l %d0,%d1
+ 224 0078 5381      		subq.l #1,%d1
+ 225 007a 588F      		addq.l #4,%sp
+ 226 007c 4BF9 0000 		lea fclose,%a5
+ 226      0000 
+ 227 0082 4841      		swap %d1
+ 228 0084 4A41      		tst.w %d1
+ 229 0086 6310      		jls .L21
+ 230 0088 4879 0000 		pea .LC8
+ 230      0000 
+ 231 008e 4E94      		jsr (%a4)
+ 232 0090 2F02      		move.l %d2,-(%sp)
+ 233 0092 4E95      		jsr (%a5)
+ 234 0094 508F      		addq.l #8,%sp
+ 235 0096 608C      		jra .L18
+ 236               	.L21:
+ 237 0098 42AF 0032 		clr.l 50(%sp)
+ 238 009c 47EF 0032 		lea (50,%sp),%a3
+ 239 00a0 2F0B      		move.l %a3,-(%sp)
+ 240 00a2 2F00      		move.l %d0,-(%sp)
+ 241 00a4 4879 0000 		pea raw_buf
+ 241      0000 
+ 242 00aa 2F02      		move.l %d2,-(%sp)
+ 243 00ac 4EB9 0000 		jsr fread
+ 243      0000 
+ 244 00b2 4FEF 0010 		lea (16,%sp),%sp
+ 245 00b6 4A80      		tst.l %d0
+ 246 00b8 661A      		jne .L39
+ 247 00ba 246F 0032 		move.l 50(%sp),%a2
+ 248               	.L22:
+ 249 00be 2F02      		move.l %d2,-(%sp)
+ 250 00c0 4E95      		jsr (%a5)
+ 251 00c2 588F      		addq.l #4,%sp
+ 252 00c4 B5EF 0264 		cmp.l 612(%sp),%a2
+ 253 00c8 670E      		jeq .L23
+ 254 00ca 4879 0000 		pea .LC9
+ 254      0000 
+ 255 00d0 6000 FF4E 		jra .L46
+ 256               	.L39:
+ 257 00d4 95CA      		sub.l %a2,%a2
+ 258 00d6 60E6      		jra .L22
+ 259               	.L23:
+ 260 00d8 2F0A      		move.l %a2,-(%sp)
+ 261 00da 4879 0000 		pea .LC10
+ 261      0000 
+ 262 00e0 4E94      		jsr (%a4)
+ 263 00e2 4879 0000 		pea .LC11
+ 263      0000 
+ 264 00e8 4E94      		jsr (%a4)
+ 265 00ea 4879 0000 		pea .LC12
+ 265      0000 
+ 266 00f0 4E94      		jsr (%a4)
+ 267               	#APP
+ 268               	| 189 "orionbur.c" 1
+ 269 00f2 40C4      		move.w %sr, %d4
+ 270 00f4 007C 0700 		ori.w  #0x0700, %sr
+ 271               	| 0 "" 2
+ 272               	#NO_APP
+ 273 00f8 747F      		moveq #127,%d2
+ 274 00fa D48A      		add.l %a2,%d2
+ 275 00fc EE8A      		lsr.l #7,%d2
+ 276 00fe 4FEF 0010 		lea (16,%sp),%sp
+ 277 0102 7600      		moveq #0,%d3
+ 278 0104 7000      		moveq #0,%d0
+ 279               	.L24:
+ 280 0106 B08A      		cmp.l %a2,%d0
+ 281 0108 654A      		jcs .L31
+ 282 010a 7600      		moveq #0,%d3
+ 283 010c 7A00      		moveq #0,%d5
+ 284 010e 49F9 0000 		lea raw_buf,%a4
+ 284      0000 
+ 285 0114 4BF9 0000 		lea video_show_progress,%a5
+ 285      0000 
+ 286               	.L32:
+ 287 011a BDCA      		cmp.l %a2,%a6
+ 288 011c 6500 013C 		jcs .L37
+ 289 0120 45F9 0000 		lea video_puts,%a2
+ 289      0000 
+ 290 0126 4A83      		tst.l %d3
+ 291 0128 6700 0168 		jeq .L38
+ 292               	#APP
+ 293               	| 201 "orionbur.c" 1
+ 294 012c 46C4      		move.w %d4, %sr
+ 295               	| 0 "" 2
+ 296               	#NO_APP
+ 297 012e 2F0B      		move.l %a3,-(%sp)
+ 298 0130 2F03      		move.l %d3,-(%sp)
+ 299 0132 4EB9 0000 		jsr fmt_dec_u16
+ 299      0000 
+ 300 0138 4879 0000 		pea .LC19
+ 300      0000 
+ 301 013e 4E92      		jsr (%a2)
+ 302 0140 2F0B      		move.l %a3,-(%sp)
+ 303 0142 4E92      		jsr (%a2)
+ 304 0144 4879 0000 		pea .LC20
+ 304      0000 
+ 305 014a 4E92      		jsr (%a2)
+ 306 014c 4FEF 0014 		lea (20,%sp),%sp
+ 307 0150 6000 FED2 		jra .L18
+ 308               	.L31:
+ 309 0154 220A      		move.l %a2,%d1
+ 310 0156 9280      		sub.l %d0,%d1
+ 311 0158 0C81 0000 		cmp.l #128,%d1
+ 311      0080 
+ 312 015e 6304      		jls .L25
+ 313 0160 727F      		moveq #127,%d1
+ 314 0162 4601      		not.b %d1
+ 315               	.L25:
+ 316 0164 7A03      		moveq #3,%d5
+ 317 0166 2F45 002E 		move.l %d5,46(%sp)
+ 318 016a 2A40      		move.l %d0,%a5
+ 319 016c DBFC 0000 		add.l #raw_buf,%a5
+ 319      0000 
+ 320 0172 2A00      		move.l %d0,%d5
+ 321 0174 DA81      		add.l %d1,%d5
+ 322 0176 2845      		move.l %d5,%a4
+ 323 0178 538C      		subq.l #1,%a4
+ 324               	.L28:
+ 325 017a 13FC FFAA 		move.b #-86,43690
+ 325      0000 AAAA 
+ 326 0182 13FC FFAA 		move.b #-86,43691
+ 326      0000 AAAB 
+ 327 018a 11FC 0055 		move.b #85,21844.w
+ 327      5554 
+ 328 0190 11FC 0055 		move.b #85,21845.w
+ 328      5555 
+ 329 0196 13FC FFA0 		move.b #-96,43690
+ 329      0000 AAAA 
+ 330 019e 13FC FFA0 		move.b #-96,43691
+ 330      0000 AAAB 
+ 331 01a6 91C8      		sub.l %a0,%a0
+ 332               	.L26:
+ 333 01a8 43F0 0800 		lea (%a0,%d0.l),%a1
+ 334 01ac 12B5 8800 		move.b (%a5,%a0.l),(%a1)
+ 335 01b0 5288      		addq.l #1,%a0
+ 336 01b2 B1C1      		cmp.l %d1,%a0
+ 337 01b4 66F2      		jne .L26
+ 338 01b6 1E35 18FF 		move.b -1(%a5,%d1.l),%d7
+ 339 01ba 207C 0006 		move.l #400000,%a0
+ 339      1A80 
+ 340               	.L27:
+ 341 01c0 1C14      		move.b (%a4),%d6
+ 342 01c2 BC07      		cmp.b %d7,%d6
+ 343 01c4 661C      		jne .L30
+ 344 01c6 5283      		addq.l #1,%d3
+ 345 01c8 2F02      		move.l %d2,-(%sp)
+ 346 01ca 2F03      		move.l %d3,-(%sp)
+ 347 01cc 4879 0000 		pea .LC13
+ 347      0000 
+ 348 01d2 4EB9 0000 		jsr video_show_progress
+ 348      0000 
+ 349 01d8 4FEF 000C 		lea (12,%sp),%sp
+ 350 01dc 2005      		move.l %d5,%d0
+ 351 01de 6000 FF26 		jra .L24
+ 352               	.L30:
+ 353 01e2 5388      		subq.l #1,%a0
+ 354 01e4 B0FC 0000 		cmp.w #0,%a0
+ 355 01e8 66D6      		jne .L27
+ 356 01ea 23CC 0000 		move.l %a4,g_last_fail_addr
+ 356      0000 
+ 357 01f0 53AF 002E 		subq.l #1,46(%sp)
+ 358 01f4 6684      		jne .L28
+ 359               	#APP
+ 360               	| 201 "orionbur.c" 1
+ 361 01f6 46C4      		move.w %d4, %sr
+ 362               	| 0 "" 2
+ 363               	#NO_APP
+ 364 01f8 2239 0000 		move.l g_last_fail_addr,%d1
+ 364      0000 
+ 365 01fe 7007      		moveq #7,%d0
+ 366 0200 41F9 0000 		lea HEXDIGITS,%a0
+ 366      0000 
+ 367               	.L33:
+ 368 0206 740F      		moveq #15,%d2
+ 369 0208 C481      		and.l %d1,%d2
+ 370 020a 17B0 2800 		move.b (%a0,%d2.l),(%a3,%d0.l)
+ 370      0800 
+ 371 0210 E889      		lsr.l #4,%d1
+ 372 0212 51C8 FFF2 		dbra %d0,.L33
+ 373 0216 4240      		clr.w %d0
+ 374 0218 5380      		subq.l #1,%d0
+ 375 021a 64EA      		jcc .L33
+ 376 021c 422F 003A 		clr.b 58(%sp)
+ 377 0220 4879 0000 		pea .LC14
+ 377      0000 
+ 378 0226 45F9 0000 		lea video_puts,%a2
+ 378      0000 
+ 379 022c 4E92      		jsr (%a2)
+ 380 022e 4879 0000 		pea .LC15
+ 380      0000 
+ 381 0234 4E92      		jsr (%a2)
+ 382 0236 4879 0000 		pea .LC16
+ 382      0000 
+ 383 023c 4E92      		jsr (%a2)
+ 384 023e 2F0B      		move.l %a3,-(%sp)
+ 385 0240 4E92      		jsr (%a2)
+ 386 0242 4879 0000 		pea .LC14
+ 386      0000 
+ 387 0248 4E92      		jsr (%a2)
+ 388 024a 4879 0000 		pea .LC17
+ 388      0000 
+ 389 0250 4E92      		jsr (%a2)
+ 390 0252 4FEF 0018 		lea (24,%sp),%sp
+ 391 0256 6000 FDCC 		jra .L18
+ 392               	.L37:
+ 393 025a 200A      		move.l %a2,%d0
+ 394 025c 908E      		sub.l %a6,%d0
+ 395 025e 0C80 0000 		cmp.l #128,%d0
+ 395      0080 
+ 396 0264 6304      		jls .L34
+ 397 0266 707F      		moveq #127,%d0
+ 398 0268 4600      		not.b %d0
+ 399               	.L34:
+ 400 026a D08E      		add.l %a6,%d0
+ 401               	.L36:
+ 402 026c 1216      		move.b (%a6),%d1
+ 403 026e B234 E800 		cmp.b (%a4,%a6.l),%d1
+ 404 0272 6702      		jeq .L35
+ 405 0274 5283      		addq.l #1,%d3
+ 406               	.L35:
+ 407 0276 528E      		addq.l #1,%a6
+ 408 0278 BDC0      		cmp.l %d0,%a6
+ 409 027a 66F0      		jne .L36
+ 410 027c 5285      		addq.l #1,%d5
+ 411 027e 2F02      		move.l %d2,-(%sp)
+ 412 0280 2F05      		move.l %d5,-(%sp)
+ 413 0282 4879 0000 		pea .LC18
+ 413      0000 
+ 414 0288 4E95      		jsr (%a5)
+ 415 028a 4FEF 000C 		lea (12,%sp),%sp
+ 416 028e 6000 FE8A 		jra .L32
+ 417               	.L38:
+ 418 0292 4879 0000 		pea .LC14
+ 418      0000 
+ 419 0298 4E92      		jsr (%a2)
+ 420 029a 4879 0000 		pea .LC21
+ 420      0000 
+ 421 02a0 4E92      		jsr (%a2)
+ 422 02a2 4879 0000 		pea .LC14
+ 422      0000 
+ 423 02a8 4E92      		jsr (%a2)
+ 424               	#APP
+ 425               	| 211 "orionbur.c" 1
+ 426 02aa 2E78 0000 		move.l 0x0.w, %sp
+ 427 02ae 2078 0004 		move.l 0x4.w, %a0
+ 428 02b2 4ED0      		jmp (%a0)
+ 429               	| 0 "" 2
+ 430               	#NO_APP
+ 431 02b4 4FEF 000C 		lea (12,%sp),%sp
+ 432 02b8 7000      		moveq #0,%d0
+ 433 02ba 6000 FD6A 		jra .L16
+ 435               		.local	raw_buf
+ 436               		.comm	raw_buf,65536,1
+ 437               		.local	g_last_fail_addr
+ 438               		.comm	g_last_fail_addr,4,2
+ 439               		.section	.rodata
+ 442               	HEXDIGITS:
+ 443 0000 3031 3233 		.string	"0123456789ABCDEF"
+ 443      3435 3637 
+ 443      3839 4142 
+ 443      4344 4546 
+ 443      00
+ 444               		.globl	__udivsi3
+ 445               		.globl	__umodsi3
+ 446               		.ident	"GCC: (GNU) 15.1.0"
