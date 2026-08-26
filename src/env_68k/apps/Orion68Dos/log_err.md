@@ -1,3 +1,8 @@
+# 2026-08-26 
+        Erro recorrente porque eu já havia corrigido e por algum motivo desconhecido os codigo ruim somente comentado
+        ficou descomentado, na função do_save2 não uso argc e argv uso oque vem do pico para determinar o tamanho
+        e o nome do arquivo a ser gravado no disco. eu tinha somente comentado o uso de argv agora retirei o codigo para
+        não voltar mais. Parou de travar no momento de subida do arquivo do PC para o Orion68DOS.
 # 2026-08-16
         Ao enviar um arquivo do pc para o OrionDOS, sendo que o OrionDOS usa o sistema de interrupção para buscar o arquivo
         Quando o arquivo era enviado várias vezes coisas estranhas acontecia com o prompt, repetir comandos, travar...

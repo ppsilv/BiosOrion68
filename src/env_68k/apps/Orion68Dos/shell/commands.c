@@ -716,6 +716,7 @@ void do_run(int argc, char *argv[])
     printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",
            nome_arquivo, (unsigned)tamanho);
 }
+extern void video_puts(const char *s);
 void do_save2(int argc, char *argv[]){
     uint8_t status=0;
     status = PICO_STATUS_REG;
@@ -730,11 +731,12 @@ void do_save2(int argc, char *argv[]){
         puts("noblk_receber_arquivo_do_pico CRC error...\n");
         return;
     }
-
+    //video_puts("Voltei 1\n");
     const void *origem = (const void *)0x82015;
-    char *nome_arquivo1 = (void *)0x82008;
-    *(nome_arquivo1+12)='\0';
+    char *nome_arquivo = (void *)0x82008;
+    *(nome_arquivo+12)='\0';
     
+    //video_puts("Voltei 2\n");
     volatile uint8_t *p1 = (volatile uint8_t *)0x82004;
 
     uint32_t tamanho1 = ((uint32_t)p1[3] << 24) |
@@ -742,32 +744,32 @@ void do_save2(int argc, char *argv[]){
                        ((uint32_t)p1[1] << 8)  |
                        ((uint32_t)p1[0]);
     tamanho1=tamanho1-0x15;
-    //printf("0-origem [%08X] nome[%s] tamanho[%04x]\n",origem,nome_arquivo1,tamanho1);
-    //dump_memory((void*)0x82000, 0x32);
+    //video_puts("Voltei 3\n");
 
     FIL     arquivo;
+    //video_puts("Voltei 3.1\n");
     FRESULT fr;
+    //video_puts("Voltei 3.2\n");
     UINT    bytes_escritos;
-    const char *nome_arquivo = argv[0];   /* usa direto, sem copiar */
+    //video_puts("Voltei 3.3\n");
     size_t tamanho;
+    //video_puts("Voltei 4\n");
 
-    nome_arquivo=nome_arquivo1;
-    tamanho = strtoul(argv[1], NULL, 16);
     tamanho = tamanho1;
-//    printf("1-origem [%08X] nome[%s] tamanho[%04x]\n",origem,nome_arquivo1,tamanho1-0x15);
-//    printf("Save file [%s] size of %d\n", nome_arquivo, tamanho);
+    //video_puts("Voltei 5\n");
 
     if (origem == NULL || nome_arquivo == NULL || tamanho == 0) {
         printf("dump_memoria_para_arquivo: parametros invalidos\n");
         return;
     }
-
+    video_puts("\nOpenning file...\n");
     fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
     if (fr != FR_OK) {
         printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
         return;
     }
 
+    video_puts("Writting file...\n");
     fr = f_write(&arquivo, origem, (UINT)tamanho, &bytes_escritos);
     if (fr != FR_OK || bytes_escritos != tamanho) {
         printf("dump_memoria_para_arquivo: falha ao escrever '%s' (erro %d, escrito %u de %u bytes)\n",
@@ -775,15 +777,16 @@ void do_save2(int argc, char *argv[]){
         f_close(&arquivo);
         return;
     }
-
+    video_puts("Closing file...\n");
     fr = f_close(&arquivo);
     if (fr != FR_OK) {
         printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
         return;
     }
-
     //printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",nome_arquivo, (unsigned)tamanho);
 }
+
+
 char do_save_basic(int argc, char *argv[]){
     FIL     arquivo;
     FRESULT fr;

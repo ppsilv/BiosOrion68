@@ -157,7 +157,9 @@ Int3Handler:
         ANDI.L  #0x000000FF,%D0  /*; Limpa a parte alta (garante o unsigned)*/
         MOVE.L  %D0, -(%A7)       /*; Empilha 4 bytes (mantém A7 alinhado em par)*/
         
+        move.w  #0x2700, %sr  /*Desable all interrupts supervisor mode*/       
         jsr     ring_buf_put
+        move.w  #0x2000, %sr  /*Enable all interrupts supervisor mode*/    
         
         ADDQ.L  #4,%A7          /*; Limpa os 4 bytes da pilha!*/
 

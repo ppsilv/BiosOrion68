@@ -29,6 +29,7 @@ SRCS = orion68.c vectors.c console.c trap12.c timers.c interrupt.c \
 ./shell/decodecmd.c \
 ./shell/crc32.c \
 ./shell/cmd_repeat.c \
+./shell/vid_ram_bios.c \
 ./kbd/ringbuffer.c \
 ./rtc/i2cbb.c \
 ./uarts/drv_uart0.c \

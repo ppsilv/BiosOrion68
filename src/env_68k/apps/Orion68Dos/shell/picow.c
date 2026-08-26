@@ -25,6 +25,7 @@
 #define PICO_STATE_HAS_FILE   0x01
 #define PICO_STATE_EOF        0x02
 
+extern void video_puts(const char *s);
 /**
  * Faz o polling do Pico 2 W e, se houver um arquivo pronto,
  * captura o tamanho e descarrega os bytes para um buffer na RAM do m68k.
@@ -90,6 +91,7 @@ bool receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
 
     return arq_crc_rec == arq_crc;
 }
+extern void video_show_progress(const char *label, uint16_t current, uint16_t total);
 
 bool noblk_receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     volatile uint8_t *reg = (volatile uint8_t *)(0xFF9100 + preg);
@@ -106,18 +108,25 @@ bool noblk_receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     if (tamanho_arquivo == 0) {
         return 0;
     }
-
+    uint16_t i,j=0;
     // 3. Loop de leitura dos dados do arquivo
-    for (uint16_t i = 0; i < tamanho_arquivo; i++) {       
+    for (i = 0; i < tamanho_arquivo; i++,j++) {       
         destino_ram[i] = PICO_DATA_REG; 
+        if( j >= 1000 ){
+            j = 0;
+            video_show_progress(" Lendo pico: ", i, tamanho_arquivo);
+        }
     }
+    video_show_progress(" Lendo pico: ", i, tamanho_arquivo);
     uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG2 << 16) & 0x00FF0000;
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG1 << 8)  & 0x0000FF00; // Corrigido: 0x0000FF00
     arq_crc_rec |= (uint32_t)PICO_CRC_REG0 & 0xFF;
-
+    video_puts("\nCalculating crc32\n");    
     uint32_t arq_crc = crc32_calculate(((const uint8_t *)destino_ram)+4, tamanho_arquivo-4);
-
+    if(arq_crc_rec == arq_crc){
+        video_puts("crc32 OK...\n");    
+    }
     return arq_crc_rec == arq_crc;
 }
 
