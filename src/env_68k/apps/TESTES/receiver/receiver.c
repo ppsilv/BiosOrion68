@@ -137,7 +137,7 @@ int w5100_getter_loop() {
                 break;
             }
 
-            /* FASE 2: Grava direto em 0x00082000 */
+            /* FASE 2: Grava direto em 0x00092000 */
             if (estado == ESTADO_PAYLOAD) {
                 if (rx_avail > 0) {
                     uint32_t restante = tamanho_total - bytes_recebidos;

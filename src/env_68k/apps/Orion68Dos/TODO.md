@@ -67,6 +67,7 @@
 # 15 - Implementar leitura de teclado ---------------->
     Usando trap para as aplicações poderem ler teclas
     e reagir a elas.
+# 16 - Implementar lib para o systick ---------------->
     
 # LOG ERROS:
 

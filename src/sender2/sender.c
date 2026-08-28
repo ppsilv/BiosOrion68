@@ -35,7 +35,7 @@ int conectar_servidor(const char *hostname, int porta) {
         return -1;
     }
 
-    // Resolve o nome de domínio (pico2.lab.lan) para IP
+    // Resolve o nome de domínio () para IP
     server = gethostbyname(hostname);
     if (server == NULL) {
         fprintf(stderr, "Erro: Não foi possível resolver o host %s\n", hostname);
@@ -49,7 +49,7 @@ int conectar_servidor(const char *hostname, int porta) {
     memcpy(&serv_addr.sin_addr.s_addr, server->h_addr_list[0], server->h_length);
     serv_addr.sin_port = htons(porta);
 
-    // Tenta estabelecer a conexão de fato com o Pico
+    // Tenta estabelecer a conexão de fato com o Orion68DOS
     if (connect(sock_fd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
         perror("Erro ao conectar no servidor");
         close(sock_fd);
@@ -83,7 +83,7 @@ ssize_t escrever_dados(int sock_fd, const void *buffer, size_t tamanho) {
 // 3. FUNÇÃO PARA LER (Receber dados)
 // Retorna os bytes lidos, 0 se o servidor fechou a conexão, ou -1 se falhar
 ssize_t ler_dados(int sock_fd, void *buffer, size_t tamanho_maximo) {
-    // recv() bloqueia e espera até que chegue algum dado do Pico
+    // recv() bloqueia e espera até que chegue algum dado do Orion68DOS
     ssize_t bytes_lidos = recv(sock_fd, buffer, tamanho_maximo, 0);
     if (bytes_lidos < 0) {
         perror("Erro ao ler dados");
@@ -97,7 +97,7 @@ ssize_t ler_dados(int sock_fd, void *buffer, size_t tamanho_maximo) {
 // EXEMPLO DE USO NO MAIN
 // ============================================================================
 int main(int argc, char * argv[]) {
-    // 1. Tenta conectar no Pico 2 W
+    // 1. Tenta conectar no Orion68DOS
     int tam=0;
     unsigned char * buffer;
     struct CabecalhoProtocolo cabecalho;
@@ -123,8 +123,8 @@ int main(int argc, char * argv[]) {
         return 1;
     }
 
-    int socket_pico = conectar_servidor(SERVER_HOST, SERVER_PORT);
-    if (socket_pico < 0) {
+    int socket_orion68 = conectar_servidor(SERVER_HOST, SERVER_PORT);
+    if (socket_orion68 < 0) {
         return EXIT_FAILURE;
     }
 
@@ -138,35 +138,35 @@ int main(int argc, char * argv[]) {
     memcpy(cabecalho.nome_arquivo, argv[1], strlen(argv[1])); // Copia o nome por cima
 
     // Envia os 16 bytes estruturados direto da memória
-    if (escrever_dados(socket_pico, &cabecalho, sizeof(cabecalho)) < 0) {
-        close(socket_pico);
+    if (escrever_dados(socket_orion68, &cabecalho, sizeof(cabecalho)) < 0) {
+        close(socket_orion68);
         return EXIT_FAILURE;
     }
 
     // 2. Envia o Arquivo completo (8029 bytes)
     printf("Enviando dados do arquivo...\n");
-    if (escrever_dados(socket_pico, buffer, tam) < 0) {
-        close(socket_pico);
+    if (escrever_dados(socket_orion68, buffer, tam) < 0) {
+        close(socket_orion68);
         return EXIT_FAILURE;
     }
 
-    // 3. AGORA ESPERA A CONFIRMAÇÃO DO PICO (Sem loops baseados no tamanho do arquivo)
+    // 3. AGORA ESPERA A CONFIRMAÇÃO DO Orion68DOS (Sem loops baseados no tamanho do arquivo)
     char buffer_confirmacao[10032];
     memset(buffer_confirmacao, 0, sizeof(buffer_confirmacao));
 
-    printf("Aguardando confirmação do Pico...\n");
-    ssize_t lidos = ler_dados(socket_pico, buffer_confirmacao, sizeof(buffer_confirmacao) - 1);
+    printf("Aguardando confirmação do Orion68DOS...\n");
+    ssize_t lidos = ler_dados(socket_orion68, buffer_confirmacao, sizeof(buffer_confirmacao) - 1);
 
     if (lidos > 0) {
         buffer_confirmacao[lidos] = '\0';
-        printf("Resposta do Pico: %s", buffer_confirmacao); // Deve imprimir "Arq lido"
+        printf("Resposta do Orion68DOS: %s", buffer_confirmacao); // Deve imprimir "Arq lido"
     }
 
     printf("\nTransmissão concluída com sucesso!\n");
 
     // 4. Fecha a conexão limpando o socket
     printf("Fechando conexão.\n");
-    close(socket_pico);
+    close(socket_orion68);
 
     printf("\n\n");
     return EXIT_SUCCESS;
@@ -255,9 +255,9 @@ void* carregar_arquivo_completo(const char *caminho_arquivo, size_t *tamanho_sai
 /*
 
 int main() {
-    // 1. Tenta conectar no Pico 2 W
-    int socket_pico = conectar_servidor(SERVER_HOST, SERVER_PORT);
-    if (socket_pico < 0) {
+    // 1. Tenta conectar no Orion68DOS
+    int socket_orion68 = conectar_servidor(SERVER_HOST, SERVER_PORT);
+    if (socket_orion68 < 0) {
         return EXIT_FAILURE;
     }
     int tam=0;
@@ -276,8 +276,8 @@ int main() {
     memcpy(cabecalho.nome_arquivo, "sender.c", strlen("sender.c")); // Copia o nome por cima
 
     // Envia os 16 bytes estruturados direto da memória
-    if (escrever_dados(socket_pico, &cabecalho, sizeof(cabecalho)) < 0) {
-        close(socket_pico);
+    if (escrever_dados(socket_orion68, &cabecalho, sizeof(cabecalho)) < 0) {
+        close(socket_orion68);
         return EXIT_FAILURE;
     }
 
@@ -285,8 +285,8 @@ int main() {
     //    const char *mensagem = "Ola Pico 2 W! Preparado para o Orion68DOS?";
     printf("Enviando: mensagem de tamanho [%03d]\n", tam);
     
-    if (escrever_dados(socket_pico, buffer, tam) < 0) {
-        close(socket_pico);
+    if (escrever_dados(socket_orion68, buffer, tam) < 0) {
+        close(socket_orion68);
         return EXIT_FAILURE;
     }
 
@@ -308,7 +308,7 @@ int main() {
             a_ler = sizeof(resposta) - 1;
         }
 
-        lidos = ler_dados(socket_pico, resposta, a_ler);
+        lidos = ler_dados(socket_orion68, resposta, a_ler);
         if (lidos <= 0) {
             break; // Conexão caiu ou fechou antes da hora
         }
@@ -322,7 +322,7 @@ int main() {
 
     // 4. Fecha a conexão limpando o socket
     printf("Fechando conexão.\n");
-    close(socket_pico);
+    close(socket_orion68);
 
     printf("\n\n");
     return EXIT_SUCCESS;
