@@ -1,0 +1,37 @@
+Pinagem Correta: 
+Conector IDE de 40 Pinos (Padrão HD 3.5")
+
+Atenção ao seu Byte-Swapping de Hardware: 
+* Conecte as linhas D0 a  D7 do IDE nas linhas D8 a D15 do 68K.
+* Conecte as linhas D8 a D15 do IDE nas linhas D0 a  D7 do 68K.
+
+Barramento de Dados (16 bits)
+Pinos Ímpares (Baixos):
+Pino 17: D0 | Pino 15: D1 | Pino 13: D2 | Pino 11: D3
+Pino  9: D4 | Pino  7: D5 | Pino  5: D6 | Pino  3: D7
+
+Pinos Pares (Altos):
+Pino  4:  D8 | Pino  6:  D9 | Pino  8: D10 | Pino 10: D11
+Pino 12: D12 | Pino 14: D13 | Pino 16: D14 | Pino 18: D15
+
+Barramento de Endereços (Registradores)
+Pino 35: A0 (Liga no A1 do 68K)
+Pino 33: A1 (Liga no A2 do 68K)
+Pino 36: A2 (Liga no A3 do 68K)
+
+Sinais de Controle (Onde a sua mágica acontece)
+Pino 1: /RESET (Liga direto na linha de /RESET do 68K)
+Pino 37: /CS0 (Master/Command Select - Saída do seu 74HC138 em 0xFF4400)
+Pino 38: /CS1 (Slave/Control Select - Joga um pull-up de 10k para 5V para deixar desativado)
+Pino 23: /DIOW / /IOW (Escrita - Sua combinação com o /WR global)
+Pino 25: /DIOR / /IOR (Leitura - Sua combinação com o /RD global)
+
+Configuração Fixa (Master)
+Pino 28: /CSEL (Cable Select) - Ligue no GND (ou pino 40) para fixar o Pretec como Master permanente.
+
+Alimentação e Terras Essenciais
+O conector IDE de 40 pinos não leva os 5V nos pinos de sinal (ao contrário do de 44 pinos). O seu módulo Pretec provavelmente tem um conector de alimentação separado (tipo aquele de disquete molex pequeno, ou puxa por fora).
+
+No conector de 40 pinos, certifique-se de aterrar os pinos de GND para blindar os sinais:
+Pino 2, 19, 22, 24, 26, 30, 40: Todos vão para o GND do seu backplane.
+

@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <string.h>
-
+/*
 static inline char _search(const char *str2, char ch)
 {
 	for (size_t j = 0; str2[j]; j++) {
@@ -20,4 +20,30 @@ size_t strcspn(const char *str1, const char *str2)
 	}
 	return i;
 }
+*/
+#include <stddef.h>
 
+/**
+ * strcspn - Versão otimizada para m68k
+ *
+ * Usa aritmética de ponteiros para melhor performance
+ */
+size_t strcspn(const char *s, const char *reject) {
+    const char *p = s;
+    const char *r;
+
+    // Enquanto não chegamos ao fim da string
+    while (*p) {
+        // Verifica se o caractere atual está em 'reject'
+        r = reject;
+        while (*r) {
+            if (*p == *r) {
+                return (size_t)(p - s);  // Distância entre ponteiros
+            }
+            r++;
+        }
+        p++;
+    }
+
+    return (size_t)(p - s);  // Tamanho total da string
+}

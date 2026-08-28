@@ -1,0 +1,66 @@
+   1               	#NO_APP
+   2               		.file	"vfs_zero.c"
+   3               		.text
+   4               		.align	2
+   5               		.globl	zero_write
+   7               	zero_write:
+   8 0000 202F 000C 		move.l 12(%sp),%d0
+   9 0004 4E75      		rts
+  11               		.align	2
+  12               		.globl	zero_close
+  14               	zero_close:
+  15 0006 7000      		moveq #0,%d0
+  16 0008 4E75      		rts
+  18               		.align	2
+  19               		.globl	zero_lseek
+  21               	zero_lseek:
+  22 000a 2F02      		move.l %d2,-(%sp)
+  23 000c 206F 0008 		move.l 8(%sp),%a0
+  24 0010 202F 000C 		move.l 12(%sp),%d0
+  25 0014 222F 0010 		move.l 16(%sp),%d1
+  26 0018 7401      		moveq #1,%d2
+  27 001a B481      		cmp.l %d1,%d2
+  28 001c 670E      		jeq .L4
+  29 001e 0241 FFFD 		and.w #65533,%d1
+  30 0022 4A81      		tst.l %d1
+  31 0024 670A      		jeq .L5
+  32 0026 70FF      		moveq #-1,%d0
+  33               	.L6:
+  34 0028 241F      		move.l (%sp)+,%d2
+  35 002a 4E75      		rts
+  36               	.L4:
+  37 002c D0A8 0008 		add.l 8(%a0),%d0
+  38               	.L5:
+  39 0030 2140 0008 		move.l %d0,8(%a0)
+  40 0034 60F2      		jra .L6
+  42               		.align	2
+  43               		.globl	zero_read
+  45               	zero_read:
+  46 0036 2F2F 000C 		move.l 12(%sp),-(%sp)
+  47 003a 42A7      		clr.l -(%sp)
+  48 003c 2F2F 0010 		move.l 16(%sp),-(%sp)
+  49 0040 4EB9 0000 		jsr memset
+  49      0000 
+  50 0046 202F 0018 		move.l 24(%sp),%d0
+  51 004a 206F 0010 		move.l 16(%sp),%a0
+  52 004e D1A8 0008 		add.l %d0,8(%a0)
+  53 0052 4FEF 000C 		lea (12,%sp),%sp
+  54 0056 4E75      		rts
+  56               		.align	2
+  57               		.globl	zero_open
+  59               	zero_open:
+  60 0058 206F 0004 		move.l 4(%sp),%a0
+  61 005c 42A8 0010 		clr.l 16(%a0)
+  62 0060 42A8 0008 		clr.l 8(%a0)
+  63 0064 217C 0000 		move.l #zero_read,24(%a0)
+  63      0000 0018 
+  64 006c 217C 0000 		move.l #zero_write,28(%a0)
+  64      0000 001C 
+  65 0074 217C 0000 		move.l #zero_close,32(%a0)
+  65      0000 0020 
+  66 007c 42A8 0024 		clr.l 36(%a0)
+  67 0080 217C 0000 		move.l #zero_lseek,40(%a0)
+  67      0000 0028 
+  68 0088 7000      		moveq #0,%d0
+  69 008a 4E75      		rts
+  71               		.ident	"GCC: (GNU) 15.1.0"

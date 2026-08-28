@@ -1,5 +1,5 @@
 
-int getchar(void){
+char getchar(void){
     int result;
     asm volatile (
         "MOVE.W #1, %%D1\n\t"   // CCONIN
@@ -9,5 +9,5 @@ int getchar(void){
         :
         : "d0", "d1", "cc", "memory"
     );
-    return result;// & 0xFF; // Retorna apenas o byte inferior
+    return result & 0xFF; // Retorna apenas o byte inferior
 }
