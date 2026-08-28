@@ -52,3 +52,27 @@ Kernel trata a trap
     |
     v
 disk_read() → ATA → Hardware
+
+
+
++------------------+
+|   EXECUTANDO     |  ← Programa rodando
++------------------+
+        |
+        v (chamou getchar(), sem dados)
++------------------+
+|   BLOQUEADO      |  ← Esperando entrada do teclado
+|   (SLEEP)        |  ← NÃO CONSUME CPU!
++------------------+
+        |
+        v (tecla digitada → interrupção)
++------------------+
+|   PRONTO         |  ← Pode executar novamente
++------------------+
+        |
+        v
++------------------+
+|   EXECUTANDO     |  ← getchar() retorna o caractere
++------------------+
+
+

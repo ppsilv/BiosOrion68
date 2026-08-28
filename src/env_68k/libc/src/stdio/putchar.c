@@ -32,8 +32,8 @@ void putchar(char c) {
     asm volatile (
         "movem.l %%d0/%%d1/%%a0,-(%%sp)\n\t"  // Save modified registers
         "move.b %0, %%d0\n\t"                 // Put character in D0
-        "move.w #1, %%d1\n\t"                 // Put function code in D1
-        "trap #2\n\t"                         // Call TRAP
+        "move.w #2, %%d1\n\t"                 // Put function code in D1
+        "trap #1\n\t"                         // Call TRAP #1
         "movem.l (%%sp)+,%%d0/%%d1/%%a0"      // Restore registers
         :
         : "r" (c)
