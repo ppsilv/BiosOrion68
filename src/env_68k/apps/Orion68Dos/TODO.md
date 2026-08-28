@@ -64,7 +64,10 @@
     Usando um GAL22V10 implementar uma interrupção---->
     vetorada para ampliar o leque de opções de 
     interrupção.
-
+# 15 - Implementar leitura de teclado ---------------->
+    Usando trap para as aplicações poderem ler teclas
+    e reagir a elas.
+    
 # LOG ERROS:
 
 

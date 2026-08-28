@@ -1,0 +1,92 @@
+                                                                                                                                                                                                                                   
+    
+                              
+                                          
+                       _______________________     ____________________________    
+/RST          VCC      |      |        |      |   |      |        |            |                                            
+/INT          VCC      |      |        |      |   |      |        |            |                                            
+/RD                    |      |        |      |   |      |        |            |                                            
+/WR                    |      |        |      |   |      |        |            |                                            
+/CS                    |      |________|      |   |      |________|            |                                            
+14            GND      |  JP1            JP2  |   |  JP1            JP2        |                                            
+13            GND      | 1   2          1   2 |   |Vcc  /INT     GND   /RST    |                                       
+12            GND      | 3   4          3   4 |   |/wr  /RD       NC   GND     |                                       
+11            COL      | 5   6          5   6 |   |/cs  NC        NC   COL_LED |                                       
+10            TX       | 7   8          7   8 |   |A14  GND      GND   TX_LED  |                                       
+9             RX       | 9   10         9   10|   |A12  A13       NC   RX_LED  |                                       
+8           LINK       |11   12        11   12|   |A10  A11       NC   LINK_LED|                                       
+7             D7       |13   14        13   14|   |GND  A9       GND   GND     |                                       
+6             D6       |15   16        15   16|   |A8   A7        D1   D0      |                                            
+5             D5       |17   18        17   18|   |A6   A5        D3   D2      |                                            
+4             D4       |19   20        19   20|   |A4   A3        D5   D4      |                                            
+3             D3       |21   22        21   22|   |A2   A1        D7   D6      |                                            
+2             D2       |23   24        23   24|   |A0   GND      GND   Vcc     |                                            
+1             D1       |25   26        25   26|   |NC   NC        NC   NC      |                                            
+0             D0       |27   28        27   28|   |NC   NC        NC   NC      |                                            
+                       |                      |   |                            |                                            
+                       |______________________|   |____________________________|                                            
+                                                   
+faltam
+ 
+ 
+/int
+
+/rst
+col
+tx
+rx
+link
+gnd
+vcc
+                              
+                              
+
+
+
+
+
+
+
+
+
+
+
+pinagem
+
+Gnd           Gnd
+Vcc           Gnd  
+Vcc           Col
+14            /RST                                                                                                          
+13            TX                                                                                                          
+12            RX                                                                                                          
+11            LNK                                                                                                          
+10            /CS                                                                                                                                                                                                                                
+9             /RD                                                                                                         
+8             /WR                                                                                                         
+7             D7                                                                                                         
+6             D6                                                                                                         
+5             D5                                                                                                         
+4             D4                                                                                                         
+3             D3                                                                                                         
+2             D2                                                                                                         
+1             D1                                                                                                         
+0             D0                                                                                                                                                                                                                               
+                                                                                                                      
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           

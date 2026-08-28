@@ -762,7 +762,7 @@ void do_save2(int argc, char *argv[]){
         printf("dump_memoria_para_arquivo: parametros invalidos\n");
         return;
     }
-    video_puts("\nOpenning file...\n");
+    video_puts("Creating file...\n");
     fr = f_open(&arquivo, nome_arquivo, FA_WRITE | FA_CREATE_ALWAYS);
     if (fr != FR_OK) {
         printf("dump_memoria_para_arquivo: falha ao abrir '%s' (erro %d)\n", nome_arquivo, fr);
@@ -783,6 +783,7 @@ void do_save2(int argc, char *argv[]){
         printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
         return;
     }
+    ring_buf_put('\n');
     //printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",nome_arquivo, (unsigned)tamanho);
 }
 

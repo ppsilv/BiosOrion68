@@ -8,10 +8,11 @@ CHIP_U304_V2
 ;A14  UDS A13 A12  NC  Y4  Y3   Y2  Y1  VCC
 
 ;Pinagem NEW V2 04/08/2026
+;acrescentado A16~A19 e trocado AS de pin 12 to pin 17 em 27/08/2026
 ;1 2  3   4   5   6   7   8   9    10
 A8 A9 A10 A11 A12 A13 A14 A15 IOCS GND
-;11   12 13   14 15  16  17   18  19   20
-IOCS1 AS NC   NC NC  NC  NC   NC  Y1   VCC
+;11   12 13   14  15  16  17   18  19   20
+IOCS1 NC A16  A17 A18 A19 AS   Y2  Y1   VCC
 
 
 
@@ -19,8 +20,8 @@ IOCS1 AS NC   NC NC  NC  NC   NC  Y1   VCC
 
 ;FF80
 /Y1 = /AS * /IOCS * /IOCS1 * A15 * /A14 * /A13 * /A12 * /A11 * /A10 * /A9 * /A8
-;;FF90
-;;/Y2 =  /IOWR * /IOCS * /IOCS1 * A15 * /A14 * /A13 *  A12 * /A11 * /A10 * /A09 *  /A08
+;;faixa de 0xFE0000 a 0xFEFFFF, bloco de 64 KB).
+/Y2 = /AS * /IOCS  * A19 * A18 * A17 * /A16
 ;;FFA0
 ;;/Y3 =  /IOWR * /IOCS * /IOCS1 * A15 * /A14 *  A13 * /A12 * /A11 * /A10 * /A09 * /A08
 ;;FFB0

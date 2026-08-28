@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+
+/* Variáveis globais/sistema */
+static uint32_t uptime_segundos = 0;
+static uint32_t requisisoes_atendidas = 0;
+
+void responder_http_dinamico(void) {
+    char html_buf[512];
+    uint16_t len;
+
+    requisisoes_atendidas++;
+
+    /* 1. Formata a resposta dinamicamente na RAM */
+    len = sprintf(html_buf,
+        "HTTP/1.1 200 OK\r\n"
+        "Content-Type: text/html\r\n"
+        "Connection: close\r\n\r\n"
+        "<!DOCTYPE html><html><head><title>Orion68K Status</title></head>"
+        "<body style='font-family:monospace;background:#111;color:#0f0;padding:20px;'>"
+        "<h1>Orion68K - Status do Sistema</h1>"
+        "<hr>"
+        "<p>Uptime: %lu segundos</p>"
+        "<p>Requisicoes atendidass: %lu</p>"
+        "<p>Tensao de alimentacao: 5.0V (Estavel)</p>"
+        "</body></html>",
+        uptime_segundos,
+        requisisoes_atendidas
+    );
+
+    /* 2. Envia o buffer formatado para o W5100 */
+    w5100_send_data((const uint8_t *)html_buf, len);
+
+    /* 3. Encerra a conexao para o navegador renderizar */
+    w5100_cmd(CR_DISCON);
+}
+Pontos Atentar:
+Tamanho do Buffer: Garanta que o array html_buf seja grande o suficiente para o HTML gerado, evitando estouro de pilha (stack overflow).
+
+Desconexão Explicita: O envio do CR_DISCON logo após o w5100_send_data() indica ao navegador que o fim do payload foi atingido sem precisar gerenciar o cabeçalho Content-Length.
+Para enviar dados dinâmicos (como contador de tempo, leitura de TENSÃO ou uso de memória), monte a resposta HTTP em um buffer de memória RAM utilizando sprintf() antes de chamar w5100_send_data().

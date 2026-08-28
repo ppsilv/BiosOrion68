@@ -18,6 +18,28 @@ extern void configurar_dma_pico(PIO pio, uint sm) ;
 extern void core1_entry(void);
 extern void sdtest(void);
 
+#include <stdint.h>
+#include <stdio.h>
+
+#define SYSINFO_BASE   0x40000000UL
+#define CHIP_ID_REG    (*(volatile uint32_t *)(SYSINFO_BASE + 0x00))
+
+int get_chip_id(void)
+{
+    uint32_t id = CHIP_ID_REG;
+
+    uint32_t revision     = (id >> 28) & 0xF;
+    uint32_t part         = (id >> 12) & 0xFFFF;
+    uint32_t manufacturer = id & 0xFFF;
+
+    printf("CHIP_ID bruto = 0x%08X\n", (unsigned int) id);
+    printf("REVISION      = %u\n", (unsigned int) revision);
+    printf("PART          = 0x%04X\n", (unsigned int) part);
+    printf("MANUFACTURER  = 0x%03X\n", (unsigned int) manufacturer);
+
+    return 0;
+}
+
 int main() {
     stdio_init_all();
 //    crc32_init();
@@ -30,6 +52,7 @@ int main() {
 
     sleep_ms(2500);
 
+    get_chip_id();
     // --- DISPARA O CORE 1 PARA CUIDAR DO PS/2 ---
     multicore_launch_core1(core1_entry);
 

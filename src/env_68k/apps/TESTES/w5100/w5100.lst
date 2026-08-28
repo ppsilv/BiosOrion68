@@ -1,0 +1,209 @@
+   1               	#NO_APP
+   2               		.file	"w5100.c"
+   3               		.text
+   4               		.align	2
+   5               		.globl	w5100_write
+   7               	w5100_write:
+   8 0000 206F 0004 		move.l 4(%sp),%a0
+   9 0004 D1C8      		add.l %a0,%a0
+  10 0006 D1FC 00FE 		add.l #16646145,%a0
+  10      0001 
+  11 000c 10AF 000B 		move.b 11(%sp),(%a0)
+  12 0010 4E75      		rts
+  14               		.align	2
+  15               		.globl	w5100_read
+  17               	w5100_read:
+  18 0012 206F 0004 		move.l 4(%sp),%a0
+  19 0016 D1C8      		add.l %a0,%a0
+  20 0018 D1FC 00FE 		add.l #16646145,%a0
+  20      0001 
+  21 001e 1010      		move.b (%a0),%d0
+  22 0020 4E75      		rts
+  24               		.align	2
+  25               		.globl	w5100_init
+  27               	w5100_init:
+  28 0022 4FEF FFF4 		lea (-12,%sp),%sp
+  29 0026 2F7C 0008 		move.l #580609,6(%sp)
+  29      DC01 0006 
+  30 002e 3F7C 0203 		move.w #515,10(%sp)
+  30      000A 
+  31 0034 13FC FF80 		move.b #-128,16646145
+  31      00FE 0001 
+  32 003c 7000      		moveq #0,%d0
+  33               	.L8:
+  34 003e 2F40 0002 		move.l %d0,2(%sp)
+  35 0042 202F 0002 		move.l 2(%sp),%d0
+  36 0046 0C80 0000 		cmp.l #9999,%d0
+  36      270F 
+  37 004c 6F00 0090 		jle .L5
+  38 0050 13FC FFC0 		move.b #-64,16646147
+  38      00FE 0003 
+  39 0058 13FC FFA8 		move.b #-88,16646149
+  39      00FE 0005 
+  40 0060 13FC 0001 		move.b #1,16646151
+  40      00FE 0007 
+  41 0068 13FC 0001 		move.b #1,16646153
+  41      00FE 0009 
+  42 0070 13FC FFFF 		move.b #-1,16646155
+  42      00FE 000B 
+  43 0078 13FC FFFF 		move.b #-1,16646157
+  43      00FE 000D 
+  44 0080 13FC FFFF 		move.b #-1,16646159
+  44      00FE 000F 
+  45 0088 13FC 0000 		move.b #0,16646161
+  45      00FE 0011 
+  46 0090 43EF 0006 		lea (6,%sp),%a1
+  47 0094 207C 00FE 		move.l #16646163,%a0
+  47      0013 
+  48               	.L6:
+  49 009a 1019      		move.b (%a1)+,%d0
+  50 009c 1080      		move.b %d0,(%a0)
+  51 009e 5488      		addq.l #2,%a0
+  52 00a0 B1FC 00FE 		cmp.l #16646175,%a0
+  52      001F 
+  53 00a6 66F2      		jne .L6
+  54 00a8 13FC FFC0 		move.b #-64,16646175
+  54      00FE 001F 
+  55 00b0 13FC FFA8 		move.b #-88,16646177
+  55      00FE 0021 
+  56 00b8 13FC 0001 		move.b #1,16646179
+  56      00FE 0023 
+  57 00c0 13FC 0030 		move.b #48,16646181
+  57      00FE 0025 
+  58 00c8 13FC 0055 		move.b #85,16646197
+  58      00FE 0035 
+  59 00d0 13FC 0055 		move.b #85,16646199
+  59      00FE 0037 
+  60 00d8 4FEF 000C 		lea (12,%sp),%sp
+  61 00dc 4E75      		rts
+  62               	.L5:
+  63 00de 202F 0002 		move.l 2(%sp),%d0
+  64 00e2 5280      		addq.l #1,%d0
+  65 00e4 6000 FF58 		jra .L8
+  67               		.section	.rodata.str1.1,"aMS",@progbits,1
+  68               	.LC0:
+  69 0000 4741 525B 		.string	"GAR[%d] = 0x%03d\n"
+  69      2564 5D20 
+  69      3D20 3078 
+  69      2530 3364 
+  69      0A00 
+  70               		.text
+  71               		.align	2
+  72               		.globl	w5100_teste_barramento
+  74               	w5100_teste_barramento:
+  75 00e8 518F      		subq.l #8,%sp
+  76 00ea 48E7 2032 		movem.l #8242,-(%sp)
+  77 00ee 2F7C DEAD 		move.l #-559038737,16(%sp)
+  77      BEEF 0010 
+  78 00f6 13FC FFDE 		move.b #-34,16646147
+  78      00FE 0003 
+  79 00fe 13EF 0011 		move.b 17(%sp),16646149
+  79      00FE 0005 
+  80 0106 13EF 0012 		move.b 18(%sp),16646151
+  80      00FE 0007 
+  81 010e 13EF 0013 		move.b 19(%sp),16646153
+  81      00FE 0009 
+  82 0116 43EF 0014 		lea (20,%sp),%a1
+  83 011a 4DEF 0010 		lea (16,%sp),%a6
+  84 011e 207C 00FE 		move.l #16646147,%a0
+  84      0003 
+  85 0124 7401      		moveq #1,%d2
+  86 0126 2449      		move.l %a1,%a2
+  87               	.L10:
+  88 0128 1010      		move.b (%a0),%d0
+  89 012a 12C0      		move.b %d0,(%a1)+
+  90 012c B01E      		cmp.b (%a6)+,%d0
+  91 012e 57C0      		seq %d0
+  92 0130 4880      		ext.w %d0
+  93 0132 48C0      		ext.l %d0
+  94 0134 4480      		neg.l %d0
+  95 0136 C480      		and.l %d0,%d2
+  96 0138 5488      		addq.l #2,%a0
+  97 013a B1FC 00FE 		cmp.l #16646155,%a0
+  97      000B 
+  98 0140 66E6      		jne .L10
+  99 0142 9DCE      		sub.l %a6,%a6
+ 100               	.L11:
+ 101 0144 7000      		moveq #0,%d0
+ 102 0146 1032 E800 		move.b (%a2,%a6.l),%d0
+ 103 014a 2F00      		move.l %d0,-(%sp)
+ 104 014c 2F0E      		move.l %a6,-(%sp)
+ 105 014e 4879 0000 		pea .LC0
+ 105      0000 
+ 106 0154 4EB9 0000 		jsr printf
+ 106      0000 
+ 107 015a 528E      		addq.l #1,%a6
+ 108 015c 4FEF 000C 		lea (12,%sp),%sp
+ 109 0160 7004      		moveq #4,%d0
+ 110 0162 B08E      		cmp.l %a6,%d0
+ 111 0164 66DE      		jne .L11
+ 112 0166 2002      		move.l %d2,%d0
+ 113 0168 4CDF 4C04 		movem.l (%sp)+,#19460
+ 114 016c 508F      		addq.l #8,%sp
+ 115 016e 4E75      		rts
+ 117               		.section	.rodata.str1.1
+ 118               	.LC1:
+ 119 0012 5465 7374 		.string	"Teste do W5100\n"
+ 119      6520 646F 
+ 119      2057 3531 
+ 119      3030 0A00 
+ 120               	.LC2:
+ 121 0022 5475 646F 		.string	"Tudo ok...\n"
+ 121      206F 6B2E 
+ 121      2E2E 0A00 
+ 122               	.LC3:
+ 123 002e 4465 7520 		.string	"Deu merda DAI!!!...\n"
+ 123      6D65 7264 
+ 123      6120 4441 
+ 123      4921 2121 
+ 123      2E2E 2E0A 
+ 124               	.LC4:
+ 125 0043 496E 6974 		.string	"Initializing W5100\n"
+ 125      6961 6C69 
+ 125      7A69 6E67 
+ 125      2057 3531 
+ 125      3030 0A00 
+ 126               	.LC5:
+ 127 0057 4563 686F 		.string	"Echo on port 7\n"
+ 127      206F 6E20 
+ 127      706F 7274 
+ 127      2037 0A00 
+ 128               		.section	.text.startup,"ax",@progbits
+ 129               		.align	2
+ 130               		.globl	main
+ 132               	main:
+ 133 0000 2F0A      		move.l %a2,-(%sp)
+ 134 0002 4879 0000 		pea .LC1
+ 134      0000 
+ 135 0008 45F9 0000 		lea printf,%a2
+ 135      0000 
+ 136 000e 4E92      		jsr (%a2)
+ 137 0010 4EB9 0000 		jsr w5100_teste_barramento
+ 137      0000 
+ 138 0016 588F      		addq.l #4,%sp
+ 139 0018 4A80      		tst.l %d0
+ 140 001a 6732      		jeq .L15
+ 141 001c 4879 0000 		pea .LC2
+ 141      0000 
+ 142               	.L17:
+ 143 0022 4E92      		jsr (%a2)
+ 144 0024 2EBC 0000 		move.l #.LC4,(%sp)
+ 144      0000 
+ 145 002a 4E92      		jsr (%a2)
+ 146 002c 4EB9 0000 		jsr w5100_init
+ 146      0000 
+ 147 0032 4879 0000 		pea .LC5
+ 147      0000 
+ 148 0038 4E92      		jsr (%a2)
+ 149 003a 4878 0007 		pea 7.w
+ 150 003e 4EB9 0000 		jsr tcp_echo_server_process
+ 150      0000 
+ 151 0044 4FEF 000C 		lea (12,%sp),%sp
+ 152 0048 7000      		moveq #0,%d0
+ 153 004a 245F      		move.l (%sp)+,%a2
+ 154 004c 4E75      		rts
+ 155               	.L15:
+ 156 004e 4879 0000 		pea .LC3
+ 156      0000 
+ 157 0054 60CC      		jra .L17
+ 159               		.ident	"GCC: (GNU) 15.1.0"

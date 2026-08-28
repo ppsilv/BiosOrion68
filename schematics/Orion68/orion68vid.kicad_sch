@@ -8175,6 +8175,16 @@
 	)
 	(wire
 		(pts
+			(xy 212.09 97.79) (xy 218.44 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6da8e530-c3cb-4879-95d7-fe35ca18fcc2")
+	)
+	(wire
+		(pts
 			(xy 106.68 157.48) (xy 120.65 157.48)
 		)
 		(stroke
@@ -9871,8 +9881,18 @@
 		)
 		(uuid "38c4c316-c8b7-4043-9f44-956d4eea535b")
 	)
+	(label "{slash}CS_W5100"
+		(at 212.09 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "38c7bbcd-87b2-4ac7-becf-19644ff37c4d")
+	)
 	(label "{slash}AS"
-		(at 218.44 113.03 180)
+		(at 218.44 100.33 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10081,6 +10101,16 @@
 		)
 		(uuid "5b9bf379-81cc-4a71-857a-3e198f918569")
 	)
+	(label "A18"
+		(at 218.44 105.41 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5c0d3af3-9ff4-4a89-b1cb-8092c9c578c3")
+	)
 	(label "D2"
 		(at 19.05 74.93 0)
 		(effects
@@ -10261,6 +10291,16 @@
 		)
 		(uuid "7b378db1-7b93-4111-96ef-25c655cb061c")
 	)
+	(label "A19"
+		(at 218.44 102.87 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7c73a73c-ae9d-4c1f-9808-8bca1993601e")
+	)
 	(label "A6"
 		(at 81.28 154.94 180)
 		(effects
@@ -10310,6 +10350,16 @@
 			(justify left bottom)
 		)
 		(uuid "7f2789be-dfbd-4c36-8a48-94495e79ed2a")
+	)
+	(label "A17"
+		(at 218.44 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "81fff10d-79a1-4067-809f-568a1383f0bf")
 	)
 	(label "{slash}iord"
 		(at 40.64 85.09 0)
@@ -10551,16 +10601,6 @@
 		)
 		(uuid "b03d9266-8f47-4ea0-a068-626648d16bf0")
 	)
-	(label "{slash}iord"
-		(at 218.44 107.95 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b23f0885-c057-4b59-9b60-ede6f36f6003")
-	)
 	(label "A13"
 		(at 250.19 107.95 0)
 		(effects
@@ -10791,16 +10831,6 @@
 		)
 		(uuid "d47f5efe-600e-4c24-9d94-c85da793caf7")
 	)
-	(label "{slash}iowr"
-		(at 218.44 110.49 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d5ccfa35-3cf9-4bc0-aa14-3a5583e391a9")
-	)
 	(label "D3"
 		(at 71.12 92.71 180)
 		(effects
@@ -10950,6 +10980,16 @@
 			(justify right bottom)
 		)
 		(uuid "f155891e-4a24-41c4-9c7d-190ba5a9a174")
+	)
+	(label "A16"
+		(at 218.44 110.49 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f5166e65-5574-49b8-bb73-8fe2ed56238c")
 	)
 	(label "{slash}CS_SMIO"
 		(at 13.97 162.56 180)

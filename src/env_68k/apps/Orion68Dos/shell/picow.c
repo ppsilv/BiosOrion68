@@ -114,10 +114,10 @@ bool noblk_receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
         destino_ram[i] = PICO_DATA_REG; 
         if( j >= 1000 ){
             j = 0;
-            video_show_progress(" Lendo pico: ", i, tamanho_arquivo);
+            video_show_progress("Reading", i, tamanho_arquivo);
         }
     }
-    video_show_progress(" Lendo pico: ", i, tamanho_arquivo);
+    video_show_progress("Reading", i, tamanho_arquivo);
     uint32_t arq_crc_rec = ((uint32_t)PICO_CRC_REG3 << 24);
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG2 << 16) & 0x00FF0000;
     arq_crc_rec |= ((uint32_t)PICO_CRC_REG1 << 8)  & 0x0000FF00; // Corrigido: 0x0000FF00
