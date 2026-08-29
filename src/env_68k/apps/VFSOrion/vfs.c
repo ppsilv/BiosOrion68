@@ -276,21 +276,17 @@ void free_fd(int fd) {
 // vfs.c - vfs_open()
 extern int fat_open(File *file, const char *path, int flags);
 int vfs_open(const char *path, int flags) {
-    printf("vfs_open: path='%s'\n", path);
     
     File *file = (File*)malloc(sizeof(File));
     if (!file) return -1;
     memset(file, 0, sizeof(File));
     file->name = strdup(path);
     
-    printf("vfs_open: tentando FATFS...\n");
     if (fat_open(file, path, flags) == 0) {
         printf("vfs_open: FATFS abriu!\n");
         // ...
     }
-    printf("vfs_open: FATFS falhou (esperado para /dev/tty)\n");
     
-    printf("vfs_open: tentando drivers...\n");
     for (int i = 0; drivers[i].path != NULL; i++) {
         printf("vfs_open: comparando '%s' com '%s'\n", path, drivers[i].path);
         if (strcmp(path, drivers[i].path) == 0) {
@@ -305,7 +301,6 @@ int vfs_open(const char *path, int flags) {
         }
     }
     
-    printf("vfs_open: NENHUM DRIVER ENCONTROU!\n");
     free(file->name);
     free(file);
     return -1;

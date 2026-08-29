@@ -4,6 +4,8 @@
 #include <fileio.h>
 #include "vfs.h"
 
+#define CMD_EXIT_SHELL  99  // Código especial para sair
+
 extern File *fd_table[256];
 
 // ============================================
@@ -27,6 +29,7 @@ int cmd_reboot(int argc, char **argv);
 int cmd_shutdown(int argc, char **argv);
 int cmd_meminfo(int argc, char **argv);
 int cmd_clear(int argc, char **argv);
+int cmd_exit(int argc, char **argv);
 
 // ============================================
 // TABELA DE COMANDOS
@@ -42,6 +45,7 @@ Command commands[] = {
     {"shutdown", cmd_shutdown},
     {"meminfo",  cmd_meminfo},
     {"clear",    cmd_clear},
+    {"exit",     cmd_exit},
     {NULL, NULL}
 };
 
@@ -78,12 +82,6 @@ char *gets_line(char *buffer, int size) {
 }
 
 // ============================================
-// EXECUTE_LINE
-// ============================================
-
-
-
-// ============================================
 // EXECUTE_LINE - Com redirecionamento
 // ============================================
 int execute_line(char *line) {
@@ -115,7 +113,6 @@ int execute_line(char *line) {
     // Procura por "<<"
     char *heredoc_pos = strstr(line_copy, "<<");
     if (heredoc_pos) {
-        // TODO: Implementar heredoc se quiser
         vfs_write(1, "Heredoc nao implementado\n", 26);
         return -1;
     }
@@ -127,7 +124,6 @@ int execute_line(char *line) {
         *append_pos = '\0';
         redirect_file = append_pos + 2;
         while (*redirect_file == ' ') redirect_file++;
-        // Remove espaços no final do arquivo
         char *p = redirect_file + strlen(redirect_file) - 1;
         while (p > redirect_file && *p == ' ') *p-- = '\0';
     }
@@ -135,7 +131,6 @@ int execute_line(char *line) {
     // Procura por ">" (sobrescrever)
     char *output_pos = strstr(line_copy, ">");
     if (output_pos && redirect_mode == 0) {
-        // Verifica se não é ">>" (já tratado)
         if (*(output_pos + 1) != '>') {
             redirect_mode = 1;
             *output_pos = '\0';
@@ -149,15 +144,12 @@ int execute_line(char *line) {
     // Procura por "<" (entrada)
     char *input_pos = strstr(line_copy, "<");
     if (input_pos) {
-        // Verifica se não é "<<"
         if (*(input_pos + 1) != '<') {
             char *input_file = input_pos + 1;
             while (*input_file == ' ') input_file++;
-            // Remove espaços no final
             char *p = input_file + strlen(input_file) - 1;
             while (p > input_file && *p == ' ') *p-- = '\0';
 
-            // Abre arquivo de entrada
             input_fd = vfs_open(input_file, O_RDONLY);
             if (input_fd < 0) {
                 vfs_write(1, "Erro: nao foi possivel abrir entrada: ", 39);
@@ -172,11 +164,9 @@ int execute_line(char *line) {
     // ============================================
     // PASSO 2: PROCESSA O COMANDO
     // ============================================
-    // Remove espaços extras
     char *cmd = line_copy;
     while (*cmd == ' ') cmd++;
 
-    // Quebra em argumentos
     char *args_copy[16];
     int argc_copy = 0;
     token = strtok(cmd, " ");
@@ -194,25 +184,20 @@ int execute_line(char *line) {
     // PASSO 3: EXECUTA COM REDIRECIONAMENTO
     // ============================================
 
-    // Salva os descritores atuais
-    saved_stdin = 0;   // stdin
-    saved_stdout = 1;  // stdout
+    saved_stdin = 0;
+    saved_stdout = 1;
 
-    // Redireciona entrada se necessário
     if (input_fd >= 0) {
-        // Troca stdin pelo arquivo
-        File *old_stdin = get_file_from_fd(0);
         File *new_stdin = get_file_from_fd(input_fd);
         if (new_stdin) {
             fd_table[0] = new_stdin;
         }
     }
 
-    // Redireciona saída se necessário
     if (redirect_mode > 0 && redirect_file) {
         int flags = O_WRONLY | O_CREAT;
-        if (redirect_mode == 1) flags |= O_TRUNC;   // >
-        if (redirect_mode == 2) flags |= O_APPEND;  // >>
+        if (redirect_mode == 1) flags |= O_TRUNC;
+        if (redirect_mode == 2) flags |= O_APPEND;
 
         output_fd = vfs_open(redirect_file, flags);
         if (output_fd < 0) {
@@ -223,7 +208,6 @@ int execute_line(char *line) {
             return -1;
         }
 
-        // Troca stdout pelo arquivo
         File *new_stdout = get_file_from_fd(output_fd);
         if (new_stdout) {
             fd_table[1] = new_stdout;
@@ -241,7 +225,7 @@ int execute_line(char *line) {
         }
     }
 
-    if (result != 0) {
+    if (result != 0 && result != CMD_EXIT_SHELL) {
         vfs_write(1, "Comando desconhecido: ", 23);
         vfs_write(1, args_copy[0], strlen(args_copy[0]));
         vfs_write(1, "\n", 1);
@@ -251,20 +235,16 @@ int execute_line(char *line) {
     // PASSO 5: RESTAURA OS DESCRITORES
     // ============================================
 
-    // Restaura stdout
     if (output_fd >= 0) {
         vfs_close(output_fd);
-        // Restaura stdout original (tty)
         int tty_fd = vfs_open("/dev/tty", O_RDWR);
         if (tty_fd >= 0) {
             fd_table[1] = get_file_from_fd(tty_fd);
         }
     }
 
-    // Restaura stdin
     if (input_fd >= 0) {
         vfs_close(input_fd);
-        // Restaura stdin original (tty)
         int tty_fd = vfs_open("/dev/tty", O_RDWR);
         if (tty_fd >= 0) {
             fd_table[0] = get_file_from_fd(tty_fd);
@@ -274,13 +254,12 @@ int execute_line(char *line) {
     return result;
 }
 
-
 // ============================================
 // COMANDOS
 // ============================================
 
 int cmd_help(int argc, char **argv) {
-    vfs_write(1, "Comandos disponíveis:\n", 23);
+    vfs_write(1, "Comandos disponiveis:\n", 23);
     for (int i = 0; commands[i].name != NULL; i++) {
         vfs_write(1, "  ", 2);
         vfs_write(1, commands[i].name, strlen(commands[i].name));
@@ -306,7 +285,7 @@ int cmd_cat(int argc, char **argv) {
 
     int fd = vfs_open(argv[1], O_RDONLY);
     if (fd < 0) {
-        vfs_write(1, "Erro: não foi possível abrir ", 29);
+        vfs_write(1, "Erro: nao foi possivel abrir ", 29);
         vfs_write(1, argv[1], strlen(argv[1]));
         vfs_write(1, "\n", 1);
         return -1;
@@ -328,7 +307,7 @@ int cmd_ls(int argc, char **argv) {
     const char *path = (argc > 1) ? argv[1] : "/";
 
     if (fopendir(&dir, path) != FR_OK) {
-        vfs_write(1, "Erro: não foi possível listar ", 30);
+        vfs_write(1, "Erro: nao foi possivel listar ", 30);
         vfs_write(1, path, strlen(path));
         vfs_write(1, "\n", 1);
         return -1;
@@ -349,7 +328,7 @@ int cmd_ls(int argc, char **argv) {
 
 int cmd_cd(int argc, char **argv) {
     if (argc < 2) {
-        vfs_write(1, "cd: falta diretório\n", 21);
+        vfs_write(1, "cd: falta diretorio\n", 21);
         return -1;
     }
     vfs_write(1, "cd: mudando para ", 18);
@@ -360,13 +339,13 @@ int cmd_cd(int argc, char **argv) {
 
 int cmd_mkdir(int argc, char **argv) {
     if (argc < 2) {
-        vfs_write(1, "mkdir: falta diretório\n", 24);
+        vfs_write(1, "mkdir: falta diretorio\n", 24);
         return -1;
     }
 
     FRESULT result = fmkdir(argv[1]);
     if (result != FR_OK) {
-        vfs_write(1, "Erro ao criar diretório\n", 25);
+        vfs_write(1, "Erro ao criar diretorio\n", 25);
         return -1;
     }
 
@@ -389,7 +368,7 @@ int cmd_shutdown(int argc, char **argv) {
 int cmd_meminfo(int argc, char **argv) {
     int fd = vfs_open("/proc/meminfo", O_RDONLY);
     if (fd < 0) {
-        vfs_write(1, "Erro: /proc/meminfo não disponível\n", 36);
+        vfs_write(1, "Erro: /proc/meminfo nao disponivel\n", 36);
         return -1;
     }
 
@@ -410,6 +389,14 @@ int cmd_clear(int argc, char **argv) {
         vfs_close(fd);
     }
     return 0;
+}
+
+// ============================================
+// CMD_EXIT - Sai do shell
+// ============================================
+int cmd_exit(int argc, char **argv) {
+    vfs_write(1, "Saindo do shell...\n", 20);
+    return CMD_EXIT_SHELL;  // ← Código especial!
 }
 
 // ============================================
@@ -471,14 +458,21 @@ void shell_loop(void) {
 
     run_boot_script();
 
-    vfs_write(1, "--- Shell do MeuSO ---\n", 24);
+    vfs_write(1, "--- Shell do Orion68DOS ---\n", 29);
     vfs_write(1, "Digite 'help' para comandos\n\n", 30);
 
     while (1) {
         vfs_write(1, "> ", 2);
         gets_line(line, sizeof(line));
-        execute_line(line);
+        int result = execute_line(line);
+        
+        // Se o comando exit foi executado, sai do loop
+        if (result == CMD_EXIT_SHELL) {
+            break;
+        }
     }
+
+    vfs_write(1, "Shell finalizado.\n", 19);
 }
 
 // ============================================
@@ -497,10 +491,10 @@ int main(void) {
     size_t split_thresh = 16;
     size_t alignment = 4;
     
-    printf("Heap: 0x%x - 0x%x (%d bytes)\n", 
-           (uint32_t)heap_base, (uint32_t)heap_limit,
-           (uint32_t)(heap_limit - heap_base));
-    
+//    printf("Heap: 0x%x - 0x%x (%d bytes)\n", 
+//           (uint32_t)heap_base, (uint32_t)heap_limit,
+//           (uint32_t)(heap_limit - heap_base));
+//    
     bool ok = malloc_init(heap_base, heap_limit, max_blocks, split_thresh, alignment);
     
     if (!ok) {
@@ -508,9 +502,9 @@ int main(void) {
         return -1;
     }
     
-    printf("Malloc inicializado com sucesso!\n");
 
     vfs_init();
     shell_loop();
+    vfs_write(1, "Retornando ao kernel...\n", 25);
     return 0;
 }
