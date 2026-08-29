@@ -1,3 +1,13 @@
+# 2026-08-29
+        Procurar porque está dando 
+        --- ARQUIVO RECEBIDO COM SUCESSO NO PICO! ---
+        Arquivo: shell.elf    pronto na RAM.
+        *** PANIC ***
+        Out of memory
+        No pico W, depois de dezenas de transferência de arquivos
+        dá esse erro. Como não uso malloc não tenho idéia do que
+        possa ser.
+
 # 2026-08-26 
         Erro recorrente porque eu já havia corrigido e por algum motivo desconhecido os codigo ruim somente comentado
         ficou descomentado, na função do_save2 não uso argc e argv uso oque vem do pico para determinar o tamanho

@@ -6,3 +6,21 @@ m68k-elf-readelf -h vbug2-1.elf
 ver as variaveis
 m68k-elf-nm -n vbug2-1.elf 
 
+Lista as seções dentro de um executável
+grep -E "\.text|\.data|\.bss|\.rodata" vfsorion.map | sort -k2 -n -r | head -20
+
+Lista os objs de uma lib estática
+m68k-elf-ar -t lib.a
+
+diretivas para o linker
+--relax --gc-sections --print-gc-sections  --strip-debug  -Map vfsorion.map
+--gc-sections       = Retira oque não estiver sendo usado
+--print-gc-sections = Mostra oque está sendo retirado
+--strip-debug       = Retira informações de debug
+
+diretivar para o compilador
+-ffunction-sections = Necessária par o linker poder usar --gc-sections
+-fdata-sections     = Necessária par o linker poder usar --gc-sections
+
+
+
