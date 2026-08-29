@@ -283,8 +283,13 @@ int vfs_open(const char *path, int flags) {
     file->name = strdup(path);
     
     if (fat_open(file, path, flags) == 0) {
-        printf("vfs_open: FATFS abriu!\n");
-        // ...
+        int fd = allocate_fd(file);
+        if (fd >= 0) {
+            return fd;
+        }
+        free(file->name);
+        free(file);
+        return -1;
     }
     
     for (int i = 0; drivers[i].path != NULL; i++) {

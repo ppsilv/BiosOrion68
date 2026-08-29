@@ -269,7 +269,9 @@ int cmd_help(int argc, char **argv) {
 }
 
 int cmd_echo(int argc, char **argv) {
+     printf("cmd_echo: argc=%d\n", argc);  // ← DEBUG
     for (int i = 1; i < argc; i++) {
+        printf("cmd_echo: argv[%d]='%s'\n", i, argv[i]);  // ← DEBUG
         vfs_write(1, argv[i], strlen(argv[i]));
         if (i < argc - 1) vfs_write(1, " ", 1);
     }

@@ -92,8 +92,73 @@ static size_t fat_lseek(File *file, size_t offset, int whence) {
 // FAT_OPEN
 // ============================================
 // vfs_fat.c - CORRIGIDO
+// vfs_fat.c - fat_open()
 int fat_open(File *file, const char *path, int flags) {
+    printf("fat_open: path='%s', flags=0x%x\n", path, flags);
     
+    FIL *fat_file = (FIL*)malloc(sizeof(FIL));
+    if (!fat_file) return -1;
+    
+    BYTE fat_mode = 0;
+    if (flags & O_RDONLY) fat_mode |= FA_READ;
+    if (flags & O_WRONLY) fat_mode |= FA_WRITE;
+    if (flags & O_RDWR)   fat_mode |= FA_READ | FA_WRITE;
+    
+    // ============================================
+    // CRIA O ARQUIVO SE NÃO EXISTIR
+    // ============================================
+    if (flags & O_CREAT) {
+        printf("fat_open: O_CREAT detectado! Criando arquivo...\n");
+        fat_mode |= FA_CREATE_ALWAYS;
+    }
+    
+    if (flags & O_TRUNC) {
+        printf("fat_open: O_TRUNC detectado!\n");
+        fat_mode |= FA_CREATE_ALWAYS;
+    }
+    
+    if (flags & O_APPEND) {
+        printf("fat_open: O_APPEND detectado!\n");
+        fat_mode |= FA_OPEN_APPEND;
+    }
+    
+    printf("fat_open: fat_mode=0x%x\n", fat_mode);
+    
+    // CHAMA SUA fopen() (trap #12)
+    FRESULT result = fopen(fat_file, path, fat_mode);
+    printf("fat_open: fopen result=%d\n", result);
+    
+    if (result != FR_OK) {
+        printf("fat_open: fopen falhou com erro %d!\n", result);
+        free(fat_file);
+        return -1;
+    }
+    
+    printf("fat_open: FATFS abriu!\n");
+    
+    // Configura o File
+    FatPrivate *priv = (FatPrivate*)malloc(sizeof(FatPrivate));
+    if (!priv) {
+        fclose(fat_file);
+        free(fat_file);
+        return -1;
+    }
+    
+    priv->fat_file = fat_file;
+    priv->mode = fat_mode;
+    priv->size = fsize(fat_file);
+    
+    file->private_data = priv;
+    file->position = 0;
+    file->read = fat_read;
+    file->write = fat_write;
+    file->close = fat_close;
+    file->lseek = fat_lseek;
+    
+    return 0;
+}
+int fat_open1(File *file, const char *path, int flags) {
+     printf("fat_open: path='%s', flags=0x%x\n", path, flags);  // ← DEBUG
     FIL *fat_file = (FIL*)malloc(sizeof(FIL));
     if (!fat_file) return -1;
     
@@ -115,7 +180,7 @@ int fat_open(File *file, const char *path, int flags) {
         return -1;
     }
     
-    // ... configura o File ...
+    
     return 0;
 }
 int fat_open_old(File *file, const char *path, int flags) {
