@@ -195,7 +195,7 @@ int execute_line(char *line) {
     }
 
     if (redirect_mode > 0 && redirect_file) {
-        int flags = O_WRONLY | O_CREAT;
+        int flags = O_WRONLY;
         if (redirect_mode == 1) flags |= O_TRUNC;
         if (redirect_mode == 2) flags |= O_APPEND;
 
@@ -269,7 +269,7 @@ int cmd_help(int argc, char **argv) {
 }
 
 int cmd_echo(int argc, char **argv) {
-     printf("cmd_echo: argc=%d\n", argc);  // ← DEBUG
+     //printf("cmd_echo: argc=%d\n", argc);  // ← DEBUG
     for (int i = 1; i < argc; i++) {
         printf("cmd_echo: argv[%d]='%s'\n", i, argv[i]);  // ← DEBUG
         vfs_write(1, argv[i], strlen(argv[i]));

@@ -3,205 +3,6 @@
 #include <stdlib.h>
 #include "vfs.h"
 
-/*
- * COMO USAR
- *
-
- #include <stdio.h>
-#include "vfs.h"
-
-void exemplo_abrir_arquivo(void) {
-    // 1. Abre o arquivo usando VFS
-    int fd = vfs_open("/boot.bat", O_RDONLY);
-
-    if (fd < 0) {
-        printf("Erro: não foi possível abrir o arquivo\n");
-        return;
-    }
-
-    printf("Arquivo aberto! Descritor: %d\n", fd);
-
-    // 2. Lê o conteúdo
-    char buffer[128];
-    int bytes = vfs_read(fd, buffer, sizeof(buffer) - 1);
-
-    if (bytes > 0) {
-        buffer[bytes] = '\0';  // Termina a string
-        printf("Conteúdo: %s\n", buffer);
-    }
-
-    // 3. Fecha o arquivo
-    vfs_close(fd);
-    printf("Arquivo fechado!\n");
-}
-
- void exemplo_ler_arquivo_inteiro(const char *path) {
-    int fd = vfs_open(path, O_RDONLY);
-    if (fd < 0) {
-        printf("Erro: não foi possível abrir %s\n", path);
-        return;
-    }
-
-    char buffer[1024];
-    int total = 0;
-    int bytes;
-
-    // Lê em blocos até o final
-    while ((bytes = vfs_read(fd, buffer, sizeof(buffer))) > 0) {
-        vfs_write(1, buffer, bytes);  // Escreve no terminal (stdout)
-        total += bytes;
-    }
-
-    vfs_close(fd);
-    printf("\nTotal de %d bytes lidos\n", total);
-}
-void exemplo_dispositivos(void) {
-    // Abrir o terminal (/dev/tty)
-    int tty = vfs_open("/dev/tty", O_RDWR);
-    if (tty >= 0) {
-        vfs_write(tty, "Digite algo: ", 13);
-
-        char buffer[64];
-        int bytes = vfs_read(tty, buffer, sizeof(buffer) - 1);
-        if (bytes > 0) {
-            buffer[bytes] = '\0';
-            vfs_write(tty, "Você digitou: ", 14);
-            vfs_write(tty, buffer, strlen(buffer));
-        }
-
-        vfs_close(tty);
-    }
-
-    // Abrir /dev/null (descarta dados)
-    int null = vfs_open("/dev/null", O_WRONLY);
-    if (null >= 0) {
-        vfs_write(null, "Isso será descartado", 20);
-        vfs_close(null);
-    }
-
-    // Abrir /proc/meminfo (informações do sistema)
-    int mem = vfs_open("/proc/meminfo", O_RDONLY);
-    if (mem >= 0) {
-        char buffer[256];
-        int bytes = vfs_read(mem, buffer, sizeof(buffer) - 1);
-        if (bytes > 0) {
-            buffer[bytes] = '\0';
-            vfs_write(1, buffer, bytes);  // Mostra no terminal
-        }
-        vfs_close(mem);
-    }
-}
-
-// Implementação do comando 'cat'
-int cmd_cat(int argc, char **argv) {
-    if (argc < 2) {
-        vfs_write(1, "Uso: cat <arquivo>\n", 20);
-        return -1;
-    }
-
-    // Abre o arquivo (pode ser /dev/tty, /proc/meminfo, etc.)
-    int fd = vfs_open(argv[1], O_RDONLY);
-    if (fd < 0) {
-        vfs_write(1, "Erro: não foi possível abrir ", 29);
-        vfs_write(1, argv[1], strlen(argv[1]));
-        vfs_write(1, "\n", 1);
-        return -1;
-    }
-
-    // Lê e escreve no stdout (fd 1)
-    char buffer[128];
-    int bytes;
-    while ((bytes = vfs_read(fd, buffer, sizeof(buffer))) > 0) {
-        vfs_write(1, buffer, bytes);
-    }
-
-    vfs_close(fd);
-    return 0;
-}
-// Implementação do comando 'echo' com redirecionamento
-int cmd_echo(int argc, char **argv) {
-    if (argc < 2) {
-        vfs_write(1, "Uso: echo <texto>\n", 19);
-        return -1;
-    }
-
-    // Escreve no stdout (fd 1)
-    for (int i = 1; i < argc; i++) {
-        vfs_write(1, argv[i], strlen(argv[i]));
-        if (i < argc - 1) vfs_write(1, " ", 1);
-    }
-    vfs_write(1, "\n", 1);
-
-    return 0;
-}
-
-// Exemplo de uso no shell:
-// echo "Hello World" > /tmp/teste.txt
-
-// O que acontece quando você chama vfs_open()
-int vfs_open(const char *path, int flags) {
-    File *file = malloc(sizeof(File));
-
-    // 1. Tenta abrir como arquivo FATFS
-    if (fat_open(file, path, flags) == 0) {
-        // fat_open preencheu:
-        // - file->read = fat_read
-        // - file->write = fat_write
-        // - file->close = fat_close
-        // - file->private_data = FIL*
-        return allocate_fd(file);
-    }
-
-    // 2. Tenta abrir como dispositivo
-    if (strcmp(path, "/dev/tty") == 0) {
-        tty_open(file, path, flags);
-        // tty_open preencheu:
-        // - file->read = tty_read
-        // - file->write = tty_write
-        // - file->close = tty_close
-        return allocate_fd(file);
-    }
-
-    // 3. Não encontrou
-    free(file);
-    return -1;
-}
-
-// Esta função funciona com qualquer coisa que o VFS suporta!
-void copiar_arquivo(const char *origem, const char *destino) {
-    int src = vfs_open(origem, O_RDONLY);
-    if (src < 0) {
-        vfs_write(1, "Erro: origem não encontrada\n", 29);
-        return;
-    }
-
-    int dst = vfs_open(destino, O_WRONLY | O_CREAT | O_TRUNC);
-    if (dst < 0) {
-        vfs_write(1, "Erro: destino não pode ser criado\n", 35);
-        vfs_close(src);
-        return;
-    }
-
-    char buffer[128];
-    int bytes;
-    while ((bytes = vfs_read(src, buffer, sizeof(buffer))) > 0) {
-        vfs_write(dst, buffer, bytes);
-    }
-
-    vfs_close(src);
-    vfs_close(dst);
-    vfs_write(1, "Cópia concluída!\n", 18);
-}
-
-// Exemplos de uso:
-// copiar_arquivo("/boot.bat", "/tmp/boot.bak")
-// copiar_arquivo("/proc/meminfo", "/tmp/meminfo.txt")
-// copiar_arquivo("/dev/tty", "/tmp/entrada.txt")  // Copia o que for digitado!
-
-
-
- */
-
 // ============================================
 // TABELA DE DESCRITORES GLOBAL
 // ============================================
@@ -293,13 +94,13 @@ int vfs_open(const char *path, int flags) {
     }
     
     for (int i = 0; drivers[i].path != NULL; i++) {
-        printf("vfs_open: comparando '%s' com '%s'\n", path, drivers[i].path);
+        //printf("vfs_open: comparando '%s' com '%s'\n", path, drivers[i].path);
         if (strcmp(path, drivers[i].path) == 0) {
-            printf("vfs_open: ENCONTROU! i=%d\n", i);
+           // printf("vfs_open: ENCONTROU! i=%d\n", i);
             if (drivers[i].open(file, path, flags) == 0) {
                 int fd = allocate_fd(file);
                 if (fd >= 0) {
-                    printf("vfs_open: fd=%d (SUCESSO!)\n", fd);
+                    //printf("vfs_open: fd=%d (SUCESSO!)\n", fd);
                     return fd;
                 }
             }
@@ -340,7 +141,7 @@ int vfs_open1(const char *path, int flags) {
             if (drivers[i].open(file, path, flags) == 0) {
                 int fd = allocate_fd(file);
                 if (fd >= 0) {
-                    printf("drivers[i].path[%s] fd=\n",drivers[i].path,fd);
+                   //printf("drivers[i].path[%s] fd=\n",drivers[i].path,fd);
                     return fd;
                 }
             }
