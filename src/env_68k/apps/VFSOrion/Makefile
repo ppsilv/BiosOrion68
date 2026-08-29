@@ -3,13 +3,14 @@ LD = m68k-elf-ld
 OBJCOPY = m68k-elf-objcopy
 OBJDUMP = m68k-elf-objdump
 
-CFLAGS = -Wall -Os -I../../include -ffreestanding -nostdlib -D __68000__ -D ALIGN_MEMORY -ffunction-sections -fdata-sections -fno-common
+# -fPIC 
+CFLAGS =  -Wall -Os -I../../include -ffreestanding -nostdlib -D __68000__ -D ALIGN_MEMORY -ffunction-sections -fdata-sections -fno-common
 
 # Flags específicas para gerar o listing (compila e já gera o assembly)
 # -Wa,-adhln=vfsorion.lst vai gerar o listing de TODOS os arquivos de uma vez
 ALL_CFLAGS = $(CFLAGS)
-
-LDFLAGS = -T ./linker.ld -L../../lib -nostdlib -L../../lib --no-undefined --relax --gc-sections --print-gc-sections  --strip-debug  -Map vfsorion.map 
+#-pie
+LDFLAGS = -T ./linker.ld  -L../../lib -nostdlib -L../../lib --no-undefined --relax --gc-sections --print-gc-sections  --strip-debug  -Map vfsorion.map 
 LDLIBS = -lvideo -lrtc  -lfileio -ldiskio -ldrivers -lc68k 
 
 SRCS = $(wildcard *.c)

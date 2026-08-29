@@ -80,6 +80,40 @@ char *gets_line(char *buffer, int size) {
     buffer[i] = '\0';
     return buffer;
 }
+FRESULT f_findfirst (DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
+FRESULT findfirst(DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
+static    DIR dj;              // Objeto de diretório para a busca
+static  FILINFO fno; 
+static int file_exists(const char *path) {
+    FRESULT fr;          // Código de retorno do FatFs
+
+    memset(&fno, 0, sizeof(FILINFO));
+    fr = findfirst(&dj, &fno, "", path);
+
+    if (fr == FR_OK) {
+        if (fno.fname[0] != '\0') { 
+            //printf("Arquivo encontrado: %s\n", fno.fname);
+            // Aqui você pode usar outros campos como fsize, fattrib, etc.
+            //printf("Tamanho: %lu bytes\n", fno.fsize);            
+            // Verifica se é diretório
+            if (fno.fattrib & AM_DIR) {
+                vfs_write(1,"É um diretório!\n",16);
+                f_closedir(&dj);
+                return 0;
+            }
+            f_closedir(&dj);
+            return 1;
+        } else {
+            vfs_write(1,"File not found.\n",16);
+            f_closedir(&dj);
+            return 0;
+        }
+    }
+    f_closedir(&dj);
+    return 0;  // Arquivo não existe
+}
+
+
 
 // ============================================
 // EXECUTE_LINE - Com redirecionamento
@@ -224,11 +258,17 @@ int execute_line(char *line) {
             break;
         }
     }
-
     if (result != 0 && result != CMD_EXIT_SHELL) {
-        vfs_write(1, "Comando desconhecido: ", 23);
-        vfs_write(1, args_copy[0], strlen(args_copy[0]));
-        vfs_write(1, "\n", 1);
+        char buf[16];
+        sprintf(buf,"%s*",args_copy[0]);
+        //printf("Arq: %s\n",buf);
+        if (file_exists(buf)) {
+            vfs_write(1,"execute_line: Arquivo encontrado!\n", 34);
+        } else {
+            vfs_write(1, "Comando desconhecido: ", 22);
+            vfs_write(1, args_copy[0], strlen(args_copy[0]));
+            vfs_write(1, "\n", 1);
+        }
     }
 
     // ============================================

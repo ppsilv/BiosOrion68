@@ -95,11 +95,16 @@ vid_xxx:
 /* =========================================================================
  * 1. writechar VGA: 1 argments D0 = char 
  * Regs used: A0 and D0 
+ * APARENTEMENTE QUANDO COMECEI A USAR ESSA FUNÇÃO PARA POR NO CCONOUT
+ * COMECEI A TER CARACTERE DUPLICADO NA TELA VOU VOLTAR PARA picovga_putchar
+ * E SONDAR SE O PROBLEMA CONTINUA.
+ * APARENTEMENTE ESTAVA ESCREVENDO 2 VEZES NO VIDEO TÃO RÁPIDO QUE NA MAIORIA
+ * DAS VEZES SÓ SAIA UM CARACTERE. SONDAR!!!
  * ========================================================================= */
 vid_writechar:
     /* Opção 1: Registrador A0 com Offset d16(An) - RECOMENDADO */
-    movea.l #PICO_VGA_BASE, %a0
-    move.b  %D0, REG_DATA_OUT(%a0)      | Escreve em 0x00FF8001
+ /*   |movea.l #PICO_VGA_BASE, %a0                                  */
+ /*   |move.b  %D0, REG_DATA_OUT(%a0)      | Escreve em 0x00FF8001  */
     bra     trap2_exit
 
 /* =========================================================================

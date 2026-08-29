@@ -1,5 +1,5 @@
 CMakeFiles/vgaPico2.dir/font_8x12.c.o: \
- /home/pdsilva/Projects/Orion68/src/pico2VGA/font_8x12.c \
+ /home/pdsilva/project/BiosOrion68/src/pico2VGA/font_8x12.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \

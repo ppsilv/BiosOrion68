@@ -55,6 +55,13 @@ void do_stat(int argc, char *argv[]) {
     f_stat((const char *)argv[0], (FILINFO *)argv[1]);
 }
 
+void do_findfirst(int argc, char *argv[]) {
+    f_findfirst ((DIR*)argv[0],(FILINFO*)argv[1],(const char *)argv[2],(const char *)argv[3]);
+}
+
+void do_findnext(int argc, char *argv[]) {
+    f_findnext ((DIR*)argv[0],(FILINFO*)argv[1]);
+}
 /* =========================================================================
  * DIRETÓRIOS E SISTEMA DE ARQUIVOS
  * ========================================================================= */

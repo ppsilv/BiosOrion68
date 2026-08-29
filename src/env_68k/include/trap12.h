@@ -24,6 +24,8 @@
 #define SYS_FMOUNT      17
 #define SYS_FUNMOUNT    18
 #define SYS_FILELIST    19
+#define SYS_FFINDFIRST  22
+#define SYS_FFINDNEXT   23
 
 #endif
 

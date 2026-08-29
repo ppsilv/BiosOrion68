@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pdsilva/Projects/Orion68/src/pico2VGA
+CMAKE_SOURCE_DIR = /home/pdsilva/project/BiosOrion68/src/pico2VGA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pdsilva/Projects/Orion68/src/pico2VGA/build
+CMAKE_BINARY_DIR = /home/pdsilva/project/BiosOrion68/src/pico2VGA/build
 
 # Utility rule file for vgaPico2_vga320p_vsync_pio_h.
 
@@ -68,9 +68,9 @@ include CMakeFiles/vgaPico2_vga320p_vsync_pio_h.dir/progress.make
 
 CMakeFiles/vgaPico2_vga320p_vsync_pio_h: vga320p_vsync.pio.h
 
-vga320p_vsync.pio.h: /home/pdsilva/Projects/Orion68/src/pico2VGA/vga320p_vsync.pio
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating vga320p_vsync.pio.h"
-	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/Projects/Orion68/src/pico2VGA/vga320p_vsync.pio /home/pdsilva/Projects/Orion68/src/pico2VGA/build/vga320p_vsync.pio.h
+vga320p_vsync.pio.h: /home/pdsilva/project/BiosOrion68/src/pico2VGA/vga320p_vsync.pio
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pdsilva/project/BiosOrion68/src/pico2VGA/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating vga320p_vsync.pio.h"
+	/home/pdsilva/.pico-sdk/tools/2.2.0/pioasm/pioasm -o c-sdk -v 1 /home/pdsilva/project/BiosOrion68/src/pico2VGA/vga320p_vsync.pio /home/pdsilva/project/BiosOrion68/src/pico2VGA/build/vga320p_vsync.pio.h
 
 vgaPico2_vga320p_vsync_pio_h: CMakeFiles/vgaPico2_vga320p_vsync_pio_h
 vgaPico2_vga320p_vsync_pio_h: vga320p_vsync.pio.h
@@ -86,6 +86,6 @@ CMakeFiles/vgaPico2_vga320p_vsync_pio_h.dir/clean:
 .PHONY : CMakeFiles/vgaPico2_vga320p_vsync_pio_h.dir/clean
 
 CMakeFiles/vgaPico2_vga320p_vsync_pio_h.dir/depend:
-	cd /home/pdsilva/Projects/Orion68/src/pico2VGA/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pdsilva/Projects/Orion68/src/pico2VGA /home/pdsilva/Projects/Orion68/src/pico2VGA /home/pdsilva/Projects/Orion68/src/pico2VGA/build /home/pdsilva/Projects/Orion68/src/pico2VGA/build /home/pdsilva/Projects/Orion68/src/pico2VGA/build/CMakeFiles/vgaPico2_vga320p_vsync_pio_h.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pdsilva/project/BiosOrion68/src/pico2VGA/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pdsilva/project/BiosOrion68/src/pico2VGA /home/pdsilva/project/BiosOrion68/src/pico2VGA /home/pdsilva/project/BiosOrion68/src/pico2VGA/build /home/pdsilva/project/BiosOrion68/src/pico2VGA/build /home/pdsilva/project/BiosOrion68/src/pico2VGA/build/CMakeFiles/vgaPico2_vga320p_vsync_pio_h.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/vgaPico2_vga320p_vsync_pio_h.dir/depend
 

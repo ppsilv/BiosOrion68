@@ -54,7 +54,7 @@ ALL OF THIS REGISTER IS NOT USED NOW
 
 
 void run_cmd(unsigned char cmd);
-void picovga_putchar(unsigned char ch);
+void picovga_putchar( char ch);
 //void picovga_set_color(color_t txtcolor,color_t bgcolor);
 void picovga_set_color(unsigned char txtcolor,unsigned char bgcolor);
 void picovga_gotoxy(int col,int row);

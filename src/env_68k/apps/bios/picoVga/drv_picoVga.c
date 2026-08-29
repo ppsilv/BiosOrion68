@@ -3,28 +3,60 @@
 #include "color.h"
 #include "timers.h"
 
+// delay.c
+
+void delay_us(uint32_t us) {
+    // Cada iteração do loop "dbra" leva ~8 ciclos.
+    // 8MHz => 8 ciclos = 1us. 
+    // Portanto, 1us = 1 iteração do loop.
+    // O loop em C com while pode ser impreciso, esta versão é melhor.
+    __asm__ volatile (
+        "1:                             \n"  // Label do loop
+        "subq.l  #1, %0                 \n"  // Decrementa o contador (4 ciclos)
+        "cmpi.l  #0, %0                 \n"  // Compara com zero (6 ciclos)
+        "bne     1b                     \n"  // Se não for zero, volta (6 ciclos se tomado)
+        : "+r" (us)                          // Entrada e saída: registrador para 'us'
+        :
+        : "cc"                               // Altera flags
+    );
+}
+
+void delay_1ms(void) {
+    asm volatile (
+        "move.w  #1000, %%d0\n"
+        "1:\n"
+        "nop\n"
+        "nop\n"
+        "nop\n"
+        "nop\n"
+        "dbra    %%d0, 1b\n"
+        : : : "d0"
+    );
+}
+
+void delay_ms(int ms) {
+    for(int i = 0; i < ms; i++) {
+        delay_1ms();
+    }
+}
+
+
+
+void uart0_write(unsigned char ch);
+
+void picovga_putchar( char ch){
+    WRITE_SCREEN = ch;
+    uart0_write(ch); 
+    //delay_us(1);
+}
+
+/*
 void init_picoVga(){
 
 }
 inline void run_cmd(unsigned char cmd){
     RUN_CMD = cmd;
     delay10ms(1);
-}
-void uart0_write(unsigned char ch);
-/*
-void write_str(){
-    char *str="Teste do video...\n";
-
-    while(*str){
-        int x=0x60;  //🚀🛠️    funciona para a cpu em 4Mhz
-        WRITE_SCREEN = *str++;
-        while(x--); //0,11us
-    }
-}
-*/
-void picovga_putchar( char ch){
-    WRITE_SCREEN = ch;
-    uart0_write(ch); 
 }
 
 void picovga_gotoxy(int col,int row){
@@ -57,3 +89,4 @@ void clrscr(){
     run_cmd(CMD_CLEAR_SCREEN);
     delay10ms(20);
 }
+*/

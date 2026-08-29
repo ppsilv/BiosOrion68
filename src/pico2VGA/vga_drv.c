@@ -19,7 +19,7 @@ enum vga_pins {BUS=0,HSYNC=16, VSYNC=17, RED_PIN=20, LO_GRN=19, BLUE_PIN=18} ;
 
 #define H_ACTIVE_1   327    // (active + frontporch - 1) - one cycle delay for mov
 #define V_ACTIVE_1   479    // (active - 1)
-#define H_ACTIVE_2   327  //655    // (active + frontporch - 1) - one cycle delay for mov
+#define H_ACTIVE_2   655    // (active + frontporch - 1) - one cycle delay for mov
 #define V_ACTIVE_2   479    // (active - 1)
 
 #define RGB_ACTIVE_1 159    // (horizontal active)/2 - 1

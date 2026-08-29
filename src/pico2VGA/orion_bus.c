@@ -62,7 +62,8 @@ void __not_in_flash_func(gerenciar_barramento_m68k)(PIO pio, uint sm){
                 case D_WRITE_SCREEN:    
                     vga->setTextCursorVisible(false);
                     vga->pchar(dado_m68k);  
-                    vga->setTextCursorVisible(true);                        
+                    vga->setTextCursorVisible(true);      
+                    //sleep_ms(1);                  
                     break;
                 case D_SET_TXT_COLOR:
                     bg_color = dado_m68k & 0x0F;

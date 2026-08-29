@@ -4882,8 +4882,8 @@ FRESULT f_findfirst (
 	FRESULT res;
 
 
-	dp->pat = pattern;		/* Save pointer to pattern string */
 	res = f_opendir(dp, path);		/* Open the target directory */
+	dp->pat = pattern;		/* Save pointer to pattern string */
 	if (res == FR_OK) {
 		res = f_findnext(dp, fno);	/* Find the first item */
 	}

@@ -2,6 +2,25 @@
 #include <trap12.h>
 #include "fatfs/ff.h"
 
+/*
+ * IMPLEMENTAR
+    truncate
+    findfirst
+    findnext
+    chmod
+    utime
+    chdir
+    chdrive
+    getcwd
+    getfree
+    getlabel
+    setlabel
+    forward
+    expand
+    mkfs
+    fdisk
+    setcp
+ */
 
 /* =========================================================================
  * 1. Operações Básicas de Arquivo
@@ -197,5 +216,31 @@ FRESULT funmount(const TCHAR* path) {
     register void*    arg_a0 __asm__("a0") = (void*)path;
 
     __asm__ volatile ("trap #12" : "=r"(res) : "r"(cmd), "r"(arg_a0) : "memory");
+    return (FRESULT)res;
+}
+
+/* =========================================================================
+ * 6. Procura de arquivos
+ * ========================================================================= */
+
+FRESULT findfirst(DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern) {
+    register uint32_t res    __asm__("d0");
+    register uint32_t cmd    __asm__("d1") = SYS_FFINDFIRST;
+    register void*    arg_a0 __asm__("a0") = (void*)dp;
+    register void*    arg_a1 __asm__("a1") = (void*)fno;
+    register uint8_t* arg_d0 __asm__("d0") = (uint8_t*)path;
+    register uint8_t* arg_d2 __asm__("d2") = (uint8_t*)pattern;
+
+    __asm__ volatile ("trap #12" : "=r"(res) : "r"(cmd), "r"(arg_a0), "r"(arg_a1), "r"(arg_d0), "r"(arg_d2) : "memory");
+    return (FRESULT)res;
+}
+
+FRESULT findnext(DIR* dp, FILINFO* fno) {
+    register uint32_t res    __asm__("d0");
+    register uint32_t cmd    __asm__("d1") = SYS_FFINDNEXT;
+    register void*    arg_a0 __asm__("a0") = (void*)dp;
+    register void*    arg_a1 __asm__("a1") = (void*)fno;
+
+    __asm__ volatile ("trap #12" : "=r"(res) : "r"(cmd), "r"(arg_a0), "r"(arg_a1) : "memory");
     return (FRESULT)res;
 }

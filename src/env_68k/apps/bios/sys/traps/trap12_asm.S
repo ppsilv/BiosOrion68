@@ -24,6 +24,8 @@
 .global file_list
 .global file_save
 .global file_load
+.global file_findfirst
+.global file_findnext
 
 
 
@@ -376,6 +378,39 @@ file_load:
 
     |; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)
     lea     24(%sp),%sp
+    bra     trapC_exit
+
+file_findfirst:
+    | 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])
+    move.l  %A2,-(%sp)    |; argv[3] = pattern
+    move.l  %d0,-(%sp)    |; argv[2] = path/filename
+    move.l  %a1,-(%sp)    |; argv[1] = Ponteiro FILINFO
+    move.l  %a0,-(%sp)    |; argv[0] = Ponteiro DIR*"
+    
+    move.l  %sp,%a2       |; A2 = Endereço do início do vetor argv[]
+
+    |; 2. Empilha os parâmetros para do_save(argc, argv) - da direita para a esquerda
+    move.l  %a2,-(%sp)    |; 2º parâmetro: char *argv[]
+    move.l  #4,-(%sp)     |; 1º parâmetro: int argc (3 argumentos)
+
+    |; 3. Chama a função
+    jsr     do_findfirst
+
+    |; 4. Limpa a pilha (8 bytes dos parâmetros + 12 bytes da tabela argv = 20 bytes)
+    lea     24(%sp),%sp
+    bra     trapC_exit
+
+file_findnext:
+    move.l  %a1,-(%sp)          /* argv[1] = FILINFO */
+    move.l  %a0,-(%sp)          /* argv[0] = DIR*/
+    move.l  %sp,%a2             /* A2 = &argv[0] */
+
+    move.l  %a2,-(%sp)          /* 2º param: argv */
+    move.l  #2,-(%sp)           /* 1º param: argc = 2 */
+
+    jsr     do_findnext
+
+    lea     16(%sp),%sp         /* Limpa 4 longs (16 bytes) */
     bra     trapC_exit
 
 trapC_exit:

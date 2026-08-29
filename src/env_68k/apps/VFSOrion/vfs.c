@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "vfs.h"
+#include "fileio.h" 
 
 // ============================================
 // TABELA DE DESCRITORES GLOBAL
@@ -104,48 +105,6 @@ int vfs_open(const char *path, int flags) {
                     return fd;
                 }
             }
-        }
-    }
-    
-    free(file->name);
-    free(file);
-    return -1;
-}
-int vfs_open1(const char *path, int flags) {
-    File *file = (File*)malloc(sizeof(File));
-    if (!file) return -1;
-    
-    memset(file, 0, sizeof(File));
-    file->name = strdup(path);
-    file->type = FILE_TYPE_REGULAR;
-    file->position = 0;
-    file->ref_count = 1;
-    
-    if (fat_open(file, path, flags) == 0) {
-        int fd = allocate_fd(file);
-        if (fd >= 0) return fd;
-        free(file->name);
-        free(file);
-        return -1;
-    }
-    
-    for (int i = 0; drivers[i].path != NULL; i++) {
-        if (strcmp(path, drivers[i].path) == 0) {
-            file->type = FILE_TYPE_DEVICE;
-            file->read = drivers[i].read;
-            file->write = drivers[i].write;
-            file->close = drivers[i].close;
-            file->ioctl = drivers[i].ioctl;
-            file->lseek = drivers[i].lseek;
-            
-            if (drivers[i].open(file, path, flags) == 0) {
-                int fd = allocate_fd(file);
-                if (fd >= 0) {
-                   //printf("drivers[i].path[%s] fd=\n",drivers[i].path,fd);
-                    return fd;
-                }
-            }
-            break;
         }
     }
     

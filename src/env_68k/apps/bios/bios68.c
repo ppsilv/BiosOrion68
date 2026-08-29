@@ -116,11 +116,11 @@ extern void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
 extern void printString(char * str);
 extern uint8_t ring_buf_get_char();
 extern void duart_init_canal_a(void);
-extern void video_writechar(char ch);
+extern void picovga_putchar(char ch);
 
 void main() {
     pico_write_ch('A');
-    set_console_output(video_writechar);
+    set_console_output(picovga_putchar);
     printf("%s",MsgOrionInit);
     pico_write_ch('c');
     m68k_enable_all_interrupts(); 

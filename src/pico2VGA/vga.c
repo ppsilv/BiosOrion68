@@ -141,8 +141,8 @@ int main(){
     // start the serial i/o
     stdio_init_all();
 
-    overclock_pico();
-
+    //overclock_pico();
+    set_sys_clock_khz(150000, true);
 
     // start bus read
     initReadBus_Pio();

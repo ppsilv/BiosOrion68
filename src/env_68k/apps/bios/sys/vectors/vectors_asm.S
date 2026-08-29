@@ -51,6 +51,8 @@
 .extern file_list
 .extern file_save
 .extern file_load
+.extern file_findfirst
+.extern file_findnext
 
 .extern vid_drawHLine
 .extern vid_drawVLine
@@ -356,6 +358,10 @@ Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
         beq     file_save
         cmp.w   #21,%d1
         beq     file_load
+        cmp.w   #22,%d1
+        beq     file_findfirst
+        cmp.w   #23,%d1
+        beq     file_findnext
 
         /* Restaura o mundo (D0 contém o retorno de cconin se foi chamada) */
         movem.l (%sp)+,%d1-%d7/%a0-%a6

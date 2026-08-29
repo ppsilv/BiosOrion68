@@ -58,6 +58,7 @@ typedef struct {
     int (*close)(File *file);
     int (*ioctl)(File *file, int cmd, void *arg);
     size_t (*lseek)(File *file, size_t offset, int whence);
+
 } DeviceDriver;
 
 // ============================================
