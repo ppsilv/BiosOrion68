@@ -485,6 +485,31 @@ void shell_loop(void) {
 // MAIN
 // ============================================
 int main(void) {
+    // ============================================
+    // DEFINE A HEAP CORRETAMENTE
+    // ============================================
+    #define HEAP_START  0x94000
+    #define HEAP_SIZE   (128 * 1024)  // 128KB
+    
+    void *heap_base = (void*)HEAP_START;
+    void *heap_limit = (void*)(HEAP_START + HEAP_SIZE);
+    size_t max_blocks = 64;
+    size_t split_thresh = 16;
+    size_t alignment = 4;
+    
+    printf("Heap: 0x%x - 0x%x (%d bytes)\n", 
+           (uint32_t)heap_base, (uint32_t)heap_limit,
+           (uint32_t)(heap_limit - heap_base));
+    
+    bool ok = malloc_init(heap_base, heap_limit, max_blocks, split_thresh, alignment);
+    
+    if (!ok) {
+        printf("ERRO: malloc_init() falhou! Verifique heap_base < heap_limit\n");
+        return -1;
+    }
+    
+    printf("Malloc inicializado com sucesso!\n");
+
     vfs_init();
     shell_loop();
     return 0;

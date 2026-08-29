@@ -91,7 +91,36 @@ static size_t fat_lseek(File *file, size_t offset, int whence) {
 // ============================================
 // FAT_OPEN
 // ============================================
+// vfs_fat.c - CORRIGIDO
 int fat_open(File *file, const char *path, int flags) {
+    printf("fat_open: path original = '%s'\n", path);
+    
+    FIL *fat_file = (FIL*)malloc(sizeof(FIL));
+    if (!fat_file) return -1;
+    
+    BYTE fat_mode = 0;
+    if (flags & O_RDONLY) fat_mode |= FA_READ;
+    if (flags & O_WRONLY) fat_mode |= FA_WRITE;
+    if (flags & O_RDWR)   fat_mode |= FA_READ | FA_WRITE;
+    if (flags & O_CREAT)  fat_mode |= FA_CREATE_ALWAYS;
+    if (flags & O_APPEND) fat_mode |= FA_OPEN_APPEND;
+    
+    // ============================================
+    // NÃO MODIFICA O PATH! Use o path original!
+    // ============================================
+    printf("fat_open: chamando fopen com '%s'\n", path);
+    FRESULT result = fopen(fat_file, path, fat_mode);  // ← path original!
+    
+    if (result != FR_OK) {
+        printf("fat_open: fopen falhou! result=%d\n", result);
+        free(fat_file);
+        return -1;
+    }
+    
+    // ... configura o File ...
+    return 0;
+}
+int fat_open_old(File *file, const char *path, int flags) {
     FIL *fat_file = (FIL*)malloc(sizeof(FIL));
     if (!fat_file) return -1;
 

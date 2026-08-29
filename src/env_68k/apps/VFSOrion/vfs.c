@@ -273,7 +273,44 @@ void free_fd(int fd) {
 // ============================================
 // VFS_OPEN
 // ============================================
+// vfs.c - vfs_open()
+extern int fat_open(File *file, const char *path, int flags);
 int vfs_open(const char *path, int flags) {
+    printf("vfs_open: path='%s'\n", path);
+    
+    File *file = (File*)malloc(sizeof(File));
+    if (!file) return -1;
+    memset(file, 0, sizeof(File));
+    file->name = strdup(path);
+    
+    printf("vfs_open: tentando FATFS...\n");
+    if (fat_open(file, path, flags) == 0) {
+        printf("vfs_open: FATFS abriu!\n");
+        // ...
+    }
+    printf("vfs_open: FATFS falhou (esperado para /dev/tty)\n");
+    
+    printf("vfs_open: tentando drivers...\n");
+    for (int i = 0; drivers[i].path != NULL; i++) {
+        printf("vfs_open: comparando '%s' com '%s'\n", path, drivers[i].path);
+        if (strcmp(path, drivers[i].path) == 0) {
+            printf("vfs_open: ENCONTROU! i=%d\n", i);
+            if (drivers[i].open(file, path, flags) == 0) {
+                int fd = allocate_fd(file);
+                if (fd >= 0) {
+                    printf("vfs_open: fd=%d (SUCESSO!)\n", fd);
+                    return fd;
+                }
+            }
+        }
+    }
+    
+    printf("vfs_open: NENHUM DRIVER ENCONTROU!\n");
+    free(file->name);
+    free(file);
+    return -1;
+}
+int vfs_open1(const char *path, int flags) {
     File *file = (File*)malloc(sizeof(File));
     if (!file) return -1;
     
@@ -283,7 +320,6 @@ int vfs_open(const char *path, int flags) {
     file->position = 0;
     file->ref_count = 1;
     
-    extern int fat_open(File *file, const char *path, int flags);
     if (fat_open(file, path, flags) == 0) {
         int fd = allocate_fd(file);
         if (fd >= 0) return fd;
@@ -303,7 +339,10 @@ int vfs_open(const char *path, int flags) {
             
             if (drivers[i].open(file, path, flags) == 0) {
                 int fd = allocate_fd(file);
-                if (fd >= 0) return fd;
+                if (fd >= 0) {
+                    printf("drivers[i].path[%s] fd=\n",drivers[i].path,fd);
+                    return fd;
+                }
             }
             break;
         }
