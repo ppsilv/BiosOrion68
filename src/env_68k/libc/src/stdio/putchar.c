@@ -1,4 +1,4 @@
-
+/*
 //Function #1
 int kbd_getchar(void) {
     int result;
@@ -12,7 +12,7 @@ int kbd_getchar(void) {
     );
     return result & 0xFF; // Retorna apenas o byte inferior
 }
-
+*/
 //Function #2
 /*
 void putchar(char c) {

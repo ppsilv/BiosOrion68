@@ -62,7 +62,7 @@ void print_msg(char *str){
 
 const char MsgOrionInit[] = 
     "\nPDS317-Hardware copyright (C) pdsilva(pgordao).\n"
-    "Orion68OS V0.8 for m68k System.\n"
+    "bios68 V1.0.1 for m68k System.\n"
     "Build Date: " __DATE__ " - " __TIME__ "\n"
     "Build Counter: " BUILD_COUNTER "\n"
     "-----------------------------------------------\n\n";
@@ -108,18 +108,19 @@ void display_prompt(void)
     }
 }
 
-uint8_t rtc_init(void);
-uint8_t ds3231_probe(void);
-unsigned char ler_segundo();
-uint8_t rtc_read_config_byte(uint16_t endereco);
-void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
-void printString(char * str);
-uint16_t ring_buf_get_char();
-void duart_init_canal_a(void);
+extern uint8_t rtc_init(void);
+extern uint8_t ds3231_probe(void);
+extern unsigned char ler_segundo();
+extern uint8_t rtc_read_config_byte(uint16_t endereco);
+extern void rtc_write_config_byte(uint16_t endereco, uint8_t valor);
+extern void printString(char * str);
+extern uint8_t ring_buf_get_char();
+extern void duart_init_canal_a(void);
+extern void video_writechar(char ch);
 
 void main() {
     pico_write_ch('A');
-    set_console_output(putchar);
+    set_console_output(video_writechar);
     printf("%s",MsgOrionInit);
     pico_write_ch('c');
     m68k_enable_all_interrupts(); 

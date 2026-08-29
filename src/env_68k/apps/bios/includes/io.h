@@ -1,6 +1,6 @@
 // Define um tipo chamado "putchar_func" que aceita um char
 typedef void (*putchar_func)(char);
-typedef unsigned int (*getchar_func)(void);
+typedef unsigned char (*getchar_func)(void);
 
 // Declara a variável global que vai apontar para a saída ativa
 extern putchar_func cconout;

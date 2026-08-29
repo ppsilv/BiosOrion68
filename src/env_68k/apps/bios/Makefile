@@ -9,7 +9,7 @@ CFLAGS += -fomit-frame-pointer
 
 VASMFLAGS = -Felf -m68000 -quiet -I ./includes -I../../include
 
-LDFLAGS = -T ./orion68.ld -L../../lib -nostdlib  -Map=orion68.map
+LDFLAGS = -T ./bios68.ld -L../../lib -nostdlib  -Map=bios68.map
 LDLIBS = -lfileio -lc68k -lvideo
 
 # 1. ADICIONADO: Lista de arquivos em Assembly (.S)
@@ -22,7 +22,7 @@ ASMS = ./sys/vectors/vectors_asm.S \
 VASMS =
 
 # Lista de arquivos C
-SRCS = orion68.c timers.c interrupt.c \
+SRCS = bios68.c timers.c interrupt.c \
 ./dump/mem_dump.c \
 ./shell/io.c \
 ./shell/picow.c \
@@ -68,7 +68,7 @@ else
     $(error Chip desconhecido: $(CHIP). Escolha AT29C512 ou AT28C256)
 endif
 
-TARGET := orion68
+TARGET := bios68
 TARGET_OBJ := $(TARGET).o
 TARGET_ELF := $(TARGET).elf
 TARGET_BIN := $(TARGET).bin
@@ -77,7 +77,7 @@ TARGET_HIGH := $(TARGET)_high.bin
 
 .PHONY: all clean split fill programL programH
 
-all: orion68.bin
+all: bios68.bin
 
 # Regra para compilar os arquivos .c
 %.o: %.c
@@ -91,14 +91,14 @@ all: orion68.bin
 %.o: %.asm
 	$(VASM) $(VASMFLAGS) $< -o $@
 
-orion68.elf: ./tools/build_counter.sh $(OBJS)
-	$(LD) $(LDFLAGS) ../../libc/obj/orion68_startup.o $(OBJS) $(LDLIBS) -o $@
+bios68.elf: ./tools/build_counter.sh $(OBJS)
+	$(LD) $(LDFLAGS) ../../libc/obj/bios68_startup.o $(OBJS) $(LDLIBS) -o $@
 	@echo "Linked: $@"
 	@echo "╔══════════════════════════╗"
 	@echo "║  COMPILACAO TERMINADA!   ║"
 	@echo "╚══════════════════════════╝"
 
-orion68.bin: orion68.elf
+bios68.bin: bios68.elf
 	$(OBJCOPY) -O binary $< $@
 	@echo "Binary: $@"
 
@@ -109,7 +109,7 @@ clean:
 	rm -f *.bin $(OBJS) *.map $(TARGET_LOW) $(TARGET_HIGH) $(TARGET_ELF)
 	@echo "Clean complete"
 
-split: orion68.elf
+split: bios68.elf
 	@echo "Dividindo $(TARGET_BIN) em words 16-bit..."
 	@$(SPLITTER) $(TARGET_BIN)
 	@$(FILLER) $(TARGET_LOW) $(FLASH_SIZE)
@@ -122,11 +122,11 @@ fill: split
 
 programL:
 	@echo "Gravando parte LOW na Flash..."
-	$(PROGRAMMER) -p $(CHIP_TYPE) -w $(TARGET_LOW) -s
+	$(PROGRAMMER) -p $(CHIP_TYPE) -w $(TARGET_LOW) -s -u
 	@echo "Gravação concluída LOW! BOA SORTE"
 
 programH: split
 	@echo "Gravando parte HIGH na Flash..."
 	@echo $(CHIP_TYPE)
-	$(PROGRAMMER) -p $(CHIP_TYPE) -w $(TARGET_HIGH) -s
+	$(PROGRAMMER) -p $(CHIP_TYPE) -w $(TARGET_HIGH) -s -u
 	@echo "Gravação concluída HIGH! GRAVE A MEMORIA LOW"

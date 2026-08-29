@@ -82,18 +82,21 @@ int getline(char *line, int linesize)
     if (count < linesize - 1)
     {
         uint8_t ch;
-        bool res=true;
-        while ( res == true ){      //le do teclado ps2
-            res = ring_buf_is_empty();
-        }
-        ch = ring_buf_get();    //le do teclado ps2
-        if( ch == 0x11 || ch == 0x12){
-            keyboard_handler(ch) ;
-            return 0;
-        }
+        //bool res=true;
+        //while ( res == true ){      //le do teclado ps2
+        //    res = ring_buf_is_empty();
+        //}
+        //ch = ring_buf_get();    //le do teclado ps2
+        //if( ch == 0x11 || ch == 0x12){
+        //    keyboard_handler(ch) ;
+        //    return 0;
+        //}
+
         //uint16_t ch = get_char();   //le do teclado USB que no futuro também estará pondo seus caracteres no ringbuffer
         //ch = get_key(); //le da uart 0
         
+        ch = getchar(); //Chamando getchar da libc
+
         switch(ch)
         {
             case PS2_BACKSPACE:

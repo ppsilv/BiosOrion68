@@ -1,0 +1,33 @@
+env_68k/
+├── Makefile                    # Makefile mestre
+├── libc/
+│   ├── Makefile
+│   ├── memcpy.c
+│   ├── memset.c
+│   ├── memcmp.c
+│   ├── strlen.c
+│   ├── strcpy.c
+│   ├── strcmp.c
+│   ├── strtok.c
+│   ├── strchr.c
+│   └── atoi.c
+├── libdiskio/
+│   ├── Makefile
+│   └── diskio.c
+├── libdrivers/
+│   ├── Makefile
+│   ├── ata.c
+│   ├── sdcard.c
+│   └── serial.c
+├── libfileio/
+│   ├── Makefile
+│   ├── fileio.c
+│   └── ff.c              # FatFS (elm-chan)
+├── librtc/
+│   ├── Makefile
+│   └── rtc.c
+└── libvideo/
+    ├── Makefile
+    └── video.c
+
+

@@ -15,6 +15,13 @@ void run_cmd(uint8_t cmd){
 
 }
 
+void video_writechar(char ch){
+    register uint32_t res    __asm__("d0");
+    register uint32_t cmd    __asm__("d1") = SYS_VGAWRITECHAR;
+
+    __asm__ volatile ("trap #2" : "=r"(res) : "r"(cmd) : "memory");
+}
+
 void gotoxy(uint16_t x,uint16_t y){
     register uint32_t res    __asm__("d0");
     register uint32_t cmd    __asm__("d1") = SYS_VGAGOTOXY;

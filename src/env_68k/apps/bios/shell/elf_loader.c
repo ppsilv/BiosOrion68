@@ -71,15 +71,6 @@ uint32_t carregar_elf32(const uint8_t *elf_buf, uint8_t *ram_destino) {
     return header->e_entry;
 }
 
-
-/*  elf loader from disk
-
-
-*/
-
-
-
-
 uint32_t carregar_elf32_fatfs(const char *caminho) {
     FIL file;
     UINT bytes_lidos;

@@ -10,14 +10,17 @@ void set_console_output(putchar_func nova_saida) {
         cconout = nova_saida;
     }
 }
+
 void set_console_input(getchar_func nova_entrada){
     if (nova_entrada != 0) {
         cconin = nova_entrada;
     }
 }
+
 void enable_interrupts(){
     __asm__ __volatile__ ("move.w #0x2000, %sr");
 }
+
 /*
 // Uma função de print genérica que não quer saber quem é o hardware
 void print_string(const char *str) {
