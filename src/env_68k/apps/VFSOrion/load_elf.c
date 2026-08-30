@@ -173,8 +173,7 @@ FRESULT open_executable_file(FIL *file, char *filename)
 #define HEADER_EXAMINE_SIZE 4 /* number of bytes we need to load to determine the file type */
 const uint8_t g_elf_header_bytes[4]  = { 0x7F, 0x45, 0x4c, 0x46 };
 
-int process_command_executable(int argc, char *argv[])
-{
+int process_command_executable(int argc, char *argv[]){
     FIL file;
     FRESULT fr;
     char buffer[HEADER_EXAMINE_SIZE];
@@ -187,7 +186,7 @@ int process_command_executable(int argc, char *argv[])
 
     memset(buffer, 0, HEADER_EXAMINE_SIZE);
 #ifdef DEBUG_ELF    
-    printf("%s: File size is %d bytes, ", argv[0], f_size(&file));
+    printf("%s: File size is %d bytes, ", filename, f_size(&file));
 #endif
     /* sniff the first few bytes, then rewind to the start of the file */
     fr = fread(&file, buffer, HEADER_EXAMINE_SIZE, &br);

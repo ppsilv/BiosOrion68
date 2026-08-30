@@ -80,11 +80,12 @@ static uint8_t pkt[DHCP_PKT_BUF_SIZE];
 /* ---------------------------------------------------------- */
 /* Funções básicas de acesso ao W5100                          */
 /* ---------------------------------------------------------- */
+static inline uint32_t get_tick_ms(void);
 
-static inline void w5100_cmd(uint8_t cmd) {
-    *W5100_REG(S0_CR) = cmd;
-    while (*W5100_REG(S0_CR));
-}
+//static inline void w5100_cmd(uint8_t cmd) {
+//    *W5100_REG(S0_CR) = cmd;
+//    while (*W5100_REG(S0_CR));
+//}
 
 static inline void w5100_write16(uint16_t reg, uint16_t val) {
     *W5100_REG(reg)     = (val >> 8) & 0xFF;
@@ -108,6 +109,17 @@ void w5100_set_mac(const uint8_t *mac) {
     for (int i = 0; i < 6; i++) {
         w5100_write(W5100_SHAR + i, mac[i]);
     }
+}
+static inline int w5100_cmd(uint8_t cmd) {
+    uint32_t start = get_tick_ms();
+    *W5100_REG(S0_CR) = cmd;
+    while (*W5100_REG(S0_CR)) {
+        if ((get_tick_ms() - start) > 500) {
+            printf("w5100_cmd(0x%02x) travou! SR=%02x\n", cmd, w5100_read(S0_SR));
+            return 0;
+        }
+    }
+    return 1;
 }
 
 static void w5100_recv_bytes(uint8_t *buf, uint16_t len) {
@@ -161,7 +173,7 @@ static uint16_t w5100_recv_udp_packet(uint8_t *buf, uint16_t buf_cap) {
     return data_len;
 }
 
-static void w5100_send_bytes(const uint8_t *buf, uint16_t len) {
+static void w5100_send_bytes121(const uint8_t *buf, uint16_t len) {
     /* Sincroniza explicitamente TX_WR com TX_RD antes de escrever.
        Isso evita que um valor residual de uma sessão anterior do
        socket desalinhe o início da transmissão. */
@@ -174,8 +186,41 @@ static void w5100_send_bytes(const uint8_t *buf, uint16_t len) {
         *W5100_REG(addr) = buf[i];
     }
     w5100_write16(S0_TX_WR, ptr + len);
+    
+   // printf("Antes do SEND: SR=%02x TX_RD=%04x TX_WR=%04x\n",w5100_read(S0_SR), tx_rd, w5100_read16(S0_TX_WR));
+    if (!w5100_cmd(CR_SEND)) {
+        printf("SEND nao confirmado! SR=%02x\n", w5100_read(S0_SR));
+    }
+    
     w5100_cmd(CR_SEND);
 }
+
+#define S0_TX_RD         0x0422 /* Corrigido para o endereço real do S0_TX_RD */
+#define S0_TX_WR         0x0424 /* S0_TX_WR */
+
+static void w5100_send_bytes(const uint8_t *buf, uint16_t len) {
+    /* Lê o ponteiro de leitura atual do socket 0 (endereço 0x0422) */
+    uint16_t tx_rd = w5100_read16(0x0422); 
+    
+    /* O W5100 gerencia o envio baseado no TX_WR. Para enviar um novo bloco,
+       pegamos o TX_WR atual ou sincronizamos com o TX_RD se o buffer estiver vazio. 
+       A forma mais segura no W5100 é ler o TX_WR atual, escrever os dados a partir 
+       dele e avançar o TX_WR somando o tamanho (len). */
+    uint16_t ptr = w5100_read16(S0_TX_WR);
+    
+    for (uint16_t i = 0; i < len; i++) {
+        uint16_t addr = S0_TX_BASE + ((ptr + i) & S0_MASK);
+        *W5100_REG(addr) = buf[i];
+    }
+    
+    /* Avança o ponteiro de escrita do hardware */
+    w5100_write16(S0_TX_WR, ptr + len);
+    
+    if (!w5100_cmd(CR_SEND)) {
+        printf("SEND nao confirmado! SR=%02x\n", w5100_read(S0_SR));
+    }
+}
+
 
 /* Leitura dupla obrigatória do tamanho de RX (requisito do W5100) */
 static uint16_t w5100_get_rx_size(void) {
@@ -207,7 +252,7 @@ void w5100_print_ip(void) {
 /* O systick do orion68k fica mapeado diretamente na RAM no      */
 /* endereco 0x80448, incrementando a cada 10ms.                  */
 /* ---------------------------------------------------------- */
-#define SYSTICK_ADDR 0x80448UL
+#define SYSTICK_ADDR 0x00080064UL     //0x80448UL
 
 static inline uint32_t read_systick(void) {
     return *(volatile uint32_t *)SYSTICK_ADDR;
@@ -328,6 +373,12 @@ static uint8_t parse_dhcp_options(const uint8_t *raw, uint16_t raw_len,
     return msg_type;
 }
 
+#define W5100_PHYSTATUS  0x003C  /* bit 0: 1 = link up, 0 = link down */
+
+static inline int w5100_link_up(void) {
+    return w5100_read(W5100_PHYSTATUS) & 0x01;
+}
+
 /* ---------------------------------------------------------- */
 /* Handshake DHCP completo: DISCOVER -> OFFER -> REQUEST -> ACK */
 /* ---------------------------------------------------------- */
@@ -336,31 +387,36 @@ static uint8_t parse_dhcp_options(const uint8_t *raw, uint16_t raw_len,
    dos servidores DHCP) faz um teste de ping (ICMP) no endereco
    candidato antes de oferece-lo, o que pode levar ~1-2s. Por
    isso usamos uma margem generosa aqui. */
-#define DHCP_WAIT_TIMEOUT_MS 4000UL
+#define DHCP_WAIT_TIMEOUT_MS 30000UL
 
 int w5100_dhcp_request(const char *hostname) {
-    uint8_t mac[6] = {0x02, 0x00, 0x00, 0x01, 0x02, 0x03};
-
+//    uint8_t mac[6] = {0x02, 0x00, 0x00, 0x01, 0x02, 0x03};
+    uint8_t mac[6] = {0x00, 0x23, 0x69, 0x44, 0x52, 0x5C};
+    uint8_t ip[4]      = {192, 168, 1, 48};
+  
     uint8_t rx_buf[DHCP_PKT_BUF_SIZE];
     uint8_t offered_ip[4]  = {0};
     uint8_t server_ip[4]   = {0};
-
+    uint8_t msg_type =0;
+    
+    /* ---------------- PREPARING FASE 1: DISCOVER ---------------- */
     w5100_set_mac(mac);
-
-    for (int i = 0; i < 4; i++) w5100_write(W5100_SIPR + i, 0);
+    for (int i = 0; i < 4; i++) {
+        w5100_write(W5100_SIPR + i, ip[i]);
+    }
 
     *W5100_REG(S0_MR) = 0x02; /* modo UDP */
     w5100_write16(S0_PORT, 68);
     w5100_cmd(CR_OPEN);
 
-    for (int i = 0; i < 4; i++) w5100_write(S0_DIPR + i, 255);
+    for (int i = 0; i < 4; i++) 
+        w5100_write(S0_DIPR + i, 255);
     w5100_write16(S0_DPORT, 67);
-
     /* Um unico xid para toda a transacao (DISCOVER + REQUEST) */
     uint32_t xid = next_xid();
 
     /* ---------------- FASE 1: DISCOVER ---------------- */
-    printf("Enviando DHCP DISCOVER...\n");
+    printf("Enviando DHCP DISCOVER...xid[%ld]\n",xid);
     enviar_pacote_dhcp(DHCP_DISCOVER, xid, mac, hostname, NULL, NULL);
 
     if (!wait_rx_at_least(OFF_OPTIONS, DHCP_WAIT_TIMEOUT_MS)) {
@@ -373,7 +429,7 @@ int w5100_dhcp_request(const char *hostname) {
 
     memcpy(offered_ip, &rx_buf[OFF_YIADDR], 4);
 
-    uint8_t msg_type = parse_dhcp_options(rx_buf, sizeof(rx_buf), server_ip);
+    msg_type = parse_dhcp_options(rx_buf, sizeof(rx_buf), server_ip);
     if (msg_type != DHCP_OFFER) {
         printf("Pacote recebido nao e um OFFER (tipo=%d)\n", msg_type);
         w5100_cmd(CR_DISCON);
@@ -389,11 +445,25 @@ int w5100_dhcp_request(const char *hostname) {
            offered_ip[0], offered_ip[1], offered_ip[2], offered_ip[3],
            server_ip[0], server_ip[1], server_ip[2], server_ip[3]);
 
+    /* ---------------- PREPARING FASE 2: REQUEST ---------------- */
+    w5100_set_mac(mac);
+    for (int i = 0; i < 4; i++) {
+        w5100_write(W5100_SIPR + i, ip[i]);
+    }
+
+    *W5100_REG(S0_MR) = 0x02; /* modo UDP */
+    w5100_write16(S0_PORT, 68);
+    w5100_cmd(CR_OPEN);
+
+    for (int i = 0; i < 4; i++) 
+        w5100_write(S0_DIPR + i, 255);
+    w5100_write16(S0_DPORT, 67);
     /* ---------------- FASE 2: REQUEST ---------------- */
-    printf("Enviando DHCP REQUEST...\n");
+    printf("Enviando DHCP REQUEST...xid[%ld] hostname[%s]\n",xid,hostname);
     enviar_pacote_dhcp(DHCP_REQUEST, xid, mac, hostname, offered_ip, server_ip);
 
-    if (!wait_rx_at_least(OFF_OPTIONS, DHCP_WAIT_TIMEOUT_MS)) {
+
+    if (!wait_rx_at_least(OFF_OPTIONS, 50000UL )) {
         printf("Timeout esperando ACK\n");
         w5100_cmd(CR_DISCON);
         return 0;
@@ -427,6 +497,7 @@ int w5100_dhcp_request(const char *hostname) {
 
 int main(void) {
     printf("Calling DHCP\n");
+    
     if (w5100_dhcp_request("orion68k")) {
         w5100_print_ip();
     } else {

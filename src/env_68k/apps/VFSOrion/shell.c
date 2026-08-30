@@ -7,6 +7,7 @@
 #define CMD_EXIT_SHELL  99  // Código especial para sair
 
 extern File *fd_table[256];
+extern int process_command_executable(int argc, char *argv[]);
 
 // ============================================
 // ESTRUTURA DE COMANDO
@@ -263,7 +264,8 @@ int execute_line(char *line) {
         sprintf(buf,"%s*",args_copy[0]);
         //printf("Arq: %s\n",buf);
         if (file_exists(buf)) {
-            vfs_write(1,"execute_line: Arquivo encontrado!\n", 34);
+            //vfs_write(1,"execute_line: Arquivo encontrado!\n", 34);
+            process_command_executable(argc_copy, args_copy);
         } else {
             vfs_write(1, "Comando desconhecido: ", 22);
             vfs_write(1, args_copy[0], strlen(args_copy[0]));
