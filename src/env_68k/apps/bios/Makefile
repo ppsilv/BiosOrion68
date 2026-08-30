@@ -40,6 +40,7 @@ SRCS = bios68.c timers.c interrupt.c \
 ./sys/traps/trap12.c \
 ./sys/vectors/vectors.c \
 ./sys/console/console.c \
+./sys/ethernet/dhcp_client.c \
 ./picoVga/drv_picoVga.c \
 ./ide/ata.c \
 ./ide/diskio.c 

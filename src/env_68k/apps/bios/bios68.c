@@ -32,6 +32,8 @@ volatile __attribute__((section(".mram"))) long systemTick;
 volatile __attribute__((section(".mram"))) unsigned int tick_count;
 volatile __attribute__((section(".mram"))) unsigned int flg_system;
 
+uint32_t *last_mem_address = (volatile uint32_t *)0x80000UL;
+
 #include "./tools/build_counter.h"
 
 void dump_memory(void * addr,int size);
@@ -117,11 +119,18 @@ extern void printString(char * str);
 extern uint8_t ring_buf_get_char();
 extern void duart_init_canal_a(void);
 extern void picovga_putchar(char ch);
+extern int dhcp_client(void);
 
 void main() {
     pico_write_ch('A');
     set_console_output(picovga_putchar);
     printf("%s",MsgOrionInit);
+    printf("Memory: Rom start addr.............: 0\n");
+    printf("        Rom installed  low and high: 65536 2 of 32768\n");
+    printf("        Rom space end..............: 524287\n");
+    printf("        First ram address..........: 524288\n");
+    printf("        Last  ram address..........: %ld\n",*last_mem_address);
+    printf("        Total ram..................: %ld bytes\n",*last_mem_address-0x80000);
     pico_write_ch('c');
     m68k_enable_all_interrupts(); 
     printf("* - All Interrupts enabled.\n");
@@ -167,8 +176,12 @@ void main() {
     }else{
         printf("RTC- NOT FOUND...\n");
     }
-   
     pico_write_ch('K');
+    printf("    * Ethernet board: ");
+    dhcp_client();
+
+    pico_write_ch('L');
+
     ring_buf_init();
     //********************************************************
     //T H I S   M U S T   B E   T H E  L A S T    T H I N G 
