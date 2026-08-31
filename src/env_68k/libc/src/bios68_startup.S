@@ -1,20 +1,15 @@
 .section .text
 .global _start
 
-.global UartWrCh
-.global uart0_initialize
 .global _delay_ms
 .global printString
 .global UartWriteCh
 
-.equ RHR, 0x01
-.equ THR, 0x01
-.equ FCR, 0x05
-.equ LCR, 0x07
-.equ LSR, 0x0B
-.equ DLL, 0x01
-.equ DLM, 0x03
+
+.extern duart_send_char
+
 .equ WR_CHAR, 0xFF912B
+.equ DUART_BASE, 0x00FF9000
 
 _vectors:
           .long    0x000FFFF0                   /*0x00000000*//* Pilha no topo real da RAM (ajuste se seu limite for outro) */
@@ -144,13 +139,23 @@ go_ahead:
 
         MOVE.B  #'7',WR_CHAR
 
-        /* Uart 0 init */
-        LEA     0xFF4000,%A1
-        move.b  #0x07,FCR(%a1)
-        move.b  #0x83,LCR(%a1)
-        move.b  #0x08,DLL(%A1)
-        move.b  #0x00,DLM(%A1)
-        bclr.b  #0x07,LCR(%a1)
+        /* Duart A init */
+        // DUART_ACR = 0x00; (seleciona baud Set 1)
+        move.b #0x00, (DUART_BASE + 0x09).l
+        // DUART_SRA_CSRA = 0xCC; (Rx/Tx = 38400 baud, cristal 3.6864MHz)
+        move.b #0xCC, (DUART_BASE + 0x03).l
+        // DUART_CRA = 0x10; (reseta ponteiro MR -> aponta p/ MR1A)
+        move.b #0x10, (DUART_BASE + 0x05).l
+        // DUART_MR1A_MR2A = 0x13; (MR1A: 8 bits, sem paridade, char mode)
+        move.b #0x13, (DUART_BASE + 0x01).l
+        // DUART_MR1A_MR2A = 0x07; (MR2A: modo normal, 1 stop bit)
+        move.b #0x07, (DUART_BASE + 0x01).l
+        // DUART_CRA = 0x20; (reset receiver)
+        move.b #0x20, (DUART_BASE + 0x05).l
+        // DUART_CRA = 0x30; (reset transmitter)
+        move.b #0x30, (DUART_BASE + 0x05).l
+        // DUART_CRA = 0x05; (habilita Rx e Tx)
+        move.b #0x05, (DUART_BASE + 0x05).l
 
         MOVE.B  #'8',WR_CHAR
 
@@ -164,17 +169,6 @@ go_ahead:
 .dead:
         bra.s   .dead
 
-.global UartWrCh
-
-UartWriteCh:
-        MOVE.B  7(%A7),%D0     /* pega o argumento (char) da pilha */
-UartWrCh:
-        move.l  #0xFF4000,%A1
-.WaitTx:
-        btst    #5,LSR(%A1)
-        beq     .WaitTx
-        move.b  %D0,THR(%A1)
-        RTS
 
 PicoWrCh:
         LEA     0x00FF8001,%A1
@@ -185,25 +179,6 @@ PicoWrCh:
         NOP
         RTS
 
-uart0_initialize:
-        LEA     0xFF4000,%A1
-        move.b  #0x07,FCR(%a1)
-        move.b  #0x83,LCR(%a1)
-        move.b  #0x08,DLL(%A1)
-        move.b  #0x00,DLM(%A1)
-        bclr.b  #0x07,LCR(%a1)
-        RTS
-
-uart1_initialize:
-        LEA     0xFF4100,%A1
-        move.b  #0x07,FCR(%a1)
-        move.b  #0x83,LCR(%a1)
-        move.b  #0x08,DLL(%A1)
-        move.b  #0x00,DLM(%A1)
-        bclr.b  #0x07,LCR(%a1)
-        RTS
-
-
 printString:
         MOVE.L  4(%A7),%A0     /* pega o 1º argumento da pilha (ponteiro da string) e põe em A0 */
         MOVE.L  %A0,-(%A7)     /* preserva A0 original do chamador (é caller-saved, mas por segurança) */
@@ -211,7 +186,7 @@ printString:
 print_string:
         move.b  (%A0)+,%d0
         beq     .end_print_string
-        jsr     UartWrCh
+        jsr     duart_send_char
         /*jsr     PicoWrCh*/
         bra     print_string
 .end_print_string:

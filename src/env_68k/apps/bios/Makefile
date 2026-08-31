@@ -17,6 +17,7 @@ ASMS = ./sys/vectors/vectors_asm.S \
 ./sys/traps/trap2_asm.S \
 ./sys/traps/trap4_asm.S \
 ./sys/traps/trap12_asm.S \
+./duart/duartasm.S \
 ./cpm/cpm_bios.S
 
 VASMS =

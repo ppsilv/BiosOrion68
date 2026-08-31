@@ -2,9 +2,9 @@ CC = m68k-elf-gcc
 LD = m68k-elf-ld
 OBJCOPY = m68k-elf-objcopy
 
-CFLAGS = -Wall -Os -Wa,-adhln=tinyBasic.lst -I../../include -ffreestanding -nostdlib -D __68000__ -D ALIGN_MEMORY
+CFLAGS = -Wall -Os -Wa,-adhln=tinyBasic.lst -I../../../include -ffreestanding -nostdlib -D __68000__ -D ALIGN_MEMORY
 #CFLAGS = -Wall -Os -I../include -ffreestanding -nostdlib -Dmain=main_with_exit
-LDFLAGS = -T ./linker.ld -L../../lib -nostdlib -L../../lib
+LDFLAGS = -T ./linker.ld -L../../../lib -nostdlib -L../../../lib
 LDLIBS = -lc68k -lvideo
 
 SRCS = $(wildcard *.c)
@@ -22,7 +22,7 @@ all: $(APP).bin
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Regra específica para cada arquivo para evitar problemas com $<
-$(APP).elf: $(OBJS) ../../libc/obj/crt0.o ../../libc/obj/startup.o
+$(APP).elf: $(OBJS) ../../../libc/obj/crt0.o ../../../libc/obj/startup.o
 	$(LD) $(LDFLAGS) $(OBJS) -o $@ $(LDLIBS)
 	@echo "Linked: $@"
 
@@ -33,5 +33,5 @@ $(APP).elf: $(OBJS) ../../libc/obj/crt0.o ../../libc/obj/startup.o
 	@echo "Binary: $@"
 
 clean:
-	rm -f $(OBJS) $(ELFS) $(BINS) $(APP).elf
+	rm -f $(OBJS).o $(ELFS) $(BINS).bin $(APP).elf
 	@echo "Clean complete"

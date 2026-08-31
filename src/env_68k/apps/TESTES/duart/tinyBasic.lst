@@ -1,18 +1,18 @@
    1               	#NO_APP
-   2               		.file	"duart_b.c"
+   2               		.file	"duart_a.c"
    3               		.text
    4               		.align	2
-   5               		.globl	duart_b_init_9600
-   7               	duart_b_init_9600:
+   5               		.globl	duart_a_init_9600
+   7               	duart_a_init_9600:
    8 0000 13FC 0000 		move.b #0,16748553
    8      00FF 9009 
-   9 0008 13FC FFBB 		move.b #-69,16748563
-   9      00FF 9013 
-  10 0010 207C 00FF 		move.l #16748565,%a0
-  10      9015 
+   9 0008 13FC FFBB 		move.b #-69,16748547
+   9      00FF 9003 
+  10 0010 207C 00FF 		move.l #16748549,%a0
+  10      9005 
   11 0016 10BC 0010 		move.b #16,(%a0)
-  12 001a 227C 00FF 		move.l #16748561,%a1
-  12      9011 
+  12 001a 227C 00FF 		move.l #16748545,%a1
+  12      9001 
   13 0020 12BC 0013 		move.b #19,(%a1)
   14 0024 12BC 0007 		move.b #7,(%a1)
   15 0028 10BC 0020 		move.b #32,(%a0)
@@ -20,33 +20,98 @@
   17 0030 10BC 0005 		move.b #5,(%a0)
   18 0034 4E75      		rts
   20               		.align	2
-  21               		.globl	duart_b_send_char
-  23               	duart_b_send_char:
-  24 0036 202F 0004 		move.l 4(%sp),%d0
-  25               	.L3:
-  26 003a 1239 00FF 		move.b 16748563,%d1
-  26      9013 
-  27 0040 44C1      		move.w %d1,%ccr
-  28 0042 66F6      		jne .L3
-  29 0044 13C0 00FF 		move.b %d0,16748567
-  29      9017 
-  30 004a 4E75      		rts
-  32               		.align	2
-  33               		.globl	duart_b_recv_char
-  35               	duart_b_recv_char:
-  36               	.L7:
-  37 004c 1039 00FF 		move.b 16748563,%d0
-  37      9013 
-  38 0052 0800 0000 		btst #0,%d0
-  39 0056 67F4      		jeq .L7
-  40 0058 1039 00FF 		move.b 16748567,%d0
-  40      9017 
-  41 005e 4E75      		rts
-  43               		.align	2
-  44               		.globl	duart_b_char_available
-  46               	duart_b_char_available:
-  47 0060 1039 00FF 		move.b 16748563,%d0
-  47      9013 
-  48 0066 0200 0001 		and.b #1,%d0
-  49 006a 4E75      		rts
-  51               		.ident	"GCC: (GNU) 15.1.0"
+  21               		.globl	duart_a_init_38400
+  23               	duart_a_init_38400:
+  24 0036 13FC 0000 		move.b #0,16748553
+  24      00FF 9009 
+  25 003e 13FC FFCC 		move.b #-52,16748547
+  25      00FF 9003 
+  26 0046 207C 00FF 		move.l #16748549,%a0
+  26      9005 
+  27 004c 10BC 0010 		move.b #16,(%a0)
+  28 0050 227C 00FF 		move.l #16748545,%a1
+  28      9001 
+  29 0056 12BC 0013 		move.b #19,(%a1)
+  30 005a 12BC 0007 		move.b #7,(%a1)
+  31 005e 10BC 0020 		move.b #32,(%a0)
+  32 0062 10BC 0030 		move.b #48,(%a0)
+  33 0066 10BC 0005 		move.b #5,(%a0)
+  34 006a 4E75      		rts
+  36               		.align	2
+  37               		.globl	duart_a_recv_char
+  39               	duart_a_recv_char:
+  40               	.L4:
+  41 006c 1039 00FF 		move.b 16748547,%d0
+  41      9003 
+  42 0072 0800 0000 		btst #0,%d0
+  43 0076 67F4      		jeq .L4
+  44 0078 1039 00FF 		move.b 16748551,%d0
+  44      9007 
+  45 007e 4E75      		rts
+  47               		.align	2
+  48               		.globl	duart_a_send_char
+  50               	duart_a_send_char:
+  51 0080 202F 0004 		move.l 4(%sp),%d0
+  52               	.L8:
+  53 0084 1239 00FF 		move.b 16748547,%d1
+  53      9003 
+  54 008a 44C1      		move.w %d1,%ccr
+  55 008c 66F6      		jne .L8
+  56 008e 13C0 00FF 		move.b %d0,16748551
+  56      9007 
+  57 0094 4E75      		rts
+  59               		.align	2
+  60               		.globl	duart_a_char_available
+  62               	duart_a_char_available:
+  63 0096 1039 00FF 		move.b 16748547,%d0
+  63      9003 
+  64 009c 0200 0001 		and.b #1,%d0
+  65 00a0 4E75      		rts
+  67               		.section	.rodata.str1.1,"aMS",@progbits,1
+  68               	.LC0:
+  69 0000 4C6F 6F70 		.string	"Loopback OK: recebido '%c' (0x%02X)\n"
+  69      6261 636B 
+  69      204F 4B3A 
+  69      2072 6563 
+  69      6562 6964 
+  70               	.LC1:
+  71 0025 4C6F 6F70 		.string	"Loopback FALHOU: recebido 0x%02X (esperado 0x41)\n"
+  71      6261 636B 
+  71      2046 414C 
+  71      484F 553A 
+  71      2072 6563 
+  72               		.section	.text.startup,"ax",@progbits
+  73               		.align	2
+  74               		.globl	main
+  76               	main:
+  77 0000 4EB9 0000 		jsr duart_a_init_38400
+  77      0000 
+  78 0006 4878 0041 		pea 65.w
+  79 000a 4EB9 0000 		jsr duart_a_send_char
+  79      0000 
+  80 0010 4EB9 0000 		jsr duart_a_recv_char
+  80      0000 
+  81 0016 588F      		addq.l #4,%sp
+  82 0018 41F9 0000 		lea printf,%a0
+  82      0000 
+  83 001e 0C00 0041 		cmp.b #65,%d0
+  84 0022 6618      		jne .L13
+  85 0024 4878 0041 		pea 65.w
+  86 0028 4878 0041 		pea 65.w
+  87 002c 4879 0000 		pea .LC0
+  87      0000 
+  88 0032 4E90      		jsr (%a0)
+  89 0034 4FEF 000C 		lea (12,%sp),%sp
+  90               	.L14:
+  91 0038 7000      		moveq #0,%d0
+  92 003a 4E75      		rts
+  93               	.L13:
+  94 003c 0280 0000 		and.l #255,%d0
+  94      00FF 
+  95 0042 2F00      		move.l %d0,-(%sp)
+  96 0044 4879 0000 		pea .LC1
+  96      0000 
+  97 004a 4E90      		jsr (%a0)
+  98 004c 508F      		addq.l #8,%sp
+  99 004e 60E8      		jra .L14
+ 101               		.ident	"GCC: (GNU) 15.1.0"

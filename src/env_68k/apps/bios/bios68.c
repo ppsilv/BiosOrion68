@@ -74,14 +74,6 @@ extern void liga_debug();
 extern int ata_detect(void);
 extern int ata_init(void);
 extern void abrir_arquivo();
-
-extern void UartWrCh(unsigned char ch);
-
-void write_string(char * str){
-    while(*str){
-        UartWrCh(*str++);
-    }
-}
 extern void ler_e_exibir_joblog(char * filename);
 extern void ler_comando(char *buffer) ;
 extern void processar_comando(char *cmd_line);
@@ -120,6 +112,7 @@ extern uint8_t ring_buf_get_char();
 extern void duart_init_canal_a(void);
 extern void picovga_putchar(char ch);
 extern int dhcp_client(void);
+extern void duart_a_init_38400(void);
 
 void main() {
     pico_write_ch('A');
@@ -157,10 +150,10 @@ void main() {
     duart_opr_init();
     pico_write_ch('H');
     printf("    * duart A\n");
-    duart_init_canal_a();
+    duart_a_init_38400();
     pico_write_ch('I');
-    printf("    * duart B\n");
-    duart_init_canal_a();
+   // printf("    * duart B\n");
+   // duart_init_canal_a();
     
     crc32_init();
 #ifdef DEBUG_ON

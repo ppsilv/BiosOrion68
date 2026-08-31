@@ -40,14 +40,11 @@ void delay_ms(int ms) {
     }
 }
 
-
-
-void uart0_write(unsigned char ch);
+extern void duart_a_send_char(unsigned char ch);
 
 void picovga_putchar( char ch){
     WRITE_SCREEN = ch;
-    uart0_write(ch); 
-    //delay_us(1);
+    duart_a_send_char(ch);
 }
 
 /*
