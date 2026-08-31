@@ -128,9 +128,10 @@ void main() {
     printf("Memory: Rom start addr.............: 0\n");
     printf("        Rom installed  low and high: 65536 2 of 32768\n");
     printf("        Rom space end..............: 524287\n");
-    printf("        First ram address..........: 524288\n");
-    printf("        Last  ram address..........: %ld\n",*last_mem_address);
-    printf("        Total ram..................: %ld bytes\n",*last_mem_address-0x80000);
+    printf("        First sram address.........: 524288\n");
+    printf("        Last  sram address.........: %ld\n",*last_mem_address);
+    printf("        CPU sram memory............: %ld words\n",*last_mem_address-0x80000);
+    printf("        Total sram memory..........: %ld bytes\n",(*last_mem_address-0x80000)*2);
     pico_write_ch('c');
     m68k_enable_all_interrupts(); 
     printf("* - All Interrupts enabled.\n");

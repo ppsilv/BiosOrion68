@@ -1,4 +1,30 @@
+# 2026-08-31 ->RESOLVIDO
+        Bug do tBasic que precisava de <ENTER> 2 vezes para cada comando
+        inclusive de programa rodando getchar passou a ser blocante então
+        criei uma função na libc para verificar se tem tecla pressionada
+        e coloquei nessa função do tBasic, 
+        static unsigned char breakcheck(void)
+        {
+                int got;
+                if( kbdhit()){
+                        return 0;
+                }
+                ...
+# 2026-08-31 ->RESOLVIDO
+        Ao colocar mais memoria ram na placa de memoria o sistema não 
+        detectava memoria no endereço 0x200000 ou superior
+        Solução: 74hc4078 na placa da cpu tinha A21 ligado no pino 4
+        para gerar /MEMCS limitando endereçamento máximo de 0x1FFFFF bytes
+        Fix uma acomodação técnica retirando A21 do pino 4 e ligando pino
+        4 ao pino 5 que já estava ligado ao GND.
+# 2026-08-29 ->RESOLVIDO
+        Problema o picoVGA estava duplicando muito os caracteres na hora da
+        escrita nele
+        Tirei o overclock de 300Mhz para 150Mhz o normal, melhorou mas longe de resolver
+        lembrei que tinha trocado a fonte de alimentação voltei a anterior e agora estã
+        um maravilha novamente.
 # 2026-08-29
+        pico2W
         Procurar porque está dando 
         --- ARQUIVO RECEBIDO COM SUCESSO NO PICO! ---
         Arquivo: shell.elf    pronto na RAM.

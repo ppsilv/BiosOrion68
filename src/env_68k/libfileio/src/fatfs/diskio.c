@@ -1,12 +1,14 @@
-/*-----------------------------------------------------------------------*/
-/* Low level disk I/O module SKELETON for FatFs     (C)ChaN, 2025        */
-/*-----------------------------------------------------------------------*/
-/* If a working storage control module is available, it should be        */
-/* attached to the FatFs via a glue function rather than modifying it.   */
-/* This is an example of glue functions to attach various exsisting      */
-/* storage control modules to the FatFs module with a defined API.       */
-/*-----------------------------------------------------------------------*/
+/*
+ * ESSE É TÃO SOMENTE UM ESQUELETO A APLICAÇÃO DEVE FORNECER UM DISKIO.C VALIDO
+ *
+ *
+ *
+ *
+ */
 #ifdef __MAKE_SKELETON__
+
+    MERDE MERDE MERDE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "ff.h"			/* Basic definitions of FatFs */
@@ -134,50 +136,32 @@ DRESULT disk_write (
 /*-----------------------------------------------------------------------*/
 /* Miscellaneous Functions                                               */
 /*-----------------------------------------------------------------------*/
+DRESULT disk_ioctl(BYTE pdrv, BYTE cmd, void *buff) {
+    if (pdrv != DEV_FLASH) {
+        return RES_PARERR;  // drive não suportado ainda -- explícito, não silencioso
+    }
 
-DRESULT disk_ioctl (
-	BYTE pdrv,		/* Physical drive nmuber (0..) */
-	BYTE cmd,		/* Control code */
-	void *buff		/* Buffer to send/receive control data */
-)
-{
-	DRESULT res=0;
+    DRESULT res = RES_PARERR;  // default: comando desconhecido = erro, não OK
 
-	switch (pdrv) {
-	case DEV_MIDE :
-		return res;
+    switch (cmd) {
+    case CTRL_SYNC:
+        res = RES_OK;
+        break;
+    case GET_SECTOR_COUNT:
+        *(LBA_t*)buff = Stat[pdrv].n_sectors;
+        res = RES_OK;
+        break;
+    case GET_SECTOR_SIZE:
+        *(WORD*)buff = Stat[pdrv].sz_sector;
+        res = RES_OK;
+        break;
+    case GET_BLOCK_SIZE:
+        *(DWORD*)buff = SZ_BLOCK;
+        res = RES_OK;
+        break;
+    }
 
-	case DEV_MMC :
-		return res;
-
-	case DEV_USB :
-		return res;
-	}
-
-	switch (cmd) {
-	case CTRL_SYNC:			/* Nothing to do */
-		res = RES_OK;
-		break;
-
-	case GET_SECTOR_COUNT:	/* Get number of sectors on the drive */
-		*(LBA_t*)buff = Stat[pdrv].n_sectors;
-		res = RES_OK;
-		break;
-
-	case GET_SECTOR_SIZE:	/* Get size of sector for generic read/write */
-		*(WORD*)buff = Stat[pdrv].sz_sector;
-		res = RES_OK;
-		break;
-
-	case GET_BLOCK_SIZE:	/* Get internal block size in unit of sector */
-		*(DWORD*)buff = SZ_BLOCK;
-		res = RES_OK;
-		break;
-	}
-
-
-
-
-	return res;
+    return res;
 }
+
 #endif

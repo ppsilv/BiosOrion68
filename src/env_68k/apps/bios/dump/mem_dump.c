@@ -48,12 +48,13 @@ void dump_memory(long addr,int size){
             printf("\n");
         }
         
-        printf("Hit any <ENTER> to continue <ESC> to terminate: ");
         dump_registradores(); // Seu sensor invisível inline
-//        ch = get_key();
-//        if( ch == 0x1B ){ // ESC termina
+        printf("Hit any <ENTER> to continue <ESC> to terminate: ");
+        ch = getchar();
+        if( ch == 0x1B ){ // ESC termina
+            printf("\n");
             return;
-//        }        
+        }        
     }
 }
 

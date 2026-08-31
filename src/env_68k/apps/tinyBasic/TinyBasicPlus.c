@@ -2732,6 +2732,9 @@ static unsigned char breakcheck(void)
 static unsigned char breakcheck(void)
 {
   int got;
+    if( kbdhit()){
+      return 0;
+    }
     got = getchar();
     if ( got < 255) {
         if ( got == CTRLC) {

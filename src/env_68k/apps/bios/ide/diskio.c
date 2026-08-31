@@ -133,49 +133,30 @@ DRESULT disk_write (
 /*-----------------------------------------------------------------------*/
 /* Miscellaneous Functions                                               */
 /*-----------------------------------------------------------------------*/
+DRESULT disk_ioctl(BYTE pdrv, BYTE cmd, void *buff) {
+    if (pdrv != DEV_FLASH) {
+        return RES_PARERR;  // drive não suportado ainda -- explícito, não silencioso
+    }
 
-DRESULT disk_ioctl (
-	BYTE pdrv,		/* Physical drive nmuber (0..) */
-	BYTE cmd,		/* Control code */
-	void *buff		/* Buffer to send/receive control data */
-)
-{
-	DRESULT res=0;
+    DRESULT res = RES_PARERR;  // default: comando desconhecido = erro, não OK
 
-	switch (pdrv) {
-	case DEV_MIDE :
-		return res;
+    switch (cmd) {
+    case CTRL_SYNC:
+        res = RES_OK;
+        break;
+    case GET_SECTOR_COUNT:
+        *(LBA_t*)buff = Stat[pdrv].n_sectors;
+        res = RES_OK;
+        break;
+    case GET_SECTOR_SIZE:
+        *(WORD*)buff = Stat[pdrv].sz_sector;
+        res = RES_OK;
+        break;
+    case GET_BLOCK_SIZE:
+        *(DWORD*)buff = SZ_BLOCK;
+        res = RES_OK;
+        break;
+    }
 
-	case DEV_MMC :
-		return res;
-
-	case DEV_USB :
-		return res;
-	}
-
-	switch (cmd) {
-	case CTRL_SYNC:			/* Nothing to do */
-		res = RES_OK;
-		break;
-
-	case GET_SECTOR_COUNT:	/* Get number of sectors on the drive */
-		*(LBA_t*)buff = Stat[pdrv].n_sectors;
-		res = RES_OK;
-		break;
-
-	case GET_SECTOR_SIZE:	/* Get size of sector for generic read/write */
-		*(WORD*)buff = Stat[pdrv].sz_sector;
-		res = RES_OK;
-		break;
-
-	case GET_BLOCK_SIZE:	/* Get internal block size in unit of sector */
-		*(DWORD*)buff = SZ_BLOCK;
-		res = RES_OK;
-		break;
-	}
-
-
-
-
-	return res;
+    return res;
 }

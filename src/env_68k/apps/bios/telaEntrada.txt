@@ -1,0 +1,34 @@
+Memory: Rom start addr.............: 0
+        Rom installed  low and high: 65536 2 of 32768
+        Rom space end..............: 524287
+        First ram address..........: 524288
+        Last  ram address..........: 1572864
+        Total ram..................: 1048576 words
+* - All Interrupts enabled.
+* - Console output seted to picoVGA.
+* - Console input seted to ps2 keyboard.
+* - Initializing:
+    * duart GPIO
+    * duart A
+    * duart B
+    * IDE : FAT success mounted!
+    * RTC: RTC-present
+    * Ethernet board: IP obtido: 192.168.1.173
+A:/>
+Memory: Rom start addr.............: 0
+        Rom installed  low and high: 65536 2 of 32768
+        Rom space end..............: 524287
+        First ram address..........: 524288
+        Last  ram address..........: 2097152
+        Total ram..................: 1572864 words
+* - All Interrupts enabled.
+* - Console output seted to picoVGA.
+* - Console input seted to ps2 keyboard.
+* - Initializing:
+    * duart GPIO
+    * duart A
+    * duart B
+    * IDE : FAT success mounted!
+    * RTC: RTC-present
+    * Ethernet board: IP obtido: 192.168.1.173
+A:/>

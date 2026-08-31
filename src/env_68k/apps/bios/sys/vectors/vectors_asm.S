@@ -21,7 +21,6 @@
 .extern vid_gotoxy
 .extern vid_setcolor
 
-
 // Importa os símbolos externos do C e outras partes do sistema
 .extern TRAP14_Handler
 .extern systemTick
@@ -66,6 +65,9 @@
 .extern vid_fillRect
 .extern vid_fillTri
 .extern do_save2
+
+/*Trap1*/
+.extern ring_buf_is_empty
 
 | teste
 /* =========================================================================
@@ -184,6 +186,8 @@ Trap1Handler:
         beq     .trap1_cconin
         cmp.w   #2,%d1
         beq     .trap1_cconout
+        cmp.w   #3,%d1
+        beq     .trap1_kbdhitkey
         bra     .trap1_exit
 
 .trap1_cconin:
@@ -212,6 +216,10 @@ Trap1Handler:
         move.l  %d2,%a0
         jsr     (%a0)
         addq.l  #4,%sp       /* Limpa o argumento da pilha */
+        bra     .trap1_exit
+
+.trap1_kbdhitkey:
+        jsr ring_buf_is_empty
 
 .trap1_exit:
         /* Restaura o mundo (D0 contém o retorno de cconin se foi chamada) */

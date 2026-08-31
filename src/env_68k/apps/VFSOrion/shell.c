@@ -93,9 +93,9 @@ static int file_exists(const char *path) {
 
     if (fr == FR_OK) {
         if (fno.fname[0] != '\0') { 
-            //printf("Arquivo encontrado: %s\n", fno.fname);
+            printf("Arquivo encontrado: %s\n", fno.fname);
             // Aqui você pode usar outros campos como fsize, fattrib, etc.
-            //printf("Tamanho: %lu bytes\n", fno.fsize);            
+            printf("Tamanho: %lu bytes\n", fno.fsize);            
             // Verifica se é diretório
             if (fno.fattrib & AM_DIR) {
                 vfs_write(1,"É um diretório!\n",16);

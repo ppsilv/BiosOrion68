@@ -1,0 +1,78 @@
+device_register.c_
+
+Faz sentido gostar mais dessa abordagem — só quero ser honesto com você antes de migrar: **isso não é "mais profissional" no sentido técnico**, é uma troca de trade-offs. O array estático que você já tem é exatamente como muitos SOs de verdade (incluindo partes do Linux, drivers "built-in" via linker sections) resolvem isso. Registro dinâmico ganha em **flexibilidade** (dá pra decidir em runtime quais drivers ativar, ex: só registra a serial se detectar que o hardware existe), mas perde um pouco em **simplicidade** e você abre mão da checagem do compilador em tempo de compilação (erro de digitação num campo só aparece em runtime).
+
+Dito isso — é uma escolha de gosto/arquitetura legítima, e vou te mostrar como migrar.
+
+## O que muda
+
+**1. `vfs_drivers.c`** vira isso:
+
+```c
+#include "vfs.h"
+
+#define MAX_DRIVERS 32
+
+DeviceDriver driver_table[MAX_DRIVERS];
+int driver_count = 0;
+
+void device_register(const char *path,
+                      int (*open)(File *, const char *, int),
+                      int (*read)(File *, void *, size_t),
+                      int (*write)(File *, const void *, size_t),
+                      int (*close)(File *),
+                      int (*ioctl)(File *, int, void *),
+                      size_t (*lseek)(File *, size_t, int))
+{
+    if (driver_count >= MAX_DRIVERS) return; // sem espaço
+
+    driver_table[driver_count].path  = path;
+    driver_table[driver_count].open  = open;
+    driver_table[driver_count].read  = read;
+    driver_table[driver_count].write = write;
+    driver_table[driver_count].close = close;
+    driver_table[driver_count].ioctl = ioctl;
+    driver_table[driver_count].lseek = lseek;
+    driver_count++;
+}
+```
+
+**2. `vfs.c`** — precisa mudar o loop do `vfs_open` (essa é a única mudança real em `vfs.c`, e é honesto dizer isso):
+
+```c
+extern DeviceDriver driver_table[];
+extern int driver_count;
+
+// dentro de vfs_open, troca:
+for (int i = 0; drivers[i].path != NULL; i++) {
+    if (strcmp(path, drivers[i].path) == 0) {
+        if (drivers[i].open(file, path, flags) == 0) {
+```
+por:
+```c
+for (int i = 0; i < driver_count; i++) {
+    if (strcmp(path, driver_table[i].path) == 0) {
+        if (driver_table[i].open(file, path, flags) == 0) {
+```
+
+**3. Onde antes você tinha o array `drivers[]` com as linhas fixas**, agora vira uma função de boot, tipo `drivers_init()`:
+
+```c
+void drivers_init(void) {
+    device_register("/dev/tty",      tty_open,  tty_read, tty_write, tty_close, tty_ioctl, tty_lseek);
+    device_register("/dev/null",     null_open, null_read, null_write, null_close, NULL, null_lseek);
+    device_register("/dev/zero",     zero_open, zero_read, zero_write, zero_close, NULL, zero_lseek);
+    device_register("/dev/serial0",  serial_open, serial_read, serial_write, serial_close, NULL, serial_lseek);
+    device_register("/proc/meminfo", proc_meminfo_open, proc_read, NULL, proc_close, NULL, proc_lseek);
+    device_register("/proc/cpuinfo", proc_cpuinfo_open, proc_read, NULL, proc_close, NULL, proc_lseek);
+    device_register("/proc/uptime",  proc_uptime_open,  proc_read, NULL, proc_close, NULL, proc_lseek);
+}
+```
+
+E você chama `drivers_init()` uma vez, antes de `vfs_init()`, no boot.
+
+## Ponto de atenção
+
+`vfs_init()` chama `vfs_open("/dev/tty", ...)` logo de cara — então `drivers_init()` **precisa rodar antes** de `vfs_init()`, senão a tabela está vazia quando o VFS tenta abrir a tty.
+
+Quer que eu já entregue o `vfs_drivers.c` e o trecho ajustado de `vfs.c` como arquivos prontos pra você só colar?
