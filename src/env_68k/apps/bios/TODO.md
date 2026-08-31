@@ -69,7 +69,7 @@
     e reagir a elas.
 # 16 - Implementar lib para o systick ---------------->
     
-# 17 - getchar da libc ------------------------------->
+# 17 - getchar da libc -------------------------------> OK
     Tem ir buscar o char no ringbuffer.    
     
 # LOG ERROS:

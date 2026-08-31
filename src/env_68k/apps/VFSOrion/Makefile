@@ -10,7 +10,7 @@ CFLAGS =  -Wall -Os -I../../include -ffreestanding -nostdlib -D __68000__ -D ALI
 # -Wa,-adhln=vfsorion.lst vai gerar o listing de TODOS os arquivos de uma vez
 ALL_CFLAGS = $(CFLAGS)
 #-pie
-LDFLAGS = -T ./linker.ld  -L../../lib -nostdlib -L../../lib --no-undefined --relax --gc-sections --print-gc-sections  --strip-debug  -Map vfsorion.map 
+LDFLAGS = -T ./linker.ld  -L../../lib -nostdlib -L../../lib --no-undefined --relax --gc-sections --print-gc-sections  --strip-debug  -Map vfsorion.map
 LDLIBS = -lvideo -lrtc  -lfileio -ldiskio -ldrivers -lc68k 
 
 SRCS = $(wildcard *.c)

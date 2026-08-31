@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <stdio.h>
 #include <fatfs/ff.h>
 
 #define NULL    0
@@ -56,6 +57,7 @@ void do_stat(int argc, char *argv[]) {
 }
 
 void do_findfirst(int argc, char *argv[]) {
+    //printf("path [%s] pattern[%s]\n",argv[2],argv[3]);
     f_findfirst ((DIR*)argv[0],(FILINFO*)argv[1],(const char *)argv[2],(const char *)argv[3]);
 }
 

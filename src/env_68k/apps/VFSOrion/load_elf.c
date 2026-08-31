@@ -5,6 +5,30 @@
 #include "vfs.h"
 #include "elf.h"
 
+#include <string.h>
+#include <ctype.h>
+
+/* Retorna 1 se 'name' termina com '.elf' (ou '.ELF', case-insensitive), 0 caso contrário */
+static int has_elf_extension(const char *name) {
+    size_t len = strlen(name);
+    if (len < 4) return 0;  /* nem cabe ".elf" */
+    printf("has_elf_extension:name[%s]\n",name);
+    const char *ext = name + (len - 4);  /* aponta pros ultimos 4 caracteres */
+
+    return (tolower((unsigned char)ext[0]) == '.' &&
+            tolower((unsigned char)ext[1]) == 'e' &&
+            tolower((unsigned char)ext[2]) == 'l' &&
+            tolower((unsigned char)ext[3]) == 'f');
+}
+
+/* Garante que 'out' termine em .elf, copiando de 'name' e acrescentando se faltar.
+ * 'out' precisa ter espaço suficiente (tamanho de name + 4 + 1 pro terminador). */
+void ensure_elf_extension(const char *name, char *out) {
+    if (!has_elf_extension(name)) {
+        sprintf(out,"%s.elf", name);
+    }
+}
+
 int load_elf_executable(int argc, char *argv[], FIL *fd)
 {
     unsigned int bytesRead;
@@ -162,14 +186,6 @@ FRESULT open_executable_file(FIL *file, char *filename)
 }
 
 
-
-
-
-
-
-
-
-
 #define HEADER_EXAMINE_SIZE 4 /* number of bytes we need to load to determine the file type */
 const uint8_t g_elf_header_bytes[4]  = { 0x7F, 0x45, 0x4c, 0x46 };
 
@@ -179,8 +195,19 @@ int process_command_executable(int argc, char *argv[]){
     char buffer[HEADER_EXAMINE_SIZE];
     unsigned int br;
 
+    if( strstr(argv[0], ".elf") == 0){
+        char name[13];
+        char *filename=name;
+        memset(filename,0,13);
+        sprintf(filename,"%s.elf", argv[0]);
+        memcpy(argv[0],filename,13);
+        printf("process_command_executable: Filename[%s]: argv[0]=%s\n",filename,argv[0]);
+    }
+    printf("process_command_executable: argv[0]=%s\n",argv[0] );
+
     fr = open_executable_file(&file, argv[0]);
     if (fr != FR_OK) {
+        printf("open_executable_file does not find the excutable\n");
         return 0;
     }
 

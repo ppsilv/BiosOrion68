@@ -109,7 +109,7 @@ Linker script and memory map
  *(.vectors)
                 0x00000000                        . = ALIGN (0x400)
 
-.text           0x00000000     0xcc48
+.text           0x00000000     0xcc5c
                 0x00000000                        . = ALIGN (0x2)
  *(.text*)
  .text          0x00000000      0x27c ../../libc/obj/bios68_startup.o
@@ -407,7 +407,7 @@ Linker script and memory map
                 0x000075de                bios_conin
                 0x000075fc                bios_conout
                 0x00007612                bios_init
- .text          0x00007618     0x29a0 ../../lib/libfileio.a(ff.o)
+ .text          0x00007618     0x29b4 ../../lib/libfileio.a(ff.o)
                 0x000089a6                f_mount
                 0x00008a28                f_open
                 0x00008ccc                f_read
@@ -422,122 +422,123 @@ Linker script and memory map
                 0x0000978e                f_closedir
                 0x000097ae                f_readdir
                 0x0000983a                f_findnext
-                0x00009884                f_findfirst
-                0x000098c6                f_stat
-                0x00009938                f_getfree
-                0x00009a50                f_truncate
-                0x00009b66                f_unlink
-                0x00009c74                f_mkdir
-                0x00009e20                f_rename
- .text          0x00009fb8       0x1c ../../lib/libc68k.a(strchr.o)
-                0x00009fb8                strchr
- .text          0x00009fd4       0x1e ../../lib/libc68k.a(memcpy.o)
-                0x00009fd4                memcpy
- *fill*         0x00009ff2        0x2 
- .text          0x00009ff4      0x360 ../../lib/libc68k.a(malloc.o)
-                0x0000a1a8                malloc_init
-                0x0000a21e                free
-                0x0000a26a                malloc
-                0x0000a27e                calloc
-                0x0000a2de                malloc_num_free
-                0x0000a2f8                malloc_num_used
-                0x0000a314                malloc_num_fresh
-                0x0000a330                malloc_check
- .text          0x0000a354       0x3c ../../lib/libc68k.a(memcmp.o)
-                0x0000a354                memcmp
- .text          0x0000a390       0x12 ../../lib/libc68k.a(strlen.o)
-                0x0000a390                strlen
- *fill*         0x0000a3a2        0x2 
- .text          0x0000a3a4       0x16 ../../lib/libc68k.a(memset.o)
-                0x0000a3a4                memset
- *fill*         0x0000a3ba        0x2 
- .text          0x0000a3bc       0x26 ../../lib/libc68k.a(strcat.o)
-                0x0000a3bc                strcat
- *fill*         0x0000a3e2        0x2 
- .text          0x0000a3e4       0x18 ../../lib/libc68k.a(strcpy.o)
-                0x0000a3e4                strcpy
- .text          0x0000a3fc       0x1a ../../lib/libc68k.a(putchar.o)
-                0x0000a3fc                putchar
- *fill*         0x0000a416        0x2 
- .text          0x0000a418      0x206 ../../lib/libc68k.a(sprintf.o)
-                0x0000a418                sprintf
- *fill*         0x0000a61e        0x2 
- .text          0x0000a620       0x26 ../../lib/libc68k.a(puts.o)
-                0x0000a620                puts
- *fill*         0x0000a646        0x2 
- .text          0x0000a648        0xc ../../lib/libc68k.a(getchar.o)
-                0x0000a648                getchar
- .text          0x0000a654      0x3a6 ../../lib/libc68k.a(printf.o)
-                0x0000a654                itox
-                0x0000a69e                itodec
-                0x0000a6fc                itooct
-                0x0000a742                itoudec
-                0x0000a794                pad_zeros
-                0x0000a7d8                printf
- *fill*         0x0000a9fa        0x2 
- .text          0x0000a9fc       0x36 ../../lib/libc68k.a(__mulsi3.o)
-                0x0000a9fc                __mulsi3
- *fill*         0x0000aa32        0x2 
- .text          0x0000aa34       0x2c ../../lib/libc68k.a(__umodsi3.o)
-                0x0000aa34                __umodsi3
- .text          0x0000aa60       0x3a ../../lib/libc68k.a(__udivsi3.o)
-                0x0000aa60                __udivsi3
- *fill*         0x0000aa9a        0x2 
- .text          0x0000aa9c      0x148 ../../lib/libc68k.a(strtoul.o)
-                0x0000aa9c                strtoul
- .text          0x0000abe4        0xc ../../lib/libc68k.a(isspace.o)
-                0x0000abe4                isspace
- .text          0x0000abf0       0x16 ../../lib/libc68k.a(atoi.o)
-                0x0000abf0                atoi
- *fill*         0x0000ac06        0x2 
- .text          0x0000ac08       0x54 ../../lib/libc68k.a(strcasecmp.o)
-                0x0000ac08                strcasecmp
- .text          0x0000ac5c       0x32 ../../lib/libc68k.a(strtol.o)
-                0x0000ac5c                strtol
- *fill*         0x0000ac8e        0x2 
- .text          0x0000ac90       0x42 ../../lib/libvideo.a(vga_video.o)
-                0x0000ac90                run_cmd
-                0x0000ac92                video_writechar
-                0x0000ac98                gotoxy
-                0x0000acaa                gohome
-                0x0000acb0                setcolor
-                0x0000accc                clrscr
+                0x00009898                f_findfirst
+                0x000098da                f_stat
+                0x0000994c                f_getfree
+                0x00009a64                f_truncate
+                0x00009b7a                f_unlink
+                0x00009c88                f_mkdir
+                0x00009e34                f_rename
+ .text          0x00009fcc       0x1c ../../lib/libc68k.a(strchr.o)
+                0x00009fcc                strchr
+ .text          0x00009fe8       0x1e ../../lib/libc68k.a(memcpy.o)
+                0x00009fe8                memcpy
+ *fill*         0x0000a006        0x2 
+ .text          0x0000a008      0x360 ../../lib/libc68k.a(malloc.o)
+                0x0000a1bc                malloc_init
+                0x0000a232                free
+                0x0000a27e                malloc
+                0x0000a292                calloc
+                0x0000a2f2                malloc_num_free
+                0x0000a30c                malloc_num_used
+                0x0000a328                malloc_num_fresh
+                0x0000a344                malloc_check
+ .text          0x0000a368       0x3c ../../lib/libc68k.a(memcmp.o)
+                0x0000a368                memcmp
+ .text          0x0000a3a4       0x12 ../../lib/libc68k.a(strlen.o)
+                0x0000a3a4                strlen
+ *fill*         0x0000a3b6        0x2 
+ .text          0x0000a3b8       0x16 ../../lib/libc68k.a(memset.o)
+                0x0000a3b8                memset
+ *fill*         0x0000a3ce        0x2 
+ .text          0x0000a3d0       0x26 ../../lib/libc68k.a(strcat.o)
+                0x0000a3d0                strcat
+ *fill*         0x0000a3f6        0x2 
+ .text          0x0000a3f8       0x18 ../../lib/libc68k.a(strcpy.o)
+                0x0000a3f8                strcpy
+ .text          0x0000a410       0x1a ../../lib/libc68k.a(putchar.o)
+                0x0000a410                putchar
+ *fill*         0x0000a42a        0x2 
+ .text          0x0000a42c      0x206 ../../lib/libc68k.a(sprintf.o)
+                0x0000a42c                sprintf
+ *fill*         0x0000a632        0x2 
+ .text          0x0000a634       0x26 ../../lib/libc68k.a(puts.o)
+                0x0000a634                puts
+ *fill*         0x0000a65a        0x2 
+ .text          0x0000a65c        0xc ../../lib/libc68k.a(getchar.o)
+                0x0000a65c                getchar
+ .text          0x0000a668      0x3a6 ../../lib/libc68k.a(printf.o)
+                0x0000a668                itox
+                0x0000a6b2                itodec
+                0x0000a710                itooct
+                0x0000a756                itoudec
+                0x0000a7a8                pad_zeros
+                0x0000a7ec                printf
+ *fill*         0x0000aa0e        0x2 
+ .text          0x0000aa10       0x36 ../../lib/libc68k.a(__mulsi3.o)
+                0x0000aa10                __mulsi3
+ *fill*         0x0000aa46        0x2 
+ .text          0x0000aa48       0x2c ../../lib/libc68k.a(__umodsi3.o)
+                0x0000aa48                __umodsi3
+ .text          0x0000aa74       0x3a ../../lib/libc68k.a(__udivsi3.o)
+                0x0000aa74                __udivsi3
+ *fill*         0x0000aaae        0x2 
+ .text          0x0000aab0      0x148 ../../lib/libc68k.a(strtoul.o)
+                0x0000aab0                strtoul
+ .text          0x0000abf8        0xc ../../lib/libc68k.a(isspace.o)
+                0x0000abf8                isspace
+ .text          0x0000ac04       0x16 ../../lib/libc68k.a(atoi.o)
+                0x0000ac04                atoi
+ *fill*         0x0000ac1a        0x2 
+ .text          0x0000ac1c       0x54 ../../lib/libc68k.a(strcasecmp.o)
+                0x0000ac1c                strcasecmp
+ .text          0x0000ac70       0x32 ../../lib/libc68k.a(strtol.o)
+                0x0000ac70                strtol
+ *fill*         0x0000aca2        0x2 
+ .text          0x0000aca4       0x42 ../../lib/libvideo.a(vga_video.o)
+                0x0000aca4                run_cmd
+                0x0000aca6                video_writechar
+                0x0000acac                gotoxy
+                0x0000acbe                gohome
+                0x0000acc4                setcolor
+                0x0000ace0                clrscr
  *(.rodata)
- .rodata        0x0000acd2      0x2ff bios68.o
-                0x0000acd5                MsgOrionInit
- .rodata        0x0000afd1      0x1c5 ./dump/mem_dump.o
- .rodata        0x0000b196        0x5 ./shell/io.o
- .rodata        0x0000b19b      0x179 ./shell/picow.o
- .rodata        0x0000b314      0x2fa ./shell/printerro.o
- .rodata        0x0000b60e      0x9f0 ./shell/commands.o
- .rodata        0x0000bffe      0x7da ./shell/decodecmd.o
-                0x0000bffe                g_elf_header_bytes
-                0x0000c3c0                g_cmd_table
- .rodata        0x0000c7d8       0x29 ./shell/vid_ram_bios.o
- .rodata        0x0000c801       0x2d ./uarts/drv_uart0.o
- .rodata        0x0000c82e       0x11 ./duart/duart.o
- .rodata        0x0000c83f       0x51 ./sys/vectors/vectors.o
- .rodata        0x0000c890       0xf6 ./sys/ethernet/dhcp_client.o
- .rodata        0x0000c986      0x1ec ./ide/ata.o
- .rodata        0x0000cb72       0x2d ./ide/diskio.o
- .rodata        0x0000cb9f       0x80 ../../lib/libfileio.a(ff.o)
- *fill*         0x0000cc1f        0x1 
- .rodata        0x0000cc20       0x28 ../../lib/libc68k.a(printf.o)
-                0x0000cc48                        . = ALIGN (0x2)
+ .rodata        0x0000ace6      0x2ff bios68.o
+                0x0000ace9                MsgOrionInit
+ .rodata        0x0000afe5      0x1c5 ./dump/mem_dump.o
+ .rodata        0x0000b1aa        0x5 ./shell/io.o
+ .rodata        0x0000b1af      0x179 ./shell/picow.o
+ .rodata        0x0000b328      0x2fa ./shell/printerro.o
+ .rodata        0x0000b622      0x9f0 ./shell/commands.o
+ .rodata        0x0000c012      0x7da ./shell/decodecmd.o
+                0x0000c012                g_elf_header_bytes
+                0x0000c3d4                g_cmd_table
+ .rodata        0x0000c7ec       0x29 ./shell/vid_ram_bios.o
+ .rodata        0x0000c815       0x2d ./uarts/drv_uart0.o
+ .rodata        0x0000c842       0x11 ./duart/duart.o
+ .rodata        0x0000c853       0x51 ./sys/vectors/vectors.o
+ .rodata        0x0000c8a4       0xf6 ./sys/ethernet/dhcp_client.o
+ .rodata        0x0000c99a      0x1ec ./ide/ata.o
+ .rodata        0x0000cb86       0x2d ./ide/diskio.o
+ .rodata        0x0000cbb3       0x80 ../../lib/libfileio.a(ff.o)
+ *fill*         0x0000cc33        0x1 
+ .rodata        0x0000cc34       0x28 ../../lib/libc68k.a(printf.o)
+                0x0000cc5c                        . = ALIGN (0x2)
 
-.rodata         0x0000cc48       0x38
-                0x0000cc48                        . = ALIGN (0x2)
+.rodata         0x0000cc5c       0x4e
+                0x0000cc5c                        . = ALIGN (0x2)
  *(.rodata*)
  .rodata.str1.1
-                0x0000cc48       0x38 ../../lib/libfileio.a(ff.o)
-                                 0x18 (size before relaxing)
+                0x0000cc5c       0x4d ../../lib/libfileio.a(ff.o)
+                                 0x2d (size before relaxing)
  .rodata.str1.1
-                0x0000cc80        0xf ../../lib/libc68k.a(sprintf.o)
+                0x0000cca9        0xf ../../lib/libc68k.a(sprintf.o)
  .rodata.str1.1
-                0x0000cc80       0x20 ../../lib/libc68k.a(printf.o)
-                0x0000cca0                        . = ALIGN (0x2)
+                0x0000cca9       0x20 ../../lib/libc68k.a(printf.o)
+                0x0000ccca                        . = ALIGN (0x2)
+ *fill*         0x0000cca9        0x1 
 
-.data           0x00080004       0x64 load address 0x0000cc80
+.data           0x00080004       0x64 load address 0x0000ccaa
                 0x00080004                        . = ALIGN (0x2)
                 0x00080004                        __data_start = .
  *(.data*)
@@ -600,15 +601,15 @@ Linker script and memory map
                 0x00080068                        . = ALIGN (0x2)
                 0x00080068                        __data_end = .
 
-.mram           0x00080068        0xc load address 0x0000cce4
+.mram           0x00080068        0xc load address 0x0000cd0e
  *(?.mram)
  .mram          0x00080068        0xc bios68.o
                 0x00080068                systemTick
                 0x0008006c                tick_count
                 0x00080070                flg_system
-                0x0000cc80                        __data_load_start = LOADADDR (.data)
+                0x0000ccaa                        __data_load_start = LOADADDR (.data)
 
-.bss            0x00080074      0xf04 load address 0x0000cce4
+.bss            0x00080074      0xf04 load address 0x0000cd0e
                 0x00080074                        . = ALIGN (0x2)
                 0x00080074                        __bss_start = .
  *(.bss*)

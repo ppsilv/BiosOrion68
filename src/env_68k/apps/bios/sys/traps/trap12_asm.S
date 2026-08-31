@@ -382,8 +382,8 @@ file_load:
 
 file_findfirst:
     | 1. Monta a tabela argv[] na própria pilha (argv[0], argv[1], argv[2])
-    move.l  %A2,-(%sp)    |; argv[3] = pattern
-    move.l  %d0,-(%sp)    |; argv[2] = path/filename
+    move.l  %d2,-(%sp)    |; argv[3] = pattern/filename
+    move.l  %d0,-(%sp)    |; argv[2] = path/driver 0: dir /
     move.l  %a1,-(%sp)    |; argv[1] = Ponteiro FILINFO
     move.l  %a0,-(%sp)    |; argv[0] = Ponteiro DIR*"
     

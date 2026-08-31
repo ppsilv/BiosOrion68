@@ -81,15 +81,16 @@ char *gets_line(char *buffer, int size) {
     buffer[i] = '\0';
     return buffer;
 }
-FRESULT f_findfirst (DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
-FRESULT findfirst(DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
+FRESULT f_findfirst(DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
+FRESULT   findfirst(DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
 static    DIR dj;              // Objeto de diretório para a busca
 static  FILINFO fno; 
-static int file_exists(const char *path) {
+static int file_exists(const char *patterh) {
     FRESULT fr;          // Código de retorno do FatFs
 
     memset(&fno, 0, sizeof(FILINFO));
-    fr = findfirst(&dj, &fno, "", path);
+    printf("procurando por [/%s]\n",patterh);
+    fr = findfirst(&dj, &fno, "/",patterh);
 
     if (fr == FR_OK) {
         if (fno.fname[0] != '\0') { 
@@ -105,6 +106,7 @@ static int file_exists(const char *path) {
             f_closedir(&dj);
             return 1;
         } else {
+            printf("File not found [%s]\n",fno.fname);
             vfs_write(1,"File not found.\n",16);
             f_closedir(&dj);
             return 0;
@@ -264,7 +266,7 @@ int execute_line(char *line) {
         sprintf(buf,"%s*",args_copy[0]);
         //printf("Arq: %s\n",buf);
         if (file_exists(buf)) {
-            //vfs_write(1,"execute_line: Arquivo encontrado!\n", 34);
+            vfs_write(1,"execute_line: Arquivo encontrado!\n", 34);
             process_command_executable(argc_copy, args_copy);
         } else {
             vfs_write(1, "Comando desconhecido: ", 22);

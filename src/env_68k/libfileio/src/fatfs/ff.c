@@ -18,7 +18,7 @@
 /
 /----------------------------------------------------------------------------*/
 
-
+#include <stdio.h>
 #include <string.h>
 #include "fatfs/ff.h"			/* Basic definitions and declarations of API */
 #include "fatfs/diskio.h"		/* Declarations of MAI */
@@ -4842,7 +4842,7 @@ FRESULT f_readdir (
 
 
 
-#if FF_USE_FIND
+//#if FF_USE_FIND
 /*-----------------------------------------------------------------------*/
 /* API: Find Next File                                                   */
 /*-----------------------------------------------------------------------*/
@@ -4853,12 +4853,20 @@ FRESULT f_findnext (
 )
 {
 	FRESULT res;
+//printf("f_findnext :path[%s]\n",dp->pat);
 
 
 	for (;;) {
 		res = f_readdir(dp, fno);		/* Get a directory item */
-		if (res != FR_OK || !fno || !fno->fname[0]) break;	/* Terminate if any error or end of directory */
-		if (pattern_match(dp->pat, fno->fname, 0, FIND_RECURS)) break;		/* Test for the file name */
+		if (res != FR_OK || !fno || !fno->fname[0]){
+			printf("ERRO: Terminando %s ",fno->fname);
+			break;	/* Terminate if any error or end of directory */
+		}
+		/* Test for the file name */
+		//printf("{%s} {%s} ",dp->pat,fno->fname);
+		if (pattern_match(dp->pat, fno->fname, 0, FIND_RECURS)) {
+			break;
+		}
 #if FF_USE_LFN && FF_USE_FIND == 2
 		if (pattern_match(dp->pat, fno->altname, 0, FIND_RECURS)) break;	/* Test for alternative name if exist */
 #endif
@@ -4881,7 +4889,7 @@ FRESULT f_findfirst (
 {
 	FRESULT res;
 
-
+	//printf("f_findfirst :path[%s]\n",path);
 	res = f_opendir(dp, path);		/* Open the target directory */
 	dp->pat = pattern;		/* Save pointer to pattern string */
 	if (res == FR_OK) {
@@ -4890,7 +4898,7 @@ FRESULT f_findfirst (
 	return res;
 }
 
-#endif	/* FF_USE_FIND */
+//#endif	/* FF_USE_FIND */
 
 
 
