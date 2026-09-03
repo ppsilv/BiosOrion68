@@ -1,14 +1,31 @@
 /*
- * elf_pic_loader_standalone.c -- mesma logica de carga/relocacao do
- * elf_pic_loader.c, mas SEM depender do scheduler.c/ctx_switch_*.s.
- * Em vez de criar uma tarefa, monta A5 e chama o entry point
- * DIRETO, como uma chamada de funcao C comum (igual seu
- * load_elf_executable original fazia com entry(argc, argv)).
- *
- * Serve so' pra validar a parte de carga+relocacao (slot certo,
- * A5 certo) antes do kernel novo com scheduler existir de verdade.
- * Quando o kernel novo estiver pronto, troque por elf_pic_loader.c
- * (a versao que cria tarefa via OS_TaskCreateWithA5).
+    ## O que já está comprovadamente funcionando
+
+    Carrega os 2 segmentos PT_LOAD (código + dados) de um .elf estático (ET_EXEC)
+    Patcheia a GOT corretamente (funções externas, variáveis globais, strings literais)
+    Seta A5 certo via rotina assembly dedicada
+    Passa argc/argv corretos pro entry()
+    Testado com sucesso: printf, fopen, fread, variável global (contador), array
+    estático (powers.0/powers.1)
+
+    ## O que ainda não foi testado/suportado
+
+    PT_DYNAMIC e PT_INTERP são explicitamente rejeitados (goto fail) — então só funciona
+    pra binários linkados estaticamente contra sua libc68k_pic.a, não pra ELFs que
+    dependam de shared libraries de verdade
+    Só testou com um programa relativamente simples (duart.elf) — não testou ainda com
+    structs globais complexas, ponteiros de função em .data, múltiplas unidades de
+    compilação linkadas juntas, ou uso de heap (malloc)
+    O loader assume exatamente 2 segmentos PT_LOAD (if (pt_load_seen != 2)) — um binário
+    com mais seções/segmentos (por exemplo com .bss separado num terceiro PT_LOAD,
+    dependendo de como o linker organiza) falharia
+    Não testou ainda liberar e recarregar múltiplos programas em sequência, nem carregar
+    mais de um programa ao mesmo tempo (múltiplos slots)
+
+    R_68K_GOT16O (via patch da GOT) — resolve código acessando símbolos
+    (funções, variáveis, strings)
+    R_68K_32 em .rela.data (via apply_data_relocations) — resolve dado
+    inicializando dado (ponteiros globais apontando pra outros globais)
  *
  * loader tratando -fPIC
  * precisa que a libc seja compilada com -fPIC -msep-data
@@ -244,7 +261,67 @@ static int find_got_section(FIL *fd, uint32_t shoff, uint16_t shnum,
     return 1;
 }
 
+static void apply_data_relocations(FIL *fd, uint32_t shoff, uint16_t shnum,
+                                    uint16_t shentsize, uint16_t shstrndx,
+                                    uint32_t task_base)
+{
+    uint8_t hdr_buf[40];
+    unsigned int bytesRead;
+    uint32_t strtab_offset;
 
+    flseek(fd, shstrndx * shentsize + shoff);
+    if (fread(fd, hdr_buf, sizeof(hdr_buf), &bytesRead) != FR_OK || bytesRead != sizeof(hdr_buf))
+        return;
+    strtab_offset = ((uint32_t)hdr_buf[0x10] << 24) | ((uint32_t)hdr_buf[0x11] << 16) |
+                    ((uint32_t)hdr_buf[0x12] << 8)  |  (uint32_t)hdr_buf[0x13];
+
+    for (uint16_t i = 0; i < shnum; i++) {
+        flseek(fd, i * shentsize + shoff);
+        if (fread(fd, hdr_buf, sizeof(hdr_buf), &bytesRead) != FR_OK || bytesRead != sizeof(hdr_buf))
+            continue;
+
+        uint32_t name_idx = ((uint32_t)hdr_buf[0] << 24) | ((uint32_t)hdr_buf[1] << 16) |
+                             ((uint32_t)hdr_buf[2] << 8)  |  (uint32_t)hdr_buf[3];
+
+        char name_buf[16];
+        unsigned int nread;
+        flseek(fd, strtab_offset + name_idx);
+        fread(fd, name_buf, sizeof(name_buf) - 1, &nread);
+        name_buf[nread] = 0;
+
+        if (strcmp(name_buf, ".rela.data") != 0)
+            continue;
+
+        uint32_t rela_offset = ((uint32_t)hdr_buf[0x10] << 24) | ((uint32_t)hdr_buf[0x11] << 16) |
+                                ((uint32_t)hdr_buf[0x12] << 8)  |  (uint32_t)hdr_buf[0x13];
+        uint32_t rela_size   = ((uint32_t)hdr_buf[0x14] << 24) | ((uint32_t)hdr_buf[0x15] << 16) |
+                                ((uint32_t)hdr_buf[0x16] << 8)  |  (uint32_t)hdr_buf[0x17];
+
+        uint8_t rela_buf[12];
+        uint32_t num_relas = rela_size / 12;
+
+        for (uint32_t r = 0; r < num_relas; r++) {
+            flseek(fd, rela_offset + r * 12);
+            if (fread(fd, rela_buf, 12, &bytesRead) != FR_OK || bytesRead != 12)
+                continue;
+
+            uint32_t r_offset = ((uint32_t)rela_buf[0] << 24) | ((uint32_t)rela_buf[1] << 16) |
+                                 ((uint32_t)rela_buf[2] << 8)  |  (uint32_t)rela_buf[3];
+            uint32_t r_info   = ((uint32_t)rela_buf[4] << 24) | ((uint32_t)rela_buf[5] << 16) |
+                                 ((uint32_t)rela_buf[6] << 8)  |  (uint32_t)rela_buf[7];
+            uint32_t r_type = r_info & 0xFF;
+
+            if (r_type != 1) /* so' R_68K_32 */
+                continue;
+
+            /* o linker ja gravou sym_value+addend (relativo a 0) no proprio
+             * .data; so falta somar task_base, igual no patch da GOT */
+            uint32_t *patch_addr = (uint32_t *)(task_base + r_offset);
+            *patch_addr += task_base;
+        }
+        return; /* achou .rela.data, nao precisa continuar o loop de secoes */
+    }
+}
 
 
 int load_pic_elf_standalone(FIL *fd, int argc, char *argv[])
@@ -367,7 +444,7 @@ uint32_t got_addr_saved = 0, got_size_saved = 0;
     } else {
         kprintf("Aviso: secao .got nao encontrada, pulando patch.\n");
     }
-
+apply_data_relocations(fd, shoff, shnum, shentsize, shstrndx, task_base);
             }
             pt_load_seen++;
         } else if (progHeader.type == PT_DYNAMIC || progHeader.type == PT_SHLIB) {

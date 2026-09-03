@@ -9,6 +9,7 @@ struct lixo{
     char b;
 };
 int contador=0xffff;
+int *ptr_contador = &contador;
 
 //static void delay_short(void) {
 //    for (volatile int i = 0; i < 20; i++) { __asm__("nop"); }
@@ -154,6 +155,6 @@ int main(void) {
         //delay_short(); /* só para dar um intervalo visível entre caracteres no osciloscopio */
         //putchar(getchar());
     //}
-    printf("contador[%04x]\n",contador);
+    printf("contador[%04x] *ptr_contador[%04x]\n",contador,*ptr_contador);
     return 0;
 }
