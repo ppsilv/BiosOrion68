@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/sd_driver/demo_logging.c.o: \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/sd_driver/demo_logging.c \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/FatFs_SPI/sd_driver/demo_logging.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \

@@ -112,7 +112,7 @@ bool noblk_receber_arquivo_do_pico(uint8_t *destino_ram, uint8_t preg) {
     // 3. Loop de leitura dos dados do arquivo
     for (i = 0; i < tamanho_arquivo; i++,j++) {       
         destino_ram[i] = PICO_DATA_REG; 
-        if( j >= 1000 ){
+        if( j >= 2000 ){
             j = 0;
             video_show_progress("Reading", i, tamanho_arquivo);
         }

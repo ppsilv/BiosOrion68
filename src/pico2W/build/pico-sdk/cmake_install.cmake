@@ -39,16 +39,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pdsilva/project/Orion68/src/pico2W/build/pico-sdk/tools/cmake_install.cmake")
+  include("/home/pdsilva/project/BiosOrion68/src/pico2W/build/pico-sdk/tools/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pdsilva/project/Orion68/src/pico2W/build/pico-sdk/src/cmake_install.cmake")
+  include("/home/pdsilva/project/BiosOrion68/src/pico2W/build/pico-sdk/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pdsilva/project/Orion68/src/pico2W/build/pico-sdk/docs/cmake_install.cmake")
+  include("/home/pdsilva/project/BiosOrion68/src/pico2W/build/pico-sdk/docs/cmake_install.cmake")
 endif()
 

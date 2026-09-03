@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o: \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/src/ff_stdio.c \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/FatFs_SPI/src/ff_stdio.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/errno.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/errno.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/reent.h \
@@ -28,15 +28,15 @@ CMakeFiles/pds200Pico2.dir/FatFs_SPI/src/ff_stdio.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/my_debug.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/FatFs_SPI/include/my_debug.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdarg.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/stdio.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/f_util.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/FatFs_SPI/include/f_util.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/FatFs_SPI/ff15/source/ff.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/FatFs_SPI/ff15/source/ffconf.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdint.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_intsup.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_stdint.h \
- /home/pdsilva/project/Orion68/src/pico2W/FatFs_SPI/include/ff_stdio.h
+ /home/pdsilva/project/BiosOrion68/src/pico2W/FatFs_SPI/include/ff_stdio.h

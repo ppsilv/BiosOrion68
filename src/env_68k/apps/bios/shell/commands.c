@@ -783,7 +783,8 @@ void do_save2(int argc, char *argv[]){
         printf("dump_memoria_para_arquivo: falha ao fechar '%s' (erro %d)\n", nome_arquivo, fr);
         return;
     }
-    ring_buf_put('\n');
+    ring_buf_put(0x0A);
+    ring_buf_put(0x0D);
     //printf("dump_memoria_para_arquivo: '%s' gravado com sucesso (%u bytes)\n",nome_arquivo, (unsigned)tamanho);
 }
 

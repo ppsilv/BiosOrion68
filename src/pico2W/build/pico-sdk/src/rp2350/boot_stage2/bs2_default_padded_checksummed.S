@@ -1,4 +1,4 @@
-// Padded and checksummed version of: /home/pdsilva/project/Orion68/src/pico2W/build/pico-sdk/src/rp2350/boot_stage2/bs2_default.bin
+// Padded and checksummed version of: /home/pdsilva/project/BiosOrion68/src/pico2W/build/pico-sdk/src/rp2350/boot_stage2/bs2_default.bin
 
 .cpu cortex-m0plus
 .thumb

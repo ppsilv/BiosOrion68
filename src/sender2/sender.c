@@ -5,21 +5,25 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/socket.h>
+#include <sys/stat.h>
 
-#define SERVER_HOST "192.168.1.48"
+
+
+#define SERVER_HOST "orion68k"
 #define SERVER_PORT 4243
+
+typedef struct st_buf{
+    uint32_t tamanho;
+    uint32_t crc32;
+    char nome_arquivo[13];
+    void *dados;
+} FILE_RECV;
+
+static FILE_RECV file_data;
+
 
 extern void crc32_init(void);
 extern uint32_t crc32_from_file(const char *filename);
-extern void* carregar_arquivo_completo(const char *caminho_arquivo, size_t *tamanho_saida);
-
-// 1. Defina a estrutura exatamente com 16 bytes
-// O atributo packed garante que o compilador não coloque "espaços vazios" na memória
-struct __attribute__((packed)) CabecalhoProtocolo {
-    uint32_t tamanho;      // 4 bytes puros
-    char nome_arquivo[12]; // 12 bytes de texto
-};
-
 
 // 1. FUNÇÃO PARA CONECTAR
 // Retorna o descritor do socket (ID) se sucesso, ou -1 se falhar
@@ -59,13 +63,21 @@ int conectar_servidor(const char *hostname, int porta) {
     printf("Conectado com sucesso a %s na porta %d!\n", hostname, porta);
     return sock_fd;
 }
-
+void dump_hex(const char *label, const void *buf, size_t len) {
+    const uint8_t *p = (const uint8_t *)buf;
+    printf("--- %s (%zu bytes) ---\n", label, len);
+    for (size_t i = 0; i < len; i++) {
+        printf("%02X ", p[i]);
+        if ((i + 1) % 16 == 0) printf("\n");
+    }
+    printf("\n");
+}
 // 2. FUNÇÃO PARA ESCREVER (Enviar dados)
 // Retorna a quantidade de bytes enviados, ou -1 se falhar
 ssize_t escrever_dados(int sock_fd, const void *buffer, size_t tamanho) {
     size_t total_enviado = 0;
     const char *ptr = buffer;
-
+    //dump_hex("buffer",buffer,313);
     // Garante que todo o bloco de dados seja transmitido pelo SO
     while (total_enviado < tamanho) {
         ssize_t enviado = send(sock_fd, ptr + total_enviado, tamanho - total_enviado, 0);
@@ -93,107 +105,22 @@ ssize_t ler_dados(int sock_fd, void *buffer, size_t tamanho_maximo) {
     return bytes_lidos;
 }
 
+
+
 // ============================================================================
-// EXEMPLO DE USO NO MAIN
+// Carregar arquivo completo
 // ============================================================================
-int main(int argc, char * argv[]) {
-    // 1. Tenta conectar no Orion68DOS
-    int tam=0;
-    unsigned char * buffer;
-    struct CabecalhoProtocolo cabecalho;
-
-    if (argc < 2) {
-        printf("Uso: %s <caminho_do_arquivo>\n", argv[0]);
-        return 1;
-    }
-
-    if( strlen(argv[1]) > 12){
-        printf("Filename has more than 12 bytes\n");
-        exit(1);
-    }
-    crc32_init();
-
-    uint32_t crc = crc32_from_file(argv[1]);
-    printf("CRC32: 0x%08X\n", crc);
-
-    buffer = (unsigned char *)carregar_arquivo_completo(argv[1],(size_t *)&tam);
-
-    if ( buffer == NULL ){
-        printf("Erro: buffer vazio, provavelmente arquivo não encontrado ou vazio.\n");
-        return 1;
-    }
-
-    int socket_orion68 = conectar_servidor(SERVER_HOST, SERVER_PORT);
-    if (socket_orion68 < 0) {
-        return EXIT_FAILURE;
-    }
-
-    // Preenche o tamanho com o valor numérico puro
-    cabecalho.tamanho = (uint32_t)tam; 
-
-    printf("Enviando o arquivo: %s\n",argv[1]);
-
-    // Limpa o campo do nome com zeros e copia o nome (garantindo os espaços ou preenchimento)
-    memset(cabecalho.nome_arquivo, ' ', 12); // Preenche com espaços como você fez no seu exemplo
-    memcpy(cabecalho.nome_arquivo, argv[1], strlen(argv[1])); // Copia o nome por cima
-
-    // Envia os 16 bytes estruturados direto da memória
-    if (escrever_dados(socket_orion68, &cabecalho, sizeof(cabecalho)) < 0) {
-        close(socket_orion68);
-        return EXIT_FAILURE;
-    }
-
-    // 2. Envia o Arquivo completo (8029 bytes)
-    printf("Enviando dados do arquivo...\n");
-    if (escrever_dados(socket_orion68, buffer, tam) < 0) {
-        close(socket_orion68);
-        return EXIT_FAILURE;
-    }
-
-    // 3. AGORA ESPERA A CONFIRMAÇÃO DO Orion68DOS (Sem loops baseados no tamanho do arquivo)
-    char buffer_confirmacao[10032];
-    memset(buffer_confirmacao, 0, sizeof(buffer_confirmacao));
-
-    printf("Aguardando confirmação do Orion68DOS...\n");
-    ssize_t lidos = ler_dados(socket_orion68, buffer_confirmacao, sizeof(buffer_confirmacao) - 1);
-
-    if (lidos > 0) {
-        buffer_confirmacao[lidos] = '\0';
-        printf("Resposta do Orion68DOS: %s", buffer_confirmacao); // Deve imprimir "Arq lido"
-    }
-
-    printf("\nTransmissão concluída com sucesso!\n");
-
-    // 4. Fecha a conexão limpando o socket
-    printf("Fechando conexão.\n");
-    close(socket_orion68);
-
-    printf("\n\n");
-    return EXIT_SUCCESS;
-}
-
-
-
-/*
-
-Carga completa de arquivo
-
-*/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/stat.h>
 
 /**
  * Abre um arquivo, aloca memória e carrega todo o seu conteúdo.
- * 
+ *
  * @param caminho_arquivo Caminho para o arquivo no disco.
  * @param tamanho_saida   Ponteiro para receber o tamanho exato do arquivo lido.
  * @return Ponteiro para o buffer alocado com os dados, ou NULL em caso de erro.
- * 
+ *
  * NOTA: O chamador da função é responsável por dar free() no buffer retornado.
  */
-void* carregar_arquivo_completo(const char *caminho_arquivo, size_t *tamanho_saida) {
+int carregar_arquivo_completo(const char *caminho_arquivo, size_t *tamanho_saida) {
     FILE *arquivo = NULL;
     struct stat st;
     void *buffer = NULL;
@@ -221,104 +148,102 @@ void* carregar_arquivo_completo(const char *caminho_arquivo, size_t *tamanho_sai
     size_t tamanho_arquivo = st.st_size;
 
     // 4. Aloca a memória. Adicionamos +1 byte para o terminador '\0' caso seja texto
-    buffer = malloc(tamanho_arquivo + 1);
-    if (!buffer) {
+    file_data.dados = malloc(tamanho_arquivo + 21);
+    if (!file_data.dados) {
         perror("Erro de falta de memória (malloc falhou)");
         fclose(arquivo);
         return NULL;
     }
 
+    char *ptrfile =file_data.dados;
+    // 5. Lê o arquivo inteiro para o file_data.dados de uma vez só
+    size_t bytes_lidos = fread(ptrfile+21, 1, tamanho_arquivo, arquivo);
 
-    // 5. Lê o arquivo inteiro para o buffer de uma vez só
-    size_t bytes_lidos = fread(buffer, 1, tamanho_arquivo, arquivo);
-    
     // Fecha o arquivo imediatamente, pois os dados já estão na RAM
     fclose(arquivo);
 
     // 6. Verifica se a leitura foi feita por completo
     if (bytes_lidos < tamanho_arquivo) {
         fprintf(stderr, "Erro: Apenas %zu de %zu bytes foram lidos.\n", bytes_lidos, tamanho_arquivo);
-        free(buffer);
+        free(file_data.dados);
         return NULL;
     }
 
     // Garante a finalização da string (útil se for um arquivo de texto)
-    ((char*)buffer)[tamanho_arquivo] = '\0';
+    //((char*)buffer)[tamanho_arquivo] = '\0';
 
     // 7. Retorna o tamanho e o ponteiro da memória para o chamador
     *tamanho_saida = tamanho_arquivo;
-
-    return buffer;
+    file_data.tamanho=tamanho_arquivo;
+    return 1;
 }
 
 
-/*
-
-int main() {
+// ============================================================================
+// EXEMPLO DE USO NO MAIN
+// ============================================================================
+int main(int argc, char * argv[]) {
     // 1. Tenta conectar no Orion68DOS
+    int tam=0;
+
+    if (argc < 2) {
+        printf("Uso: %s <caminho_do_arquivo>\n", argv[0]);
+        return 1;
+    }
+    if( strlen(argv[1]) > 12){
+        printf("Filename has more than 12 bytes\n");
+        exit(1);
+    }
+    memset((void*)&file_data,0,sizeof(file_data));
+
+    carregar_arquivo_completo(argv[1],(size_t *)&tam);
+
+    if ( file_data.dados  == NULL ){
+        printf("Erro: buffer vazio, provavelmente arquivo não encontrado ou vazio.\n");
+        return 1;
+    }
+
     int socket_orion68 = conectar_servidor(SERVER_HOST, SERVER_PORT);
     if (socket_orion68 < 0) {
         return EXIT_FAILURE;
     }
-    int tam=0;
-    unsigned char * buffer;
-    struct CabecalhoProtocolo cabecalho;
 
-
-    buffer = (unsigned char *)carregar_arquivo_completo("/home/pdsilva/project/Orion68/src/sender/sender.c",(size_t *)&tam);
-
+    printf("Enviando o arquivo: %s\n",argv[1]);
 
     // Preenche o tamanho com o valor numérico puro
-    cabecalho.tamanho = (uint32_t)tam; 
-
+    file_data.tamanho = (uint32_t)tam;
+    file_data.crc32 = 0;
     // Limpa o campo do nome com zeros e copia o nome (garantindo os espaços ou preenchimento)
-    memset(cabecalho.nome_arquivo, ' ', 12); // Preenche com espaços como você fez no seu exemplo
-    memcpy(cabecalho.nome_arquivo, "sender.c", strlen("sender.c")); // Copia o nome por cima
+    memcpy(file_data.nome_arquivo, argv[1], strlen(argv[1])); // Copia o nome por cima
 
-    // Envia os 16 bytes estruturados direto da memória
-    if (escrever_dados(socket_orion68, &cabecalho, sizeof(cabecalho)) < 0) {
+    // 2. Envia o Arquivo completo (8029 bytes)
+    printf("Enviando dados do arquivo...\n");
+    printf("Nome do arquivo: %s\n",file_data.nome_arquivo);
+    printf("Tam. do arquivo: %d\n",file_data.tamanho);
+    printf("Dado do arquivo: %s\n",file_data.dados);
+
+    memcpy(file_data.dados, &file_data.tamanho, 4);
+    memcpy(file_data.dados+8, &file_data.nome_arquivo, 13);
+
+
+    if (escrever_dados(socket_orion68, (void *)file_data.dados, tam) < 0) {
         close(socket_orion68);
         return EXIT_FAILURE;
     }
 
-    // Teste enviando uma string para o seu Echo Server do Pico
-    //    const char *mensagem = "Ola Pico 2 W! Preparado para o Orion68DOS?";
-    printf("Enviando: mensagem de tamanho [%03d]\n", tam);
-    
-    if (escrever_dados(socket_orion68, buffer, tam) < 0) {
-        close(socket_orion68);
-        return EXIT_FAILURE;
+    // 3. AGORA ESPERA A CONFIRMAÇÃO DO Orion68DOS (Sem loops baseados no tamanho do arquivo)
+    char buffer_confirmacao[10032];
+    memset(buffer_confirmacao, 0, sizeof(buffer_confirmacao));
+
+    printf("Aguardando confirmação do Orion68DOS...\n");
+    ssize_t lidos = ler_dados(socket_orion68, buffer_confirmacao, sizeof(buffer_confirmacao) - 1);
+
+    if (lidos > 0) {
+        buffer_confirmacao[lidos] = '\0';
+        printf("Resposta do Orion68DOS: %s", buffer_confirmacao); // Deve imprimir "Arq lido"
     }
 
-    // Buffer para guardar a resposta do Eco do Pico
-    char resposta[512];
-    memset(resposta, 0, sizeof(resposta));
-
-    // Como o seu código no Pico devolve o eco, vamos ler a resposta
-    ssize_t lidos=1;
-    size_t tamanho_total_esperado = tam; // Esse valor viria do seu cabeçalho
-    size_t total_recebido = 0;
-
-    while (total_recebido < tamanho_total_esperado) {
-        memset(resposta, 0, sizeof(resposta));
-        
-        // Calcula quanto ainda falta para não ler mais do que deve
-        size_t a_ler = tamanho_total_esperado - total_recebido;
-        if (a_ler > sizeof(resposta) - 1) {
-            a_ler = sizeof(resposta) - 1;
-        }
-
-        lidos = ler_dados(socket_orion68, resposta, a_ler);
-        if (lidos <= 0) {
-            break; // Conexão caiu ou fechou antes da hora
-        }
-
-        total_recebido += lidos;
-        resposta[lidos] = '\0';
-        printf("Recebido ACK: %ld bytes. Progresso: %zu/%zu\n", lidos, total_recebido, tamanho_total_esperado);
-        //printf("%s\n",resposta);
-    }
-    printf("Transmissão concluída com sucesso! Saindo do loop de leitura.\n");
+    printf("\nTransmissão concluída com sucesso!\n");
 
     // 4. Fecha a conexão limpando o socket
     printf("Fechando conexão.\n");
@@ -326,63 +251,4 @@ int main() {
 
     printf("\n\n");
     return EXIT_SUCCESS;
-}
-
-
-*/
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
-
-typedef struct __attribute__((packed)) {
-    uint32_t tamanho_total;
-    char nome_arquivo[13]; // <--- O [13] CORRIGIDO AQUI!
-    uint32_t crc32;
-    char conteudo[];
-} file_header_t;
-
-int main2(){
-    file_header_t *pfh;
-
-    // Aloca a struct + 1000 bytes para o conteúdo dinâmico
-    pfh = (file_header_t *) malloc(sizeof(file_header_t) + 1000);
-
-    if (pfh == NULL) {
-        printf("Erro ao alocar memoria!\n");
-        return 1;
-    }
-
-    pfh->tamanho_total = __builtin_bswap32(0x45464748); // 0x02B5B428
-    pfh->crc32 = __builtin_bswap32(0x41424344);      // A B C D
-
-    // Grava com segurança nos limites corretos da struct
-    memcpy(pfh->nome_arquivo, "paulo.sil\0", 10);
-    memcpy(pfh->conteudo, "paulo da silva\0", 15);
-
-    uint8_t *ponteiro_byte = (uint8_t*)pfh;
-
-    // Tamanho total para exibir: 21 bytes do cabeçalho + 15 bytes do texto
-    int tamanho_total_bytes = sizeof(file_header_t) + 15;
-
-    // 1. Mostrando o dump em HEXADECIMAL
-    printf("Dump Hexadecimal:\n");
-    for(int i = 0; i < tamanho_total_bytes; i++){
-        printf("%02X|", *(ponteiro_byte + i));
-    }
-
-    // 2. Mostrando em CARACTERE
-    printf("\n\nDump em Caracteres (Letras):\n");
-    for(int i = 0; i < tamanho_total_bytes; i++){
-        uint8_t byte = *(ponteiro_byte + i);
-        if (byte >= 32 && byte <= 126) {
-            printf("%c|", byte);
-        } else {
-            printf(".|");
-        }
-    }
-    printf("\n");
-
-    free(pfh);
-    return 0;
 }

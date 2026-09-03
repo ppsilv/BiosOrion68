@@ -29,9 +29,10 @@
 
 #define CR_OPEN          0x01
 #define CR_LISTEN        0x02
-#define CR_DISCON        0x08
+//#define CR_DISCON        0x08
 #define CR_SEND          0x20
 #define CR_RECV          0x40
+#define CR_CLOSE         0x10
 
 #define SOCK_CLOSED      0x00
 #define SOCK_INIT        0x13
@@ -421,7 +422,8 @@ int w5100_dhcp_request(const char *hostname) {
 
     if (!wait_rx_at_least(OFF_OPTIONS, DHCP_WAIT_TIMEOUT_MS)) {
         printf("Timeout esperando OFFER\n");
-        w5100_cmd(CR_DISCON);
+        //w5100_cmd(CR_CLOSE);
+        w5100_cmd(CR_CLOSE);
         return 0;
     }
 
@@ -432,7 +434,8 @@ int w5100_dhcp_request(const char *hostname) {
     msg_type = parse_dhcp_options(rx_buf, sizeof(rx_buf), server_ip);
     if (msg_type != DHCP_OFFER) {
         //printf("Pacote recebido nao e um OFFER (tipo=%d)\n", msg_type);
-        w5100_cmd(CR_DISCON);
+        //w5100_cmd(CR_CLOSE);
+        w5100_cmd(CR_CLOSE);
         return 0;
     }
 
@@ -465,7 +468,7 @@ int w5100_dhcp_request(const char *hostname) {
 
     if (!wait_rx_at_least(OFF_OPTIONS, 50000UL )) {
         printf("Timeout esperando ACK\n");
-        w5100_cmd(CR_DISCON);
+        w5100_cmd(CR_CLOSE);
         return 0;
     }
 
@@ -476,12 +479,12 @@ int w5100_dhcp_request(const char *hostname) {
 
     if (msg_type == DHCP_NAK) {
         printf("Servidor recusou (NAK). Tente novamente.\n");
-        w5100_cmd(CR_DISCON);
+        w5100_cmd(CR_CLOSE);
         return 0;
     }
     if (msg_type != DHCP_ACK) {
         printf("Pacote recebido nao e um ACK (tipo=%d)\n", msg_type);
-        w5100_cmd(CR_DISCON);
+        w5100_cmd(CR_CLOSE);
         return 0;
     }
 
@@ -491,7 +494,7 @@ int w5100_dhcp_request(const char *hostname) {
 
     //printf("ACK recebido, IP confirmado!\n");
 
-    w5100_cmd(CR_DISCON);
+    w5100_cmd(CR_CLOSE);
     return 1;
 }
 

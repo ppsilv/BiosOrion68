@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/kbd_usb/kbd_usb.c.o: \
- /home/pdsilva/project/Orion68/src/pico2W/kbd_usb/kbd_usb.c \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/kbd_usb/kbd_usb.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
@@ -24,4 +24,4 @@ CMakeFiles/pds200Pico2.dir/kbd_usb/kbd_usb.c.o: \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/_locale.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/strings.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/sys/string.h \
- /home/pdsilva/project/Orion68/src/pico2W/includes/keyboard.h
+ /home/pdsilva/project/BiosOrion68/src/pico2W/includes/keyboard.h

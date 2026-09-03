@@ -1,0 +1,71 @@
+CC = m68k-elf-gcc
+LD = m68k-elf-ld
+OBJCOPY = m68k-elf-objcopy
+VASM = vasmm68k_mot 
+
+CFLAGS = -Wall -O0 -I ./includes -I../../include -ffreestanding -nostdlib
+CFLAGS += -DCHIP_$(CHIP_TYPE) -DROM_SIZE_BYTES=$(ROM_SIZE)
+CFLAGS += -fomit-frame-pointer
+
+VASMFLAGS = -Felf -m68000 -quiet -I ./includes -I../../include
+
+LDFLAGS = -T ./kernel.ld -L../../lib -nostdlib  -Map=kernel.map
+LDLIBS = 
+
+# 1. ADICIONADO: Lista de arquivos em Assembly (.S)
+ASMS = 
+
+VASMS =
+
+# Lista de arquivos C
+SRCS =  kernel.c scheduler.c \
+./lib/inttostr.c \
+./lib/klibc.c \
+./lib/kprintf c \
+./lib/strtol.c
+
+# 2. ALTERADO: Agora a lista de objetos junta os .o vindos do .c e do .S
+OBJS = $(SRCS:.c=.o) $(ASMS:.S=.o) $(VASMS:.asm=.o)
+
+#Tools
+
+
+TARGET := kernel
+TARGET_OBJ := $(TARGET).o
+TARGET_ELF := $(TARGET).elf
+TARGET_BIN := $(TARGET).bin
+TARGET_LOW := $(TARGET)_low.bin
+TARGET_HIGH := $(TARGET)_high.bin
+
+.PHONY: all clean split fill programL programH
+
+all: kernel.bin
+
+# Regra para compilar os arquivos .c
+%.o: %.c
+	@./tools/build_counter.sh
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# 3. ADICIONADO: Regra explícita para compilar arquivos Assembly (.S)
+%.o: %.S
+	$(CC) $(CFLAGS) -c $< -o $@
+
+%.o: %.asm
+	$(VASM) $(VASMFLAGS) $< -o $@
+
+kernel.elf: $(OBJS)
+	$(LD) $(LDFLAGS)  $(OBJS) $(LDLIBS) -o $@
+	@echo "Linked: $@"
+	@echo "╔══════════════════════════╗"
+	@echo "║  COMPILACAO TERMINADA!   ║"
+	@echo "╚══════════════════════════╝"
+
+kernel.bin: bios68.elf
+	$(OBJCOPY) -O binary $< $@
+	@echo "Binary: $@"
+
+
+clean:
+	rm -f *.bin $(OBJS) *.map $(TARGET_LOW) $(TARGET_HIGH) $(TARGET_ELF)
+	@echo "Clean complete"
+

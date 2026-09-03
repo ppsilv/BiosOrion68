@@ -1,5 +1,5 @@
 CMakeFiles/pds200Pico2.dir/pds200_1.c.o: \
- /home/pdsilva/project/Orion68/src/pico2W/pds200_1.c \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/pds200_1.c \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/stdio.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/_ansi.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/newlib.h \
@@ -34,9 +34,9 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/assert.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
  /home/pdsilva/.pico-sdk/toolchain/14_2_Rel1/arm-none-eabi/include/assert.h \
- /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/version.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/build/generated/pico_base/pico/version.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/common/pico_base_headers/include/pico/config.h \
- /home/pdsilva/project/Orion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/build/generated/pico_base/pico/config_autogen.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/boards/include/boards/pico2_w.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/pico_platform/include/pico/platform.h \
@@ -86,7 +86,7 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_cyw43_driver/include/cyw43_configport.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/netif.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/opt.h \
- /home/pdsilva/project/Orion68/src/pico2W/includes/lwipopts.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/includes/lwipopts.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/debug.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/lib/lwip/src/include/lwip/arch.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/pico_lwip/include/arch/cc.h \
@@ -159,7 +159,7 @@ CMakeFiles/pds200Pico2.dir/pds200_1.c.o: \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/pio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/pio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
- /home/pdsilva/project/Orion68/src/pico2W/build/orion_bus.pio.h \
+ /home/pdsilva/project/BiosOrion68/src/pico2W/build/orion_bus.pio.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_structs/include/hardware/structs/clocks.h \
  /home/pdsilva/.pico-sdk/sdk/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/clocks.h

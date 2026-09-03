@@ -8,7 +8,7 @@
 
 #define SERVER_HOST "picow.lab.lan"
 #define SERVER_PORT 4242
-
+uint64_t t0 = time_us_64();
 extern void crc32_init(void);
 extern uint32_t crc32_from_file(const char *filename);
 extern void* carregar_arquivo_completo(const char *caminho_arquivo, size_t *tamanho_saida);

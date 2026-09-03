@@ -24,7 +24,7 @@ MEMORY
      * 0x00100000 (1MB) foi escolhido so como ponto de partida, assumindo
      * RAM total de 2MB e o kernel ocupando a parte mais baixa.
      */
-    USERRAM (rwx) : ORIGIN = 0x00082000, LENGTH = 0x00080000
+    USERRAM (rwx) : ORIGIN = 0x00092000, LENGTH = 0x0000FFFF
 }
 
 PHDRS
