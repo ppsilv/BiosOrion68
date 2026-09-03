@@ -38,80 +38,186 @@
   33 0066 10BC 0005 		move.b #5,(%a0)
   34 006a 4E75      		rts
   36               		.align	2
-  37               		.globl	duart_a_recv_char
-  39               	duart_a_recv_char:
-  40               	.L4:
-  41 006c 1039 00FF 		move.b 16748547,%d0
-  41      9003 
-  42 0072 0800 0000 		btst #0,%d0
-  43 0076 67F4      		jeq .L4
-  44 0078 1039 00FF 		move.b 16748551,%d0
-  44      9007 
-  45 007e 4E75      		rts
-  47               		.align	2
-  48               		.globl	duart_a_send_char
-  50               	duart_a_send_char:
-  51 0080 202F 0004 		move.l 4(%sp),%d0
-  52               	.L8:
-  53 0084 1239 00FF 		move.b 16748547,%d1
-  53      9003 
-  54 008a 44C1      		move.w %d1,%ccr
-  55 008c 66F6      		jne .L8
-  56 008e 13C0 00FF 		move.b %d0,16748551
-  56      9007 
-  57 0094 4E75      		rts
-  59               		.align	2
-  60               		.globl	duart_a_char_available
-  62               	duart_a_char_available:
-  63 0096 1039 00FF 		move.b 16748547,%d0
-  63      9003 
-  64 009c 0200 0001 		and.b #1,%d0
-  65 00a0 4E75      		rts
-  67               		.section	.rodata.str1.1,"aMS",@progbits,1
-  68               	.LC0:
-  69 0000 4C6F 6F70 		.string	"Loopback OK: recebido '%c' (0x%02X)\n"
-  69      6261 636B 
-  69      204F 4B3A 
-  69      2072 6563 
-  69      6562 6964 
-  70               	.LC1:
-  71 0025 4C6F 6F70 		.string	"Loopback FALHOU: recebido 0x%02X (esperado 0x41)\n"
-  71      6261 636B 
-  71      2046 414C 
-  71      484F 553A 
-  71      2072 6563 
-  72               		.section	.text.startup,"ax",@progbits
-  73               		.align	2
-  74               		.globl	main
-  76               	main:
-  77 0000 4EB9 0000 		jsr duart_a_init_38400
-  77      0000 
-  78 0006 4878 0041 		pea 65.w
-  79 000a 4EB9 0000 		jsr duart_a_send_char
-  79      0000 
-  80 0010 4EB9 0000 		jsr duart_a_recv_char
-  80      0000 
-  81 0016 588F      		addq.l #4,%sp
-  82 0018 41F9 0000 		lea printf,%a0
-  82      0000 
-  83 001e 0C00 0041 		cmp.b #65,%d0
-  84 0022 6618      		jne .L13
-  85 0024 4878 0041 		pea 65.w
-  86 0028 4878 0041 		pea 65.w
-  87 002c 4879 0000 		pea .LC0
-  87      0000 
-  88 0032 4E90      		jsr (%a0)
-  89 0034 4FEF 000C 		lea (12,%sp),%sp
+  37               		.globl	duart_a_init_115200
+  39               	duart_a_init_115200:
+  40 006c 13FC 0000 		move.b #0,16748553
+  40      00FF 9009 
+  41 0074 13FC FFEE 		move.b #-18,16748547
+  41      00FF 9003 
+  42 007c 207C 00FF 		move.l #16748549,%a0
+  42      9005 
+  43 0082 10BC 0010 		move.b #16,(%a0)
+  44 0086 227C 00FF 		move.l #16748545,%a1
+  44      9001 
+  45 008c 12BC 0013 		move.b #19,(%a1)
+  46 0090 12BC 0007 		move.b #7,(%a1)
+  47 0094 10BC 0020 		move.b #32,(%a0)
+  48 0098 10BC 0030 		move.b #48,(%a0)
+  49 009c 10BC 0005 		move.b #5,(%a0)
+  50 00a0 4E75      		rts
+  52               		.align	2
+  53               		.globl	duart_a_recv_char
+  55               	duart_a_recv_char:
+  56               	.L5:
+  57 00a2 1039 00FF 		move.b 16748547,%d0
+  57      9003 
+  58 00a8 0800 0000 		btst #0,%d0
+  59 00ac 67F4      		jeq .L5
+  60 00ae 1039 00FF 		move.b 16748551,%d0
+  60      9007 
+  61 00b4 4E75      		rts
+  63               		.align	2
+  64               		.globl	duart_a_send_char
+  66               	duart_a_send_char:
+  67 00b6 202F 0004 		move.l 4(%sp),%d0
+  68               	.L9:
+  69 00ba 1239 00FF 		move.b 16748547,%d1
+  69      9003 
+  70 00c0 44C1      		move.w %d1,%ccr
+  71 00c2 66F6      		jne .L9
+  72 00c4 13C0 00FF 		move.b %d0,16748551
+  72      9007 
+  73 00ca 4E75      		rts
+  75               		.align	2
+  76               		.globl	duart_a_char_available
+  78               	duart_a_char_available:
+  79 00cc 1039 00FF 		move.b 16748547,%d0
+  79      9003 
+  80 00d2 0200 0001 		and.b #1,%d0
+  81 00d6 4E75      		rts
+  83               		.align	2
+  84               		.globl	cputs
+  86               	cputs:
+  87 00d8 2F0D      		move.l %a5,-(%sp)
+  88 00da 2F0A      		move.l %a2,-(%sp)
+  89 00dc 246F 000C 		move.l 12(%sp),%a2
   90               	.L14:
-  91 0038 7000      		moveq #0,%d0
-  92 003a 4E75      		rts
-  93               	.L13:
-  94 003c 0280 0000 		and.l #255,%d0
-  94      00FF 
-  95 0042 2F00      		move.l %d0,-(%sp)
-  96 0044 4879 0000 		pea .LC1
-  96      0000 
-  97 004a 4E90      		jsr (%a0)
-  98 004c 508F      		addq.l #8,%sp
-  99 004e 60E8      		jra .L14
- 101               		.ident	"GCC: (GNU) 15.1.0"
+  91 00e0 1012      		move.b (%a2),%d0
+  92 00e2 6606      		jne .L15
+  93 00e4 245F      		move.l (%sp)+,%a2
+  94 00e6 2A5F      		move.l (%sp)+,%a5
+  95 00e8 4E75      		rts
+  96               	.L15:
+  97 00ea 528A      		addq.l #1,%a2
+  98 00ec 4880      		ext.w %d0
+  99 00ee 3040      		move.w %d0,%a0
+ 100 00f0 2F08      		move.l %a0,-(%sp)
+ 101 00f2 206D 0000 		move.l putchar@GOT(%a5),%a0
+ 102 00f6 4E90      		jsr (%a0)
+ 103 00f8 588F      		addq.l #4,%sp
+ 104 00fa 60E4      		jra .L14
+ 106               		.align	2
+ 107               		.globl	cputss
+ 109               	cputss:
+ 110 00fc 2F0D      		move.l %a5,-(%sp)
+ 111 00fe 2F0A      		move.l %a2,-(%sp)
+ 112 0100 246F 000C 		move.l 12(%sp),%a2
+ 113               	.L17:
+ 114 0104 1012      		move.b (%a2),%d0
+ 115 0106 6606      		jne .L18
+ 116 0108 245F      		move.l (%sp)+,%a2
+ 117 010a 2A5F      		move.l (%sp)+,%a5
+ 118 010c 4E75      		rts
+ 119               	.L18:
+ 120 010e 528A      		addq.l #1,%a2
+ 121 0110 0280 0000 		and.l #255,%d0
+ 121      00FF 
+ 122 0116 2F00      		move.l %d0,-(%sp)
+ 123 0118 206D 0000 		move.l duart_a_send_char@GOT(%a5),%a0
+ 124 011c 4E90      		jsr (%a0)
+ 125 011e 588F      		addq.l #4,%sp
+ 126 0120 60E2      		jra .L17
+ 128               		.section	.rodata.str1.1,"aMS",@progbits,1
+ 129               	.LC0:
+ 130 0000 496E 6963 		.string	"Iniciando o programa duart\n"
+ 130      6961 6E64 
+ 130      6F20 6F20 
+ 130      7072 6F67 
+ 130      7261 6D61 
+ 131               	.LC1:
+ 132 001c 7462 3939 		.string	"tb99.bas"
+ 132      2E62 6173 
+ 132      00
+ 133               	.LC2:
+ 134 0025 4572 726F 		.string	"Erro ao tentar abrir o arquivo\n"
+ 134      2061 6F20 
+ 134      7465 6E74 
+ 134      6172 2061 
+ 134      6272 6972 
+ 135               	.LC3:
+ 136 0045 4172 7175 		.string	"Arquivo aberto\n"
+ 136      6976 6F20 
+ 136      6162 6572 
+ 136      746F 0A00 
+ 137               	.LC4:
+ 138 0055 4E61 6F20 		.string	"Nao foi possivel ler o header do ELF.\n"
+ 138      666F 6920 
+ 138      706F 7373 
+ 138      6976 656C 
+ 138      206C 6572 
+ 139               		.section	.text.startup,"ax",@progbits
+ 140               		.align	2
+ 141               		.globl	main
+ 143               	main:
+ 144 0000 4E56 FCD0 		link.w %fp,#-816
+ 145 0004 2F0D      		move.l %a5,-(%sp)
+ 146 0006 2F02      		move.l %d2,-(%sp)
+ 147 0008 2F2D 0000 		move.l .LC0@GOT(%a5),-(%sp)
+ 148 000c 206D 0000 		move.l puts@GOT(%a5),%a0
+ 149 0010 4E90      		jsr (%a0)
+ 150 0012 4878 0001 		pea 1.w
+ 151 0016 2F2D 0000 		move.l .LC1@GOT(%a5),-(%sp)
+ 152 001a 240E      		move.l %fp,%d2
+ 153 001c 0682 FFFF 		add.l #-550,%d2
+ 153      FDDA 
+ 154 0022 2F02      		move.l %d2,-(%sp)
+ 155 0024 206D 0000 		move.l fopen@GOT(%a5),%a0
+ 156 0028 4E90      		jsr (%a0)
+ 157 002a 4FEF 0010 		lea (16,%sp),%sp
+ 158 002e 4A80      		tst.l %d0
+ 159 0030 6710      		jeq .L20
+ 160 0032 2F2D 0000 		move.l .LC2@GOT(%a5),-(%sp)
+ 161 0036 206D 0000 		move.l cputs@GOT(%a5),%a0
+ 162               	.L25:
+ 163 003a 4E90      		jsr (%a0)
+ 164 003c 588F      		addq.l #4,%sp
+ 165 003e 7000      		moveq #0,%d0
+ 166 0040 604E      		jra .L19
+ 167               	.L20:
+ 168 0042 2D6D 0000 		move.l .LC3@GOT(%a5),-814(%fp)
+ 168      FCD2 
+ 169 0048 2F2E FCD2 		move.l -814(%fp),-(%sp)
+ 170 004c 206D 0000 		move.l cputs@GOT(%a5),%a0
+ 171 0050 4E90      		jsr (%a0)
+ 172 0052 42A7      		clr.l -(%sp)
+ 173 0054 2F02      		move.l %d2,-(%sp)
+ 174 0056 206D 0000 		move.l flseek@GOT(%a5),%a0
+ 175 005a 4E90      		jsr (%a0)
+ 176 005c 486E FCD6 		pea -810(%fp)
+ 177 0060 4878 0100 		pea 256.w
+ 178 0064 486E FCDA 		pea -806(%fp)
+ 179 0068 2F02      		move.l %d2,-(%sp)
+ 180 006a 206D 0000 		move.l fread@GOT(%a5),%a0
+ 181 006e 4E90      		jsr (%a0)
+ 182 0070 4FEF 001C 		lea (28,%sp),%sp
+ 183 0074 4A80      		tst.l %d0
+ 184 0076 660A      		jne .L22
+ 185 0078 0CAE 0000 		cmp.l #256,-810(%fp)
+ 185      0100 FCD6 
+ 186 0080 671A      		jeq .L23
+ 187               	.L22:
+ 188 0082 2F2D 0000 		move.l .LC4@GOT(%a5),-(%sp)
+ 189 0086 206D 0000 		move.l cputs@GOT(%a5),%a0
+ 190 008a 4E90      		jsr (%a0)
+ 191 008c 588F      		addq.l #4,%sp
+ 192 008e 7001      		moveq #1,%d0
+ 193               	.L19:
+ 194 0090 242E FCC8 		move.l -824(%fp),%d2
+ 195 0094 2A6E FCCC 		move.l -820(%fp),%a5
+ 196 0098 4E5E      		unlk %fp
+ 197 009a 4E75      		rts
+ 198               	.L23:
+ 199 009c 2F2E FCD2 		move.l -814(%fp),-(%sp)
+ 200 00a0 206D 0000 		move.l cputss@GOT(%a5),%a0
+ 201 00a4 6094      		jra .L25
+ 203               		.ident	"GCC: (GNU) 15.1.0"

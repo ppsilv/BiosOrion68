@@ -26,6 +26,25 @@
  * 1. Operações Básicas de Arquivo
  * ========================================================================= */
 
+FRESULT fopen_old(FIL* fp, const TCHAR* path, BYTE mode) {
+    // Salva todos os registradores
+
+    register uint32_t res    __asm__("d0");
+    register uint32_t cmd    __asm__("d1") = SYS_FOPEN;
+    register void*    arg_a0 __asm__("a0") = (void*)fp;
+    register void*    arg_a1 __asm__("a1") = (void*)path;
+    register uint32_t arg_d0 __asm__("d0") = (uint32_t)mode;
+
+    __asm__ volatile ( "movem.l %d1-%d7/%a0-%a6,-(%sp)"  );
+
+    __asm__ volatile ("trap #12" : "=r"(res) : "r"(cmd), "r"(arg_a0), "r"(arg_a1), "r"(arg_d0) : "memory");
+
+        // Restaura todos os registradores
+    __asm__ volatile ("movem.l (%sp)+,%d1-%d7/%a0-%a6");
+
+    return (FRESULT)res;
+}
+
 FRESULT fopen(FIL* fp, const TCHAR* path, BYTE mode) {
     register uint32_t res    __asm__("d0");
     register uint32_t cmd    __asm__("d1") = SYS_FOPEN;
@@ -33,7 +52,9 @@ FRESULT fopen(FIL* fp, const TCHAR* path, BYTE mode) {
     register void*    arg_a1 __asm__("a1") = (void*)path;
     register uint32_t arg_d0 __asm__("d0") = (uint32_t)mode;
 
-    __asm__ volatile ("trap #12" : "=r"(res) : "r"(cmd), "r"(arg_a0), "r"(arg_a1), "r"(arg_d0) : "memory");
+    __asm__ volatile (
+        "trap #12\n\t" : "=r"(res) : "r"(cmd), "r"(arg_a0), "r"(arg_a1), "r"(arg_d0) : "memory");
+
     return (FRESULT)res;
 }
 

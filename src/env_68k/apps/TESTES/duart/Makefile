@@ -2,10 +2,10 @@ CC = m68k-elf-gcc
 LD = m68k-elf-ld
 OBJCOPY = m68k-elf-objcopy
 
-CFLAGS = -Wall -Os -Wa,-adhln=tinyBasic.lst -I../../../include -ffreestanding -nostdlib -D __68000__ -D ALIGN_MEMORY
-#CFLAGS = -Wall -Os -I../include -ffreestanding -nostdlib -Dmain=main_with_exit
-LDFLAGS = -T ./linker.ld -L../../../lib -nostdlib -L../../../lib
-LDLIBS = -lc68k -lvideo
+CFLAGS = -m68000 -Wall -Os -Wa,-adhln=duart.lst -I../../../include -ffreestanding -nostdlib -D __68000__ -D ALIGN_MEMORY
+CFLAGS += -fPIC -msep-data
+LDFLAGS = -T ./linker_pic.ld -L../../../lib -nostdlib -L../../../lib --emit-relocs
+LDLIBS = -lc68k_pic -lvideo -lfileio
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)

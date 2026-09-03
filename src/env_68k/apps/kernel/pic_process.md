@@ -228,3 +228,21 @@ contador_global = 42; contador_global++; executou de verdade em cima da memória
 O return voltou por entry(argc, argv) com a pilha montada certinho pelo compilador (não pelo jsr manual que travava antes)
 
 Isso valida o modelo PIC via GOT ponta a ponta — carga em endereço relocável + patch de GOT + A5 + chamada. Quando for levar isso pro elf_pic_loader.c de verdade (o que cria tarefa via OS_TaskCreateWithA5 em vez de chamar direto), o patch da GOT que acabamos de validar aqui precisa entrar lá também — é a mesma lógica, só trocando o "chamar direto" pelo "criar tarefa".
+
+
+
+Boa pergunta, e a resposta é: não completamente — o teste que você acabou de rodar fez menos que isso.
+
+O que o load_pic_elf_standalone realmente montou:
+
+Código carregado em task_base + 0
+Dados (.got/.got.plt/.bss) carregados em task_base + 0x34, com a GOT já corrigida
+A5 apontando pro segmento de dados
+
+O que não foi montado, e é importante você saber: a pilha (Stack Pointer/A7) nunca foi trocada. O call_with_a5 chama entry(argc, argv) como uma chamada C normal — isso significa que o main() do programa carregado rodou usando a mesma pilha do seu kernel/teste, não uma pilha própria dentro dos 256K do slot. Funcionou porque o main() de teste é minúsculo (poucas variáveis locais, sem recursão, sem arrays grandes) — qualquer programa um pouco mais pesado ia estourar ou corromper a pilha do chamador.
+
+Isso é diferente do elf_pic_loader.c "de verdade" (o que usa OS_TaskCreateWithA5) — aquele sim recebe task_stack/task_stack_size como parâmetro e monta uma pilha dedicada pra tarefa, dentro da região que você passar. Só que hoje essa pilha é alocada fora do slot de 256K (você passa um buffer separado) — não é automática dentro do slot.
+
+Se você quiser que a pilha fique dentro dos 256K do próprio slot (fazendo cada slot ser um "processo completo": código+dados+pilha, tudo isolado num único bloco), dá pra fazer — é só reservar um pedaço do fim do slot (ex: últimos 16K ou 32K) como pilha, calcular o topo (task_base + SLOT_SIZE), e passar isso pro OS_TaskCreateWithA5 em vez de um buffer separado. Fica mais "processo de verdade" (tudo do programa dentro de uma única região contígua), ao custo de reservar espaço fixo de pilha por slot mesmo pra programas que precisem de menos.
+
+Quer que eu ajuste o loader pra reservar a pilha automaticamente dentro do próprio slot?

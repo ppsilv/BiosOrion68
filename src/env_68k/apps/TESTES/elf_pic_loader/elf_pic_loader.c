@@ -9,6 +9,12 @@
  * A5 certo) antes do kernel novo com scheduler existir de verdade.
  * Quando o kernel novo estiver pronto, troque por elf_pic_loader.c
  * (a versao que cria tarefa via OS_TaskCreateWithA5).
+ *
+ * loader tratando -fPIC
+ * precisa que a libc seja compilada com -fPIC -msep-data
+ * Eu fiz isso e ela se chama libc68k_pic.a
+ *
+ *
  */
 #include <stddef.h>
 #include <stdio.h>
@@ -19,6 +25,7 @@
 #include <fileio.h>
 #include "scheduler.h"
 #include "slots.h"
+#include "reloc.h"
 
 #define kprintf(...) printf(__VA_ARGS__)
 /*
@@ -49,6 +56,122 @@ static int call_with_a5(uint32_t entry_addr, uint32_t a5_value, int argc, char *
     __asm__ volatile ("" : : "r" (a5_val) : "memory");  /* impede o compilador de "otimizar" a5_val por nao ver uso explicito */
 
     return entry(argc, argv);
+}
+
+static void process_relocations(uint32_t task_base, FIL *fd, uint32_t shoff,
+                              uint16_t shnum, uint16_t shstrndx) {
+    uint8_t section_header[40];
+    uint32_t symtab_offset = 0;
+    uint32_t strtab_offset = 0;
+    uint32_t rela_offset = 0;
+    uint32_t rela_size = 0;
+    unsigned int bytesRead;
+
+    for (int i = 0; i < shnum; i++) {
+        flseek(fd, shoff + i * 40);
+        if (fread(fd, section_header, 40, &bytesRead) != FR_OK || bytesRead != 40)
+            continue;
+
+        uint32_t sh_type = ((uint32_t)section_header[4] << 24) |
+                          ((uint32_t)section_header[5] << 16) |
+                          ((uint32_t)section_header[6] << 8)  |
+                          (uint32_t)section_header[7];
+
+        uint32_t sh_offset = ((uint32_t)section_header[16] << 24) |
+                            ((uint32_t)section_header[17] << 16) |
+                            ((uint32_t)section_header[18] << 8)  |
+                            (uint32_t)section_header[19];
+
+        uint32_t sh_size = ((uint32_t)section_header[20] << 24) |
+                          ((uint32_t)section_header[21] << 16) |
+                          ((uint32_t)section_header[22] << 8)  |
+                          (uint32_t)section_header[23];
+
+        if (sh_type == SHT_SYMTAB) {
+            symtab_offset = sh_offset;
+        } else if (sh_type == SHT_STRTAB) {
+            if (sh_size > strtab_offset) {
+                strtab_offset = sh_offset;
+            }
+        } else if (sh_type == SHT_RELA) {
+            rela_offset = sh_offset;
+            rela_size = sh_size;
+        }
+    }
+
+    if (!symtab_offset || !strtab_offset || !rela_offset) {
+        kprintf("Aviso: Seções de relocação não encontradas\n");
+        return;
+    }
+
+    uint8_t rela_buf[12];
+    uint32_t num_relas = rela_size / 12;
+
+    kprintf("Processando %d relocações...\n", num_relas);
+
+    for (uint32_t i = 0; i < num_relas; i++) {
+        flseek(fd, rela_offset + i * 12);
+        if (fread(fd, rela_buf, 12, &bytesRead) != FR_OK || bytesRead != 12)
+            continue;
+
+        uint32_t r_offset = ((uint32_t)rela_buf[0] << 24) |
+                           ((uint32_t)rela_buf[1] << 16) |
+                           ((uint32_t)rela_buf[2] << 8)  |
+                           (uint32_t)rela_buf[3];
+
+        uint32_t r_info = ((uint32_t)rela_buf[4] << 24) |
+                          ((uint32_t)rela_buf[5] << 16) |
+                          ((uint32_t)rela_buf[6] << 8)  |
+                          (uint32_t)rela_buf[7];
+
+        uint32_t r_addend = ((uint32_t)rela_buf[8] << 24) |
+                           ((uint32_t)rela_buf[9] << 16) |
+                           ((uint32_t)rela_buf[10] << 8) |
+                           (uint32_t)rela_buf[11];
+
+        uint32_t r_type = r_info & 0xFF;
+        uint32_t r_sym = r_info >> 8;
+
+        if (r_type != 11) // Apenas R_68K_GOT16O
+            continue;
+
+        uint8_t sym_buf[16];
+        flseek(fd, symtab_offset + r_sym * 16);
+        if (fread(fd, sym_buf, 16, &bytesRead) != FR_OK || bytesRead != 16)
+            continue;
+
+        uint32_t sym_value = ((uint32_t)sym_buf[4] << 24) |
+                            ((uint32_t)sym_buf[5] << 16) |
+                            ((uint32_t)sym_buf[6] << 8)  |
+                            (uint32_t)sym_buf[7];
+
+        uint32_t sym_name_idx = ((uint32_t)sym_buf[0] << 24) |
+                               ((uint32_t)sym_buf[1] << 16) |
+                               ((uint32_t)sym_buf[2] << 8)  |
+                               (uint32_t)sym_buf[3];
+
+        char sym_name[64];
+        flseek(fd, strtab_offset + sym_name_idx);
+        for (int j = 0; j < 63; j++) {
+            if (fread(fd, &sym_name[j], 1, &bytesRead) != FR_OK || bytesRead != 1)
+                break;
+            if (sym_name[j] == '\0')
+                break;
+        }
+        sym_name[63] = '\0';
+
+        /*
+         * No modelo GOT de 16-bit com -msep-data, o slot da GOT localizado em r_offset
+         * recebe o endereço absoluto real do símbolo somado ao addend e à task_base.
+         */
+        uint32_t *patch_addr = (uint32_t *)(task_base + r_offset);
+
+        // Se o símbolo for externo ou interno à tarefa, ajustamos com task_base se necessário.
+        // Se sym_value já for relativo ao segmento, somamos task_base.
+        *patch_addr = sym_value + r_addend + task_base;
+
+        kprintf("  R_68K_GOT16O: %s -> 0x%08lx\n", sym_name, (unsigned long)*patch_addr);
+    }
 }
 
 int load_pic_elf_standalone(FIL *fd, int argc, char *argv[])
@@ -210,7 +333,12 @@ int load_pic_elf_standalone(FIL *fd, int argc, char *argv[])
             slot_index, (unsigned long)task_base, (unsigned long)text_load_addr,
             (unsigned long)data_load_addr, (unsigned long)(task_base + entry));
 
+    //process_relocations(task_base, fd, shoff, shnum, shstrndx);
+    //kprintf("Chamando entry em 0x%lx com A5=0x%lx\n",(unsigned long)(task_base + entry), (unsigned long)data_load_addr);
+
+
     int ret = call_with_a5(task_base + entry, data_load_addr, argc, argv);
+    //int ret = call_with_a5(0x92000, data_load_addr, argc, argv);
     kprintf("Programa retornou %d\n", ret);
 
     Slots_Free(slot_index);
@@ -223,6 +351,9 @@ fail:
 
 int main(int argc,char *argv[]){
     FIL fd;
+    kprintf("Loader for .elf files compiled with -fPIC and -msep-data\n");
+    kprintf("Version 1.0.0 2026 copyleft(C)\n");
+    kprintf("Author: pdsilva AKA(pgordao)\n");
     if(argv[1] == 0){
         kprintf("Usage: elpicldr <prog name>\n");
         return 1;

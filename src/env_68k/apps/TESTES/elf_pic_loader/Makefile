@@ -6,6 +6,8 @@ CFLAGS = -Wall -Os -Wa,-adhln=loader.lst -I../../../include -ffreestanding -nost
 LDFLAGS = -T ./linker.ld -L../../../lib -nostdlib -L../../../lib
 LDLIBS = -lc68k -lvideo -lrtc -lfileio
 
+
+APP  = loader
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 ELFS = $(SRCS:.c=.elf)
@@ -14,12 +16,12 @@ BINS = $(SRCS:.c=.bin)
 .PHONY: all clean
 
 #all: $(BINS)
-all: loader.bin
+all: $(APP).bin
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Regra específica para cada arquivo para evitar problemas com $<
-loader.elf: $(OBJS) ../../../libc/obj/crt0.o ../../../libc/obj/startup.o
+$(APP).elf: $(OBJS) ../../../libc/obj/crt0.o ../../../libc/obj/startup.o
 	$(LD) $(LDFLAGS) $(OBJS) -o $@ $(LDLIBS)
 	@echo "Linked: $@"
 
@@ -28,5 +30,5 @@ loader.elf: $(OBJS) ../../../libc/obj/crt0.o ../../../libc/obj/startup.o
 	@echo "Binary: $@"
 
 clean:
-	rm -f $(OBJS) $(ELFS) $(BINS) *.lst
+	rm -f $(OBJS) $(ELFS) $(BINS) $(APP).elf $(APP).bin
 	@echo "Clean complete"

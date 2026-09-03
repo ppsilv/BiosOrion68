@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "duart.h"
+#include "fileio.h"
 
 //static void delay_short(void) {
 //    for (volatile int i = 0; i < 20; i++) { __asm__("nop"); }
@@ -73,16 +74,51 @@ void duart_a_send_char(uint8_t c) {
 uint8_t duart_a_char_available(void) {
     return (DUART_SRA_CSRA & SRA_RXRDY) ? 1 : 0;
 }
+void cputs(char *st){
+    char *p=st;
+    while(*p){
+        putchar(*p);
+        p++;
+    }
+}
+
+void cputss(char *st){
+    char *p=st;
+    while(*p){
+        duart_a_send_char(*p);
+        p++;
+    }
+}
+
 
 int main(void) {
-    duart_a_init_38400();
-
+    FIL fd;
+    char buf[256];
+    int bytesRead;
+    //duart_a_init_38400();
+    printf("Iniciando o programa duart\n");
     //while (1) {
-        duart_a_send_char('A');
-        uint8_t recebido = duart_a_recv_char();
+     // 1. Abre o arquivo ELF no disco
+    if (fopen(&fd, "tb99.bas", FA_READ) != FR_OK) {
+        cputs("Erro ao tentar abrir o arquivo\n");
+        return 0;
+    }
+    cputs("Arquivo aberto\n");
 
-        printf("recebido '%c' (0x%02X)\n", recebido, recebido);
+    flseek(&fd, 0);
+    if (fread(&fd, buf, sizeof(buf), &bytesRead) != FR_OK || bytesRead != sizeof(buf)) {
+        cputs("Nao foi possivel ler o header do ELF.\n");
+        return 1;
+    }
+
+    //fclose(&fd);
+        cputss("Serial-Arquivo aberto\n");
+        //uint8_t recebido = duart_a_recv_char();
+
+        //printf("recebido '%c' (0x%02X)\n", recebido, recebido);
+        //putchar(recebido);
         //delay_short(); /* só para dar um intervalo visível entre caracteres no osciloscopio */
+        //putchar(getchar());
     //}
     return 0;
 }

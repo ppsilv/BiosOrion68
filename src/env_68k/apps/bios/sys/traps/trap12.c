@@ -9,6 +9,7 @@
  * ========================================================================= */
 
 void do_open(int argc, char *argv[]) {
+    printf("Filename[%s]\n",argv[1]);
     f_open((FIL *)argv[0], (const char *)argv[1], (BYTE)(uint32_t)argv[2]);
 }
 
