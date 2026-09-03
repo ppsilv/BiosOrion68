@@ -27,6 +27,19 @@
 #include "slots.h"
 #include "reloc.h"
 
+typedef struct {
+    uint32_t name;      // índice na .shstrtab
+    uint32_t type;
+    uint32_t flags;
+    uint32_t addr;       // endereço virtual (relativo a 0, igual o paddr do phdr)
+    uint32_t offset;      // offset no arquivo
+    uint32_t size;
+    uint32_t link;
+    uint32_t info;
+    uint32_t addralign;
+    uint32_t entsize;
+} elf32_section_header;
+
 #define kprintf(...) printf(__VA_ARGS__)
 /*
  * Chama 'entry_addr(argc, argv)' com A5 pre-setado pra 'a5_value'.
@@ -48,16 +61,19 @@
  * mexendo em A5 -- em teoria o "register" garante isso, mas vale
  * checar contra a versao/otimizacao real do seu compilador.
  */
+extern int call_with_a5(uint32_t entry_addr, uint32_t a5_value, int argc, char *argv[]);
+/*
 static int call_with_a5(uint32_t entry_addr, uint32_t a5_value, int argc, char *argv[])
 {
-    register uint32_t a5_val __asm__("a5") = a5_value;
+    printf("A5[%08x]\n",a5_value);
+volatile    register uint32_t a5_val __asm__("a5") = a5_value;
     int (*entry)(int, char **) = (int (*)(int, char **))entry_addr;
 
-    __asm__ volatile ("" : : "r" (a5_val) : "memory");  /* impede o compilador de "otimizar" a5_val por nao ver uso explicito */
+    __asm__ volatile ("" : : "r" (a5_val) : "memory");  // impede o compilador de "otimizar" a5_val por nao ver uso explicito
 
     return entry(argc, argv);
 }
-
+*/
 static void process_relocations(uint32_t task_base, FIL *fd, uint32_t shoff,
                               uint16_t shnum, uint16_t shstrndx) {
     uint8_t section_header[40];
@@ -100,14 +116,14 @@ static void process_relocations(uint32_t task_base, FIL *fd, uint32_t shoff,
     }
 
     if (!symtab_offset || !strtab_offset || !rela_offset) {
-        kprintf("Aviso: Seções de relocação não encontradas\n");
+        kprintf("Aviso: Secoes de relocacao nao encontradas\n");
         return;
     }
 
     uint8_t rela_buf[12];
     uint32_t num_relas = rela_size / 12;
 
-    kprintf("Processando %d relocações...\n", num_relas);
+    kprintf("Processando %d relocacoes...\n", num_relas);
 
     for (uint32_t i = 0; i < num_relas; i++) {
         flseek(fd, rela_offset + i * 12);
@@ -174,10 +190,68 @@ static void process_relocations(uint32_t task_base, FIL *fd, uint32_t shoff,
     }
 }
 
+/*
+ * Varre a section header table procurando uma seção cujo nome
+ * (via .shstrtab, indicada por shstrndx) seja ".got".
+ * Retorna 1 e preenche got_addr/got_size se achar, 0 se nao achar.
+ */
+
+
+static int find_got_section(FIL *fd, uint32_t shoff, uint16_t shnum,
+                             uint16_t shentsize, uint16_t shstrndx,
+                             uint32_t *got_addr, uint32_t *got_size)
+{
+    uint8_t hdr_buf[40];
+    unsigned int bytesRead;
+    uint32_t strtab_offset;
+    uint32_t min_addr = 0xFFFFFFFF, max_end = 0;
+    int found = 0;
+
+    flseek(fd, shstrndx * shentsize + shoff);
+    if (fread(fd, hdr_buf, sizeof(hdr_buf), &bytesRead) != FR_OK || bytesRead != sizeof(hdr_buf))
+        return 0;
+    strtab_offset = ((uint32_t)hdr_buf[0x10] << 24) | ((uint32_t)hdr_buf[0x11] << 16) |
+                    ((uint32_t)hdr_buf[0x12] << 8)  |  (uint32_t)hdr_buf[0x13];
+
+    for (uint16_t i = 0; i < shnum; i++) {
+        flseek(fd, i * shentsize + shoff);
+        if (fread(fd, hdr_buf, sizeof(hdr_buf), &bytesRead) != FR_OK || bytesRead != sizeof(hdr_buf))
+            return 0;
+
+        uint32_t name_idx = ((uint32_t)hdr_buf[0] << 24) | ((uint32_t)hdr_buf[1] << 16) |
+                             ((uint32_t)hdr_buf[2] << 8)  |  (uint32_t)hdr_buf[3];
+
+        char name_buf[10];
+        unsigned int nread;
+        flseek(fd, strtab_offset + name_idx);
+        fread(fd, name_buf, sizeof(name_buf) - 1, &nread);
+        name_buf[nread] = 0;
+
+        if (strncmp(name_buf, ".got", 4) == 0) {
+            uint32_t addr = ((uint32_t)hdr_buf[0x0C] << 24) | ((uint32_t)hdr_buf[0x0D] << 16) |
+                             ((uint32_t)hdr_buf[0x0E] << 8)  |  (uint32_t)hdr_buf[0x0F];
+            uint32_t size = ((uint32_t)hdr_buf[0x14] << 24) | ((uint32_t)hdr_buf[0x15] << 16) |
+                             ((uint32_t)hdr_buf[0x16] << 8)  |  (uint32_t)hdr_buf[0x17];
+            if (addr < min_addr) min_addr = addr;
+            if (addr + size > max_end) max_end = addr + size;
+            found = 1;
+        }
+    }
+
+    if (!found) return 0;
+    *got_addr = min_addr;
+    *got_size = max_end - min_addr;
+    return 1;
+}
+
+
+
+
 int load_pic_elf_standalone(FIL *fd, int argc, char *argv[])
 {
     uint8_t header_buf[52];
-
+uint32_t *got;
+uint32_t got_addr_saved = 0, got_size_saved = 0;
     elf32_program_header progHeader;
     unsigned int          bytesRead;
     uint32_t              progIndex = 0;
@@ -234,12 +308,6 @@ int load_pic_elf_standalone(FIL *fd, int argc, char *argv[])
     uint16_t shnum  = (header_buf[0x30] << 8) | header_buf[0x31];
     uint16_t shstrndx  = (header_buf[0x32] << 8) | header_buf[0x33];
 
-
-
-
-
-
-
     if (ident_magic[0] != 0x7F || ident_magic[1] != 'E' ||
         ident_magic[2] != 'L'  || ident_magic[3] != 'F' ||
         ident_version  != 1) {
@@ -283,34 +351,23 @@ int load_pic_elf_standalone(FIL *fd, int argc, char *argv[])
 
             if (pt_load_seen == 0) {
                 text_load_addr = actual_addr;
-            } else if (pt_load_seen == 1) {
-                data_load_addr = actual_addr;
-                /*
-                 * PATCH DA GOT -- necessario porque este toolchain nao
-                 * gera relocacoes (confirmado com 'readelf -r': "There
-                 * are no relocations in this file"). O linker calcula
-                 * o conteudo da .got assumindo que o programa roda em
-                 * ORIGIN(SLOT)=0, entao cada entrada de 4 bytes ali
-                 * guarda um endereco "relativo a 0" que precisa virar
-                 * endereco real somando task_base.
-                 *
-                 * CAVEAT: isso trata TODO byte copiado do arquivo
-                 * nesse segmento (filesz bytes) como se fosse uma
-                 * entrada de endereco de 4 bytes. Funciona pro seu
-                 * teste (.got + .got.plt, sem .data literal de
-                 * verdade) porque nao ha nenhum dado nao-endereco
-                 * misturado ali. Se um dia voce tiver uma variavel
-                 * .data inicializada com um valor literal (nao um
-                 * ponteiro), esse valor tambem seria "corrigido" por
-                 * engano -- nesse caso o patch precisa ficar restrito
-                 * so' ao intervalo real da GOT (via secao .got do
-                 * ELF ou via simbolo _GLOBAL_OFFSET_TABLE_ do
-                 * .symtab), nao ao segmento inteiro.
-                 */
-                uint32_t *got = (uint32_t *)actual_addr;
-                uint32_t  got_words = progHeader.filesz / 4;
-                for (uint32_t w = 0; w < got_words; w++)
-                    got[w] += task_base;
+            }else if (pt_load_seen == 1) {
+
+    data_load_addr = actual_addr;
+
+    uint32_t got_addr, got_size;
+    if (find_got_section(fd, shoff, shnum, shentsize, shstrndx, &got_addr, &got_size)) {
+        got = (uint32_t *)(task_base + got_addr);
+        uint32_t got_words = got_size / 4;
+        for (uint32_t w = 0; w < got_words; w++)
+            got[w] += task_base;
+
+        got_addr_saved = got_addr;   // <-- guarda pra usar depois como A5
+        got_size_saved = got_size;
+    } else {
+        kprintf("Aviso: secao .got nao encontrada, pulando patch.\n");
+    }
+
             }
             pt_load_seen++;
         } else if (progHeader.type == PT_DYNAMIC || progHeader.type == PT_SHLIB) {
@@ -328,16 +385,25 @@ int load_pic_elf_standalone(FIL *fd, int argc, char *argv[])
         kprintf("ELF PIC esperava exatamente 2 segmentos PT_LOAD, achou %d.\n", pt_load_seen);
         goto fail;
     }
+uint32_t lc0_slot_addr = (uint32_t)got + 28; /* A5+28, do disasm do .LC0 */
+//uint32_t lc0_slot_addr = task_base +(uint32_t) got + 28; /* A5+28, do disasm do .LC0 */
+uint32_t lc0_ptr = *(uint32_t *)lc0_slot_addr;
+kprintf("LC0 slot addr=%08lx valor(ponteiro p/ string)=%08lx\n",
+        (unsigned long)lc0_slot_addr, (unsigned long)lc0_ptr);
+kprintf("bytes em [lc0_ptr]: %02x %02x %02x %02x %02x %02x %02x %02x %02x\n",
+        ((uint8_t*)lc0_ptr)[0], ((uint8_t*)lc0_ptr)[1], ((uint8_t*)lc0_ptr)[2],
+        ((uint8_t*)lc0_ptr)[3], ((uint8_t*)lc0_ptr)[4], ((uint8_t*)lc0_ptr)[5],
+        ((uint8_t*)lc0_ptr)[6], ((uint8_t*)lc0_ptr)[7], ((uint8_t*)lc0_ptr)[8]);
+kprintf("got_slot_contador=%08lx\n", (unsigned long)(task_base + 0x8cc));
 
     kprintf("slot=%d task_base=0x%lx text=0x%lx data=0x%lx entry=0x%lx\n",
-            slot_index, (unsigned long)task_base, (unsigned long)text_load_addr,
-            (unsigned long)data_load_addr, (unsigned long)(task_base + entry));
+            slot_index, (unsigned long)task_base, (unsigned long)text_load_addr,(unsigned long)data_load_addr, (unsigned long)(task_base + entry));
 
-    //process_relocations(task_base, fd, shoff, shnum, shstrndx);
-    //kprintf("Chamando entry em 0x%lx com A5=0x%lx\n",(unsigned long)(task_base + entry), (unsigned long)data_load_addr);
+   // process_relocations(task_base, fd, shoff, shnum, shstrndx);
+   // kprintf("Chamando entry em 0x%lx com A5=0x%lx\n",(unsigned long)(task_base + entry), (unsigned long)data_load_addr);
 
-
-    int ret = call_with_a5(task_base + entry, data_load_addr, argc, argv);
+    uint32_t a5_value = task_base + got_addr_saved;
+    int ret = call_with_a5(task_base + entry, a5_value, argc, argv);
     //int ret = call_with_a5(0x92000, data_load_addr, argc, argv);
     kprintf("Programa retornou %d\n", ret);
 
@@ -348,10 +414,18 @@ fail:
     Slots_Free(slot_index);
     return -1;
 }
-
+static void dumphex(const char *label, const void *buf, size_t len) {
+    const uint8_t *p = (const uint8_t *)buf;
+    printf("--- %s (%zu bytes) ---\n", label, len);
+    for (size_t i = 0; i < len; i++) {
+        printf("%02X ", p[i]);
+        if ((i + 1) % 16 == 0) printf("\n");
+    }
+    printf("\n");
+}
 int main(int argc,char *argv[]){
     FIL fd;
-    kprintf("Loader for .elf files compiled with -fPIC and -msep-data\n");
+    kprintf("Loader compiled to load files compiled with  -fPIC and -msep-data\n");
     kprintf("Version 1.0.0 2026 copyleft(C)\n");
     kprintf("Author: pdsilva AKA(pgordao)\n");
     if(argv[1] == 0){

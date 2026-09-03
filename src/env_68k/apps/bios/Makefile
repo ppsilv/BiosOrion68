@@ -44,9 +44,9 @@ SRCS = bios68.c timers.c interrupt.c \
 ./sys/ethernet/dhcp_client.c \
 ./picoVga/drv_picoVga.c \
 ./ide/ata.c \
-./ide/diskio.c 
+./ide/diskio.c
 
-#./tst_fat/tstfat.c 
+#./tst_fat/tstfat.c
 #./picoVga/drv_picoVga.c \
 
 # 2. ALTERADO: Agora a lista de objetos junta os .o vindos do .c e do .S

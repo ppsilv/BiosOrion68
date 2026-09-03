@@ -3,6 +3,13 @@
 #include "duart.h"
 #include "fileio.h"
 
+
+struct lixo{
+    int a;
+    char b;
+};
+int contador=0xffff;
+
 //static void delay_short(void) {
 //    for (volatile int i = 0; i < 20; i++) { __asm__("nop"); }
 //}
@@ -89,14 +96,37 @@ void cputss(char *st){
         p++;
     }
 }
+//int contador=0xa55a;
 
+static void dumphex(const char *label, const void *buf, size_t len) {
+    const uint8_t *p = (const uint8_t *)buf;
+    const uint8_t *p1 = (const uint8_t *)buf;
+    printf("--- %s (%zu bytes) ---\n", label, len);
+    for (size_t i = 0; i < len; i++) {
+        printf("%02X ", p[i]);
+        if ((i + 1) % 16 == 0){
+            for (size_t j = 16; j > 0; j--){
+                if ( p[i-j] < 0x20 ){
+                    puts(".");
+                }else{
+                    printf("%c", p[i-j]);
+                }
+            }
+            printf("\n");
+        }
+    }
+    printf("\n");
+}
 
 int main(void) {
     FIL fd;
     char buf[256];
     int bytesRead;
-    //duart_a_init_38400();
-    printf("Iniciando o programa duart\n");
+
+  //  printf("Iniciando o programa duart\n");
+
+   // contador=1;
+
     //while (1) {
      // 1. Abre o arquivo ELF no disco
     if (fopen(&fd, "tb99.bas", FA_READ) != FR_OK) {
@@ -111,7 +141,11 @@ int main(void) {
         return 1;
     }
 
-    //fclose(&fd);
+    dumphex("tb99.bas",buf,bytesRead);
+
+
+
+    fclose(&fd);
         cputss("Serial-Arquivo aberto\n");
         //uint8_t recebido = duart_a_recv_char();
 
@@ -120,5 +154,6 @@ int main(void) {
         //delay_short(); /* só para dar um intervalo visível entre caracteres no osciloscopio */
         //putchar(getchar());
     //}
+    printf("contador[%04x]\n",contador);
     return 0;
 }
