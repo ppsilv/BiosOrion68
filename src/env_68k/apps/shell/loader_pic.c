@@ -1,8 +1,4 @@
 /*
- *
- * loader_pic.c
- *
- *
     ## O que já está comprovadamente funcionando
 
     Carrega os 2 segmentos PT_LOAD (código + dados) de um .elf estático (ET_EXEC)
@@ -38,7 +34,9 @@
    |     \_/----\_/
     \  ____ \  /
      | |  | |()
-     |_|  |_| \\//
+     |_|  |_| \/
+    Fanti
+
 
  *
  * loader tratando -fPIC
@@ -514,16 +512,19 @@ static void dumphex(const char *label, const void *buf, size_t len) {
     }
     printf("\n");
 }
-int main(int argc,char *argv[]){
+int loader_pic(int argc,char *argv[]){
     FIL fd;
     kprintf("Loader compiled to load files compiled with  -fPIC and -msep-data\n");
     kprintf("Version 1.0.0 2026 copyleft(C)\n");
     kprintf("Author: pdsilva AKA(pgordao)\n");
-    if(argv[1] == 0){
-        kprintf("Usage: elpicldr <prog name>\n");
+    if(argv[0] == 0){
+        kprintf("No parameters passed\n");
         return 1;
     }
-    kprintf("Nome do arquivo[%s]\n",argv[1]);
+    if( ! strstr(".elf",argv[0] )){
+        kprintf("File is not an executable\n");
+        return 1;
+    }
     // 1. Abre o arquivo ELF no disco
     if (fopen(&fd, argv[1], FA_READ) != FR_OK) {
         kprintf("Erro ao tentar abrir o arquivo\n");

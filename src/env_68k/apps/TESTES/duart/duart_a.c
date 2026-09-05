@@ -1,3 +1,17 @@
+/*
+          _      _
+     ____/ \----/ \
+  _ /   |         |
+ / |    |   °  °  |
+   |     \_/----\_/
+    \  ____ \  /
+     | |  | |()
+     |_|  |_| \\//
+
+
+ */
+
+
 #include <stdint.h>
 #include <stdio.h>
 #include "duart.h"
@@ -99,7 +113,7 @@ void cputss(char *st){
 }
 //int contador=0xa55a;
 
-static void dumphex(const char *label, const void *buf, size_t len) {
+void dumphex(const char *label, const void *buf, size_t len) {
     const uint8_t *p = (const uint8_t *)buf;
     const uint8_t *p1 = (const uint8_t *)buf;
     printf("--- %s (%zu bytes) ---\n", label, len);
@@ -118,7 +132,7 @@ static void dumphex(const char *label, const void *buf, size_t len) {
     }
     printf("\n");
 }
-
+extern void print();
 int main(void) {
     FIL fd;
     char buf[256];
@@ -156,5 +170,6 @@ int main(void) {
         //putchar(getchar());
     //}
     printf("contador[%04x] *ptr_contador[%04x]\n",contador,*ptr_contador);
+    print();
     return 0;
 }

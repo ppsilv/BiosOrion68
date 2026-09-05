@@ -100,9 +100,9 @@ Int1Handler:
 Int5Handler:
 Int6Handler:
 Int7Handler:
+
 Trap0Handler:
 Trap3Handler:
-
 Trap5Handler:
 Trap6Handler:
 Trap7Handler:
@@ -110,14 +110,10 @@ Trap8Handler:
 Trap9Handler:
 TrapAHandler:
 TrapBHandler:
+TrapDHandler:
+TrapEHandler:
 TrapFHandler:
         rte         /* Só retorna sem quebrar nada */
-
-/* =========================================================================
-   2. TRAP 13 (0xD) - STUB DE SEGURANÇA
-   ========================================================================= */
-TrapDHandler:
-        rte
 
 /* =========================================================================
    3. INTERRUPÇÃO DE HARDWARE NÍVEL 2 - TIMER (SYSTEM TICK)
@@ -375,30 +371,6 @@ Na convenção padrão do GCC para m68k (C ABI), os parâmetros são empilhados
         movem.l (%sp)+,%d1-%d7/%a0-%a6
         rte
 
-/* =========================================================================
-    TRAP 14 (A FAMOSA TRAP DO XMODEM / SERIAL)
-   ========================================================================= */
-TrapEHandler:
-        /* 1. Salva o contexto na pilha para restaurar depois */
-        movem.l %d1-%d7/%a0-%a6,-(%sp)
-
-        /* 2. Empurra os valores REAIS de D0 e D1 para a pilha como argumentos para o C */
-        move.l  %d1,-(%sp)    /* Segundo argumento de TRAP14_Handler */
-        move.l  %d0,-(%sp)    /* Primeiro argumento de TRAP14_Handler */
-
-        /* 3. Chama o despachante em C */
-        jsr     TRAP14_Handler
-
-        /* 4. Remove os dois argumentos (4 bytes cada = 8 bytes) da pilha */
-        addq.l  #8,%sp
-
-        /* 5. Restaura o contexto original */
-        movem.l (%sp)+,%d1-%d7/%a0-%a6
-        rte
-
-
-/*
-*/
 
 /*Dispatcher*/
 /*
