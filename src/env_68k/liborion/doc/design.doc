@@ -1,0 +1,111 @@
+Some notes on the implementation of BURTE
+
+Trap handlers:		(Provided using service.h.)
+	Trap calls made using trap(trap_num, action, args).
+	The trap handler macro passes your handler routine the action
+argument and the address of the other arguments.  The value that you
+return will be returned to the calling process.
+
+
+Interupt handlers:	(These services are provide using service.h.)
+
+	Interupt handlers must interface with BURTE if they can change
+any state (emptying a buffer, filling a buffer, setting a mailbox,
+etc).
+
+	Interupt handlers should look at the state of the process it
+interupted.  If the process was in user mode, it must call _r_save and
+finish by calling run_a_proc.  If the process was in supervisor mode,
+the process that was interupted must already be taking care of saving
+user state and executing it later.  Therefore, when interupting a
+supervisor mode, user state must not be saved.
+
+	In either case, if any state is changed, the flag
+_update_state must be set to a non-zero value.  Run_a_proc looks at
+_update_state to see if the schedualer must be run or if the current
+process should be restarted.
+
+	This functionality is provided for C functions by the i_service
+declaration defined in service.h.  A routine is defined by
+i_service(my_funct);  The macro adds in the proper assembly to
+interface to BURTE and declares my_funct for you.
+
+|stack is:
+|	return	sp@(2)
+|	status	sp
+
+_i_handler:
+	btst	#13,sp		| supervisor bit is bit 13
+	bne	no_save		| bit was set: supervisor mode
+	bra	_r_save
+	| I don't have to save any registers now, _r_save did it
+	bra	do_it
+
+no_save:
+	save any regs
+
+do_it:
+	do_that_voodoo_that_you_do
+	set _update_state if I changed any state
+
+	btst	#13,sr_on_stack	|check that mode again
+	beq	run_a_proc	|bit was not set: user mode
+	restore registers
+	rte
+
+run_a_proc:	|provided by system
+	addl	#6,sp		|clear my trap state
+	movw	0x2700,sr	|prevent interupts after I check
+				| update flag
+	tst	_update_state
+	bne	restart_user
+	jmp	_new_proc
+
+restart_user:
+	movl	_current_proc, d0	|_execute expects the process
+|to run in d0
+	jmp	_execute
+
+
+
+Service routines for interupt handlers
+
+	Service routines perform all the control actions for a
+interupt service routine.  Currently, these are only used for file io.
+
+service_io (buffer, action, arguments)
+	FILE &buffer;
+	int action;
+	char *arguments;
+{
+	case (action) {
+
+	INIT:	/* required */
+		initialize buffer;
+		set io controls;
+		break;
+
+	DISABLE:
+		set io controls;
+		break;
+
+	EMPTY:
+		disable ready-to-send interupt;
+		break;
+
+	NON_EMPTY:
+		enable ready-to-send interupt;
+		break;
+
+	FULL:
+		disable char_ready interupt;
+		break;
+
+	NON_FULL:
+		enable char_ready interupt;
+		break;
+
+	default:
+		yell real laud
+	}
+}

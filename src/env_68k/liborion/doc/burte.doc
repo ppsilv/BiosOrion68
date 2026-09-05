@@ -1,0 +1,431 @@
+				BURTE
+		 Basic Universal Real Time Executive
+		       System Programmer's guide
+
+			  Daniel A Christian
+			     2 April 1988
+			    4 January 1989
+
+				Updated :
+			    Andrew H. Fagg
+			    23 January 1993
+
+Overview:
+	BURTE is a multitasking, low latency executive.  It's primary
+goal is to manage multiple processes that are working together on a
+single task.  BURTE provides both mailbox and queue interprocess
+communication facilities.  It was created by Dan Christian for
+Omnibytes OK1A computers at Carnegie-Mellon university.  It is free to
+anyone interested, and may not be sold.
+	This version of BURTE has been ported to the Motorola 68332
+processor by Andrew H. Fagg and the University of Southern California.
+In addition, a number of new system calls have been added.
+
+System calls:
+init ()  
+create  (proc, priority, stack_size) => (int)pid
+start	(pid)
+kill    (pid)
+wait	(pid)
+suicide ()
+suspend (pid)
+resume  (pid)
+priority  (pid, priority) => (int)old_pri
+status  (pid) => (int) status
+whoami	() => (int) id
+freeze  ()
+thaw    ()
+post    (mailbox, value)
+pend    (mailbox, block, flags) => (int)value
+check   (mailbox) => (int)value		not a system call
+fput	(q, value)			fifo put
+fget 	(q) => (int)value		fifo get
+putc	(c, file)			special forms of fput and fget
+getc	(file) => (int)char
+
+Added 332 system calls:
+msleep	(msec)
+sleep	(sec)
+set_schedule_interval(msec)
+next_interval()
+super_outp(*loc, value)
+super_inp(loc) => (short) value
+supervisor(*func, *parms) => (int) value
+super_outb(*loc, value)
+super_inb(loc) => (char) value
+
+In general:
+	  Pid is an short greater than 0 and less that MAX_PROC
+(a constant, currently 16).
+
+
+CREATE  (proc, priority, stack_size) => (int)pid
+	PFI proc;
+	short priority;
+	int stack_size;
+
+	If stack_size == 0, use the default (512 currently).  It is
+not advisable to use stack sizes smaller than 64 (C programs often use
+that much just to save modified variables).  Higher number priorities
+will run more often.  Proc is a pointer to the function to be run.
+Create leaves the program Paused; use start to begin.  Normally create
+returns the pid of the process created.  If a process cannot be
+created, -1 is returned.
+
+
+START (pid)
+	short pid;
+
+	Starts the execution of a process from the top.  Start will
+restart a process from the beginning if it is already running.
+
+
+WAIT (pid)
+	short pid;
+
+	Wait until a process terminates (either through suicide or a
+kill).
+
+
+KILL (pid)
+	short pid;
+
+	Terminate a process and free it's stack space.  Note: BURTE
+has no way to tracking the memory allocation of a process.  Therefore,
+all memory that the process is using (that was obtained by malloc)
+will be lost from the heap when the process is killed.
+
+
+SUICIDE ()
+	Kill yourself.  Note that all processes will die automatically
+if they return or call exit (these call suicide indirectly).
+
+
+PRIORITY  (pid, priority) => (int)old_pri
+	short pid, priority;
+
+	Set the priority of a process.  Higher priorities are more
+likely to run.
+
+
+STATE (pid) => (PR_STATE *)state
+	short pid;
+
+	Return a pointer to a process status block.  The information
+in this block should never be modified.
+
+
+MSLEEP(msec)
+	int msec;
+
+	Pause the process for the specified amount of time (<msec>),
+specified in milliseconds.
+
+
+SLEEP(sec)
+	int sec;
+
+	Pause the process for the specified amount of time (<sec>),
+specified in seconds.
+	
+
+SET_SCHEDULE_INTERVAL(msec)
+	int msec;
+
+	Designate this process as being runnable at a regular
+interval (in milliseconds).  Used in conjunction with next_interval().
+
+
+NEXT_INTERVAL()
+	
+	Sleep until the next scheduled interval, as defined by
+set_schedule_interval().  
+
+
+A note about sleeping and scheduling:
+	When a process sleeps, this causes the process to become
+runnable after the specified time.  However, this does not guarantee
+that the process will run at exactly the specified time.  This can be
+due to another process holding onto the cpu for a significant amount
+of time, or to the fact that there are other processes available to
+run (either at a higher or the same priority level).
+	The system calls set_schedule_interval() and next_interval()
+attempt to solve this problem to some degree by making a process
+runnable at regular intervals, regardless of when it actually runs.
+
+
+The following five system calls have been provided for times when a
+user process requires some supervisor-level capabilities (primarily
+for interacting with hardware).  All should be used minimally and with
+caution.
+
+SUPER_OUTP(location, value)
+	short* location;
+	short value;
+
+	Sets the short at <location> to <value.
+
+
+SUPER_INP(location) => value
+	short* location;
+	short value;
+
+	Reads the value at <location> and returns it.
+
+SUPER_OUTB(location, value)
+	char* location;
+	char value;
+
+	Sets the short at <location> to <value.
+
+
+SUPER_INP(location) => value
+	char* location;
+	char value;
+
+	Reads the value at <location> and returns it.
+
+
+SUPERVISOR(func, parms)
+	int *func();
+	char *parms;
+
+	Executes a function under supervisor capabilities.  func() is
+defined as :
+	int func(parms)
+		char *parms;
+
+	func() should not include other system calls, should use a
+minimum of system time, and must return!  Again, this facility should
+be used very sparingly
+
+
+
+PEND (mailbox, block, flags) => (int) *mailbox
+	int *mailbox, block;
+	unsigned int flags;
+
+	Pend is the most common, most powerful way to synchronize
+processes.  The arguments to pend are a address to watch, a value, and
+some control flags.  The exact meaning of the value argument depends
+on the control flags.
+
+	P_EQUAL:	Wait until *mailbox == block
+			otherwise wait until *mailbox != block
+	P_SET:		When the condition is satisfied (== or !=),
+			set *mailbox = block.  If you are waiting 
+			P_EQUAL, set *mailbox = ~block.
+	P_CHECK:	Don't wait for the condition, just check
+			mailbox and return it's current value.  If
+			the condition is true (== or !=) and the P_SET
+			flag is given the mailbox will be set.
+	P_TAS:		Use a test-and-set instruction to check
+			the mailbox.  Wait until the high byte of the
+			mailbox is zero and then set it to ~0.
+			P_SET and P_EQUAL will be ignored.  Useful
+			in multiprocessor situations.  Note that only
+			one byte in the mailbox is checked and set.
+
+	Control flags are ORed together to form the control word.  If
+multiple processes are PENDing on a mailbox, the calls will be serviced
+in the order of process priority.
+
+Examples using PEND:
+
+PEND (mailbox, block, flags) => (int) *mailbox
+	int *mailbox, block;
+	unsigned int flags;
+
+	Pend is the most common, most powerful way to synchronize
+processes.  The arguments to pend are a address to watch, a value, and
+some control flags.  The exact meaning of the value argument depends
+on the control flags.
+
+	P_EQUAL:	Wait until *mailbox == block
+			otherwise wait until *mailbox != block
+	P_SET:		When the condition is satisfied (== or !=),
+			set *mailbox = block.  If you are waiting 
+			P_EQUAL, set *mailbox = ~block.
+	P_CHECK:	Don't wait for the condition, just check
+			mailbox and return it's current value.  If
+			the condition is true (== or !=) and the P_SET
+			flag is given the mailbox will be set.
+	P_TAS:		Use a test-and-set instruction to check
+			the mailbox.  Wait until the high byte of the
+			mailbox is zero and then set it to ~0.
+			P_SET and P_EQUAL will be ignored.  Useful
+			in multiprocessor situations.  Note that only
+			one byte in the mailbox is checked and set.
+
+	Control flags are ORed together to form the control word.  If
+multiple processes are PENDing on a mailbox, then calls will be serviced
+in the order of process priority.
+
+Examples of common uses of PEND:
+
+Critical region locking:
+____________
+int flag = FALSE;			/* initialize; TRUE == in critical */
+EachProcess()
+{
+	pend (&flag, TRUE, P_SET);   /* wait until not in critical, then set */
+	critical section;
+	post (&flag, FALSE);		/* signal exit of critical region */
+}
+============================================================
+
+A conditional critical region:
+____________
+int flag = FALSE;
+AnyProcess()
+{
+	/* check if already in critical, if not: set flag and enter */
+	if (pend (&flag, TRUE, P_SET | P_CHECK) != TRUE) {
+		critical section;
+		post (&flag, FALSE);	/* signal exit */
+	} else {
+		do something else;
+	}
+}
+============================================================
+
+Process synchronization:
+____________
+int mailbox = 0;			/* initialize to invalid data*/
+process1()
+{
+	post (&mailbox, data);		/* send non-zero data */
+	pend (&mailbox, data, 0);	/* wait for data to be removed */
+}
+
+Process2()
+{
+					/* wait for data then clear mailbox */
+	data = pend (&mailbox, 0, P_SET);
+}
+============================================================
+
+Process message passing without synchronization or lost data:
+____________
+int mailbox = 0;			/* initialize to invalid data*/
+process1()
+{
+	pend (&mailbox, 0, P_EQUAL);	/* wait for empty mailbox */
+	post (&mailbox, data);		/* send non-zero data */
+}
+
+Process2()
+{
+					/* wait for data then clear mailbox */
+	data = pend (&mailbox, 0, P_SET);
+}
+============================================================
+
+Queue wait:
+____________
+struct _QUEUE {
+    MESSAGE *head, tail;
+} QUEUE;
+
+QUEUE fifo = {NULL, NULL};
+MESSAGE *read_que (q)
+  QUEUE q;
+{
+  MESSAGE *msg;
+  msg = pend (&q->head, NULL, 0);		/* simply wait for non-NULL */
+  q->head = msg->next;				/* NULL if end of queue */
+  return (msg);
+}
+============================================================
+
+Wait for queue to drain:
+____________
+QUEUE fifo = {NULL, NULL};
+wait_que_drain (q)
+  QUEUE q;
+{
+  pend (&q->head, NULL, P_EQUAL);		/* simply wait for non-NULL */
+}
+============================================================
+
+	Note: You must always make sure that mailboxes are initialized!
+If your data does not have some out-of-range value to block against
+(such as 0 or -1), you must use a separate semaphore with another data
+location.
+
+POST:
+	Put a value in a mailbox.  Post is used (instead of *mailbox =
+value) because it makes sure that any processes waiting on that
+mailbox are made ready to run.
+
+
+SUPERVISOR ROUTINES:
+------------------------------------------------------
+	Supervisor routines may never make system calls.  Special
+routines are provided for terminal output.  Supervisor routines may
+modify mailboxes or FIFO queues directly.
+
+FIFO SERVICE ROUTINES:
+
+
+
+TRAP HANDLERS:
+	Trap calls made using trap(trap_num, action, args).
+	The trap handler macro passes your handler routine the action
+argument and the address of the other arguments.  The value that you
+return will be returned to the calling process.
+
+Synopsis:
+#include <trap-service.h>
+
+trap_service(my_trap_server) (action, args)
+  int action;
+  char *args;
+{
+	my_code;
+	return foo;
+}
+
+To Set trap vectors:
+	old_server = *TRAP_VECT(n);
+	*TRAP_VECT(n) = my_trap_server;
+
+	You must set the trap vector, before it can be called.
+
+
+
+INTERRUPT HANDLERS:
+	Interrupt handlers must interface with BURTE if they can change
+any state (emptying a buffer, filling a buffer, setting a mailbox,
+etc).
+
+	If any state is changed, the system variable update_state must
+be set to a non-zero value.  Upon return from your routine,
+update_state is checked.  If update_state is set the schedualer is run,
+otherwise, the process is resumed normally.
+
+Synopsis:
+#include <service.h>
+
+i_service (my_service_func)
+{	/* no parameters can be passed in */
+	do stuff;
+	if (i_changed_state) update_state = 1;
+}	/* any returned value is ignored */
+
+Interrupt handlers that never change state:
+
+	Interrupt handlers that do not change any system state may use
+the fast "reentrant" form instead of i_service.
+
+Synopsis:
+#include <service.h>
+
+reentrant (my_simple_service)
+{	/* no parameters can be passed in */
+	do stuff;
+}	/* any returned value is ignored. */
+
+
+
+Copyright (c) 1988, 1989 Daniel A. Christian

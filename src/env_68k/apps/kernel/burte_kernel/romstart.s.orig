@@ -1,0 +1,10 @@
+| startup vectors for BURTE in rom
+	.text
+	.even
+	.globl _boot, _system_stack_top
+	.long	_system_stack_top
+	.long	_boot
+
+| some system constants
+.globl	_system_stack_top
+	_system_stack_top =	0x2000

@@ -1,0 +1,166 @@
+				BURTE
+		 Basic Universal Real Time Executive
+			    User's Manual
+
+			    Dan Christian
+			      2 April 88
+
+Overview:
+	This document describes the interactive command interface to
+BURTE.
+
+
+Notation:
+	Items in '<>' are required fields.  Items in '[]' are optional
+fields.
+
+
+General:
+	All arguments are seperated by spaces or tabs.
+
+	Any arguments that a command does not use are silently
+ignored.
+
+	All arguments used by the shell are in hexidecimal notation.
+
+	Unique abreviations are acceptable for all commands.  The
+shell will print all commands matching the typed command.  If there is
+only one match, the shell will execute the command.
+
+	Flow control may be used to pause terminal output (^S ^Q).
+
+	All processs will be stopped if ^C is typed.  You may then
+examine processes using ps, registers, and state; eliminate
+processes with kill; and restart processes using continue or bcontinue.
+
+	Any pending output from the host will be displayed before the
+prompt is printed.
+
+	PID (process ID's) are small integers.  The current limit is
+16.
+
+Command summary:
+
+help [command]  	=> Help on commands
+?               	=> List commands
+dload <name>    	=> Download from host
+talk    		=> talk to the host
+! <command>     	=> Send command to the host
+
+run <addr>      	=> Run a process
+brun <addr>     	=> Run a process in bg
+continue <pid>  	=> Continue a process
+bcontinue <pid>         => Continue a proc in bg
+kill <pid>      	=> Kill a proc
+
+ps              	=> show all active proc
+registers <pid>         => print registers for proc
+state <pid>     	=> print state for a proc
+
+set <addr>      	=> set a breakpoint
+clear <addr>    	=> clear a breakpoint
+show            	=> show all breakpoints
+hide            	=> Hide breakpoints in memory
+
+watch <laddr>  [haddr]  => Watch for a change in memory
+trace <pid> [steps (1)]         => execute steps instructions
+
+memory <addr> [count (20)]      => display memory
+bset <addr>     	=> set a byte memory location
+wset <addr>     	=> set a word memory location
+lset <addr>     	=> set a long memory location
+disassem <addr> [count (8)]     => disassemble mem
+
+reboot          	=> reboot BURTE
+
+
+Commands:
+
+help [command]:
+	All the commands that match the argument given are displayed
+with a syntax listing and a very short description.  If no arguments
+are given, all commands are displayed.
+
+
+?:
+	This prints a quick list of the commands on one line.
+
+
+dload [!<command>] <name> [[<name>]...[<name>]]:
+	Downloads the named file.  This passes "mdl68 <name>" to the
+host.  mdl68 is responsible for searching pathes and adding a .dl
+extension to <name> if no extension is given.
+
+	The downloader returns when it finds a S8 record.  mdl68 will
+strip the s8 records off of multiple files and only send the last one.
+
+	If the first character after the download command is '!', the
+download passes the rest of the line to the host as the entire
+download command. (e.g. "dload !cat hi.dl" sends "cat hi.dl" instead of
+"mdl68 hi.dl".).
+
+
+talk:
+	Opens transparent communication with the host.  Communication
+is terminated by sending a break from the terminal.  The terminal will
+not respond to ^C while in transparent mode.  Note that BURTE will
+send XON/XOFF characters (^S ^Q) to the host to prevent it's buffers
+from overflowing.  This may disrupt a emacs or shell that is running.
+
+
+! <command>:
+	Send everything after '! ' to the host.
+
+
+run <address>:
+	Begin execution of the process begining at address.  The shell
+will wait for the process to exit before continuing.  The PID of the
+process is displayed before the process is started.
+	  Note: the starting address is not actually code.  The BURTE
+startup file leaves room at the beginning of the process for some
+global variables for the process (stdin, stdout, and stderr).  The
+amount of room before the code is currently 12 bytes, but may change
+in the future.
+
+
+brun <address>:
+	Just like run <address> except that the shell does not wait
+for the process to exit.
+
+
+continue <pid>:
+	Continue execution of a stopped process.  The process may have
+been stopped by a ^C or by a PAUSE system call.  The shell will wait
+until the process exits befor ci]ontinuing.
+
+
+bcontinue <pid>:
+	Just like continue <pid> except that the shell does not wait.
+
+
+kill <pid>:
+	This will destroy an instance of a process.  The shell is
+process 0 and cannot be killed.
+
+
+statistics [<sec> 5]
+	Collect CPU utilization statistics for a specified amount of
+time.  The fields that are printed out are:
+   PID - pid of process
+   Time - total execution time (in units of 122 usecs).
+   Sched - number of times the process was scheduled by the scheduler.
+   S. Avg - Average amount of time used each time the process was
+       scheduled.
+   T. Run - Number of times that the process was Time-Scheduled
+       (via a sleep() or next_interval() system call).
+   T. Avg - Average amount of time used by the process for each
+       time it was Time-Scheduled.
+   Latency - The sum of the amount of time between when the process
+       becomes runnable (for time-scheduled processes) and the time
+       that it actually executes.
+   L. Avg - Average latency for each time the process was time-scheduled.
+  
+
+wait <pid>
+	Force shell to wait for a process to exit.  Useful complement
+to ^C.

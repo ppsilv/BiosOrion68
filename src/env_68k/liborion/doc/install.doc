@@ -1,0 +1,26 @@
+BURTE Installation Documentation
+
+file: burte.v2.12.tar.Z
+
+Primary Contents:
+	BURTE V2.12 (kernel + shell)
+	BURTELIB (libraries)
+	dlp (downloading program)
+
+Requires:
+	gcc cross-compiler that can handle the '-target sun3' option.
+
+
+Installation procedure:
+	1.  Unpack burte.v2.12.tar.Z
+		For each case where 'make' is required, edit the
+corresponding Makefile and set the paths accordingly.
+
+	2.  cd burte/src/libburte/; make; make install
+	
+	3.  cd burte/src/burte/; make; make install
+
+	4.  cd burte/src/tpulib/; make; make install
+
+	5.  cd burte/src/cmd/dlp/; make; make install
+
