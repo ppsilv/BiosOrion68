@@ -85,6 +85,14 @@ el_status el_applyrela(el_ctx *ctx, Elf_RelA *rela)
          * valor antigo do proprio destino.
          */
         *patch_addr = rela->r_addend + ctx->base_load_paddr;
+        //NO FUTURO PARA LER LIB.so ELIMINAR A LINHA ACHIMA E LIBERAR
+        //CODIGO ABAIXO.
+        //if (símbolo é SHN_UNDEF) {
+        //    uint32_t addr = trap_resolve_symbol(sym_name);  // nova syscall
+        //    *patch_addr = addr;
+        //} else {
+        //    *patch_addr = rela->r_addend + ctx->base_load_paddr;  // caso atual, símbolo interno
+        //}
         break;
 
     case R_68K_PC32:

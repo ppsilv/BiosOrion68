@@ -113,6 +113,8 @@ extern void duart_init_canal_a(void);
 extern void picovga_putchar(char ch);
 extern int dhcp_client(void);
 extern void duart_a_init_38400(void);
+extern void history_add(const char *cmd);
+extern void readline_with_history(char *buf);
 
 void main() {
     pico_write_ch('A');
@@ -182,10 +184,14 @@ void main() {
     display_prompt();
     pico_write_ch('L');
     while (1){
-        if (getline(g_cmd_buffer, LINELEN) != -1) {
-            execute_cmd(g_cmd_buffer);
-            display_prompt();
-        }
+        //if (getline(g_cmd_buffer, LINELEN) != -1) {
+        //    execute_cmd(g_cmd_buffer);
+        //    display_prompt();
+        //}
+        readline_with_history(g_cmd_buffer);
+        history_add(g_cmd_buffer); 
+        execute_cmd(g_cmd_buffer);
+        display_prompt();
     }
 
 }
