@@ -22,15 +22,15 @@ void printerro(int eno);
 #define HEADER_EXAMINE_SIZE 4 /* number of bytes we need to load to determine the file type */
 const uint8_t g_elf_header_bytes[4]  = { 0x7F, 0x45, 0x4c, 0x46 };
 extern bool kb_get(uint8_t *data);
+extern void readline_with_history(char *buf);
 
 const cmd_entry_t g_cmd_table[] = {
     // name         min max function
-    {"binfile",     1,  1, &do_binfile,     "Recieve binary file over serial and save to disk <filename>" },
-    {"binmem",      1,  1, &do_binmem,      "Recieve binary file over serial to location in RAM" },
+//    {"binfile",     1,  1, &do_binfile,     "Recieve binary file over serial and save to disk <filename>" },
+//    {"binmem",      1,  1, &do_binmem,      "Recieve binary file over serial to location in RAM" },
     {"cat",         1,  1, &do_cat,         "Display contents of <file>"},
     {"cd",          1,  1, &do_cd,          "Change directory <dir>"},
     {"cp",          2,  2, &do_copyfile,    "Copy file <src> <dest>"},
-    {"del",         1,  1, &do_delete,	    "Delete file <file>" },
     {"dump",        2,  2, &do_dump,        "Dump memory <from> <count>" },
     {"exit",        0,  0, &do_exit,        "Exit system in a clean way.." },
     {"help",	    0,  0, &do_help,	    "Show available commands" },
@@ -40,6 +40,7 @@ const cmd_entry_t g_cmd_table[] = {
     {"ls",          0,  1, &do_ls,	        "List directory contents" },
     {"mkdir",	    1,  1, &do_mkdir_shel,	    "Create the specified folder <dir>" },
     {"mv",          2,  2, &do_rename_shel,      "Rename file <src> to <dest>" },
+    {"rm",          1,  1, &do_delete,	    "Delete file <file>" },
     {"rmdir",	    1,  1, &do_rmdir,	    "Delete the specified folder <dir>" },
     {"run",         1,  1, &do_run,         "Run code at address <addr>" },
     {"save",        2,  2, &do_save,        "Saves file from 82000 to disk save <filename> <filesize>" },
@@ -49,169 +50,12 @@ const cmd_entry_t g_cmd_table[] = {
     {"uptime",      0,  0, &do_uptime,      "Display the time the system has been running" },
     {"writemem",    2,  0, &do_writemem,    "Write memory <addr> [byte ...]" },
     {"writemem1",   2,  0, &do_writemem1,   "Write a memory location" },
-    /*
-    {"tst",         2,  2, &do_tstkbd,      "Testa conversa com o picow...\n" \
-                                            "\tcmd=0x00 dado=0 => chama receber_arquivo_do_pico\n" \
-                                            "\tcmd=0x01 dado=0 => chama receber_setor_do_pico\n" \
-                                            "\tcmd=0x04 dado=0 => chama liga led\n" \
-                                            "\tcmd=0x05 dado=0 => chama desliga led\n" \
-                                            "\tcmd=0x0A dado=sec.low => chama send_sector_low\n" \
-                                            "\tcmd=0x0B dado=sec. high => chama send_sector_high\n" \
-                                            "\tcmd=0x0C dado=0 => chama send_read_cmd\n" \
-                                            "\tcmd=0x0D dado=0 => chama read_sector\n"
-                                            "\tcmd=0x10 dado=x => chama pico set color dado=cor\n" \
-                                            "\tcmd=0x11 dado=0 => chama pico write string\n" \
-                                            "\tcmd=0x12 dado=x => chama pico write char\n" \
-                                            "\tcmd-0xff dado=0 => chama read_kbd"
-                                            },
-    */                                            
 
     {0, 0, 0, 0, 0 }
 };
  
 #define NUM_FILE_EXTENSIONS     2
 static const char *orion_extensions[NUM_FILE_EXTENSIONS] = {".elf", ".bat" };
-
-/*
- * shell_history.c
- *
- * Historico de comandos com navegacao via seta pra cima (0x10) e
- * seta pra baixo (0x11) -- byte unico, sem sequencia de escape, pelo
- * que voce reportou do seu terminal.
- *
- * INTEGRACAO: troque a leitura de caractere (getchar_serial) e escrita
- * (putchar/puts) pelas funcoes reais que seu shell ja
- * usa hoje pra ler/escrever no console.
- */
-#include <string.h>
-#include <stdint.h>
-
-#define HIST_SIZE   16    /* quantos comandos guardar -- ajuste como quiser */
-#define LINE_MAX    128   /* tamanho maximo de uma linha de comando */
-
-#define KEY_UP     0x10
-#define KEY_DOWN   0x11
-#define KEY_BS     0x08   /* AJUSTE se seu backspace for outro codigo (ex: 0x7F) */
-#define KEY_ENTER  '\r'   /* ou '\n', conforme seu terminal manda */
-
-
-static char history[HIST_SIZE][LINE_MAX];
-static int  hist_count = 0;     /* quantos comandos ja foram guardados no total */
-static int  hist_cursor = -1;   /* -1 = "linha nova" (fora do historico) */
-
-/*
- * Apaga visualmente 'len' caracteres da linha atual no terminal e
- * escreve 'text' no lugar. Como terminal nao tem "desfazer", isso e'
- * feito na base do backspace + espaco + backspace.
- */
-static void redraw_line(int old_len, const char *text)
-{
-    for (int i = 0; i < old_len; i++) putchar('\b');
-    for (int i = 0; i < old_len; i++) putchar(' ');
-    for (int i = 0; i < old_len; i++) putchar('\b');
-    puts(text);
-}
-
-/*
- * Grava um comando executado no historico (chame isso depois que o
- * usuario der Enter e o comando for de fato executado -- nao grave
- * linhas vazias, e evite gravar duplicata consecutiva se quiser um
- * comportamento mais "bash-like", isso e' opcional).
- */
-void history_add(const char *cmd)
-{
-    if (cmd[0] == '\0')
-        return; /* nao guarda linha vazia */
-
-    strncpy(history[hist_count % HIST_SIZE], cmd, LINE_MAX - 1);
-    history[hist_count % HIST_SIZE][LINE_MAX - 1] = '\0';
-    hist_count++;
-    hist_cursor = -1; /* toda vez que roda um comando novo, reseta a navegacao */
-}
-
-/*
- * Le uma linha de comando do console, com edicao basica (backspace)
- * e navegacao de historico (setas). Retorna quando Enter e' pressionado.
- *
- * 'buf' precisa ter pelo menos LINE_MAX bytes.
- */
-void readline_with_history(char *buf)
-{
-    int len = 0;
-    buf[0] = '\0';
-    hist_cursor = -1;
-
-    for (;;) {
-        int c = getchar();
-
-        if (c == KEY_ENTER) {
-            putchar('\n');
-            buf[len] = '\0';
-            return;
-        }
-
-        if (c == KEY_BS) {
-            if (len > 0) {
-                len--;
-                buf[len] = '\0';
-                putchar('\b');
-                putchar(' ');
-                putchar('\b');
-            }
-            continue;
-        }
-
-        if (c == KEY_UP) {
-            /* so' navega se existir comando mais antigo disponivel */
-            if (hist_cursor + 1 < hist_count && hist_cursor + 1 < HIST_SIZE) {
-                hist_cursor++;
-                int idx = (hist_count - 1 - hist_cursor + HIST_SIZE) % HIST_SIZE;
-                redraw_line(len, history[idx]);
-                strcpy(buf, history[idx]);
-                len = strlen(buf);
-            }
-            continue;
-        }
-
-        if (c == KEY_DOWN) {
-            if (hist_cursor > 0) {
-                hist_cursor--;
-                int idx = (hist_count - 1 - hist_cursor + HIST_SIZE) % HIST_SIZE;
-                redraw_line(len, history[idx]);
-                strcpy(buf, history[idx]);
-                len = strlen(buf);
-            } else if (hist_cursor == 0) {
-                /* volta pra linha vazia, saindo do historico */
-                hist_cursor = -1;
-                redraw_line(len, "");
-                buf[0] = '\0';
-                len = 0;
-            }
-            continue;
-        }
-
-        /* caractere normal -- so' aceita se couber no buffer */
-        if (len < LINE_MAX - 1) {
-            buf[len++] = (char) c;
-            buf[len] = '\0';
-            putchar((char) c);
-        }
-    }
-}
-
-/*
- * Exemplo de uso no loop principal do shell:
- *
- *   char cmdline[LINE_MAX];
- *   for (;;) {
- *       puts("orion> ");
- *       readline_with_history(cmdline);
- *       history_add(cmdline);      // grava ANTES ou DEPOIS de executar,
- *                                  // tanto faz, contanto que seja sempre
- *       executa_comando(cmdline);
- *   }
- */
-
 
 extern uint8_t keyboard_handler(uint8_t scancode);
 int getline(char *line, int linesize)
